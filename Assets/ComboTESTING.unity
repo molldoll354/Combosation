@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons: []
-  allowedTimeBetweenButtons: 1
+  allowedTimeBetweenButtons: 200
 --- !u!1 &862144507
 GameObject:
   m_ObjectHideFlags: 0
