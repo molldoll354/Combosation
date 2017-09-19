@@ -56,7 +56,7 @@ public class COMBOLIST : MonoBehaviour
 		}
 		if (JokingCombo3.Check ()) {
 			// do the falcon punch
-			Debug.Log ("I love you, bitch. I'll always be loving you, bitch."); 
+			Debug.Log ("I love you, bitch. I'll always be loving you, bitch"); 
 		}
 	}
 }
