@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ComboTest : MonoBehaviour {
 	//Code Got From: http://wiki.unity3d.com/index.php?title=KeyCombo
 	public string[] buttons;

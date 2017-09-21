@@ -1,22 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class COMBOLIST : MonoBehaviour
 {
 	//Directional inputs one after the other function as xcircles. Ex: down + right is a quartercircle forward, down + right + up is a half circle forward, etc.
 	//Abutton, Bbutton, Xbutton, and Ybutton are attached to their respective buttons on an XBox controller
-	private ComboTest RomanceCombo1 = new ComboTest (new string[] {"Abutton", "Abutton", "Bbutton" });
-	private ComboTest RomanceCombo2 = new ComboTest (new string[] {"Abutton", "Xbutton", "down", "right", "Ybutton" });
-	private ComboTest RomanceCombo3 = new ComboTest (new string[] {"Abutton","Abutton","Xbutton","Xbutton","up","right","Abutton"});
+	public static ComboTest RomanceCombo1 = new ComboTest (new string[] {"Abutton", "Abutton", "Bbutton" });
+	public static ComboTest RomanceCombo2 = new ComboTest (new string[] {"Abutton", "Xbutton", "down", "right", "Ybutton" });
+	public static ComboTest RomanceCombo3 = new ComboTest (new string[] {"Abutton","Abutton","Xbutton","Xbutton","up","right","Abutton"});
 
-	private ComboTest SincereCombo1 = new ComboTest (new string[] {"Bbutton", "Bbutton", "Ybutton" });
-	private ComboTest SincereCombo2 = new ComboTest (new string[] {"Bbutton", "Bbutton", "up", "left", "Abutton" });
-	private ComboTest SincereCombo3 = new ComboTest (new string[] {"Bbutton","Ybutton","Bbutton","Ybutton","down","right","Bbutton"});
+	public static ComboTest SincereCombo1 = new ComboTest (new string[] {"Bbutton", "Bbutton", "Ybutton" });
+	public static ComboTest SincereCombo2 = new ComboTest (new string[] {"Bbutton", "Bbutton", "up", "left", "Abutton" });
+	public static ComboTest SincereCombo3 = new ComboTest (new string[] {"Bbutton","Ybutton","Bbutton","Ybutton","down","right","Bbutton"});
 
-	private ComboTest JokingCombo1 = new ComboTest (new string[] {"Xbutton", "Xbutton", "Bbutton" });
-	private ComboTest JokingCombo2 = new ComboTest (new string[] {"Xbutton", "Abutton", "down", "up", "Ybutton" });
-	private ComboTest JokingCombo3 = new ComboTest (new string[] {"Xbutton","Xbutton","Abutton","Bbutton","down","right","Xbutton"});
+	public static ComboTest JokingCombo1 = new ComboTest (new string[] {"Xbutton", "Xbutton", "Bbutton" });
+	public static ComboTest JokingCombo2 = new ComboTest (new string[] {"Xbutton", "Abutton", "down", "up", "Ybutton" });
+	public static ComboTest JokingCombo3 = new ComboTest (new string[] {"Xbutton","Xbutton","Abutton","Bbutton","down","right","Xbutton"});
 
 	void Update ()
 	{
