@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComboTest : MonoBehaviour {
+public class ComboTestLoren : MonoBehaviour {
 	//Code Got From: http://wiki.unity3d.com/index.php?title=KeyCombo
 	public string[] buttons;
 	private int currentIndex = 0; //moves along the array as buttons are pressed
@@ -10,7 +10,7 @@ public class ComboTest : MonoBehaviour {
 	public float allowedTimeBetweenButtons = 0.3f; //tweak as needed
 	private float timeLastButtonPressed;
 
-	public ComboTest(string[] b)
+	public ComboTestLoren(string[] b)
 	{
 		buttons = b;
 	}

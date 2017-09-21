@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class COMBOLIST : MonoBehaviour
+public class COMBOLISTExtra : MonoBehaviour
 {
 	//Directional inputs one after the other function as xcircles. Ex: down + right is a quartercircle forward, down + right + up is a half circle forward, etc.
 	//Abutton, Bbutton, Xbutton, and Ybutton are attached to their respective buttons on an XBox controller
