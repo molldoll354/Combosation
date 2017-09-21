@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComboTest : MonoBehaviour {
+public class ComboTestExtra : MonoBehaviour {
 	//Code Got From: http://wiki.unity3d.com/index.php?title=KeyCombo
 	public string[] buttons;
 	private int currentIndex = 0; //moves along the array as buttons are pressed
