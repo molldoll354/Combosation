@@ -10,7 +10,7 @@ public class ComboTestExtra : MonoBehaviour {
 	public float allowedTimeBetweenButtons = 0.3f; //tweak as needed
 	private float timeLastButtonPressed;
 
-	public ComboTest(string[] b)
+	public ComboTestExtra(string[] b)
 	{
 		buttons = b;
 	}
