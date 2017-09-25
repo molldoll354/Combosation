@@ -390,6 +390,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 729862813}
+  - component: {fileID: 729862814}
   m_Layer: 0
   m_Name: Stanza3
   m_TagString: Untagged
@@ -410,6 +411,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &729862814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 729862812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193d30b3eba5258478a1bf15c0438450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeToSwitch: 200
 --- !u!1 &764651484
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +882,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1515364314}
+  - component: {fileID: 1515364315}
   m_Layer: 0
   m_Name: Stanza4
   m_TagString: Untagged
@@ -889,6 +903,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1515364315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1515364313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b39fafe9f9f8c419179dc262dd8c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1594957410
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,6 +950,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1637779525}
+  - component: {fileID: 1637779526}
   m_Layer: 0
   m_Name: Stanza2
   m_TagString: Untagged
@@ -945,6 +971,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1637779526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1637779524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 371d516b2290a7d468ee861db87d6614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeToSwitch: 200
 --- !u!1 &1789180710
 GameObject:
   m_ObjectHideFlags: 0
