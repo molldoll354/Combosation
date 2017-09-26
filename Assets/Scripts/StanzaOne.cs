@@ -44,17 +44,21 @@ public class StanzaOne : MonoBehaviour {
 			PickedRight = true;
 			Debug.Log ("Hit");
 		}
-		//if (COMBOLIST.SincereCombo1.Check ()) {
+		if (COMBOLIST.SincereCombo1.Check ()) {
 			//PickedWrong1 = true;
-		//}
-		//if (COMBOLIST.JokingCombo1.Check ()) {
+			ReadCorrect.Correct.color = Color.red;
+			ReadCorrect.correctString = "Nope :(";
+		}
+		if (COMBOLIST.JokingCombo1.Check ()) {
 			//PickedWrong2 = true;
-		//}
+			ReadCorrect.Correct.color = Color.red;
+			ReadCorrect.correctString = "No :(";
+		}
 
 		if (PickedRight == true) {
-			Debug.Log ("YOU PICKED THE RIGHT!!");
+			ReadCorrect.Correct.color = Color.green;
 			TimeToSwitch--;
-			ReadCorrect.triggered = true;
+			//ReadCorrect.triggered = true;
 			ReadCorrect.correctString = LastLine1;
 
 			// Debug.Log ("" + PickedRight);
@@ -70,7 +74,7 @@ public class StanzaOne : MonoBehaviour {
 		//}
 			if (TimeToSwitch == 0) {
 			ReadPoetry.textPercentage = 0;
-			ReadCorrect.textPercentage = 0;
+			//ReadCorrect.textPercentage = 0;
 			ReadCorrect.correctString = "";
 				StanzaManager.Stanza2Active = true;
 				StanzaManager.Stanza1Active = false;

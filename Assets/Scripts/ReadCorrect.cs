@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class ReadCorrect : MonoBehaviour {
 
 	public static string correctString;
-	public Text Correct;
-	public float timeToType;
-	public static float textPercentage = 0;
-	public static bool triggered = false;
+	public static Text Correct;
+	//public float timeToType;
+	//public static float textPercentage = 0;
+	//public static bool triggered = false;
 
 	// Use this for initialization
 	void Start () {
@@ -18,12 +18,12 @@ public class ReadCorrect : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (triggered) {
+		//if (triggered) {
 			Correct.text = "" + correctString;
-			int numberOfLettersToShow = (int)(correctString.Length * textPercentage);
-			Correct.text = correctString.Substring (0, numberOfLettersToShow);
-			textPercentage += Time.deltaTime / timeToType;
-			textPercentage = Mathf.Min (1.0f, textPercentage);
-		}
+			//int numberOfLettersToShow = (int)(correctString.Length * textPercentage);
+			//Correct.text = correctString.Substring (0, numberOfLettersToShow);
+			//textPercentage += Time.deltaTime / timeToType;
+			//textPercentage = Mathf.Min (1.0f, textPercentage);
+		//}
 	}
 }

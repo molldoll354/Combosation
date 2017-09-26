@@ -51,7 +51,7 @@ public class StanzaThree : MonoBehaviour {
 		if (TimeToSwitch == 0) {
 			ReadCorrect.correctString = "";
 			ReadPoetry.textPercentage = 0;
-			ReadCorrect.textPercentage = 0;
+			//ReadCorrect.textPercentage = 0;
 			StanzaManager.Stanza4Active = true;
 			StanzaManager.Stanza3Active = false;
 		}
