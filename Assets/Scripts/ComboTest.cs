@@ -8,7 +8,7 @@ public class ComboTest : MonoBehaviour {
 	public string[] buttons;
 	private int currentIndex = 0; //moves along the array as buttons are pressed
 
-	public float allowedTimeBetweenButtons = 0.3f; //tweak as needed
+	public float allowedTimeBetweenButtons; //tweak as needed
 	private float timeLastButtonPressed;
 
 	public ComboTest(string[] b)
