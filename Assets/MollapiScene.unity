@@ -175,9 +175,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '3.) And I forgot a jacket, mate
-
-    X+X+B'
+  m_Text: 
 --- !u!222 &46156987
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -244,7 +242,7 @@ MonoBehaviour:
   Stanza2: {fileID: 1637779524}
   Stanza3: {fileID: 729862812}
   Stanza4: {fileID: 1515364313}
-  Couplet: {fileID: 1594957410}
+  Couplet: {fileID: 0}
 --- !u!114 &234060560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,7 +395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &729862813
 Transform:
   m_ObjectHideFlags: 0
@@ -422,7 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 193d30b3eba5258478a1bf15c0438450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToSwitch: 200
+  TimeToSwitch: 300
 --- !u!1 &764651484
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +587,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "2.) And summer\u2019s fleece hath all too short a cape\nB+B+Y"
+  m_Text: 
 --- !u!222 &792353295
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -663,7 +661,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "1.) And summer\u2019s lease hath all too short a date.\nA+A+B\n"
+  m_Text: '
+
+'
 --- !u!222 &853892845
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -786,7 +786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e57c0009af5a4741981438dc4ed10af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToSwitch: 200
+  TimeToSwitch: 300
 --- !u!4 &908818462
 Transform:
   m_ObjectHideFlags: 0
@@ -889,7 +889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1515364314
 Transform:
   m_ObjectHideFlags: 0
@@ -914,35 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b39fafe9f9f8c419179dc262dd8c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToSwitch: 0
---- !u!1 &1594957410
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1594957411}
-  m_Layer: 0
-  m_Name: Couplet
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1594957411
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1594957410}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 488.30786, y: 122.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  TimeToSwitch: 300
 --- !u!1 &1637779524
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,7 +930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1637779525
 Transform:
   m_ObjectHideFlags: 0
@@ -983,7 +955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371d516b2290a7d468ee861db87d6614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToSwitch: 200
+  TimeToSwitch: 300
 --- !u!1 &1789180710
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ public class SetOptions : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		OptionOne.text = "" + optionOneActive;
+		OptionTwo.text = "" + optionTwoActive;
+		OptionThree.text = "" + optionThreeActive;
 	}
 }

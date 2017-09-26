@@ -21,7 +21,7 @@ public class COMBOLIST : MonoBehaviour
 
 	void Update ()
 	{
-		/* (RomanceCombo1.Check ()) {
+		/*if (RomanceCombo1.Check ()) {
 			// do the falcon punch
 			Debug.Log ("I like you");
 		}		

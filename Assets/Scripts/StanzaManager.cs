@@ -12,7 +12,7 @@ public class StanzaManager : MonoBehaviour {
 	public static bool Stanza2Active;
 	public static bool Stanza3Active;
 	public static bool Stanza4Active;
-	public static bool CoupletActive;
+	//public static bool CoupletActive;
 	// Use this for initialization
 	void Start () {
 		Stanza1Active = true;
@@ -25,7 +25,7 @@ public class StanzaManager : MonoBehaviour {
 			Stanza2.SetActive (false);
 			Stanza3.SetActive (false);
 			Stanza4.SetActive (false);
-			Couplet.SetActive (false);
+			//Couplet.SetActive (false);
 
 		}
 		if (Stanza2Active == true) {
@@ -33,7 +33,7 @@ public class StanzaManager : MonoBehaviour {
 			Stanza1.SetActive (false);
 			Stanza3.SetActive (false);
 			Stanza4.SetActive (false);
-			Couplet.SetActive (false);
+			//Couplet.SetActive (false);
 
 		}
 		if (Stanza3Active == true) {
@@ -41,7 +41,7 @@ public class StanzaManager : MonoBehaviour {
 			Stanza2.SetActive (false);
 			Stanza1.SetActive (false);
 			Stanza4.SetActive (false);
-			Couplet.SetActive (false);
+			//Couplet.SetActive (false);
 
 		}
 		if (Stanza4Active == true) {
@@ -49,16 +49,16 @@ public class StanzaManager : MonoBehaviour {
 			Stanza2.SetActive (false);
 			Stanza3.SetActive (false);
 			Stanza1.SetActive (false);
-			Couplet.SetActive (false);
+			//Couplet.SetActive (false);
 
 		}
-		if (CoupletActive == true) {
-			Couplet.SetActive (true);
-			Stanza2.SetActive (false);
-			Stanza3.SetActive (false);
-			Stanza4.SetActive (false);
-			Stanza1.SetActive (false);
+		//if (CoupletActive == true) {
+			//Couplet.SetActive (true);
+			//Stanza2.SetActive (false);
+			//Stanza3.SetActive (false);
+			//Stanza4.SetActive (false);
+			//Stanza1.SetActive (false);
 
-		}
+		//}
 	}
 }

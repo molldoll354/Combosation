@@ -8,7 +8,7 @@ public class ComboTest : MonoBehaviour {
 	public string[] buttons;
 	private int currentIndex = 0; //moves along the array as buttons are pressed
 
-	public float allowedTimeBetweenButtons; //tweak as needed
+	public float allowedTimeBetweenButtons = .3f; //tweak as needed
 	private float timeLastButtonPressed;
 
 	public ComboTest(string[] b)
@@ -19,8 +19,10 @@ public class ComboTest : MonoBehaviour {
 	//usage: call this once a frame. when the combo has been completed, it will return true
 	public bool Check()
 	{
+		Debug.Log ("Index Reset");
 		if (Time.time > timeLastButtonPressed + allowedTimeBetweenButtons) currentIndex = 0;
 		{
+			Debug.Log ("HIT");
 			if (currentIndex < buttons.Length)
 			{
 				if ((buttons[currentIndex] == "down" && Input.GetAxisRaw("Vertical") == -1) ||
