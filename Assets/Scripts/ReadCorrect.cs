@@ -9,6 +9,7 @@ public class ReadCorrect : MonoBehaviour {
 	public Text Correct;
 	public float timeToType;
 	public static float textPercentage = 0;
+	public static bool triggered = false;
 
 	// Use this for initialization
 	void Start () {
@@ -17,10 +18,12 @@ public class ReadCorrect : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Correct.text = "" + correctString;
-		int numberOfLettersToShow = (int)(correctString.Length * textPercentage);
-		Correct.text = correctString.Substring (0, numberOfLettersToShow);
-		textPercentage += Time.deltaTime / timeToType;
-		textPercentage = Mathf.Min (1.0f, textPercentage);
+		if (triggered) {
+			Correct.text = "" + correctString;
+			int numberOfLettersToShow = (int)(correctString.Length * textPercentage);
+			Correct.text = correctString.Substring (0, numberOfLettersToShow);
+			textPercentage += Time.deltaTime / timeToType;
+			textPercentage = Mathf.Min (1.0f, textPercentage);
+		}
 	}
 }

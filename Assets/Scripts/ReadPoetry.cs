@@ -17,6 +17,7 @@ public class ReadPoetry : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		Debug.Log ("active string = " + activeString);
 		Stanza.text = "" + activeString;
 		int numberOfLettersToShow = (int)(activeString.Length * textPercentage);
 		Stanza.text = activeString.Substring (0, numberOfLettersToShow);
