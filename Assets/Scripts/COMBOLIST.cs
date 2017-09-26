@@ -21,9 +21,9 @@ public class COMBOLIST : MonoBehaviour
 
 	void Update ()
 	{
-		if (RomanceCombo1.Check ()) {
+		/* (RomanceCombo1.Check ()) {
 			// do the falcon punch
-			Debug.Log ("I like you"); 
+			Debug.Log ("I like you");
 		}		
 		if (RomanceCombo2.Check ()) {
 			// do the falcon punch
@@ -58,7 +58,7 @@ public class COMBOLIST : MonoBehaviour
 		if (JokingCombo3.Check ()) {
 			// do the falcon punch
 			Debug.Log ("I love you, bitch. I'll always be loving you, bitch"); 
-		}
+		}*/
 	}
 }
 

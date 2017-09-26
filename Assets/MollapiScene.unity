@@ -282,9 +282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9b14f6016464746b98e1686ac98e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OptionOne: {fileID: 0}
-  OptionTwo: {fileID: 0}
-  OptionThree: {fileID: 0}
+  OptionOne: {fileID: 853892844}
+  OptionTwo: {fileID: 792353294}
+  OptionThree: {fileID: 46156986}
 --- !u!1 &645458864
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,6 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b39fafe9f9f8c419179dc262dd8c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimeToSwitch: 0
 --- !u!1 &1594957410
 GameObject:
   m_ObjectHideFlags: 0

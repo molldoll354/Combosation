@@ -15,13 +15,14 @@ public class StanzaTwo : MonoBehaviour {
 		PickedRight = false;
 		PickedWrong = false;
 		//TimeToSwitch = 50;
+		ReadPoetry.activeString = SecondStanza;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		Debug.Log ("" + TimeToSwitch);
 		if(Input.GetButton("Submit")){
-			ReadPoetry.activeString = SecondStanza;
+			//ReadPoetry.activeString = SecondStanza;
 		}
 		if (COMBOLIST.RomanceCombo2.Check ()) {
 			PickedRight = true;
