@@ -44,9 +44,9 @@ public class StringArray : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		currentQuestion = questions [currentQuestionIndex]; //the current question is whichever string in the "questions" array matches the number in the currentQuestionIndex
-		if (currentQuestion == questions [0]) {
+		//if (currentQuestion == questions [0]) {
 			//A is the correct response
-			if(Input.GetKey(key
-		}
+			//if(Input.GetKey(key
+		//}
 	}
 }
