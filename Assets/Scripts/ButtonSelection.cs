@@ -28,10 +28,13 @@ public class ButtonSelection : MonoBehaviour
 
 	bool StopButtons; //determines whether the player can input stuff 
 
+	public int sadUp, sadDown, loveUp, loveDown, friendUp, friendDown, sadness, friendliness, loveliness;
+	public Slider sadnessBar,lovelyBar,friendlyBar;//sliders for the bars
+
 	// Use this for initialization
 	void Start ()
 	{
-		MaxButtons = 3;
+		MaxButtons = 10;
 		friend = 0f;
 		sad = 10f;
 		love = 0f;
@@ -39,6 +42,14 @@ public class ButtonSelection : MonoBehaviour
 		DisplaySad = 10f;
 		DisplayLove = 0f;
 		StopButtons = false;
+
+		sadnessBar.GetComponent<sadBar> ().rateInc =sadUp;
+		print (sadUp);
+		sadnessBar.GetComponent<sadBar> ().rateDec = sadDown;
+		lovelyBar.GetComponent<loveBar> ().rateInc =loveUp;
+		lovelyBar.GetComponent<loveBar> ().rateDec = loveDown;
+		friendlyBar.GetComponent<friendBar> ().rateInc =friendUp;
+		friendlyBar.GetComponent<friendBar> ().rateDec =friendDown;
 
 	}
 	
@@ -64,26 +75,36 @@ public class ButtonSelection : MonoBehaviour
 		//if (StopButtons == false) {
 		if (Input.GetKeyDown (KeyCode.W) && StopButtons == false) { //Chat. ups friend by 1, lowers love by 1, lowers sad by 1
 			ButtonsPressed++;
-			friend++;
-			love--;
-			sad--;
+			//friend++;
+			//love--;
+			//sad--;
+			friendliness+=friendUp;
+			loveliness -= loveDown;
+			sadness -= sadDown;
 		}
 		if (Input.GetKeyDown (KeyCode.A) && StopButtons == false) { //Compliment. Ups love meter by 2, lowers sad by 1
 			ButtonsPressed++;
-			love += 2;
-			sad--;
+			//love += 2;
+			//sad--;
+			loveliness+=loveUp*2;
+			sadness -= sadDown;
 		}
 
 		if (Input.GetKeyDown (KeyCode.S) && StopButtons == false) { //Joke. Ups friend meter 2, lowers sad by 1
 			ButtonsPressed++;
-			friend += 2;
-			sad--;
+			//friend += 2;
+			//sad--;
+			friendliness+=friendUp;
+			sadness -= friendDown;
 		}
 
 		if (Input.GetKeyDown (KeyCode.D) && StopButtons == false) { //Wink. Ups sad and love by 1
 			ButtonsPressed++;
-			sad++;
-			love++;
+			//sad++;
+			//love++;
+			sadness+=sadUp;
+			loveliness += loveUp;
+			print ("im actually working");
 		}
 
 		if (ButtonsPressed >= MaxButtons) {
