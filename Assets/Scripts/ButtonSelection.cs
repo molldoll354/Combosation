@@ -35,33 +35,16 @@ public class ButtonSelection : MonoBehaviour
 	void Start ()
 	{
 		MaxButtons = 10;
-		//friend = 0f;
-		//sad = 10f;
-	//	love = 0f;
-		//DisplayFriend = 0f;
-		//DisplaySad = 10f;
-		//DisplayLove = 0f;
 		StopButtons = false;
-
-		sadnessBar.GetComponent<sadBar> ().rateInc =sadUp;
-		print (sadUp);
-		sadnessBar.GetComponent<sadBar> ().rateDec = sadDown;
-		lovelyBar.GetComponent<loveBar> ().rateInc =loveUp;
-		lovelyBar.GetComponent<loveBar> ().rateDec = loveDown;
-		friendlyBar.GetComponent<friendBar> ().rateInc =friendUp;
-		friendlyBar.GetComponent<friendBar> ().rateDec =friendDown;
-
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		//friend = Mathf.Clamp (friend, 0f, 10f);
-		//sad = Mathf.Clamp (sad, 0f, 10f);
-		//love = Mathf.Clamp (love, 0f, 10f);
-		//DisplayFriend = Mathf.Clamp (DisplayFriend, 0f, 10f);
-		//DisplaySad = Mathf.Clamp (DisplaySad, 0f, 10f);
-		//DisplayLove = Mathf.Clamp (DisplayLove, 0f, 10f);
+		sadnessBar.value = sadChange;
+		lovelyBar.value = loveChange;
+		friendlyBar.value = friendChange;
+
 		sadUp = Mathf.Clamp(sadUp, 0f, 100f);
 		sadChange = Mathf.Clamp(sadChange, 0f, 100f);
 		loveUp = Mathf.Clamp(loveUp, 0f, 100f);
@@ -100,16 +83,16 @@ public class ButtonSelection : MonoBehaviour
 			ButtonsPressed++;
 			//friend += 2;
 			//sad--;
-			friendliness+=friendUp;
-			sadness -= friendDown;
+			//friendliness+=friendUp;
+			//sadness -= friendDown;
 		}
 
 		if (Input.GetKeyDown (KeyCode.D) && StopButtons == false) { //Wink. Ups sad and love by 1
 			ButtonsPressed++;
 			//sad++;
 			//love++;
-			sadness+=sadUp;
-			loveliness += loveUp;
+			//sadness+=sadUp;
+			//loveliness += loveUp;
 			print ("im actually working");
 		}
 
@@ -117,6 +100,9 @@ public class ButtonSelection : MonoBehaviour
 			Debug.Log ("You Did It!");
 			Timer = 0;
 			StopButtons = true;
+			friendChange = friendUp;
+			loveChange = loveUp;
+			sadChange = sadUp;
 			//DisplayFriend = friend;
 			//DisplaySad = sad;
 			//DisplayLove = love;

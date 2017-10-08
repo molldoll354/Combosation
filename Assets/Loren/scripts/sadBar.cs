@@ -13,7 +13,7 @@ public class sadBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		sadnessBar.value = gameMaster.GetComponent<ButtonSelection> ().sadness;//get infor from player and set's the bar with that info
+		//sadnessBar.value = gameMaster.GetComponent<ButtonSelection> ().sadness;//get infor from player and set's the bar with that info
 		Debug.Log ("My cureent value is" + sadnessBar.value);
 		if(sadnessBar.value<30){
 			Debug.Log ("I'm less than 30");

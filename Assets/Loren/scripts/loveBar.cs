@@ -14,7 +14,7 @@ public class loveBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		lovelyBar.value = gameMaster.GetComponent<ButtonSelection> ().loveliness;//get infor from player and set's the bar with that info
+		//lovelyBar.value = gameMaster.GetComponent<ButtonSelection> ().loveliness;//get infor from player and set's the bar with that info
 		Debug.Log ("My cureent value is" + lovelyBar.value);
 		if(lovelyBar.value<30){
 			Debug.Log ("I'm less than 30");
