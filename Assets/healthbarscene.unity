@@ -141,10 +141,10 @@ RectTransform:
   m_Father: {fileID: 802707526}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.36}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -229.2, y: -14.6}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 78, y: 159}
+  m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &49939630
 MonoBehaviour:
@@ -152,15 +152,15 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 49939628}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa11d4d183cf00d429a72c55eaf567cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sadnessBar: {fileID: 49939631}
-  lovelyBar: {fileID: 812041789}
-  friendlyBar: {fileID: 902021336}
-  gameMaster: {fileID: 737857443}
+  sadnessBar: {fileID: 0}
+  lovelyBar: {fileID: 0}
+  friendlyBar: {fileID: 0}
+  gameMaster: {fileID: 0}
   rateInc: 0
   rateDec: 0
 --- !u!114 &49939631
@@ -260,7 +260,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.85294116, g: 0.7588668, b: 0.8386678, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -364,8 +364,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 1.97, y: 0.08}
+  m_SizeDelta: {x: -6.1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &547338931
 GameObject:
@@ -408,9 +408,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 737857446}
-  - component: {fileID: 737857444}
   - component: {fileID: 737857445}
   - component: {fileID: 737857447}
+  - component: {fileID: 737857444}
   m_Layer: 5
   m_Name: Game Master
   m_TagString: Untagged
@@ -424,23 +424,11 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 737857443}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c951bf8ec681aaf43a26de98e1349bbf, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f0fa6bda8c80264dba0f9e78c69f92d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sadUp: 5
-  sadDown: 10
-  loveUp: 5
-  loveDown: 15
-  friendUp: 20
-  friendDown: 10
-  sadness: 50
-  friendliness: 50
-  loveliness: 50
-  sadnessBar: {fileID: 49939631}
-  lovelyBar: {fileID: 812041789}
-  friendlyBar: {fileID: 902021336}
 --- !u!212 &737857445
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -507,26 +495,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db077545c6350b4ab6ea3af7df531aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxButtons: 3
+  MaxButtons: 0
   ButtonsPressed: 0
-  Timer: 11
+  Timer: 0
+  TimeToChange: 0
+  RoundNumber: 0
   timeText: {fileID: 741510043}
   meterText: {fileID: 1515157528}
-  friend: 10
-  sad: 10
-  love: 10
-  DisplayFriend: 10
-  DisplaySad: 10
-  DisplayLove: 10
-  sadUp: 5
-  sadDown: 10
+  StopButtons: 0
+  sadUp: 100
   loveUp: 5
-  loveDown: 15
-  friendUp: 10
-  friendDown: 5
-  sadness: 50
-  friendliness: 50
-  loveliness: 50
+  friendUp: 5
+  sadChange: 100
+  friendChange: 5
+  loveChange: 5
   sadnessBar: {fileID: 49939631}
   lovelyBar: {fileID: 812041789}
   friendlyBar: {fileID: 902021336}
@@ -562,7 +544,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -458.5, y: -288}
+  m_AnchoredPosition: {x: 0, y: 185}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &741510043
@@ -594,8 +576,8 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: New Text
 --- !u!222 &741510044
@@ -735,10 +717,10 @@ RectTransform:
   m_Father: {fileID: 802707526}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.36}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: -15.8}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 234, y: 159}
+  m_SizeDelta: {x: 250, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &812041788
 MonoBehaviour:
@@ -746,15 +728,15 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 812041786}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0704912d220878b42b3649e0f936f77b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sadnessBar: {fileID: 49939631}
-  lovelyBar: {fileID: 812041789}
-  friendlyBar: {fileID: 902021336}
-  gameMaster: {fileID: 737857443}
+  sadnessBar: {fileID: 0}
+  lovelyBar: {fileID: 0}
+  friendlyBar: {fileID: 0}
+  gameMaster: {fileID: 0}
   rateInc: 0
   rateDec: 0
 --- !u!114 &812041789
@@ -838,10 +820,10 @@ RectTransform:
   m_Father: {fileID: 802707526}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.36}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -101.3, y: -15.800003}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 177, y: 159}
+  m_SizeDelta: {x: 250, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &902021335
 MonoBehaviour:
@@ -849,15 +831,15 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 902021333}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aec804d2b5484ed4c887cc41f7891e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sadnessBar: {fileID: 49939631}
-  lovelyBar: {fileID: 812041789}
-  friendlyBar: {fileID: 902021336}
-  gameMaster: {fileID: 737857443}
+  sadnessBar: {fileID: 0}
+  lovelyBar: {fileID: 0}
+  friendlyBar: {fileID: 0}
+  gameMaster: {fileID: 0}
   rateInc: 0
   rateDec: 0
 --- !u!114 &902021336
@@ -1137,8 +1119,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 1.66, y: 0.07}
+  m_SizeDelta: {x: -6.7, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1437742843
 GameObject:
@@ -1205,7 +1187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -336.5, y: -241}
+  m_AnchoredPosition: {x: -305.7, y: -348.9}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1515157528
@@ -1414,8 +1396,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 1.97, y: 0.04}
+  m_SizeDelta: {x: -6.1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1885874287
 GameObject:
