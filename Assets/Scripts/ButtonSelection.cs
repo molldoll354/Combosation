@@ -28,7 +28,7 @@ public class ButtonSelection : MonoBehaviour
 
 	bool StopButtons; //determines whether the player can input stuff 
 
-	public int sadUp, loveUp, friendUp, sadChange, friendChange, loveChange;
+	public float sadUp, loveUp, friendUp, sadChange, friendChange, loveChange;
 	public Slider sadnessBar,lovelyBar,friendlyBar;//sliders for the bars
 
 	// Use this for initialization
