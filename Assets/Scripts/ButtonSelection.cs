@@ -16,31 +16,31 @@ public class ButtonSelection : MonoBehaviour
 	//the timer text display
 	public Text meterText;
 
-	public float friend;
+	//public float friend;
 	//friend meter, max of 10
-	public float sad;
-	//sad meter, max of 10
-	public float love;
+	//public float sad;
+	///sad meter, max of 10
+	//public float love;
 	//love meter, max of 10
-	public float DisplayFriend; //the ints the player see
-	public float DisplaySad;
-	public float DisplayLove;
+	//public float DisplayFriend; //the ints the player see
+	//public float DisplaySad;
+	//public float DisplayLove;
 
 	bool StopButtons; //determines whether the player can input stuff 
 
-	public int sadUp, sadDown, loveUp, loveDown, friendUp, friendDown, sadness, friendliness, loveliness;
+	public int sadUp, loveUp, friendUp, sadChange, friendChange, loveChange;
 	public Slider sadnessBar,lovelyBar,friendlyBar;//sliders for the bars
 
 	// Use this for initialization
 	void Start ()
 	{
 		MaxButtons = 10;
-		friend = 0f;
-		sad = 10f;
-		love = 0f;
-		DisplayFriend = 0f;
-		DisplaySad = 10f;
-		DisplayLove = 0f;
+		//friend = 0f;
+		//sad = 10f;
+	//	love = 0f;
+		//DisplayFriend = 0f;
+		//DisplaySad = 10f;
+		//DisplayLove = 0f;
 		StopButtons = false;
 
 		sadnessBar.GetComponent<sadBar> ().rateInc =sadUp;
@@ -56,16 +56,22 @@ public class ButtonSelection : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		friend = Mathf.Clamp (friend, 0f, 10f);
-		sad = Mathf.Clamp (sad, 0f, 10f);
-		love = Mathf.Clamp (love, 0f, 10f);
-		DisplayFriend = Mathf.Clamp (DisplayFriend, 0f, 10f);
-		DisplaySad = Mathf.Clamp (DisplaySad, 0f, 10f);
-		DisplayLove = Mathf.Clamp (DisplayLove, 0f, 10f);
+		//friend = Mathf.Clamp (friend, 0f, 10f);
+		//sad = Mathf.Clamp (sad, 0f, 10f);
+		//love = Mathf.Clamp (love, 0f, 10f);
+		//DisplayFriend = Mathf.Clamp (DisplayFriend, 0f, 10f);
+		//DisplaySad = Mathf.Clamp (DisplaySad, 0f, 10f);
+		//DisplayLove = Mathf.Clamp (DisplayLove, 0f, 10f);
+		sadUp = Mathf.Clamp(sadUp, 0f, 100f);
+		sadChange = Mathf.Clamp(sadChange, 0f, 100f);
+		loveUp = Mathf.Clamp(loveUp, 0f, 100f);
+		loveChange = Mathf.Clamp(loveChange, 0f, 100f);
+		friendUp = Mathf.Clamp(friendUp, 0f, 100f);
+		friendChange = Mathf.Clamp(friendChange, 0f, 100f);
 
 
 		Debug.Log ("" + StopButtons);
-		meterText.text = "Sad: " + DisplaySad + "\nFriend: " + DisplayFriend + "\nLove: " + DisplayLove;
+		//meterText.text = "Sad: " + DisplaySad + "\nFriend: " + DisplayFriend + "\nLove: " + DisplayLove;
 		//Mathf.Round (Timer);
 		timeText.text = "Time: " + Mathf.Floor (Timer); //rounds the timer display so thta you dont see shitty decimals
 		if (Timer >= 0) {
@@ -78,16 +84,16 @@ public class ButtonSelection : MonoBehaviour
 			//friend++;
 			//love--;
 			//sad--;
-			friendliness+=friendUp;
-			loveliness -= loveDown;
-			sadness -= sadDown;
+			friendUp+=5;
+			loveUp -= 5;
+			sadUp -= 5;
 		}
 		if (Input.GetKeyDown (KeyCode.A) && StopButtons == false) { //Compliment. Ups love meter by 2, lowers sad by 1
 			ButtonsPressed++;
 			//love += 2;
 			//sad--;
-			loveliness+=loveUp*2;
-			sadness -= sadDown;
+			loveUp += 5;
+			sadUp += 5;
 		}
 
 		if (Input.GetKeyDown (KeyCode.S) && StopButtons == false) { //Joke. Ups friend meter 2, lowers sad by 1
@@ -111,9 +117,9 @@ public class ButtonSelection : MonoBehaviour
 			Debug.Log ("You Did It!");
 			Timer = 0;
 			StopButtons = true;
-			DisplayFriend = friend;
-			DisplaySad = sad;
-			DisplayLove = love;
+			//DisplayFriend = friend;
+			//DisplaySad = sad;
+			//DisplayLove = love;
 
 			//timeText.
 		}

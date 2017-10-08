@@ -13,7 +13,7 @@ public class friendBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		friendlyBar.value = gameMaster.GetComponent<playerFeels> ().friendliness;//get infor from player and set's the bar with that info
+		friendlyBar.value = gameMaster.GetComponent<ButtonSelection> ().friendliness;//get infor from player and set's the bar with that info
 		Debug.Log ("My cureent value is" + friendlyBar.value);
 		if(friendlyBar.value<30){
 				Debug.Log ("I'm less than 30");

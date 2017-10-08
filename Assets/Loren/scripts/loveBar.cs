@@ -23,7 +23,7 @@ public class loveBar : MonoBehaviour {
 			Debug.Log ("I'm more than 60");
 		}
 		if(friendlyBar.value>70){
-			lovelyBar.GetComponent<loveBar> ().rateDec -= 10;
+			//lovelyBar.GetComponent<loveBar> ().rateDec -= 10;
 		}
 	}
 }
