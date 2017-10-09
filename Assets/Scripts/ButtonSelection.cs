@@ -19,6 +19,7 @@ public class ButtonSelection : MonoBehaviour
 	public Text meterText;
 	public bool StopButtons; //determines whether the player can input stuff
 
+
 	public float sadUp, loveUp, friendUp, sadChange, friendChange, loveChange;
 	public Slider sadnessBar,lovelyBar,friendlyBar;//sliders for the bars
 
@@ -135,6 +136,7 @@ public class ButtonSelection : MonoBehaviour
 
 		}
 		if (TimeToChange < 0) {
+			
 			ButtonsPressed = 0;
 			RoundNumber++;
 			TimeToChange = 5f;
