@@ -33,22 +33,20 @@ public class openingDialogue : MonoBehaviour {
 		} else {
 			theText.color = Color.white;
 		}
-		if (s.Contains ("INPUT COMBO")) {
-			theText.text = "";
+		if (s.Contains ("C O M B O S A T I O N")) {
+			Application.LoadLevel ("healthbarscene");
 			button.SetActive(true);
-		} else {
-			button.SetActive(false);
-		}
+		} 
 
-		if((selectionScript.sadnessBar.value>50)&&(selectionScript.sadnessBar.value>selectionScript.friendlyBar.value)){
-			theText.text="I'm really sad.";
-		}
-		if((selectionScript.lovelyBar.value>50)&&(selectionScript.lovelyBar.value>selectionScript.friendlyBar.value)){
-			theText.text="Maybe the right fighter was right in front of me all along...";
-		}
-		if((selectionScript.friendlyBar.value>50)&&(selectionScript.friendlyBar.value>selectionScript.lovelyBar.value)){
-			theText.text="Ya know, you are always there for me!";
-		}
+//		if((currentLine>10)&&(selectionScript.sadnessBar.value>50)&&(selectionScript.sadnessBar.value>selectionScript.friendlyBar.value)){
+//			theText.text="I'm really sad.";
+//		}
+//		if((currentLine>10)&&(selectionScript.lovelyBar.value>50)&&(selectionScript.lovelyBar.value>selectionScript.friendlyBar.value)){
+//			theText.text="Maybe the right fighter was right in front of me all along...";
+//		}
+//		if((currentLine>10)&&(selectionScript.friendlyBar.value>50)&&(selectionScript.friendlyBar.value>selectionScript.lovelyBar.value)){
+//			theText.text="Ya know, you are always there for me!";
+//		}
 
 			if (Input.GetKeyDown (KeyCode.RightArrow)) {
 				currentLine += 1;

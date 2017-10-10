@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/dialoguescene.unity
+    guid: bda14768a8a6ae241959629c1706a605
+  - enabled: 1
+    path: Assets/healthbarscene.unity
+    guid: 7cd8150428e36594d9d75a8c48b75d0c

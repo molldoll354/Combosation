@@ -19,9 +19,16 @@ public class ButtonSelection : MonoBehaviour
 	public Text meterText;
 	public bool StopButtons; //determines whether the player can input stuff
 
-
+	public GameObject roundButton;
 	public float sadUp, loveUp, friendUp, sadChange, friendChange, loveChange;
 	public Slider sadnessBar,lovelyBar,friendlyBar;//sliders for the bars
+
+
+
+	public GameObject happyFace, sadFace, loveFace;
+	public GameObject flatter, joke, wink, chat, neutral;
+	bool clearButtons=false;
+
 
 	// Use this for initialization
 	void Start ()
@@ -29,9 +36,22 @@ public class ButtonSelection : MonoBehaviour
 		MaxButtons = 3;
 		StopButtons = false;
 		RoundNumber = 1;
-		TimeToChange = 5f;
+		TimeToChange = 2f;
 		Timer = 11f;
 //		RoundNumber = 1;
+
+
+		happyFace.SetActive (false);
+		sadFace.SetActive (false);
+		loveFace.SetActive (false);
+
+		roundButton.SetActive (false);
+
+		flatter.SetActive (false);
+			joke.SetActive (false);
+		wink.SetActive (false);
+		chat.SetActive (false);
+		neutral.SetActive (true);
 	}
 	
 	// Update is called once per frame
@@ -42,6 +62,36 @@ public class ButtonSelection : MonoBehaviour
 		sadnessBar.value = sadChange;
 		lovelyBar.value = loveChange;
 		friendlyBar.value = friendChange;
+
+		if((sadnessBar.value>75)&&(sadnessBar.value>friendlyBar.value)){
+			meterText.text="I'm really sad.";
+			sadFace.SetActive (true);
+			happyFace.SetActive (false);
+			loveFace.SetActive (false);
+		}
+		if((lovelyBar.value>50)&&(lovelyBar.value>friendlyBar.value)&&(sadnessBar.value<50)){
+			meterText.text="Maybe the right fighter was right in front of me all along...";
+			loveFace.SetActive (true);
+			happyFace.SetActive (false);
+			sadFace.SetActive (false);
+		}
+		if((friendlyBar.value>50)&&(friendlyBar.value>lovelyBar.value)){
+			meterText.text="Ya know, you are always there for me!";
+			happyFace.SetActive (true);
+			sadFace.SetActive (false);
+			loveFace.SetActive (false);
+		}
+		if(Input.anyKey==false){
+			clearButtons=true;
+		}
+		if (clearButtons == true) {
+			flatter.SetActive (false);
+			joke.SetActive (false);
+			chat.SetActive (false);
+			wink.SetActive (false);
+			neutral.SetActive (true);
+		}
+
 
 		sadUp = Mathf.Clamp(sadUp, 0f, 100f);
 		sadChange = Mathf.Clamp(sadChange, 0f, 100f);
@@ -89,8 +139,12 @@ public class ButtonSelection : MonoBehaviour
 			//friend++;
 			//love--;
 			//sad--;
-			friendUp+=5;
-			loveUp -= 5;
+			clearButtons = false;
+			neutral.SetActive (false);
+			chat.SetActive(true);
+
+			friendUp+=10;
+			//loveUp -= 5;
 			sadUp -= 5;
 		}
 		if (Input.GetKeyDown (KeyCode.A) && StopButtons == false) { //Compliment. Ups love meter by 2, lowers sad by 1
@@ -98,8 +152,17 @@ public class ButtonSelection : MonoBehaviour
 			//love += 2;
 			//sad--;
 			loveUp += 10;
-			sadUp += 5;
-		}
+			sadUp -= 5;
+			flatter.SetActive (true);
+			neutral.SetActive (false);
+			clearButtons = false;
+
+			if (sadnessBar.value >= 50) {
+				sadUp += 5;
+			}
+				
+			}
+
 
 		if (Input.GetKeyDown (KeyCode.S) && StopButtons == false) { //Joke. Ups friend meter 2, lowers sad by 1
 			ButtonsPressed++;
@@ -107,8 +170,12 @@ public class ButtonSelection : MonoBehaviour
 			//sad--;
 			//friendliness+=friendUp;
 			//sadness -= friendDown;
+			joke.SetActive(true);
+			neutral.SetActive (false);
+			clearButtons = false;
 			friendUp += 10;
-			sadUp -= 5;
+			sadUp -= 10;
+
 		}
 
 		if (Input.GetKeyDown (KeyCode.D) && StopButtons == false) { //Wink. Ups sad and love by 1
@@ -117,9 +184,15 @@ public class ButtonSelection : MonoBehaviour
 			//love++;
 			//sadness+=sadUp;
 			//loveliness += loveUp;
-			loveUp += 5;
-			sadUp += 5;
-
+			wink.SetActive(true);
+			neutral.SetActive (false);
+			clearButtons = false;
+			if (sadnessBar.value < 75) {
+				loveUp += 20;
+				friendUp -= 10;
+			}if (sadnessBar.value >= 75) {
+				sadUp += 5;
+			}
 		}
 
 		if (ButtonsPressed >= MaxButtons) {
@@ -139,10 +212,17 @@ public class ButtonSelection : MonoBehaviour
 			
 			ButtonsPressed = 0;
 			RoundNumber++;
-			TimeToChange = 5f;
+			TimeToChange = 2f;
 			Timer = 11f;
 			StopButtons = false;
 		}
+		if (StopButtons == true) {
+			roundButton.SetActive (true);
+
+		}else{
+				roundButton.SetActive(false);
+			}
+
 	}
 //	void RoundChange(){
 //		if (RoundNumber < 4) {
