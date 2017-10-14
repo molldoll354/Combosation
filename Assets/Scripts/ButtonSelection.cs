@@ -27,7 +27,18 @@ public class ButtonSelection : MonoBehaviour
 
 	public GameObject happyFace, sadFace, loveFace;
 	public GameObject flatter, joke, wink, chat, neutral;
-	bool clearButtons=false;
+
+	public Sprite blankSprite; //sprites and array to control the button icons
+	public Sprite flatterSprite;
+	public Sprite winkSprite;
+	public Sprite chatSprite;
+	public Sprite jokeSprite;
+	public GameObject [] buttons;	
+
+	bool resetIcons = false; //sets the button icons back to blank
+
+	bool clearButtons=false;//clears previous player inputs
+
 
 
 	// Use this for initialization
@@ -52,11 +63,17 @@ public class ButtonSelection : MonoBehaviour
 		wink.SetActive (false);
 		chat.SetActive (false);
 		neutral.SetActive (true);
+
+		buttons [3].GetComponent<SpriteRenderer> ().enabled = false;
+		buttons [4].GetComponent<SpriteRenderer> ().enabled = false;
+
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+
+
 		Debug.Log ("" + TimeToChange);
 
 		sadnessBar.value = sadChange;
@@ -114,6 +131,7 @@ public class ButtonSelection : MonoBehaviour
 		}
 		if (RoundNumber == 4) {
 			MaxButtons = 4;
+			buttons [3].GetComponent<SpriteRenderer> ().enabled = true;
 			//Timer = 11f;
 		} 
 		if (RoundNumber == 5) {
@@ -122,8 +140,11 @@ public class ButtonSelection : MonoBehaviour
 		}
 		if (RoundNumber == 6) {
 			MaxButtons = 5;
+			buttons [4].GetComponent<SpriteRenderer> ().enabled = true;
+
 			//Timer = 6f;
 		}
+			
 
 		Debug.Log ("" + StopButtons);
 		//meterText.text = "Sad: " + DisplaySad + "\nFriend: " + DisplayFriend + "\nLove: " + DisplayLove;
@@ -135,6 +156,7 @@ public class ButtonSelection : MonoBehaviour
 		}
 		//if (StopButtons == false) {
 		if (Input.GetKeyDown (KeyCode.W) && StopButtons == false) { //Chat. ups friend by 1, lowers love by 1, lowers sad by 1
+			buttons [ButtonsPressed].GetComponent<SpriteRenderer> ().sprite = chatSprite;
 			ButtonsPressed++;
 			//friend++;
 			//love--;
@@ -148,6 +170,7 @@ public class ButtonSelection : MonoBehaviour
 			sadUp -= 5;
 		}
 		if (Input.GetKeyDown (KeyCode.A) && StopButtons == false) { //Compliment. Ups love meter by 2, lowers sad by 1
+			buttons [ButtonsPressed].GetComponent<SpriteRenderer> ().sprite = flatterSprite;
 			ButtonsPressed++;
 			//love += 2;
 			//sad--;
@@ -165,6 +188,7 @@ public class ButtonSelection : MonoBehaviour
 
 
 		if (Input.GetKeyDown (KeyCode.S) && StopButtons == false) { //Joke. Ups friend meter 2, lowers sad by 1
+			buttons [ButtonsPressed].GetComponent<SpriteRenderer> ().sprite = jokeSprite;
 			ButtonsPressed++;
 			//friend += 2;
 			//sad--;
@@ -179,6 +203,7 @@ public class ButtonSelection : MonoBehaviour
 		}
 
 		if (Input.GetKeyDown (KeyCode.D) && StopButtons == false) { //Wink. Ups sad and love by 1
+			buttons [ButtonsPressed].GetComponent<SpriteRenderer> ().sprite = winkSprite;
 			ButtonsPressed++;
 			//sad++;
 			//love++;
@@ -195,6 +220,16 @@ public class ButtonSelection : MonoBehaviour
 			}
 		}
 
+		if (resetIcons == true) { //resets the button icons to blank
+			buttons [0].GetComponent<SpriteRenderer> ().sprite = blankSprite;
+			buttons [1].GetComponent<SpriteRenderer> ().sprite = blankSprite;
+			buttons [2].GetComponent<SpriteRenderer> ().sprite = blankSprite;
+			buttons [3].GetComponent<SpriteRenderer> ().sprite = blankSprite;
+			buttons [4].GetComponent<SpriteRenderer> ().sprite = blankSprite;
+
+			resetIcons = false;
+		}
+
 		if (ButtonsPressed >= MaxButtons) {
 			Timer = 0;
 			StopButtons = true;
@@ -209,9 +244,10 @@ public class ButtonSelection : MonoBehaviour
 
 		}
 		if (TimeToChange < 0) {
-			
+
 			ButtonsPressed = 0;
 			RoundNumber++;
+			resetIcons = true;
 			TimeToChange = 2f;
 			Timer = 11f;
 			StopButtons = false;
