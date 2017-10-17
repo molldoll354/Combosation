@@ -23,7 +23,11 @@ public class ButtonSelection : MonoBehaviour
 	public float sadUp, loveUp, friendUp, sadChange, friendChange, loveChange;
 	public Slider sadnessBar,lovelyBar,friendlyBar;//sliders for the bars
 
-
+	public AudioSource audioButton;
+	public AudioSource roundEndAudio;
+	public AudioClip buttonClick;
+	public float buttonPitch = 0;
+	public float baseButtonPitch;
 
 	public GameObject happyFace, sadFace, loveFace;
 	public GameObject flatter, joke, wink, chat, neutral;
@@ -39,6 +43,8 @@ public class ButtonSelection : MonoBehaviour
 
 	bool clearButtons=false;//clears previous player inputs
 
+	bool playedEndAudio = false; //this is some caveman shit to make the round end audio work
+
 
 
 	// Use this for initialization
@@ -49,6 +55,8 @@ public class ButtonSelection : MonoBehaviour
 		RoundNumber = 1;
 		TimeToChange = 2f;
 		Timer = 11f;
+		baseButtonPitch = audioButton.pitch;
+
 //		RoundNumber = 1;
 
 
@@ -154,8 +162,14 @@ public class ButtonSelection : MonoBehaviour
 			
 			Timer -= Time.deltaTime;
 		}
+
+
 		//if (StopButtons == false) {
 		if (Input.GetKeyDown (KeyCode.W) && StopButtons == false) { //Chat. ups friend by 1, lowers love by 1, lowers sad by 1
+			audioButton.pitch = audioButton.pitch + buttonPitch;
+			audioButton.clip = buttonClick;
+			audioButton.Play();
+			buttonPitch+=0.075f;
 			buttons [ButtonsPressed].GetComponent<SpriteRenderer> ().sprite = chatSprite;
 			ButtonsPressed++;
 			//friend++;
@@ -170,6 +184,10 @@ public class ButtonSelection : MonoBehaviour
 			sadUp -= 5;
 		}
 		if (Input.GetKeyDown (KeyCode.A) && StopButtons == false) { //Compliment. Ups love meter by 2, lowers sad by 1
+			audioButton.pitch = audioButton.pitch + buttonPitch;
+			audioButton.clip = buttonClick;
+			audioButton.Play();
+			buttonPitch+=0.075f;
 			buttons [ButtonsPressed].GetComponent<SpriteRenderer> ().sprite = flatterSprite;
 			ButtonsPressed++;
 			//love += 2;
@@ -188,6 +206,10 @@ public class ButtonSelection : MonoBehaviour
 
 
 		if (Input.GetKeyDown (KeyCode.S) && StopButtons == false) { //Joke. Ups friend meter 2, lowers sad by 1
+			audioButton.pitch = audioButton.pitch + buttonPitch;
+			audioButton.clip = buttonClick;
+			audioButton.Play();
+			buttonPitch+=0.075f;
 			buttons [ButtonsPressed].GetComponent<SpriteRenderer> ().sprite = jokeSprite;
 			ButtonsPressed++;
 			//friend += 2;
@@ -203,6 +225,10 @@ public class ButtonSelection : MonoBehaviour
 		}
 
 		if (Input.GetKeyDown (KeyCode.D) && StopButtons == false) { //Wink. Ups sad and love by 1
+			audioButton.pitch = audioButton.pitch + buttonPitch;
+			audioButton.clip = buttonClick;
+			audioButton.Play();
+			buttonPitch+=0.075f;
 			buttons [ButtonsPressed].GetComponent<SpriteRenderer> ().sprite = winkSprite;
 			ButtonsPressed++;
 			//sad++;
@@ -233,6 +259,10 @@ public class ButtonSelection : MonoBehaviour
 		if (ButtonsPressed >= MaxButtons) {
 			Timer = 0;
 			StopButtons = true;
+			if (playedEndAudio == false) {
+				roundEndAudio.Play ();
+			}
+			playedEndAudio = true;
 			friendChange = friendUp;
 			loveChange = loveUp;
 			sadChange = sadUp;
@@ -246,8 +276,11 @@ public class ButtonSelection : MonoBehaviour
 		if (TimeToChange < 0) {
 
 			ButtonsPressed = 0;
+			playedEndAudio = false;
 			RoundNumber++;
 			resetIcons = true;
+			audioButton.pitch = baseButtonPitch;
+			buttonPitch = 0;
 			TimeToChange = 2f;
 			Timer = 11f;
 			StopButtons = false;
