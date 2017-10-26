@@ -20,7 +20,7 @@ public class buttonSelectionwAudio : MonoBehaviour
 	 bool StopButtons; //determines whether the player can input stuff
 
 	public GameObject roundButton;
-	 float sadUp, loveUp, friendUp, sadChange, friendChange, loveChange;
+	float sadUp, loveUp, friendUp, sadChange, friendChange, loveChange;
 	public Slider sadnessBar,lovelyBar,friendlyBar;//sliders for the bars
 
 	public soundScript sound;
