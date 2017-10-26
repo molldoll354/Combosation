@@ -5,22 +5,22 @@ using UnityEngine.UI;
 
 public class buttonSelectionwAudio : MonoBehaviour
 {
-	public int MaxButtons;
+	 int MaxButtons;
 	//max number of buttons needed to be pressed for this instance
-	public int ButtonsPressed;
+	 int ButtonsPressed;
 	//number of buttons that have been pressed
-	public float Timer;
-	public float TimeToChange;
+	 float Timer;
+	 float TimeToChange;
 	//time players have to press buttons
-	public int RoundNumber;
+	 int RoundNumber;
 
 	public Text timeText;
 	//the timer text display
 	public Text meterText;
-	public bool StopButtons; //determines whether the player can input stuff
+	 bool StopButtons; //determines whether the player can input stuff
 
 	public GameObject roundButton;
-	public float sadUp, loveUp, friendUp, sadChange, friendChange, loveChange;
+	 float sadUp, loveUp, friendUp, sadChange, friendChange, loveChange;
 	public Slider sadnessBar,lovelyBar,friendlyBar;//sliders for the bars
 
 	public soundScript sound;
