@@ -897,10 +897,10 @@ MonoBehaviour:
   friendlyBar: {fileID: 902021336}
   sound: {fileID: 1165465019}
   flatterSound: {fileID: 8300000, guid: 8f714bd91fcc45a45aeb64471d6919d6, type: 3}
-  winkSound: {fileID: 8300000, guid: 221a1187a3136694995c8223983652b5, type: 3}
-  chatSound: {fileID: 8300000, guid: be8128f31a1df274c90eee57695c9ff2, type: 3}
-  jokeSound: {fileID: 8300000, guid: c45b82f78cd9b814f9c1034394d0f623, type: 3}
-  endSound: {fileID: 0}
+  winkSound: {fileID: 8300000, guid: 4247a519d3336a149bb4ca128bed5824, type: 3}
+  chatSound: {fileID: 8300000, guid: 2ee7ad0631703f94a9175a55a916123b, type: 3}
+  jokeSound: {fileID: 8300000, guid: bdb9f5f5bd1e15e44bacf92ba014168c, type: 3}
+  endSound: {fileID: 8300000, guid: b1c8a422289a1b94686b6e8fc67ee1cc, type: 3}
   music: {fileID: 8300000, guid: 62b85c58ee544bd40a85e20b6ff71697, type: 3}
   endMusic: {fileID: 0}
   happyFace: {fileID: 983620032}
