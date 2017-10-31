@@ -16,12 +16,14 @@ public class openingDialogue : MonoBehaviour {
 	public GameObject button;
 
 	public ButtonSelection selectionScript;
+	public AudioSource select;
 	// Use this for initialization
 	void Start () {
 		if (textFile != null) {
 			textLines = (textFile.text.Split ('\n'));
 		}
 		button.SetActive(false);
+		select = GetComponent<AudioSource> ();
 	}
 	// Update is called once per frame
 	void Update () {
@@ -34,7 +36,7 @@ public class openingDialogue : MonoBehaviour {
 			theText.color = Color.white;
 		}
 		if (s.Contains ("C O M B O S A T I O N")) {
-			Application.LoadLevel ("healthbarscene");
+			Application.LoadLevel ("dellapisoundscene");
 			button.SetActive(true);
 		} 
 
@@ -48,13 +50,12 @@ public class openingDialogue : MonoBehaviour {
 //			theText.text="Ya know, you are always there for me!";
 //		}
 
-			if (Input.GetKeyDown (KeyCode.RightArrow)) {
+		if (Input.GetKeyDown (KeyCode.Space)) {
 				currentLine += 1;
+			select.Play ();
 			}
 
-			if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-				currentLine -= 1;
-			}
+			
 		if(Input.GetKeyDown(KeyCode.RightArrow)&& currentLine==lastLine){	
 			currentLine=0;
 		}
