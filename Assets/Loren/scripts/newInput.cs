@@ -49,7 +49,7 @@ public class newInput : MonoBehaviour {
 			}
 			else if(Input.GetKeyDown(KeyCode.Space)){
 				comboOver = true;
-				Debug.Log ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, premadeCombos));
+				//Debug.Log ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, premadeCombos));
 				print ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, premadeCombos, comboUsage));
 			}
 
@@ -104,27 +104,53 @@ public class newInput : MonoBehaviour {
 	//compareCombo v2, now uses/needs a dictionary
 	string compareCombo(int preferedComboLength, string playerCombo, Combo[] premadeComboList, List<Combo> usedCombos){
 		string isIt = "";//the final string of info
+		bool correctLength = false;
 		bool premade = false;
+		bool usedAlready = false;
 		//testing length
-		if(playerCombo.Length>preferedLength){ isIt += "long";}
+		if(playerCombo.Length>preferedLength){ correctLength = true;}
 		else{ isIt += "fit";}//langauge reflects length in attempts for improved readability
 
 		//is this a premade combo
-		if(contains(playerCombo,comboList)==true){
-			isIt+=" premade";
-		} else { isIt+=" random";}
-		if(usedCombos.Contains(playerCombo))
-		{ 
-			print ("used b4" + comboStats [playerCombo]);
-			comboStats [playerCombo] += 1;
-			print ("used after " + comboStats [playerCombo]);
-			isIt += " used: " + comboStats [playerCombo];
-			print ("You've used this combo "+comboStats[playerCombo]+" times!");
+//		if(premadeComboList.Contains(playerCombo)==true){
+//			isIt+=" premade";
+//		} else { isIt+=" random";}
+		foreach(Combo combo in premadeComboList){//checks if the combo is premade or not.
+			int i =0;
+			if (premadeComboList[i].comboInput.Equals(playerCombo)){
+				premade = true;
+				break;
+			}
+			i++;
 		}
-		else{
-			print ("NEW COMBO ADDED!");
-			comboStats.Add (playerCombo, 0);
+		foreach(Combo combo in usedCombos){//checks if  the  combo has been used before, and increments usage.
+			int i = 0;
+			if(usedCombos[i].comboInput.Equals(playerCombo)){
+				usedAlready = true;
+				usedCombos[i].usage+=1;
+				break;
+			}
+
+			i++;
 		}
+		if(usedAlready==false){//adds the combo to the COmbo List, if necessary
+			Combo newCombo = new Combo(playerCombo);
+			usedCombos.Add(newCombo);
+		}
+//		if(usedCombos.Contains(playerCombo))
+//		{ 
+//			print ("used b4" + premadeComboList [playerCombo]);
+//			usedCombos [playerCombo].usage += 1;
+//			print ("used after " + premadeComboList [playerCombo]);
+//			isIt += " used: " + usedCombos [playerCombo].usage;
+//			print ("You've used this combo "+usedCombos[playerCombo].comboInput+" times!");
+//		}
+//		else{
+//			print ("NEW COMBO ADDED!");
+//			Combo newCombo = new Combo (playerCombo);
+//			usedCombos.Add (newCombo);
+//		}
+		isIt = "Lenght?>"+correctLength+". Premade?>"+ premade+". New Combo?>"+usedAlready;
 		return isIt;
 	}
 

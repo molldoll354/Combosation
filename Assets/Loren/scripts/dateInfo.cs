@@ -5,6 +5,7 @@ using UnityEngine;
 public class dateInfo : MonoBehaviour {
 	public int friendCounter;
 	public int loveCounter;
+	public int sadCounter;
 	// Use this for initialization
 	void Start () {
 		

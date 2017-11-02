@@ -5,7 +5,7 @@ using UnityEngine;
 public class stringTest : MonoBehaviour {
 	enum buttonType{W = 0, A = 1, S = 2, D = 3, Tie = 4};
 
-	public string Source;
+	public string Source;//what the code uses to calculate.
 
 	List <int> buttonCount;
 	// Use this for initialization
