@@ -538,6 +538,109 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1401218931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1401218933}
+  - component: {fileID: 1401218932}
+  m_Layer: 0
+  m_Name: Something
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1401218932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1401218931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76e65e68cf281c54ea32e58f102bbb0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questions:
+  - "Hey, it\u2019s been a while! You look kinda out of breath, what\u2019s up?"
+  - So how was your summer break?
+  - How was mine? Oh, uh...it was ok, lots of ups and downs...
+  - Me and Ryun broke up pretty early on during the break. Kind of soured the whole
+    summer for me unfortunately...
+  - "Yep, looks like I\u2019ve got the rest of my lonely life ahead of me."
+  - Sorry to bring the whole mood down though, I guess I should be going now.
+  - s there something you wanted to tell me?
+  - " If you want we can meet up for class or something and study if you\u2019d like!"
+  - Wait a minute, are you asking me out?
+  - "You know what, yeah! I\u2019d really like that!"
+  responses:
+  - options:
+    - "*laughs* Sure, ok. I\u2019m sure that happened"
+    - Yeah, I just got outta class myself.
+    - "Uhh\u2026that\u2019s kind of weird\u2026"
+    - "Um, wasn\u2019t really expecting you to say that..."
+  - options:
+    - "Hmm, well if sleeping were an Olympic sport you\u2019d be at least a Bronze."
+    - 'Yeah, it was nice to take a break from things for a while. '
+    - "Wow, you\u2019d think all that training would show a bit more. Haha!"
+    - Aw, I missed you too!
+  - options:
+    - No you clown, I didn't spend it in an elevator!
+    - Yeah, it was fun and all but...
+    - How would you being there help?
+    - "That\u2019s sweet, yeah I would like to talk about it if you don\u2019t mind."
+  - options:
+    - 'Haha, yeah I guess he was a bit of a meathead. '
+    - Thanks, I appreciate it.
+    - Yikes, the wounds are still a little fresh ya know?
+    - "You\u2019re right, I do deserve better than him."
+  - options:
+    - "I mean, a sparring partner won\u2019t go to the prom with me! "
+    - "That\u2019s true, I do have a friend like you to count on. "
+    - "Wow, that\u2019s pretty forward coming from you."
+    - You really mean that?
+  - options:
+    - Huh? You want me to stay?
+    - Huh? You want me to stay?
+    - Huh? You want me to stay?
+    - Huh? You want me to stay?
+  - options:
+    - "Haha, haven\u2019t heard that one before. Is that all though?"
+    - "Yeah, I\u2019m really glad I got to see you again too."
+    - Wow, this is really unexpected...not that I mind!
+    - "Aw, I\u2019m blushing!"
+  - options:
+    - "Ok, it won\u2019t be that bad! And stop being so dramatic!"
+    - Cool, we can meet at the library!
+    - "O-oh, I didn\u2019t know you meant something like that! Interesting\u2026"
+    - Why would we study at a restaurant-Oh!
+  - options:
+    - A yes or no would suffice!
+    - Oh, just getting food then, alright.
+    - "I just wish you would\u2019ve asked sooner!"
+    - Ya know, I think it would be really nice to get out with you.
+  - options:
+    - See you there!
+    - See you there!
+    - See you there!
+    - See you there!
+--- !u!4 &1401218933
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1401218931}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.28398678, y: 1.2199289, z: -5.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1406103422
 GameObject:
   m_ObjectHideFlags: 0
