@@ -15,16 +15,16 @@ public class newInput : MonoBehaviour {
 	public bool StopButtons;
 	public int preferedLength;
 	public int maxUsage;//max usage of a combo before "overused"
-	public string[] combos;
-	//List<string[]> comboUsage;
+	public Combo[] premadeCombos;
+	List<Combo> comboUsage = new List<Combo> ();
 
-	Dictionary<string, int> comboUsage;
+	//Dictionary<string, int> comboUsage;
 	// Use this for initialization
 	void Start () {
-		comboUsage = new Dictionary<string, int> ();
-		foreach(string combo in combos) {///RUns slowly will need to improve
+		
+		foreach(Combo combo in premadeCombos) {///RUns slowly will need to improve
 			
-			comboUsage.Add (""+combo, 0);
+			comboUsage.Add (combo);
 			//print (comboUsage. + " has been added to list, used  "+comboInfo[1]);
 		}
 	}
@@ -49,8 +49,8 @@ public class newInput : MonoBehaviour {
 			}
 			else if(Input.GetKeyDown(KeyCode.Space)){
 				comboOver = true;
-				Debug.Log ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, combos));
-				print ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, combos, comboUsage));
+				Debug.Log ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, premadeCombos));
+				print ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, premadeCombos, comboUsage));
 			}
 
 		}
@@ -88,7 +88,11 @@ public class newInput : MonoBehaviour {
 
 
 		}
-		if(premade==false){isIt+=" -1 never";}//combos not on the list are denoted by -1, usage as "never"
+		if(premade==false){
+			isIt+=" -1 never";
+			Combo newCombo = new Combo (inputCombo);
+			comboUsage.Add (newCombo);
+		}//combos not on the list are denoted by -1, usage as "never"
 
 		if(premade == true){
 			isIt+="";
@@ -98,7 +102,7 @@ public class newInput : MonoBehaviour {
 
 
 	//compareCombo v2, now uses/needs a dictionary
-	string compareCombo(int preferedComboLength, string playerCombo, string[] comboList, Dictionary<string,int> comboStats){
+	string compareCombo(int preferedComboLength, string playerCombo, Combo[] premadeComboList, List<Combo> usedCombos){
 		string isIt = "";//the final string of info
 		bool premade = false;
 		//testing length
@@ -109,7 +113,7 @@ public class newInput : MonoBehaviour {
 		if(contains(playerCombo,comboList)==true){
 			isIt+=" premade";
 		} else { isIt+=" random";}
-		if(comboStats.ContainsKey(playerCombo))
+		if(usedCombos.Contains(playerCombo))
 		{ 
 			print ("used b4" + comboStats [playerCombo]);
 			comboStats [playerCombo] += 1;
@@ -128,7 +132,7 @@ public class newInput : MonoBehaviour {
 		bool contained = false;
 
 		for(int i = 0; i<list.Length-1;i++){
-			if(list[i].Equals(input)){ contained = true;}
+			if(list[i].Equals(input)){ contained = true; break;}
 		}
 		return contained;
 	}
