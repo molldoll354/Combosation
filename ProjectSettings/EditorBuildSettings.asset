@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/dialoguescene.unity
     guid: bda14768a8a6ae241959629c1706a605
   - enabled: 1
+    path: Assets/dellapisoundscene.unity
+    guid: 6109cc9c12cb743438f4498b976128e3
+  - enabled: 1
     path: Assets/healthbarscene.unity
     guid: 7cd8150428e36594d9d75a8c48b75d0c
   - enabled: 1
     path: Assets/Loren/scenes/endScene.unity
     guid: 9767f997d804cf141a8a5367bb3b8ce1
-  - enabled: 1
-    path: Assets/Loren/scenes/healthbarscene 1.unity
+  - enabled: 0
+    path: 
     guid: e2e692b5d771e1b40aafbbcea37cd1ca
