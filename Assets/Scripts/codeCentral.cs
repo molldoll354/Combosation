@@ -10,6 +10,10 @@ public class SakiAnswer{
 
 public class codeCentral : MonoBehaviour {
 
+	private static codeCentral _instance;
+
+	public static codeCentral Instance { get { return _instance; } }
+
 	enum buttonType{W = 0, A = 1, S = 2, D = 3, Tie = 4};
 
 	public string Source;
@@ -22,7 +26,7 @@ public class codeCentral : MonoBehaviour {
 	int finalAnswer;
 	// Use this for initialization
 
-	enum ResponseOps{
+	public enum ResponseOps{
 		chat=0,
 		flirt=1,
 		joke=2,
@@ -30,6 +34,17 @@ public class codeCentral : MonoBehaviour {
 		other = 4,
 
 	}
+
+	private void Awake()
+	{
+		if (_instance != null && _instance != this)
+		{
+			Destroy(this.gameObject);
+		} else {
+			_instance = this;
+		}
+	}
+
 	void Start () {
 		Debug.Log (questions [questionIndex]);
 		//		buttonType mostPressedButton = CheckButtonCounts (Source);
@@ -51,7 +66,7 @@ public class codeCentral : MonoBehaviour {
 		}
 
 	}
-	ResponseOps CheckButtonCounts(string combo) {
+	public ResponseOps CheckButtonCounts(string combo) {
 		buttonCount = new List<int> ();
 		buttonCount.Add (0);
 		buttonCount.Add (0);

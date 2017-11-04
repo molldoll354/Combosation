@@ -15,13 +15,15 @@ public class newInput : MonoBehaviour {
 	public bool StopButtons;
 	public int preferedLength;
 	public int maxUsage;//max usage of a combo before "overused"
-	public Combo[] premadeCombos;
+	public Combo[] premadeCombos = new Combo[5]();
 	List<Combo> comboUsage = new List<Combo> ();
 
 	//Dictionary<string, int> comboUsage;
 	// Use this for initialization
 	void Start () {
-		
+		Combo comb1 = new Combo ("AAA", 0,0,2,2,0,0 );
+		Combo comb2 = new Combo ("WWSS", );
+		Combo comb3 = new Combo ("");
 		foreach(Combo combo in premadeCombos) {///RUns slowly will need to improve
 			
 			comboUsage.Add (combo);

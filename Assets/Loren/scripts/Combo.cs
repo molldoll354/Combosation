@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Combo {
 
-
 		public string comboInput {get;set;}
 		public string comboName{get;set;}//the name of the combo if it's premade, idk if necesary.
 		public int usage{get;set;}
@@ -28,7 +27,7 @@ public class Combo {
 		comboInput = combo;
 		usage = 0;
 		comboName = "";
-		int frequentButton = ;
+		int frequentButton = (int)codeCentral.Instance.CheckButtonCounts(combo);
 		if (frequentButton == 0) {
 			friendChangePos = 1; friendChangeNeg = 0; 
 			loveChangePos = 0; loveChangeNeg=0;
