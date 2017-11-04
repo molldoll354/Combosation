@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class SakiAnswer{
-	public List<string> options;
-}
+//public class SakiAnswer{
+//	public List<string> options;
+//}
 
 public class doubleSakiArray : MonoBehaviour {
 	public List<string> questions;
