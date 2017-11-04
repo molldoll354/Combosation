@@ -22,7 +22,7 @@ public class newInput : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Combo comb1 = new Combo ("AAA", 0,0,2,2,0,0 );
-		Combo comb2 = new Combo ("WWSS", );
+		Combo comb2 = new Combo ("WWSS");
 		Combo comb3 = new Combo ("");
 		foreach(Combo combo in premadeCombos) {///RUns slowly will need to improve
 			

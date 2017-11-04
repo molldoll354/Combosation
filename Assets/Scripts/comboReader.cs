@@ -8,11 +8,11 @@ public class SakiAnswer{
 	public List<string> options;
 }
 
-public class codeCentral : MonoBehaviour {
+public class comboReader : MonoBehaviour {
 
-	private static codeCentral _instance;
+	private static comboReader _instance;
 
-	public static codeCentral Instance { get { return _instance; } }
+	public static comboReader Instance { get { return _instance; } }
 
 	enum buttonType{W = 0, A = 1, S = 2, D = 3, Tie = 4};
 
