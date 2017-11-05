@@ -206,6 +206,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1317371497}
   - component: {fileID: 1317371496}
+  - component: {fileID: 1317371498}
+  - component: {fileID: 1317371499}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -268,3 +270,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1317371498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1317371495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41c656299cf6814997fc3913c8f5275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Source: 
+  questions:
+  - a
+  - e
+  - i
+  responses:
+  - options:
+    - b
+    - c
+    - d
+    - d2
+  - options:
+    - f
+    - g
+    - h
+    - h2
+  - options:
+    - j
+    - k
+    - l
+    - l2
+  questionIndex: 0
+  finalAnswer: 0
+--- !u!114 &1317371499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1317371495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b774beaa25370d848b893941932288b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputCombo: 
+  canPlayerSpeak: 0
+  StopButtons: 0
+  preferedLength: 4
+  maxUsage: 4

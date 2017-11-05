@@ -22,8 +22,9 @@ public class comboReader : MonoBehaviour {
 
 	public List<string> questions;
 	public List<SakiAnswer> responses;
-	int questionIndex;
-	int finalAnswer;
+	public int questionIndex =0;
+	public int finalAnswer=0;
+	//public bool canPlayerSpeak = true;
 	// Use this for initialization
 
 	public enum ResponseOps{
@@ -47,22 +48,37 @@ public class comboReader : MonoBehaviour {
 
 	void Start () {
 		Debug.Log (questions [questionIndex]);
+		GetComponent<newInput> ().canPlayerSpeak = true;
 		//		buttonType mostPressedButton = CheckButtonCounts (Source);
-		//		responses [questionIndex].options [(int)mostPressedButton];
+		//responses [questionIndex].options [(int)mostPressedButton];
 		//buttonType mostPressedButton = CheckButtonCounts (Source);
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown (KeyCode.P)) {
-			gameObject.SetActive(false);
-		}
-		Debug.Log ("noPress");
-		if (Input.GetKeyDown (KeyCode.Space)) {
+//		if (Input.GetKeyDown (KeyCode.P)) {
+//			gameObject.SetActive(false);
+//		}
+//		Debug.Log ("noPress");
+//		if (Input.GetKeyDown (KeyCode.Space)) {
+//			Debug.Log (responses [questionIndex].options [(int)CheckButtonCounts(Source)]);//pull the button type into responseops
+//			questionIndex++;
+//			Debug.Log (questions [questionIndex]);
+//		}
+
+		if(GetComponent<newInput>().canPlayerSpeak == false){
+			print ("in b4 Source=Getblabblab");
+			Source = GetComponent<newInput> ().inputCombo;
+			print ("" + questionIndex+" vs "+responses.Count);
 			Debug.Log (responses [questionIndex].options [(int)CheckButtonCounts(Source)]);//pull the button type into responseops
+			print("b4 questionIndex++");
 			questionIndex++;
 			Debug.Log (questions [questionIndex]);
+			print("b4 getcomponnent<>.playercanspeak=true");
+			GetComponent<newInput> ().inputCombo = "";
+			GetComponent<newInput> ().canPlayerSpeak = true;
+
 		}
 
 	}
