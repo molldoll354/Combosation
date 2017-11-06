@@ -26,7 +26,7 @@ public class Combo {
 		public Combo(string combo){
 		comboInput = combo;
 		usage = 0;
-		comboName = "";
+		comboName = "random";
 		int frequentButton = (int)comboReader.Instance.CheckButtonCounts(combo);
 		if (frequentButton == 0) {
 			friendChangePos = 1; friendChangeNeg = 0; 

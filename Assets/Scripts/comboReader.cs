@@ -23,7 +23,7 @@ public class comboReader : MonoBehaviour {
 	public List<string> questions;
 	public List<SakiAnswer> responses;
 	public int questionIndex =0;
-	public int finalAnswer=0;
+	public int finalAnswer =0;
 	//public bool canPlayerSpeak = true;
 	// Use this for initialization
 
@@ -68,14 +68,18 @@ public class comboReader : MonoBehaviour {
 //		}
 
 		if(GetComponent<newInput>().canPlayerSpeak == false){
-			print ("in b4 Source=Getblabblab");
+			//print ("in b4 Source=Getblabblab");
 			Source = GetComponent<newInput> ().inputCombo;
-			print ("" + questionIndex+" vs "+responses.Count);
+			//print ("" + questionIndex+" vs "+responses.Count);
 			Debug.Log (responses [questionIndex].options [(int)CheckButtonCounts(Source)]);//pull the button type into responseops
-			print("b4 questionIndex++");
-			questionIndex++;
-			Debug.Log (questions [questionIndex]);
-			print("b4 getcomponnent<>.playercanspeak=true");
+			//print("b4 questionIndex++");
+			if(questionIndex < questions.Count){
+				questionIndex++;
+				Debug.Log (questions [questionIndex]);
+			} else {
+				print("convo ended");
+			}
+			//print("b4 getcomponnent<>.playercanspeak=true");
 			GetComponent<newInput> ().inputCombo = "";
 			GetComponent<newInput> ().canPlayerSpeak = true;
 
@@ -105,7 +109,8 @@ public class comboReader : MonoBehaviour {
 			}
 		}
 
-//		if (largestButtonType == buttonType.W) {
+//		what does this do y'all?
+		// if (largestButtonType == buttonType.W) {
 //			finalAnswer=(int)ResponseOps.chat;
 //		} else if (largestButtonType == buttonType.A) {
 //			finalAnswer=(int)ResponseOps.flatter;
@@ -115,7 +120,7 @@ public class comboReader : MonoBehaviour {
 //			finalAnswer=(int)ResponseOps.flirt;
 //		} else {
 //			finalAnswer = (int)ResponseOps.other;
-//		}
+//		} 
 
 		return (ResponseOps)largestButtonType;
 	}
