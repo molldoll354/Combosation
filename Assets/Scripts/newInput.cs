@@ -11,7 +11,9 @@ public class newInput : MonoBehaviour {
 //	public GameObject happyFace, sadFace, loveFace;
 //	public GameObject flatter, joke, wink, chat, neutral;
 //	public Text meterText;
-//	public Text timeText;
+	public Text timeText;
+
+	float Timer;
 
 	public bool canPlayerSpeak;//controls when the player can input a combo
 	public bool StopButtons;
@@ -27,12 +29,21 @@ public class newInput : MonoBehaviour {
 	public Sprite chatSlotSprite;
 	public Sprite jokeSlotSprite;
 	public GameObject [] buttonSlots;	
+	public soundScript audio;
+	public AudioClip flatterSound;
+	public AudioClip flirtSound;
+	public AudioClip chatSound;
+	public AudioClip jokeSound;
+	public AudioClip music;
 
 	int buttonSlotSelection = 0;
 
 	//Dictionary<string, int> comboUsage;
 	// Use this for initialization
 	void Start () {
+		Timer = 6f;
+
+		audio.Play (music);
 		canPlayerSpeak = true;
 		premadeCombos = new Combo [3];
 		premadeCombos [0] = new Combo ("ASA", "wholesome", 1, 2, 1, 0, 2, 2);
@@ -49,18 +60,22 @@ public class newInput : MonoBehaviour {
 			{
 				if (Input.GetKeyDown (KeyCode.A)) {
 					inputCombo += "A";
+					audio.Play(flatterSound);
 					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flatterSlotSprite;
 					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.W)) {
 					inputCombo += "W";
+					audio.Play(chatSound);
 					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = chatSlotSprite;
 					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.S)) {
 					inputCombo += "S";
+					audio.Play(jokeSound);
 					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = jokeSlotSprite;
 					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.D)) {
 					inputCombo += "D";
+					audio.Play(flirtSound);
 					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flirtSlotSprite;
 					buttonSlotSelection++;
 				}
@@ -68,6 +83,7 @@ public class newInput : MonoBehaviour {
 
 			if(Input.GetKeyDown(KeyCode.Space)){
 				canPlayerSpeak = false;
+				Timer = 0;
 				print ("pressed space >>"+inputCombo);
 				//GetComponentInParent<comboReader> ().Source = inputCombo;
 				//Debug.Log ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, premadeCombos));
@@ -76,9 +92,10 @@ public class newInput : MonoBehaviour {
 
 		}
 		else { 
-			if(Input.GetKeyDown(KeyCode.R)){ 
+			if(Input.GetKeyDown(KeyCode.R) && canPlayerSpeak == false){ 
 				resetSlots = true;
-
+				timeText.text = "" + Mathf.Floor (Timer);
+				Timer = 6;
 				canPlayerSpeak = true;
 				inputCombo = "";
 
@@ -93,6 +110,17 @@ public class newInput : MonoBehaviour {
 			buttonSlots [4].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
 			buttonSlotSelection = 0;
 			resetSlots = false;
+		}
+
+		timeText.text = "" + Mathf.Floor (Timer);
+
+		if (Timer >= 0) {
+			Timer -= Time.deltaTime;
+		}
+		if (Timer < 0) {
+			timeText.text = "0";
+			canPlayerSpeak = false;
+			print (""+inputCombo);
 		}
 	}
 		
