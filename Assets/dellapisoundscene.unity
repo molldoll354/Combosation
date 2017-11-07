@@ -1126,6 +1126,7 @@ GameObject:
   - component: {fileID: 737857447}
   - component: {fileID: 737857448}
   - component: {fileID: 737857449}
+  - component: {fileID: 737857450}
   m_Layer: 5
   m_Name: Game Master
   m_TagString: Untagged
@@ -1257,7 +1258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputCombo: 
   timeText: {fileID: 741510043}
-  canPlayerSpeak: 0
+  canPlayerSpeak: 1
   StopButtons: 0
   resetSlots: 0
   preferedLength: 0
@@ -1298,6 +1299,43 @@ MonoBehaviour:
   flirtGuideOn: {fileID: 1635661079}
   jokeGuideOff: {fileID: 415662473}
   jokeGuideOn: {fileID: 1904126736}
+--- !u!114 &737857450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 737857443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41c656299cf6814997fc3913c8f5275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Source: 
+  questions:
+  - 1
+  - 2
+  - 3
+  responses:
+  - options:
+    - 1a
+    - 1b
+    - 1c
+    - 1d
+    - 1e
+  - options:
+    - 2a
+    - 2b
+    - 2c
+    - 2d
+    - 2e
+  - options:
+    - 3a
+    - 3b
+    - 3c
+    - 3d
+    - 3e
+  questionIndex: 0
+  finalAnswer: 0
 --- !u!1 &741510041
 GameObject:
   m_ObjectHideFlags: 0

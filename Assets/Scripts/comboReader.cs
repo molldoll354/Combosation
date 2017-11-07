@@ -67,14 +67,19 @@ public class comboReader : MonoBehaviour {
 //			Debug.Log (questions [questionIndex]);
 //		}
 
-		if(GetComponent<newInput>().canPlayerSpeak == false){
+
+	}
+
+	public void readCombo(string Source){
+		print (Source);
 			//print ("in b4 Source=Getblabblab");
-			Source = GetComponent<newInput> ().inputCombo;
+			//Source = GetComponent<newInput> ().inputCombo;
 			//print ("" + questionIndex+" vs "+responses.Count);
 			Debug.Log (responses [questionIndex].options [(int)CheckButtonCounts(Source)]);//pull the button type into responseops
 			//print("b4 questionIndex++");
+			questionIndex++;
 			if(questionIndex < questions.Count){
-				questionIndex++;
+				
 				Debug.Log (questions [questionIndex]);
 			} else {
 				print("convo ended");
@@ -83,9 +88,12 @@ public class comboReader : MonoBehaviour {
 			GetComponent<newInput> ().inputCombo = "";
 			GetComponent<newInput> ().canPlayerSpeak = true;
 
-		}
+
+
 
 	}
+
+
 	public ResponseOps CheckButtonCounts(string combo) {
 		buttonCount = new List<int> ();
 		buttonCount.Add (0);

@@ -15,7 +15,10 @@ public class newInput : MonoBehaviour {
 
 	float Timer;
 
-	public bool canPlayerSpeak;//controls when the player can input a combo
+	int buttonSlotSelection = 0;
+
+
+	public bool canPlayerSpeak = true;//controls when the player can input a combo
 	public bool StopButtons;
 	public bool resetSlots = false;
 	public int preferedLength;
@@ -36,7 +39,7 @@ public class newInput : MonoBehaviour {
 	public AudioClip jokeSound;
 	public AudioClip music;
 
-	int buttonSlotSelection = 0;
+
 
 	//Dictionary<string, int> comboUsage;
 	// Use this for initialization
@@ -79,12 +82,16 @@ public class newInput : MonoBehaviour {
 					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flirtSlotSprite;
 					buttonSlotSelection++;
 				}
+				print ("end of if(asdw){}");
 			}
 
 			if(Input.GetKeyDown(KeyCode.Space)){
-				canPlayerSpeak = false;
-				Timer = 0;
 				print ("pressed space >>"+inputCombo);
+
+				canPlayerSpeak = false;
+				GetComponent<comboReader>().readCombo(inputCombo);
+				inputCombo = "";
+				Timer = 6;
 				//GetComponentInParent<comboReader> ().Source = inputCombo;
 				//Debug.Log ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, premadeCombos));
 				//print ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, premadeCombos, comboUsage));
@@ -96,7 +103,7 @@ public class newInput : MonoBehaviour {
 				resetSlots = true;
 				timeText.text = "" + Mathf.Floor (Timer);
 				Timer = 6;
-				canPlayerSpeak = true;
+				//canPlayerSpeak = true;
 				inputCombo = "";
 
 			}
@@ -120,6 +127,7 @@ public class newInput : MonoBehaviour {
 		if (Timer < 0) {
 			timeText.text = "0";
 			canPlayerSpeak = false;
+			GetComponent<comboReader> ().readCombo ("");
 			print (""+inputCombo);
 		}
 	}
