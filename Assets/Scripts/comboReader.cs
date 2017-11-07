@@ -24,6 +24,8 @@ public class comboReader : MonoBehaviour {
 	public List<SakiAnswer> responses;
 	public int questionIndex =0;
 	public int finalAnswer =0;
+
+	public Text dialogueText;
 	//public bool canPlayerSpeak = true;
 	// Use this for initialization
 
@@ -76,6 +78,7 @@ public class comboReader : MonoBehaviour {
 			//Source = GetComponent<newInput> ().inputCombo;
 			//print ("" + questionIndex+" vs "+responses.Count);
 			Debug.Log (responses [questionIndex].options [(int)CheckButtonCounts(Source)]);//pull the button type into responseops
+		dialogueText.text = responses [questionIndex].options [(int)CheckButtonCounts(Source)];
 			//print("b4 questionIndex++");
 			questionIndex++;
 			if(questionIndex < questions.Count){

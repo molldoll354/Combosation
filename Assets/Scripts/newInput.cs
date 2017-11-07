@@ -85,7 +85,7 @@ public class newInput : MonoBehaviour {
 				print ("end of if(asdw){}");
 			}
 
-			if(Input.GetKeyDown(KeyCode.Space)){
+			if(Input.GetKeyDown(KeyCode.Space) && canPlayerSpeak == true){
 				print ("pressed space >>"+inputCombo);
 
 				canPlayerSpeak = false;
@@ -99,7 +99,7 @@ public class newInput : MonoBehaviour {
 
 		}
 		else { 
-			if(Input.GetKeyDown(KeyCode.R) && canPlayerSpeak == false){ 
+			if(Input.GetKeyDown(KeyCode.Space) && canPlayerSpeak == false){ 
 				resetSlots = true;
 				timeText.text = "" + Mathf.Floor (Timer);
 				Timer = 6;
