@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class newInput : MonoBehaviour {
 	public string inputCombo="";
 
+
+
 //	public GameObject happyFace, sadFace, loveFace;
 //	public GameObject flatter, joke, wink, chat, neutral;
 //	public Text meterText;
@@ -13,14 +15,25 @@ public class newInput : MonoBehaviour {
 
 	public bool canPlayerSpeak;//controls when the player can input a combo
 	public bool StopButtons;
+	public bool resetSlots = false;
 	public int preferedLength;
 	public int maxUsage;//max usage of a combo before "overused"
 	public Combo[] premadeCombos;
 	List<Combo> comboUsage = new List<Combo> ();
 
+	public Sprite blankSlotSprite; //sprites and array to control the button icons
+	public Sprite flatterSlotSprite;
+	public Sprite flirtSlotSprite;
+	public Sprite chatSlotSprite;
+	public Sprite jokeSlotSprite;
+	public GameObject [] buttonSlots;	
+
+	int buttonSlotSelection = 0;
+
 	//Dictionary<string, int> comboUsage;
 	// Use this for initialization
 	void Start () {
+		canPlayerSpeak = true;
 		premadeCombos = new Combo [3];
 		premadeCombos [0] = new Combo ("ASA", "wholesome", 1, 2, 1, 0, 2, 2);
 		premadeCombos [1] = new Combo ("WWSS","standup special", 4, 3, 0,0,1,2 );
@@ -29,18 +42,27 @@ public class newInput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (resetSlots);
 		//Get player input. 
 		if (canPlayerSpeak == true ) {
 			if(inputCombo.Length < 5 )
 			{
 				if (Input.GetKeyDown (KeyCode.A)) {
 					inputCombo += "A";
+					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flatterSlotSprite;
+					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.W)) {
 					inputCombo += "W";
+					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = chatSlotSprite;
+					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.S)) {
 					inputCombo += "S";
+					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = jokeSlotSprite;
+					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.D)) {
 					inputCombo += "D";
+					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flirtSlotSprite;
+					buttonSlotSelection++;
 				}
 			}
 
@@ -55,13 +77,25 @@ public class newInput : MonoBehaviour {
 		}
 		else { 
 			if(Input.GetKeyDown(KeyCode.R)){ 
+				resetSlots = true;
+
 				canPlayerSpeak = true;
 				inputCombo = "";
 
 			}
 		}
-	}
 
+		if (resetSlots == true) {
+			buttonSlots [0].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
+			buttonSlots [1].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
+			buttonSlots [2].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
+			buttonSlots [3].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
+			buttonSlots [4].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
+			buttonSlotSelection = 0;
+			resetSlots = false;
+		}
+	}
+		
 	//<-------------------------------Functions----------------------->
 
 	//compareCombo v2, now uses/needs a dictionary

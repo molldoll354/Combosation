@@ -1256,21 +1256,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputCombo: 
-  happyFace: {fileID: 983620032}
-  sadFace: {fileID: 921618377}
-  loveFace: {fileID: 1867040481}
-  flatter: {fileID: 0}
-  joke: {fileID: 0}
-  wink: {fileID: 0}
-  chat: {fileID: 0}
-  neutral: {fileID: 0}
-  meterText: {fileID: 1515157528}
-  timeText: {fileID: 741510043}
-  comboOver: 0
+  canPlayerSpeak: 0
   StopButtons: 0
+  resetSlots: 0
   preferedLength: 0
   maxUsage: 0
-  combos: []
+  blankSlotSprite: {fileID: 21300000, guid: b255a3ba6ce849f438303993c75e3ecb, type: 3}
+  flatterSlotSprite: {fileID: 21300000, guid: 8b3fed4df26ded443b043515c594fd52, type: 3}
+  flirtSlotSprite: {fileID: 21300000, guid: 0d49ad7a7bd909b4cb075ee950bed419, type: 3}
+  chatSlotSprite: {fileID: 21300000, guid: 17f96bb1db46ecf4196a562099deed78, type: 3}
+  jokeSlotSprite: {fileID: 21300000, guid: facd5c938296d4540a9807b29a6affe1, type: 3}
+  buttonSlots:
+  - {fileID: 1422896374}
+  - {fileID: 735911010}
+  - {fileID: 697249017}
+  - {fileID: 1175214222}
+  - {fileID: 954785975}
 --- !u!114 &737857449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3205,7 +3206,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b905c3f96fa0e7c46a1a27c859e87dad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
