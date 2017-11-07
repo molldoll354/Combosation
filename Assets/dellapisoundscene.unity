@@ -140,7 +140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.48721054, y: 0}
   m_AnchorMax: {x: 0.48721054, y: 0}
-  m_AnchoredPosition: {x: -33.25, y: 85}
+  m_AnchoredPosition: {x: -33.25, y: 86}
   m_SizeDelta: {x: 451.1, y: 84.600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &82548620
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7a6381c3121e2b247aa5c57bdbc2d9cc, type: 3}
     m_FontSize: 48
-    m_FontStyle: 0
+    m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 48
@@ -1194,8 +1194,7 @@ MonoBehaviour:
   - ' Is there something you wanted to tell me?'
   - "If you want we can meet up for class or something and study if you\u2019d like!"
   - Wait a minute, are you asking me out?
-  - "You know what, yeah! I\u2019ll see you there!"
-  - 
+  - Hello
   responses:
   - options:
     - Yeah, I just got outta class myself.
@@ -1252,11 +1251,13 @@ MonoBehaviour:
     - "I just wish you would\u2019ve asked sooner! "
     - You sound a bit nervous, are you nervous?
   - options:
-    - "You know what, yeah! I\u2019ll see you there!"
-    - "You know what, yeah! I\u2019ll see you there!"
-    - "You know what, yeah! I\u2019ll see you there!"
-    - "You know what, yeah! I\u2019ll see you there!"
-    - "You know what, yeah! I\u2019ll see you there!"
+    - 
+    - 
+    - 
+    - 
+    - 
+  - options:
+    - 
   questionIndex: 0
   finalAnswer: 0
 --- !u!114 &737857451
@@ -1707,7 +1708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &921618378
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2205,7 +2206,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -42, y: 135}
+  m_AnchoredPosition: {x: -42, y: 133}
   m_SizeDelta: {x: 451.1, y: 84.600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1515157528
@@ -2262,7 +2263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1624203858
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2404,7 +2405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1867040482
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ public class comboReader : MonoBehaviour {
 	public List<SakiAnswer> responses;
 	public int questionIndex =0;
 	public int finalAnswer =0;
-	public int statChecker = 0;
+	public int statChecker;
 	public Text dialogueText;
 	public Text questionText;
 	//public bool canPlayerSpeak = true;
@@ -55,13 +55,16 @@ public class comboReader : MonoBehaviour {
 		//		buttonType mostPressedButton = CheckButtonCounts (Source);
 		//responses [questionIndex].options [(int)mostPressedButton];
 		//buttonType mostPressedButton = CheckButtonCounts (Source);
+		statChecker=0;
 	}
 
 	// Update is called once per frame
 	void Update () {
+		
 		if (Input.GetKeyDown (KeyCode.R)) {
 			Application.LoadLevel ("dellapisoundscene");
 		}
+
 //		if (Input.GetKeyDown (KeyCode.P)) {
 //			gameObject.SetActive(false);
 //		}
@@ -72,116 +75,25 @@ public class comboReader : MonoBehaviour {
 //			Debug.Log (questions [questionIndex]);
 	
 //		}
-		if (!Input.GetKeyDown (KeyCode.Space)) {
+		if (!Input.GetKeyDown (KeyCode.Space)&&questionIndex!=9) {
 			questionText.text = questions [questionIndex];
 		}
 
-		if(questionIndex==0){
-			if((int)CheckButtonCounts(Source)==0||(int)CheckButtonCounts(Source)==2){
-				statChecker+=1;
-			}
-			}
-		if(questionIndex==1){
-			if((int)CheckButtonCounts(Source)==1||(int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==0){
-				statChecker+=1;
-			}
-			if ((int)CheckButtonCounts (Source) == 2 || (int)CheckButtonCounts (Source) == 3) {
-				statChecker -=1;
-			}
-		}
-		if(questionIndex==2){
-			if((int)CheckButtonCounts(Source)==0||(int)CheckButtonCounts(Source)==1){
-				statChecker+=1;
-			}
-			if(((int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==3)){
-				statChecker-=1;
-			}
-		}
-		if(questionIndex==3){
-			if((int)CheckButtonCounts(Source)==1||(int)CheckButtonCounts(Source)==0){
-				statChecker+=1;
-			}
-			if(((int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==3)){
-						statChecker-=1;
-					}
-		}
-		if(questionIndex==4){
-			if((int)CheckButtonCounts(Source)==0||(int)CheckButtonCounts(Source)==1){
-				statChecker+=1;
-			}
-			if(((int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==3)){
-				statChecker-=1;
-				}
-		}
-		if(questionIndex==5){
-			if((int)CheckButtonCounts(Source)==3||(int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==1||(int)CheckButtonCounts(Source)==0){
-				statChecker+=1;
-			}
 
-		}
-		if(questionIndex==6){
-			if((int)CheckButtonCounts(Source)==3||(int)CheckButtonCounts(Source)==1){
-				statChecker+=1;
-			}
-			if(((int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==0)){
-				statChecker-=1;
-			}
-		}
-		if(questionIndex==7){
-			if((int)CheckButtonCounts(Source)==3 ||(int)CheckButtonCounts(Source)==1){
-				statChecker+=1;
-			}
-			if(((int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==0)){
-				statChecker-=1;
-			}
-		}
-		if(questionIndex==8){
-			if((int)CheckButtonCounts(Source)==3||(int)CheckButtonCounts(Source)==1){
-				statChecker+=1;
-			}
-			if(((int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==0)){
-				statChecker-=1;
-			}
-		}
-		if(questionIndex==9){
-			if((int)CheckButtonCounts(Source)==3||(int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==1||(int)CheckButtonCounts(Source)==0||(int)CheckButtonCounts(Source)==4){
-				statChecker+=1;
-			}
-		}
-		if (questionIndex == 10) {
-			if (statChecker == 10) {
-				questionText.text = "Combostaion Grade:";
-				dialogueText.text = "S+ ! You're a dating master!";
-			}
-			if (statChecker>=7 && statChecker<10) {
-				questionText.text = "Combosation Grade:";
-				dialogueText.text= "B! You're passable! Have fun on the date!";
-			}
-			if (statChecker >= 5 && statChecker < 7) {
-				questionText.text = "Combosation Grade:";
-				dialogueText.text = "C! Could be worse, but she tolaterates you!";
-			}
-			if(statChecker>=0 && statChecker < 5){
-				questionText.text = "Combosation Grade:";
-				dialogueText.text = "D! This is gonna be a weird date!";
-			}
-			if (statChecker <= 0) {
-				questionText.text = "Combosation Grade:";
-				dialogueText.text = "F- ! Yikes! You're terrible!";
-			}
-		}
 
 	}
 
 	public void readCombo(string Source){
-
+		Debug.Log("Reader"+Source);
 
 		print (Source);
 			//print ("in b4 Source=Getblabblab");
 			//Source = GetComponent<newInput> ().inputCombo;
 			//print ("" + questionIndex+" vs "+responses.Count);
-			Debug.Log (responses [questionIndex].options [(int)CheckButtonCounts(Source)]);//pull the button type into responseops
-		dialogueText.text = responses [questionIndex].options [(int)CheckButtonCounts(Source)];
+			Debug.Log ("welcome" +responses [questionIndex].options [(int)CheckButtonCounts(Source)]);//pull the button type into responseops
+
+			dialogueText.text = responses [questionIndex].options [(int)CheckButtonCounts (Source)];
+		
 			//print("b4 questionIndex++");
 			questionIndex++;
 			if(questionIndex < questions.Count){
@@ -195,9 +107,101 @@ public class comboReader : MonoBehaviour {
 			GetComponent<newInput> ().canPlayerSpeak = true;
 
 
+			if(questionIndex==0){
+				Debug.Log("Update"+Source);
+				if((int)CheckButtonCounts(Source)==0||(int)CheckButtonCounts(Source)==2){
 
+					statChecker+=1;
+				}
+			}
+			if(questionIndex==1){
+				if((int)CheckButtonCounts(Source)==1||(int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==0){
+					statChecker+=1;
+				}
+				if ((int)CheckButtonCounts (Source) == 2 || (int)CheckButtonCounts (Source) == 3) {
+					statChecker -=1;
+				}
+			}
+			if(questionIndex==2){
+				if((int)CheckButtonCounts(Source)==0||(int)CheckButtonCounts(Source)==1){
+					statChecker+=1;
+				}
+				if(((int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==3)){
+					statChecker-=1;
+				}
+			}
+			if(questionIndex==3){
+				if((int)CheckButtonCounts(Source)==1||(int)CheckButtonCounts(Source)==0){
+					statChecker+=1;
+				}
+				if(((int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==3)){
+					statChecker-=1;
+				}
+			}
+			if(questionIndex==4){
+				if((int)CheckButtonCounts(Source)==0||(int)CheckButtonCounts(Source)==1){
+					statChecker+=1;
+				}
+				if(((int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==3)){
+					statChecker-=1;
+				}
+			}
+			if(questionIndex==5){
+				if((int)CheckButtonCounts(Source)==3||(int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==1||(int)CheckButtonCounts(Source)==0){
+					statChecker+=1;
+				}
+
+			}
+			if(questionIndex==6){
+				if((int)CheckButtonCounts(Source)==3||(int)CheckButtonCounts(Source)==1){
+					statChecker+=1;
+				}
+				if(((int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==0)){
+					statChecker-=1;
+				}
+			}
+			if(questionIndex==7){
+				if((int)CheckButtonCounts(Source)==3 ||(int)CheckButtonCounts(Source)==1){
+					statChecker+=1;
+				}
+				if(((int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==0)){
+					statChecker-=1;
+				}
+			}
+			if(questionIndex==8){
+				if((int)CheckButtonCounts(Source)==3||(int)CheckButtonCounts(Source)==1){
+					statChecker+=1;
+				}
+				if(((int)CheckButtonCounts(Source)==2||(int)CheckButtonCounts(Source)==0)){
+					statChecker-=1;
+				}
+			}
+
+			if (questionIndex == 9) {
+				if (statChecker == 10) {
+					dialogueText.text = "Combosation Grade:";
+					questionText.text = "S+ ! You're a dating master!";
+				}
+				if (statChecker>=7 && statChecker<10) {
+					dialogueText.text = "Combosation Grade:";
+					questionText.text= "B! You're passable! Have fun on the date!";
+				}
+				if (statChecker >= 5 && statChecker < 7) {
+					dialogueText.text = "Combosation Grade:";
+					questionText.text = "C! Could be worse, but she tolaterates you!";
+				}
+				if(statChecker>=0 && statChecker < 5){
+					dialogueText.text = "Combosation Grade:";
+					questionText.text = "D! This is gonna be a weird date!";
+				}
+				if (statChecker <= 0) {
+					dialogueText.text = "Combosation Grade:";
+					questionText.text = "F- ! Yikes! You're terrible!";
+				}
+			}
 
 	}
+
 
 
 	public ResponseOps CheckButtonCounts(string combo) {
