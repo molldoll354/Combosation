@@ -23,8 +23,8 @@ public class newInput : MonoBehaviour {
 	public bool resetSlots = false;
 	public int preferedLength;
 	public int maxUsage;//max usage of a combo before "overused"
-	public Combo[] premadeCombos;
-	List<Combo> comboUsage = new List<Combo> ();
+	public tempCombo[] premadeCombos;
+	List<tempCombo> comboUsage = new List<tempCombo> ();
 
 	public Sprite blankSlotSprite; //sprites and array to control the button icons
 	public Sprite flatterSlotSprite;
@@ -48,10 +48,10 @@ public class newInput : MonoBehaviour {
 
 		audio.Play (music);
 		canPlayerSpeak = true;
-		premadeCombos = new Combo [3];
-		premadeCombos [0] = new Combo ("ASA", "wholesome", 1, 2, 1, 0, 2, 2);
-		premadeCombos [1] = new Combo ("WWSS","standup special", 4, 3, 0,0,1,2 );
-		premadeCombos [2] = new Combo ("DSSWD", "smooth criminal", 4,4,4,4,0,2);
+		premadeCombos = new tempCombo [3];
+		premadeCombos [0] = new tempCombo ("ASA", "wholesome", 2, "" ); //1, 2, 1, 0, 2, 2);
+		premadeCombos [1] = new tempCombo ("WWSS","standup special", 2,"");//4, 3, 0,0,1,2 );
+		premadeCombos [2] = new tempCombo ("DSSWD", "smooth criminal",1,""); //4,4,4,4,0,2);
 	}
 	
 	// Update is called once per frame
