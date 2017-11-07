@@ -108,6 +108,80 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &82548618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 82548619}
+  - component: {fileID: 82548621}
+  - component: {fileID: 82548620}
+  m_Layer: 5
+  m_Name: Question Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &82548619
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 82548618}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5700825, y: 0.5700825, z: 0.5700825}
+  m_Children: []
+  m_Father: {fileID: 802707526}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.48721054, y: 0}
+  m_AnchorMax: {x: 0.48721054, y: 0}
+  m_AnchoredPosition: {x: -33.25, y: 85}
+  m_SizeDelta: {x: 451.1, y: 84.600006}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &82548620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 82548618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7a6381c3121e2b247aa5c57bdbc2d9cc, type: 3}
+    m_FontSize: 48
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 48
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &82548621
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 82548618}
 --- !u!1 &93123259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,7 +1090,7 @@ MonoBehaviour:
   lovelyBar: {fileID: 0}
   friendlyBar: {fileID: 0}
   sound: {fileID: 1165465019}
-  flatterSound: {fileID: 8300000, guid: 8f714bd91fcc45a45aeb64471d6919d6, type: 3}
+  flatterSound: {fileID: 8300000, guid: bdb9f5f5bd1e15e44bacf92ba014168c, type: 3}
   winkSound: {fileID: 8300000, guid: 4247a519d3336a149bb4ca128bed5824, type: 3}
   chatSound: {fileID: 8300000, guid: 2ee7ad0631703f94a9175a55a916123b, type: 3}
   jokeSound: {fileID: 8300000, guid: bdb9f5f5bd1e15e44bacf92ba014168c, type: 3}
@@ -1072,7 +1146,7 @@ MonoBehaviour:
   - {fileID: 1175214222}
   - {fileID: 954785975}
   audio: {fileID: 1165465019}
-  flatterSound: {fileID: 8300000, guid: 8f714bd91fcc45a45aeb64471d6919d6, type: 3}
+  flatterSound: {fileID: 8300000, guid: bdb9f5f5bd1e15e44bacf92ba014168c, type: 3}
   flirtSound: {fileID: 8300000, guid: 4247a519d3336a149bb4ca128bed5824, type: 3}
   chatSound: {fileID: 8300000, guid: 2ee7ad0631703f94a9175a55a916123b, type: 3}
   jokeSound: {fileID: 8300000, guid: bdb9f5f5bd1e15e44bacf92ba014168c, type: 3}
@@ -1109,31 +1183,83 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Source: 
   questions:
-  - 1
-  - 2
-  - 3
+  - "Hey, it\u2019s been a while! You look kinda out of breath, what\u2019s up?"
+  - So how was your summer break?
+  - How was mine? Oh, uh...it was ok, lots of ups and downs...
+  - Me and Ryun broke up pretty early on during the break.
+  - "Yep, looks like I\u2019ve got the rest of my lonely life ahead of me."
+  - Sorry to bring the whole mood down though, I guess I should be going now.
+  - ' Is there something you wanted to tell me?'
+  - "If you want we can meet up for class or something and study if you\u2019d like!"
+  - Wait a minute, are you asking me out?
+  - "You know what, yeah! I\u2019ll see you there!"
+  - 
   responses:
   - options:
-    - 1a
-    - 1b
-    - 1c
-    - 1d
-    - 1e
+    - Yeah, I just got outta class myself.
+    - "Um, wasn\u2019t really expecting you to say that..."
+    - "*laughs* Sure, ok. I\u2019m sure that happened"
+    - "Uhh\u2026that\u2019s kind of weird\u2026"
+    - Hm? I don't really follow.
   - options:
-    - 2a
-    - 2b
-    - 2c
-    - 2d
-    - 2e
+    - Yeah, it was nice to take a break from things for a while.
+    - Aw, I missed you too!
+    - "Hmm, well if sleeping were an Olympic sport you\u2019d be at least a Bronze."
+    - "Wow, you\u2019d think all that training would show a bit more. Haha! "
+    - Huh?
   - options:
-    - 3a
-    - 3b
-    - 3c
-    - 3d
-    - 3e
+    - Yeah, it was fun and all but...
+    - "That\u2019s sweet, yeah I would like to talk about it if you don\u2019t mind."
+    - "\u201CDid I go to an amusement park,\u201D ugh, you\u2019re such a clown!"
+    - How would you being there help?
+    - What was that?
+  - options:
+    - Thanks, I appreciate it.
+    - "You\u2019re right, I do deserve better than him. "
+    - Haha, yeah I guess he was a bit of a meathead.
+    - Yikes, the wounds are still a little fresh ya know?
+    - You're talking a bit too fast...
+  - options:
+    - "That\u2019s true, I do have a friend like you to count on."
+    - You really mean that?
+    - "I mean, a sparring partner won\u2019t go to the prom with me! "
+    - "Wow, that\u2019s pretty forward coming from you."
+    - Excuse me?
+  - options:
+    - Huh? You want me to stay?
+    - Huh? You want me to stay?
+    - Huh? You want me to stay?
+    - Huh? You want me to stay?
+    - Huh? You want me to stay?
+  - options:
+    - "Yeah, I\u2019m really glad I got to see you again too. "
+    - "Aw, I\u2019m blushing!"
+    - "Haha, haven\u2019t heard that one before. Is that all though?"
+    - 'Wow, this is really unexpected...not that I mind! '
+    - I didn't quite catch that.
+  - options:
+    - Cool, we can meet at the library!
+    - Why would we study at a restaurant-Oh!
+    - "Ok, it won\u2019t be that bad! And stop being so dramatic!"
+    - "O-oh, I didn\u2019t know you meant something like that! Interesting\u2026"
+    - Woah woah, slow down!
+  - options:
+    - Oh, just getting food then, alright.
+    - Ya know, I think it would be really nice to get out with you.
+    - A yes or no would suffice!
+    - "I just wish you would\u2019ve asked sooner! "
+    - You sound a bit nervous, are you nervous?
+  - options:
+    - "You know what, yeah! I\u2019ll see you there!"
+    - "You know what, yeah! I\u2019ll see you there!"
+    - "You know what, yeah! I\u2019ll see you there!"
+    - "You know what, yeah! I\u2019ll see you there!"
+    - "You know what, yeah! I\u2019ll see you there!"
   questionIndex: 0
   finalAnswer: 0
+  statChecker: 0
   dialogueText: {fileID: 1515157528}
+  questionText: {fileID: 82548620}
 --- !u!1 &741510041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,15 +1285,15 @@ RectTransform:
   m_GameObject: {fileID: 741510041}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.60574967, y: 0.60574967, z: 0.60574967}
   m_Children: []
   m_Father: {fileID: 802707526}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 230, y: -104.2}
-  m_SizeDelta: {x: 215.1, y: 40.3}
+  m_AnchorMin: {x: 0.106403515, y: 0.8124719}
+  m_AnchorMax: {x: 0.29500002, y: 0.89500004}
+  m_AnchoredPosition: {x: -24, y: -0.5}
+  m_SizeDelta: {x: 81.100006, y: 7.300003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &741510043
 MonoBehaviour:
@@ -1190,11 +1316,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 12dd231fd7702ab478fd662dae489f54, type: 3}
-    m_FontSize: 50
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 50
+    m_MinSize: 1
+    m_MaxSize: 107
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1295,6 +1421,7 @@ RectTransform:
   m_Children:
   - {fileID: 1515157527}
   - {fileID: 741510042}
+  - {fileID: 82548619}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1958,7 +2085,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -42, y: 78.84}
+  m_AnchoredPosition: {x: -42, y: 135}
   m_SizeDelta: {x: 451.1, y: 84.600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1515157528
@@ -1993,7 +2120,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1515157529
 CanvasRenderer:
   m_ObjectHideFlags: 0

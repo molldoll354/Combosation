@@ -14,6 +14,7 @@ public class newInput : MonoBehaviour {
 	public Text timeText;
 
 	float Timer;
+	float TimerLength = 8;
 
 	int buttonSlotSelection = 0;
 
@@ -44,10 +45,11 @@ public class newInput : MonoBehaviour {
 	//Dictionary<string, int> comboUsage;
 	// Use this for initialization
 	void Start () {
-		Timer = 6f;
+		
+		Timer = 8;
 
 		audio.Play (music);
-		canPlayerSpeak = true;
+		canPlayerSpeak = true; 
 		premadeCombos = new tempCombo [3];
 		premadeCombos [0] = new tempCombo ("ASA", "wholesome", 2, "" ); //1, 2, 1, 0, 2, 2);
 		premadeCombos [1] = new tempCombo ("WWSS","standup special", 2,"");//4, 3, 0,0,1,2 );
@@ -56,6 +58,8 @@ public class newInput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+	
 		Debug.Log (resetSlots);
 		//Get player input. 
 		if (canPlayerSpeak == true ) {
@@ -87,11 +91,11 @@ public class newInput : MonoBehaviour {
 
 			if(Input.GetKeyDown(KeyCode.Space) && canPlayerSpeak == true){
 				print ("pressed space >>"+inputCombo);
-
+				resetSlots = true;
 				canPlayerSpeak = false;
 				GetComponent<comboReader>().readCombo(inputCombo);
 				inputCombo = "";
-				Timer = 6;
+				Timer = 8;
 				//GetComponentInParent<comboReader> ().Source = inputCombo;
 				//Debug.Log ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, premadeCombos));
 				//print ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, premadeCombos, comboUsage));
@@ -101,8 +105,11 @@ public class newInput : MonoBehaviour {
 		else { 
 			if(Input.GetKeyDown(KeyCode.Space) && canPlayerSpeak == false){ 
 				resetSlots = true;
+
 				timeText.text = "" + Mathf.Floor (Timer);
-				Timer = 6;
+				//print ("timer is" + Timer);
+				Timer = 8;
+				//print ("timer is now " + Timer);
 				//canPlayerSpeak = true;
 				inputCombo = "";
 
