@@ -10,9 +10,9 @@ public class SakiAnswer2{
 
 public class comboReader2 : MonoBehaviour {
 
-	private static comboReader _instance;
+	private static comboReader2 _instance;
 
-	public static comboReader Instance { get { return _instance; } }
+	public static comboReader2 Instance { get { return _instance; } }
 
 	enum buttonType{W = 0, A = 1, S = 2, D = 3, Tie = 4};
 

@@ -1125,8 +1125,10 @@ GameObject:
   - component: {fileID: 737857444}
   - component: {fileID: 737857447}
   - component: {fileID: 737857448}
+  - component: {fileID: 737857452}
   - component: {fileID: 737857449}
   - component: {fileID: 737857450}
+  - component: {fileID: 737857451}
   m_Layer: 5
   m_Name: Game Master
   m_TagString: Untagged
@@ -1251,7 +1253,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 737857443}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b774beaa25370d848b893941932288b7, type: 3}
   m_Name: 
@@ -1305,7 +1307,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 737857443}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e41c656299cf6814997fc3913c8f5275, type: 3}
   m_Name: 
@@ -1336,6 +1338,124 @@ MonoBehaviour:
     - 3e
   questionIndex: 0
   finalAnswer: 0
+--- !u!114 &737857451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 737857443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2506a20a39f5f94f889f97f34d66a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Source: 
+  questions:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  responses:
+  - options:
+    - a1
+    - a2
+    - a3
+    - a4
+    - a5
+  - options:
+    - b1
+    - b2
+    - b3
+    - b4b
+    - b5
+  - options:
+    - c1
+    - c2
+    - c3
+    - c4
+    - c5
+  - options:
+    - d1
+    - d2
+    - d3
+    - d4
+    - d5
+  - options:
+    - e1
+    - e2
+    - e3
+    - e4
+    - e5
+  - options:
+    - f1
+    - f2
+    - f3
+    - f4
+    - f5
+  - options:
+    - g1
+    - g2
+    - g3
+    - g4
+    - g5
+  - options:
+    - h1
+    - h2
+    - h3
+    - h4
+    - h5
+  - options:
+    - i1
+    - i2
+    - i3
+    - i4
+    - i5
+  - options:
+    - j1
+    - j2
+    - j3
+    - j4
+    - j5
+  questionIndex: 0
+  finalAnswer: 0
+--- !u!114 &737857452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 737857443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e873fb0e40265645b8f812f8161dcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputCombo: 
+  timeText: {fileID: 741510043}
+  buttonSlotSelection: 0
+  canPlayerSpeak: 1
+  StopButtons: 0
+  resetSlots: 0
+  preferedLength: 0
+  maxUsage: 0
+  preMadeCombos: []
+  blankSlotSprite: {fileID: 21300000, guid: b255a3ba6ce849f438303993c75e3ecb, type: 3}
+  flatterSlotSprite: {fileID: 21300000, guid: 8b3fed4df26ded443b043515c594fd52, type: 3}
+  flirtSlotSprite: {fileID: 21300000, guid: 0d49ad7a7bd909b4cb075ee950bed419, type: 3}
+  chatSlotSprite: {fileID: 21300000, guid: 17f96bb1db46ecf4196a562099deed78, type: 3}
+  jokeSlotSprite: {fileID: 21300000, guid: facd5c938296d4540a9807b29a6affe1, type: 3}
+  buttonSlots: []
+  audio: {fileID: 1165465019}
+  flatterSound: {fileID: 8300000, guid: 8f714bd91fcc45a45aeb64471d6919d6, type: 3}
+  flirtSound: {fileID: 8300000, guid: 4247a519d3336a149bb4ca128bed5824, type: 3}
+  chatSound: {fileID: 8300000, guid: 2ee7ad0631703f94a9175a55a916123b, type: 3}
+  jokeSound: {fileID: 8300000, guid: bdb9f5f5bd1e15e44bacf92ba014168c, type: 3}
+  music: {fileID: 8300000, guid: 62b85c58ee544bd40a85e20b6ff71697, type: 3}
 --- !u!1 &741510041
 GameObject:
   m_ObjectHideFlags: 0

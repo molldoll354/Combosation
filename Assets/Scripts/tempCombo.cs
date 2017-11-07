@@ -24,11 +24,7 @@ public class tempCombo {
 	}
 
 
-	public void increaseUsage(int i){
-		usage += i;
-	}
-
-	public void increaseUsage()
+		public void increaseUsage()
 	{
 		usage++;
 	}

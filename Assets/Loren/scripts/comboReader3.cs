@@ -4,20 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class SakiAnswer2{
+public class SakiAnswer3{
 	public List<string> options;
 }
 
-public class comboReader2 : MonoBehaviour {
+public class comboReader3 : MonoBehaviour {
 
-	private static comboReader _instance;
+	private static comboReader3 _instance;
 
-	public static comboReader Instance { get { return _instance; } }
+	public static comboReader3 Instance { get { return _instance; } }
 
 	enum buttonType{W = 0, A = 1, S = 2, D = 3, Tie = 4};
 
 	public string Source;
-
+	public string[,] preREsponses;
+	public List<string> preMadeCombos; //first is for the input command, the second is for the response
 	List <int> buttonCount;
 
 	public List<string> questions;
@@ -27,7 +28,7 @@ public class comboReader2 : MonoBehaviour {
 	//public bool canPlayerSpeak = true;
 	// Use this for initialization
 
-	public enum ResponseOps{
+	public enum ResponseOps3{
 		chat=0,
 		flirt=1,
 		joke=2,
@@ -47,6 +48,14 @@ public class comboReader2 : MonoBehaviour {
 	}
 
 	void Start () {
+		preREsponses = new string[3,2] { 
+			{"ASA","fake news"},
+			{"WWSS", "news that aint true"},
+			{"DSSWD", "true news"}};
+//		preREsponses[0,0] = new string[,] {"ASA","fake news"};
+//		preREsponses [1,0] = new string[,]{"WWSS", "news that aint true"};
+//		preREsponses [2,0] = new string[,]{"DSSWD", "true news"};
+		preMadeCombos = GetComponent<newInput1> ().preMadeCombos;
 		Debug.Log (questions [questionIndex]);
 		GetComponent<newInput> ().canPlayerSpeak = true;
 		//		buttonType mostPressedButton = CheckButtonCounts (Source);
@@ -75,8 +84,17 @@ public class comboReader2 : MonoBehaviour {
 			//print ("in b4 Source=Getblabblab");
 			//Source = GetComponent<newInput> ().inputCombo;
 			//print ("" + questionIndex+" vs "+responses.Count);
+			
+		if(Source.Equals("ASA")){
+			print ("ASA waS USED" );
+		}else if (Source.Equals("WWSS")){
+			print ("WWSS was used");
+		}else if(Source.Equals("DSSWD")){
+			print ("DSSWD was used");
+		}
+		else{
 			Debug.Log (responses [questionIndex].options [(int)CheckButtonCounts(Source)]);//pull the button type into responseops
-			//print("b4 questionIndex++");
+		}//print("b4 questionIndex++");
 			questionIndex++;
 			if(questionIndex < questions.Count){
 				
@@ -92,9 +110,52 @@ public class comboReader2 : MonoBehaviour {
 
 
 	}
+	public void readCombo(tempCombo combo){
+		if(combo.comboName!= "random"){
+			print (responses [questionIndex].options [combo.comboType]); 
+		}
+		else{
+			print (combo.comboResponse);
+		}
+		questionIndex++;
+		if(questionIndex < questions.Count){
+
+			Debug.Log (questions [questionIndex]);
+		} else {
+			print("convo ended");
+		}
+		//print("b4 getcomponnent<>.playercanspeak=true");
+		//GetComponent<newInput> ().inputCombo = "";
+		//GetComponent<newInput> ().canPlayerSpeak = true;
+
+	}
+
+	public bool contains(string combo, List<string> totalCombos){
+		bool onList = false;
+		foreach (string wombo in totalCombos){
+			int i = 0;
+			if(totalCombos[i].Equals(combo)){onList = true; break;}
+			i++;
+		}
+		return onList;
+	}
+	public int findIndex(string combo, string[,] totalCombos){
+		int index = -1;
+		foreach (string wombo in totalCombos){
+			int i = 0;
+			if(totalCombos[i,0].Equals(combo)){
+				index = i; 
+				print ("index has changed");
+				break;
+
+			}
+			i++;
+		}
+		return index;
+	}
 
 
-	public ResponseOps CheckButtonCounts(string combo) {
+	public ResponseOps3 CheckButtonCounts(string combo) {
 		buttonCount = new List<int> ();
 		buttonCount.Add (0);
 		buttonCount.Add (0);
@@ -130,7 +191,7 @@ public class comboReader2 : MonoBehaviour {
 //			finalAnswer = (int)ResponseOps.other;
 //		} 
 
-		return (ResponseOps)largestButtonType;
+		return (ResponseOps3)largestButtonType;
 	}
 
 }
