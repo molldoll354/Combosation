@@ -99,7 +99,7 @@ public class newInput1 : MonoBehaviour {
 				print ("pressed space >>"+inputCombo);
 
 				canPlayerSpeak = false;
-				GetComponent<comboReader3>().readCombo(inputCombo);
+				GetComponent<comboReader>().readCombo(inputCombo);
 				inputCombo = "";
 				Timer = 6;
 				canPlayerSpeak = true;
