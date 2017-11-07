@@ -163,7 +163,7 @@ public class comboReader : MonoBehaviour {
 			}
 			if(statChecker>=0 && statChecker < 5){
 				questionText.text = "Combosation Grade:";
-				dialogueText.text= "D! This is gonna be a weird date!"
+				dialogueText.text = "D! This is gonna be a weird date!";
 			}
 			if (statChecker <= 0) {
 				questionText.text = "Combosation Grade:";
