@@ -24,8 +24,10 @@ public class comboReader : MonoBehaviour {
 	public List<SakiAnswer> responses;
 	public int questionIndex =0;
 	public int finalAnswer =0;
-	public int statChecker;
+
+	public int statChecker;//checks mood over time going from sad to happy
 	public int chatChecker, flatterChecker, flirtChecker, jokeChecker;
+
 	public Text dialogueText;
 	public Text questionText;
 	//public bool canPlayerSpeak = true;
@@ -125,17 +127,17 @@ public class comboReader : MonoBehaviour {
 			if(questionIndex==0){
 				Debug.Log("Update"+Source);
 			if ((int)CheckButtonCounts (Source) == 0) {
-				statChecker += 1;
+				statChecker += 3;
 				chatChecker += 1;
 			}
 			if((int)CheckButtonCounts(Source)==1){
-				statChecker += 1;
+				statChecker += 2;
 				flatterChecker += 1;
 
 				}
 			if((int)CheckButtonCounts(Source)==2)
 					{
-				statChecker += 1;
+				statChecker += 4;
 				jokeChecker += 1;	
 
 				}
@@ -149,8 +151,8 @@ public class comboReader : MonoBehaviour {
 		if(questionIndex==1){
 			Debug.Log("Update"+Source);
 			if ((int)CheckButtonCounts (Source) == 0) {
-				statChecker += 2;
-				chatChecker += 3;
+				statChecker += 3;
+				chatChecker += 1;
 			}
 			if((int)CheckButtonCounts(Source)==1){
 				statChecker += 4;
@@ -159,12 +161,12 @@ public class comboReader : MonoBehaviour {
 			}
 			if((int)CheckButtonCounts(Source)==2)
 			{
-				statChecker += 3;
+				statChecker += 1;
 				jokeChecker += 1;
 
 			}
 			if((int)CheckButtonCounts(Source)==3){
-				statChecker += 1;
+				statChecker += 2;
 				flirtChecker += 1;
 			}
 		}
@@ -181,12 +183,12 @@ public class comboReader : MonoBehaviour {
 			}
 			if((int)CheckButtonCounts(Source)==2)
 			{
-				statChecker += 2;
+				statChecker += 1;
 				jokeChecker += 1;
 
 			}
 			if((int)CheckButtonCounts(Source)==3){
-				statChecker += 1;
+				statChecker += 2;
 				flirtChecker += 1;
 			}
 		}
