@@ -79,7 +79,7 @@ public class comboReader : MonoBehaviour {
 //			questionIndex++;
 //			Debug.Log (questions [questionIndex]);
 	
-//		}
+//		}//molly check here for animator work
 		if (!Input.GetKeyDown (KeyCode.Space)&&questionIndex!=9) {
 			questionText.text = questions [questionIndex];
 		}
@@ -96,7 +96,7 @@ public class comboReader : MonoBehaviour {
 		if (flirtChecker > jokeChecker && flirtChecker > chatChecker && flirtChecker > flatterChecker) {
 			Debug.Log("heart eyes");
 		}
-		saki.GetComponent<Animator> ().SetInteger ("state", statChecker);
+		saki.GetComponent<Animator> ().SetInteger ("state", statChecker);//molly check here for animator work
 
 	}
 
@@ -124,25 +124,25 @@ public class comboReader : MonoBehaviour {
 			GetComponent<newInput> ().canPlayerSpeak = true;
 
 
-			if(questionIndex==0){
+			if(questionIndex==0){//evan start here
 				Debug.Log("Update"+Source);
 			if ((int)CheckButtonCounts (Source) == 0) {
-				statChecker += 3;
+				statChecker += 3;//check the dialogue document and see what responses are marked 1,2,3 or 4
 				chatChecker += 1;
 			}
 			if((int)CheckButtonCounts(Source)==1){
-				statChecker += 2;
+				statChecker += 2;//depending on what number is there, change the stat checker value accordingly
 				flatterChecker += 1;
 
 				}
 			if((int)CheckButtonCounts(Source)==2)
 					{
-				statChecker += 4;
+				statChecker += 4;//make sure that the order of "buttons" is always chat, flatter, joke, flirt
 				jokeChecker += 1;	
 
 				}
 			if((int)CheckButtonCounts(Source)==3){
-				statChecker += 1;
+				statChecker += 1;//make sure chat/flatter/joke/flirt values are always set to +=1
 				flirtChecker += 1;
 
 					}
