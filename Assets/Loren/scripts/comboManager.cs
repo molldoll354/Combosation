@@ -98,7 +98,8 @@ public class comboManager : MonoBehaviour {
 		//chech it's usage,
 		//if too often, respond with that.
 		//if not too often, nothing. 
-		if(dictionaryCombos>usageLimit){//how do I access specific element in the dictionary? primarily, how do I get usage of a newly added combo? I did not test for premade combos.
+		dictionaryCombos.TryGetValue(playerCombo, out inputCombo);
+		if(inputCombo.usage>usageLimit){//how do I access specific element in the dictionary? primarily, how do I get usage of a newly added combo? I did not test for premade combos.
 			comboType = 8;
 			print ("USED TOO OFTEN! USED TOO OFTEN! USED TOO OFTEN! USED TOO OFTEN! USED TOO OFTEN!");
 		}
