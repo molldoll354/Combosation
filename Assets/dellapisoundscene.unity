@@ -1203,14 +1203,14 @@ MonoBehaviour:
   - options:
     - Yeah, it was nice to take a break from things for a while.
     - Aw, I missed you too!
-    - "Hmm, well if sleeping were an Olympic sport you\u2019d be at least a Bronze."
+    - Do you ever give a straight answer?
     - "Wow, you\u2019d think all that training would show a bit more. Haha! "
     - Huh?
   - options:
-    - Yeah, it was fun and all but...
+    - Yeah, I'm still a bit upset about it
     - "That\u2019s sweet, yeah I would like to talk about it if you don\u2019t mind."
-    - "\u201CDid I go to an amusement park,\u201D ugh, you\u2019re such a clown!"
-    - How would you being there help?
+    - Um, this is kinda serious...
+    - Ugh, are you even listening?
     - What was that?
   - options:
     - Thanks, I appreciate it.
@@ -1221,7 +1221,7 @@ MonoBehaviour:
   - options:
     - "That\u2019s true, I do have a friend like you to count on."
     - You really mean that?
-    - "I mean, a sparring partner won\u2019t go to the prom with me! "
+    - Well I'm glad it's funny to you I guess.
     - "Wow, that\u2019s pretty forward coming from you."
     - Excuse me?
   - options:
@@ -1231,13 +1231,13 @@ MonoBehaviour:
     - Huh? You want me to stay?
     - Huh? You want me to stay?
   - options:
-    - "Yeah, I\u2019m really glad I got to see you again too. "
+    - 'Yeah, it''s good to see you again too. '
     - "Aw, I\u2019m blushing!"
-    - "Haha, haven\u2019t heard that one before. Is that all though?"
+    - That's funny and all, but was that really it?
     - 'Wow, this is really unexpected...not that I mind! '
     - I didn't quite catch that.
   - options:
-    - Cool, we can meet at the library!
+    - Do you wanna study at the library?
     - Why would we study at a restaurant-Oh!
     - "Ok, it won\u2019t be that bad! And stop being so dramatic!"
     - "O-oh, I didn\u2019t know you meant something like that! Interesting\u2026"
