@@ -35,6 +35,7 @@ public class comboReader : MonoBehaviour {
 	// Use this for initialization
 
 	public GameObject saki;
+	public Animator sakiAnim;
 	public enum ResponseOps{
 		chat=0,
 		flirt=1,
@@ -61,7 +62,7 @@ public class comboReader : MonoBehaviour {
 		//responses [questionIndex].options [(int)mostPressedButton];
 		//buttonType mostPressedButton = CheckButtonCounts (Source);
 		statChecker=0;
-
+		sakiAnim = saki.GetComponent<Animator> ();
 	}
 	/*
 	 * same object as game master
@@ -153,6 +154,7 @@ public class comboReader : MonoBehaviour {
 					{
 				statChecker += 2;//make sure that the order of "buttons" is always chat, flatter, joke, flirt
 				jokeChecker += 1;	
+				sakiAnim.Play ("laughingREACT");
 
 				}
 			if((int)CheckButtonCounts(Source)==3){
@@ -176,6 +178,7 @@ public class comboReader : MonoBehaviour {
 				{
 					statChecker += -1;
 					jokeChecker += 1;
+					sakiAnim.Play ("laughingREACT");
 
 				}
 				if((int)CheckButtonCounts(Source)==3){

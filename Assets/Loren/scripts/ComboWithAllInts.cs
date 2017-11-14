@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Combo {
+public class ComboWithAllInts {
 
 		public string comboInput {get;set;}
 		public string comboName{get;set;}//the name of the combo if it's premade, idk if necesary.
@@ -14,7 +14,7 @@ public class Combo {
 	public int sadChangePos{ get; set;}
 	public int sadChangeNeg{ get; set;}
 
-	public Combo (string combo, string nameOfCombo, int friendPos, int friendNeg, int lovePos, int loveNeg, int sadPos, int sadNeg){
+	public ComboWithAllInts (string combo, string nameOfCombo, int friendPos, int friendNeg, int lovePos, int loveNeg, int sadPos, int sadNeg){
 			comboInput = combo;
 			comboName = nameOfCombo;
 			usage = 0;
@@ -23,7 +23,7 @@ public class Combo {
 			sadChangePos = sadPos; sadChangeNeg = sadNeg;
 
 		}
-		public Combo(string combo){
+		public ComboWithAllInts(string combo){
 		comboInput = combo;
 		usage = 0;
 		comboName = "random";

@@ -364,6 +364,8 @@ GameObject:
   - component: {fileID: 1317371496}
   - component: {fileID: 1317371498}
   - component: {fileID: 1317371499}
+  - component: {fileID: 1317371501}
+  - component: {fileID: 1317371500}
   m_Layer: 0
   m_Name: gm
   m_TagString: Untagged
@@ -432,7 +434,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1317371495}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e41c656299cf6814997fc3913c8f5275, type: 3}
   m_Name: 
@@ -463,13 +465,21 @@ MonoBehaviour:
     - l3
   questionIndex: 0
   finalAnswer: 0
+  statChecker: 0
+  chatChecker: 0
+  flatterChecker: 0
+  flirtChecker: 0
+  jokeChecker: 0
+  dialogueText: {fileID: 0}
+  questionText: {fileID: 0}
+  saki: {fileID: 0}
 --- !u!114 &1317371499
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1317371495}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b774beaa25370d848b893941932288b7, type: 3}
   m_Name: 
@@ -493,6 +503,32 @@ MonoBehaviour:
   chatSound: {fileID: 8300000, guid: 18fb463864893c4448e279b69f998d7b, type: 3}
   jokeSound: {fileID: 8300000, guid: 057e85a32a5c4214ab5f53e648a83109, type: 3}
   music: {fileID: 8300000, guid: e15cd033e8242884fa44bbbffb3635e4, type: 3}
+--- !u!114 &1317371500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1317371495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e2a4fde805285145926bd83a7ecc888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputCombo: 
+--- !u!114 &1317371501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1317371495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6ed91421bb6d048bc00c8f7aaa0934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerInput: 
+  preferedLenght: 0
+  usageLimit: 0
 --- !u!1 &2117981160
 GameObject:
   m_ObjectHideFlags: 0

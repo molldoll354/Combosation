@@ -996,8 +996,10 @@ GameObject:
   - component: {fileID: 737857444}
   - component: {fileID: 737857447}
   - component: {fileID: 737857448}
+  - component: {fileID: 737857452}
   - component: {fileID: 737857449}
   - component: {fileID: 737857450}
+  - component: {fileID: 737857451}
   m_Layer: 5
   m_Name: Game Master
   m_TagString: Untagged
@@ -1294,7 +1296,7 @@ RectTransform:
   m_LocalScale: {x: 0.60574967, y: 0.60574967, z: 0.60574967}
   m_Children: []
   m_Father: {fileID: 802707526}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.106403515, y: 0.8124719}
   m_AnchorMax: {x: 0.29500002, y: 0.89500004}
@@ -1425,8 +1427,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1515157527}
   - {fileID: 741510042}
+  - {fileID: 1515157527}
   - {fileID: 82548619}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -2105,7 +2107,7 @@ RectTransform:
   m_LocalScale: {x: 0.5700813, y: 0.5700813, z: 0.5700813}
   m_Children: []
   m_Father: {fileID: 802707526}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
