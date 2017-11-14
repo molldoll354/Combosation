@@ -24,8 +24,8 @@ public class newInput : MonoBehaviour {
 	public bool resetSlots = false;
 	public int preferedLength;
 	public int maxUsage;//max usage of a combo before "overused"
-	public tempCombo[] premadeCombos;
-	List<tempCombo> comboUsage = new List<tempCombo> ();
+	public Combo[] premadeCombos;
+	List<Combo> comboUsage = new List<Combo> ();
 
 	public Sprite blankSlotSprite; //sprites and array to control the button icons
 	public Sprite flatterSlotSprite;
@@ -50,10 +50,10 @@ public class newInput : MonoBehaviour {
 
 		audio.Play (music);
 		canPlayerSpeak = true; 
-		premadeCombos = new tempCombo [3];
-		premadeCombos [0] = new tempCombo ("ASA", "wholesome", 2, "" ); //1, 2, 1, 0, 2, 2);
-		premadeCombos [1] = new tempCombo ("WWSS","standup special", 2,"");//4, 3, 0,0,1,2 );
-		premadeCombos [2] = new tempCombo ("DSSWD", "smooth criminal",1,""); //4,4,4,4,0,2);
+		premadeCombos = new Combo [3];
+		premadeCombos [0] = new Combo ("ASA", "wholesome", 2, "",1 ); //1, 2, 1, 0, 2, 2);
+		premadeCombos [1] = new Combo ("WWSS","standup special", 2,"",1);//4, 3, 0,0,1,2 );
+		premadeCombos [2] = new Combo ("DSSWD", "smooth criminal",1,"",1); //4,4,4,4,0,2);
 	}
 	
 	// Update is called once per frame
@@ -142,7 +142,7 @@ public class newInput : MonoBehaviour {
 	//<-------------------------------Functions----------------------->
 
 	//compareCombo v2, now uses/needs a dictionary
-	string compareCombo(int preferedComboLength, string playerCombo, Combo[] premadeComboList, List<Combo> usedCombos){
+	string compareCombo(int preferedComboLength, string playerCombo, ComboWithAllInts[] premadeComboList, List<ComboWithAllInts> usedCombos){
 		string isIt = "";//the final string of info
 		bool correctLength = false;
 		bool premade = false;
@@ -155,7 +155,7 @@ public class newInput : MonoBehaviour {
 //		if(premadeComboList.Contains(playerCombo)==true){
 //			isIt+=" premade";
 //		} else { isIt+=" random";}
-		foreach(Combo combo in premadeComboList){//checks if the combo is premade or not.
+		foreach(ComboWithAllInts combo in premadeComboList){//checks if the combo is premade or not.
 			int i =0;
 			if (premadeComboList[i].comboInput.Equals(playerCombo)){
 				premade = true;
@@ -163,7 +163,7 @@ public class newInput : MonoBehaviour {
 			}
 			i++;
 		}
-		foreach(Combo combo in usedCombos){//checks if  the  combo has been used before, and increments usage.
+		foreach(ComboWithAllInts combo in usedCombos){//checks if  the  combo has been used before, and increments usage.
 			int i = 0;
 			if(usedCombos[i].comboInput.Equals(playerCombo)){
 				usedAlready = true;
@@ -174,7 +174,7 @@ public class newInput : MonoBehaviour {
 			i++;
 		}
 		if(usedAlready==false){//adds the combo to the COmbo List, if necessary
-			Combo newCombo = new Combo(playerCombo);
+			ComboWithAllInts newCombo = new ComboWithAllInts(playerCombo);
 			usedCombos.Add(newCombo);
 		}
 //		if(usedCombos.Contains(playerCombo))
@@ -211,9 +211,9 @@ public class newInput : MonoBehaviour {
 		return tooLong;
 	}
 
-	public bool premade(string combo, List<Combo> comboPreList){
+	public bool premade(string combo, List<ComboWithAllInts> comboPreList){
 		bool preMade = false;
-		foreach (Combo combos in comboPreList ){
+		foreach (ComboWithAllInts combos in comboPreList ){
 			int i = 0;
 			if(comboPreList[i].comboName != "random"){
 				preMade = true;
@@ -224,10 +224,10 @@ public class newInput : MonoBehaviour {
 		return preMade;
 	}
 
-	public	bool tooUsed(string combo, List<Combo> totalComboList, int prefUsage){
+	public	bool tooUsed(string combo, List<ComboWithAllInts> totalComboList, int prefUsage){
 		bool usedMuch = false;
 		int i = 0;
-		foreach (Combo comBo in totalComboList){
+		foreach (ComboWithAllInts comBo in totalComboList){
 			if(totalComboList[i].comboInput.Equals(combo) && totalComboList[i].usage>prefUsage){
 				usedMuch = true;
 				break;
@@ -237,9 +237,9 @@ public class newInput : MonoBehaviour {
 
 		return usedMuch;
 	}
-	public bool contains(string combo, List<Combo> totalCombos){
+	public bool contains(string combo, List<ComboWithAllInts> totalCombos){
 		bool onList = false;
-		foreach (Combo wombo in totalCombos){
+		foreach (ComboWithAllInts wombo in totalCombos){
 			int i = 0;
 			if(totalCombos[i].comboInput.Equals(combo)){onList = true; break;}
 			i++;
