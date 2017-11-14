@@ -85,6 +85,7 @@ public class comboReader : MonoBehaviour {
 		}
 		if (chatChecker > jokeChecker && chatChecker > flirtChecker && chatChecker > flatterChecker) {
 			Debug.Log("neutral");
+			saki.GetComponent<Animator> ().Play ("neutral");
 		}
 		if (jokeChecker > chatChecker && jokeChecker > flirtChecker && jokeChecker > flatterChecker) {
 			Debug.Log("laughing");
@@ -92,9 +93,11 @@ public class comboReader : MonoBehaviour {
 		}
 		if (flatterChecker > jokeChecker && flatterChecker > flirtChecker && flatterChecker > chatChecker) {
 			Debug.Log("blushing");
+			saki.GetComponent<Animator> ().Play ("happy");
 		}
 		if (flirtChecker > jokeChecker && flirtChecker > chatChecker && flirtChecker > flatterChecker) {
 			Debug.Log("heart eyes");
+			saki.GetComponent<Animator> ().Play ("blush");
 		}
 		saki.GetComponent<Animator> ().SetInteger ("state", statChecker);//molly check here for animator work
 
