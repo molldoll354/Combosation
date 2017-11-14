@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class SakiAnswer{
 	public List<string> options;
+	public List<int> moodEffect;
 }
 
 public class comboReader : MonoBehaviour {
@@ -166,24 +167,19 @@ public class comboReader : MonoBehaviour {
 		if(questionIndex==1){
 				//Debug.Log("Update"+Source);
 				if ((int)CheckButtonCounts (Source) == 0) {
-					statChecker += 1;
-					chatChecker += 1;
+				RespondChat ();
 				}
 				if((int)CheckButtonCounts(Source)==1){
-					statChecker += 2;
-					flatterChecker += 1;
+				RespondFlatter ();
 
 				}
 				if((int)CheckButtonCounts(Source)==2)
 				{
-					statChecker += -1;
-					jokeChecker += 1;
-					sakiAnim.Play ("laughingREACT");
+				RespondJoke ();
 
 				}
 				if((int)CheckButtonCounts(Source)==3){
-					statChecker += 0;
-					flirtChecker += 1;
+				RespondFlirt ();
 				}
 			}
 			if(questionIndex==2){
@@ -360,7 +356,25 @@ public class comboReader : MonoBehaviour {
 
 	}
 
+	void RespondJoke(){
+		statChecker += responses [questionIndex].moodEffect [2];
+		jokeChecker += 1;
+		sakiAnim.Play ("laughingREACT");
+	}
+	void RespondFlatter(){
+		statChecker += responses [questionIndex].moodEffect [1];
+		flatterChecker += 1;
+	}
 
+	void RespondFlirt(){
+		statChecker += responses [questionIndex].moodEffect [3];
+		flirtChecker += 1;
+	}
+
+	void Respond Chat(){
+		statChecker+=responses[questionIndex].moodEffect[0];
+		chatChecker+=1;
+	}
 	public ResponseOps CheckButtonCounts(string combo) {
 		buttonCount = new List<int> ();
 		buttonCount.Add (0);
