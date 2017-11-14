@@ -52,6 +52,7 @@ public class Combo {
 }
 public class comboManager : MonoBehaviour {
 	public string PlayerInput;
+	public Combo inputCombo;
 	public int preferedLenght;//what is the preferend length of combos for the date
 	public int usageLimit;//how often a combo can be used before the date is upset.
 
@@ -71,7 +72,53 @@ public class comboManager : MonoBehaviour {
 		
 	}
 
-	//usage,premade,length, exists(?no: add to dictionary).
+
+
+
+	public int readCombo(string playerCombo){
+		//Read Combo takes a string, 
+		//return type of combo associated with that string.
+		int comboType = 0;
+
+		//step 1
+		//checks if there is a combo associated with that string in the dictionary. 
+		//if there is, it should increase it's usage,
+		//if not, it should add the string to the dictionary.
+		if(dictionaryCombos.ContainsKey(playerCombo)){
+			dictionaryCombos.TryGetValue (playerCombo, out inputCombo);
+			print ("current usage: " + inputCombo.usage);
+			inputCombo.increaseUsage ();
+			print ("new usage: " + inputCombo.usage);
+		}else{
+			dictionaryCombos.Add (playerCombo, inputCombo);
+			print ("NEW COMBO USED:" + playerCombo); 
+		}
+
+		//step 2
+		//chech it's usage,
+		//if too often, respond with that.
+		//if not too often, nothing. 
+		if(dictionaryCombos>usageLimit){//how do I access specific element in the dictionary? primarily, how do I get usage of a newly added combo? I did not test for premade combos.
+			comboType = 8;
+			print ("USED TOO OFTEN! USED TOO OFTEN! USED TOO OFTEN! USED TOO OFTEN! USED TOO OFTEN!");
+		}
+
+		//step 3
+		//check it's length, 
+		//if too long, respond with that. MEaning change what ever is the response to the preset ones.
+		//if not too long, nothing.
+		if(playerCombo.Length>preferedLenght){
+			comboType = 16;
+			print ("TOOOOOOOOOOOO LLLLOOOOOOOOOOOOOOOOOOONNNNNNNNNNNNNG");
+
+		}
+
+		return comboType;
+	}
+
+
+
+
 
 	public bool tooLong(){
 		bool length = false;
@@ -102,7 +149,7 @@ public class comboManager : MonoBehaviour {
 		}
 		else{
 			temp = new Combo (PlayerInput);
-			dictionaryCombos.Add (PlayerInput, temp);
+
 		}
 		return temp;
 	}
