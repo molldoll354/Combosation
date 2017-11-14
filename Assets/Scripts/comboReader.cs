@@ -153,198 +153,226 @@ public class comboReader : MonoBehaviour {
 
 		if(questionIndex==1){
 			Debug.Log("Update"+Source);
-			if ((int)CheckButtonCounts (Source) == 0) {
-				statChecker += 3;
-				chatChecker += 1;
-			}
-			if((int)CheckButtonCounts(Source)==1){
-				statChecker += 4;
-				flatterChecker += 1;
+			if(questionIndex==0){//evan start here
+				Debug.Log("Update"+Source);
+				if ((int)CheckButtonCounts (Source) == 0) {
+					statChecker += 1;//check the dialogue document and see what responses are marked 1,2,3 or 4
+					chatChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==1){
+					statChecker += 0;//depending on what number is there, change the stat checker value accordingly
+					flatterChecker += 1;
 
-			}
-			if((int)CheckButtonCounts(Source)==2)
-			{
-				statChecker += 1;
-				jokeChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==2)
+				{
+					statChecker += 2;//make sure that the order of "buttons" is always chat, flatter, joke, flirt
+					jokeChecker += 1;	
 
-			}
-			if((int)CheckButtonCounts(Source)==3){
-				statChecker += 2;
-				flirtChecker += 1;
-			}
-		}
-		if(questionIndex==2){
-			Debug.Log("Update"+Source);
-			if ((int)CheckButtonCounts (Source) == 0) {
-				statChecker += 3;
-				chatChecker += 1;
-			}
-			if((int)CheckButtonCounts(Source)==1){
-				statChecker += 4;
-				flatterChecker += 1;
-			
-			}
-			if((int)CheckButtonCounts(Source)==2)
-			{
-				statChecker += 1;
-				jokeChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==3){
+					statChecker += -1;//make sure chat/flatter/joke/flirt values are always set to +=1
+					flirtChecker += 1;
 
+				}
 			}
-			if((int)CheckButtonCounts(Source)==3){
-				statChecker += 2;
-				flirtChecker += 1;
-			}
-		}
-		if(questionIndex==3){
-			Debug.Log("Update"+Source);
-			if ((int)CheckButtonCounts (Source) == 0) {
-				statChecker += 2;
-				chatChecker += 1;
-			}
-			if((int)CheckButtonCounts(Source)==1){
-				statChecker += 4;
-				flatterChecker += 1;
-			}
-			if((int)CheckButtonCounts(Source)==2)
-			{
-				statChecker += 1;
-				jokeChecker += 1;
 
-			}
-			if((int)CheckButtonCounts(Source)==3){
-				statChecker += 3;
-				flirtChecker += 1;
-			}
-		}
-		if(questionIndex==4){
-			Debug.Log("Update"+Source);
-			if ((int)CheckButtonCounts (Source) == 0) {
-				statChecker += 3;
-				chatChecker += 1;
-			}
-			if((int)CheckButtonCounts(Source)==1){
-				statChecker += 4;
-				flatterChecker += 1;
-			}
-			if((int)CheckButtonCounts(Source)==2)
-			{
-				statChecker += 1;
-				jokeChecker += 1;
-			}
-			if((int)CheckButtonCounts(Source)==3){
-				statChecker += 2;
-				flirtChecker += 1;
-			}
-		}
-		if(questionIndex==5){
-			Debug.Log("Update"+Source);
-			if ((int)CheckButtonCounts (Source) == 0) {
-				statChecker += 1;
-				chatChecker += 1;
-			}
-			if((int)CheckButtonCounts(Source)==1){
-				statChecker += 1;
-				flatterChecker += 1;
-			}
-			if((int)CheckButtonCounts(Source)==2)
-			{
-				statChecker += 1;
-				jokeChecker += 1;
-			}
-			if((int)CheckButtonCounts(Source)==3){
-				statChecker += 1;
-				flirtChecker += 1;
-			}
-		}
+			if(questionIndex==1){
+				Debug.Log("Update"+Source);
+				if ((int)CheckButtonCounts (Source) == 0) {
+					statChecker += 1;
+					chatChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==1){
+					statChecker += 2;
+					flatterChecker += 1;
 
-			
-		if(questionIndex==6){
-			Debug.Log("Update"+Source);
-			if ((int)CheckButtonCounts (Source) == 0) {
-				statChecker += 2;
-				chatChecker += 1;
-			}
-			if((int)CheckButtonCounts(Source)==1){
-				statChecker += 7;
-				flatterChecker += 1;
-			}
-			if((int)CheckButtonCounts(Source)==2)
-			{
-				statChecker += 1;
-				jokeChecker += 1;
-			}
-			if((int)CheckButtonCounts(Source)==3){
-				statChecker += 4;
-				flirtChecker += 1;
-			}
-		}
-		if(questionIndex==7){
-			Debug.Log("Update"+Source);
-			if ((int)CheckButtonCounts (Source) == 0) {
-				statChecker += 1;
-				chatChecker += 1;
-			}
-			if((int)CheckButtonCounts(Source)==1){
-				flatterChecker += 1;
-				statChecker += 3;
-			}
-			if((int)CheckButtonCounts(Source)==2)
-			{
-				flirtChecker += 1;
-				statChecker += 4;
-			}
-			if((int)CheckButtonCounts(Source)==3){
-				jokeChecker += 1;
-				statChecker += 2;
-			}
-		}
-		if(questionIndex==8){
-			Debug.Log("Update"+Source);
-			if ((int)CheckButtonCounts (Source) == 0) {
-				statChecker += 1;
-				chatChecker += 1;
-			}
-			if((int)CheckButtonCounts(Source)==1){
-				statChecker += 3;
-				flatterChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==2)
+				{
+					statChecker += -1;
+					jokeChecker += 1;
 
+				}
+				if((int)CheckButtonCounts(Source)==3){
+					statChecker += 0;
+					flirtChecker += 1;
+				}
 			}
-			if((int)CheckButtonCounts(Source)==2)
-			{
-				statChecker += 4;
-				jokeChecker += 1;
+			if(questionIndex==2){
+				Debug.Log("Update"+Source);
+				if ((int)CheckButtonCounts (Source) == 0) {
+					statChecker += 1;
+					chatChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==1){
+					statChecker += 2;
+					flatterChecker += 1;
 
+				}
+				if((int)CheckButtonCounts(Source)==2)
+				{
+					statChecker += -1;
+					jokeChecker += 1;
+
+				}
+				if((int)CheckButtonCounts(Source)==3){
+					statChecker += 0;
+					flirtChecker += 1;
+				}
 			}
-			if((int)CheckButtonCounts(Source)==3){
-				statChecker += 2;
-				flirtChecker += 1;
+			if(questionIndex==3){
+				Debug.Log("Update"+Source);
+				if ((int)CheckButtonCounts (Source) == 0) {
+					statChecker += 0;
+					chatChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==1){
+					statChecker += 2;
+					flatterChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==2)
+				{
+					statChecker += 1;
+					jokeChecker += 1;
+
+				}
+				if((int)CheckButtonCounts(Source)==3){
+					statChecker += -1;
+					flirtChecker += 1;
+				}
 			}
-		}
-		if (questionIndex == 9) {
-			if (statChecker >= 40) {
-				dialogueText.text = "Combosation Grade:";
-				questionText.text = "S+ ! You're a dating master!";
+			if(questionIndex==4){
+				Debug.Log("Update"+Source);
+				if ((int)CheckButtonCounts (Source) == 0) {
+					statChecker += 1;
+					chatChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==1){
+					statChecker += 2;
+					flatterChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==2)
+				{
+					statChecker += 0;
+					jokeChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==3){
+					statChecker += -1;
+					flirtChecker += 1;
+				}
 			}
-			if (statChecker>=7 && statChecker<10) {
-				dialogueText.text = "Combosation Grade:";
-				questionText.text= "B! You're passable! Have fun on the date!";
+			if(questionIndex==5){
+				Debug.Log("Update"+Source);
+				if ((int)CheckButtonCounts (Source) == 0) {
+					statChecker += 0;
+					chatChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==1){
+					statChecker += 0;
+					flatterChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==2)
+				{
+					statChecker += 0;
+					jokeChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==3){
+					statChecker += 0;
+					flirtChecker += 1;
+				}
 			}
-			if (statChecker >= 5 && statChecker < 7) {
-				dialogueText.text = "Combosation Grade:";
-				questionText.text = "C! Could be worse, but she tolaterates you!";
+
+
+			if(questionIndex==6){
+				Debug.Log("Update"+Source);
+				if ((int)CheckButtonCounts (Source) == 0) {
+					statChecker += 0;
+					chatChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==1){
+					statChecker += 1;
+					flatterChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==2)
+				{
+					statChecker += -1;
+					jokeChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==3){
+					statChecker += 2;
+					flirtChecker += 1;
+				}
 			}
-			if(statChecker>=0 && statChecker < 5){
-				dialogueText.text = "Combosation Grade:";
-				questionText.text = "D! This is gonna be a weird date!";
+			if(questionIndex==7){
+				Debug.Log("Update"+Source);
+				if ((int)CheckButtonCounts (Source) == 0) {
+					statChecker += -1;
+					chatChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==1){
+					statChecker += 1;
+					flatterChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==2)
+				{
+					statChecker += 0;
+					flirtChecker += 1;
+
+				}
+				if((int)CheckButtonCounts(Source)==3){
+
+					statChecker += 2;
+					jokeChecker += 1;
+				}
 			}
-			if (statChecker <= 0) {
-				dialogueText.text = "Combosation Grade:";
-				questionText.text = "F- ! Yikes! You're terrible!";
+			if(questionIndex==8){
+				Debug.Log("Update"+Source);
+				if ((int)CheckButtonCounts (Source) == 0) {
+					statChecker += -1;
+					chatChecker += 1;
+				}
+				if((int)CheckButtonCounts(Source)==1){
+					statChecker += 1;
+					flatterChecker += 1;
+
+				}
+				if((int)CheckButtonCounts(Source)==2)
+				{
+					statChecker += 0;
+					jokeChecker += 1;
+
+				}
+				if((int)CheckButtonCounts(Source)==3){
+					statChecker += 2;
+					flirtChecker += 1;
+				}
 			}
-		}
+			if (questionIndex == 9) {
+				if (statChecker >= 16) {
+					dialogueText.text = "Combosation Grade:";
+					questionText.text = "S+ ! You're a dating master!";
+				}
+				if (statChecker>=10 && statChecker<16) {
+					dialogueText.text = "Combosation Grade:";
+					questionText.text= "A! You did great! Have fun on the date!";
+				}
+				if (statChecker >= 4 && statChecker < 10) {
+					dialogueText.text = "Combosation Grade:";
+					questionText.text = "B! Could be worse, but she likes you!";
+				}
+				if(statChecker>=-2 && statChecker < 4){
+					dialogueText.text = "Combosation Grade:";
+					questionText.text = "D! This is gonna be a weird date!";
+				}
+				if (statChecker >= -8 && statChecker<-2 ) {
+					dialogueText.text = "Combosation Grade:";
+					questionText.text = "F- ! Yikes! You're terrible!";
+				}
+			}
 
 	}
-
+	}
 
 
 	public ResponseOps CheckButtonCounts(string combo) {
