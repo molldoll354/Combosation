@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class newInput : MonoBehaviour {
+public class newInput1 : MonoBehaviour {
 	public string inputCombo="";
 
 
@@ -14,9 +14,8 @@ public class newInput : MonoBehaviour {
 	public Text timeText;
 
 	float Timer;
-	float TimerLength = 8;
 
-	int buttonSlotSelection = 0;
+	public int buttonSlotSelection = 0;
 
 
 	public bool canPlayerSpeak = true;//controls when the player can input a combo
@@ -24,8 +23,11 @@ public class newInput : MonoBehaviour {
 	public bool resetSlots = false;
 	public int preferedLength;
 	public int maxUsage;//max usage of a combo before "overused"
+	public List<string> preMadeCombos;
 	public Combo[] premadeCombos;
 	List<Combo> comboUsage = new List<Combo> ();
+	Dictionary<string,Combo> dictionaryCombos = new Dictionary<string,Combo> ();
+
 
 	public Sprite blankSlotSprite; //sprites and array to control the button icons
 	public Sprite flatterSlotSprite;
@@ -45,21 +47,27 @@ public class newInput : MonoBehaviour {
 	//Dictionary<string, int> comboUsage;
 	// Use this for initialization
 	void Start () {
-		
-		Timer = 8;
+		Timer = 6f;
 
 		audio.Play (music);
-		canPlayerSpeak = true; 
+		canPlayerSpeak = true;
 		premadeCombos = new Combo [3];
-		premadeCombos [0] = new Combo ("ASA", "wholesome", 2, "",1 ); //1, 2, 1, 0, 2, 2);
+		premadeCombos [0] = new Combo ("ASA", "wholesome", 2, "", 1 ); //1, 2, 1, 0, 2, 2);
 		premadeCombos [1] = new Combo ("WWSS","standup special", 2,"",1);//4, 3, 0,0,1,2 );
-		premadeCombos [2] = new Combo ("DSSWD", "smooth criminal",1,"",1); //4,4,4,4,0,2);
+		premadeCombos [2] = new Combo ("DSSWD", "smooth criminal",1,"",1);
+		preMadeCombos = new List<string>();
+		preMadeCombos.Add ("ASA");
+		preMadeCombos.Add ("WWSS");
+		preMadeCombos.Add ("DSSWD");
+		int i = 0;
+		foreach(Combo combo in premadeCombos){
+			comboUsage.Add (premadeCombos [i]);
+			i++;
+		}	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-	
 		Debug.Log (resetSlots);
 		//Get player input. 
 		if (canPlayerSpeak == true ) {
@@ -68,48 +76,46 @@ public class newInput : MonoBehaviour {
 				if (Input.GetKeyDown (KeyCode.A)) {
 					inputCombo += "A";
 					audio.Play(flatterSound);
-					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flatterSlotSprite;
+//					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flatterSlotSprite;
 					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.W)) {
 					inputCombo += "W";
 					audio.Play(chatSound);
-					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = chatSlotSprite;
+				//	buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = chatSlotSprite;
 					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.S)) {
 					inputCombo += "S";
 					audio.Play(jokeSound);
-					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = jokeSlotSprite;
+					//buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = jokeSlotSprite;
 					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.D)) {
 					inputCombo += "D";
 					audio.Play(flirtSound);
-					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flirtSlotSprite;
+					//buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flirtSlotSprite;
 					buttonSlotSelection++;
 				}
 				print ("end of if(asdw){}");
 			}
 
-			if(Input.GetKeyDown(KeyCode.Space) && canPlayerSpeak == true){
+			if(Input.GetKeyDown(KeyCode.Space)){
 				print ("pressed space >>"+inputCombo);
-				resetSlots = true;
+
 				canPlayerSpeak = false;
 				GetComponent<comboReader>().readCombo(inputCombo);
 				inputCombo = "";
-				Timer = 8;
+				Timer = 6;
+				canPlayerSpeak = true;
 				//GetComponentInParent<comboReader> ().Source = inputCombo;
 				//Debug.Log ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, premadeCombos));
 				//print ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, premadeCombos, comboUsage));
 			}
 
 		}
-		else { 
-			if(Input.GetKeyDown(KeyCode.Space) && canPlayerSpeak == false){ 
+		else { //hard reset button.
+			if(Input.GetKeyDown(KeyCode.R) && canPlayerSpeak == false){ 
 				resetSlots = true;
-
 				timeText.text = "" + Mathf.Floor (Timer);
-				//print ("timer is" + Timer);
-				Timer = 8;
-				//print ("timer is now " + Timer);
+				Timer = 6;
 				//canPlayerSpeak = true;
 				inputCombo = "";
 
@@ -224,10 +230,10 @@ public class newInput : MonoBehaviour {
 		return preMade;
 	}
 
-	public	bool tooUsed(string combo, List<ComboWithAllInts> totalComboList, int prefUsage){
+	public	bool tooUsed(string combo, List<Combo> totalComboList, int prefUsage){
 		bool usedMuch = false;
 		int i = 0;
-		foreach (ComboWithAllInts comBo in totalComboList){
+		foreach (Combo comBo in totalComboList){
 			if(totalComboList[i].comboInput.Equals(combo) && totalComboList[i].usage>prefUsage){
 				usedMuch = true;
 				break;
@@ -237,15 +243,47 @@ public class newInput : MonoBehaviour {
 
 		return usedMuch;
 	}
-	public bool contains(string combo, List<ComboWithAllInts> totalCombos){
+	public bool contains(string combo, List<Combo> totalCombos){
 		bool onList = false;
-		foreach (ComboWithAllInts wombo in totalCombos){
+		foreach (Combo wombo in totalCombos){
 			int i = 0;
 			if(totalCombos[i].comboInput.Equals(combo)){onList = true; break;}
 			i++;
 		}
 		return onList;
 	}
+	public int findIndex(string combo, List<Combo> totalCombos){
+		int index = -1;
+		foreach (Combo wombo in totalCombos){
+			int i = 0;
+			if(totalCombos[i].comboInput.Equals(combo)){index = i; break;}
+			i++;
+		}
+		return index;
+	}
+
+
+	public bool contains(string combo, List<string> totalCombos){
+		bool onList = false;
+		foreach (string wombo in totalCombos){
+			int i = 0;
+			if(totalCombos[i].Equals(combo)){onList = true; break;}
+			i++;
+		}
+		return onList;
+	}
+//	public tempCombo convertToCombo(string comboWombo){
+//		tempCombo comboInput = new tempCombo (inputCombo);
+//
+//
+//		if (contains(comboWombo, preMadeCombos)==true){
+//			premadeCombos [findIndex(comboWombo, comboUsage)].increaseUsage ();
+//		}else {
+//			comboUsage.Add (comboInput);
+//		}
+////		comboInput = premadeCombos [findIndex (comboWombo, comboUsage)];
+//		return comboInput;
+	//}
 }
 
 

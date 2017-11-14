@@ -17,7 +17,7 @@ public class comboReader1 : MonoBehaviour {
 	enum buttonType{W = 0, A = 1, S = 2, D = 3, Tie = 4};
 
 	public string inputCombo;
-	public Combo currentCombo;
+	public ComboWithAllInts currentCombo;
 	public bool canPlayerSpeak;
 
 	List <int> buttonCount;
@@ -196,9 +196,9 @@ public class comboReader1 : MonoBehaviour {
 		return tooLong;
 	}
 
-	public bool premade(string combo, List<Combo> comboPreList){
+	public bool premade(string combo, List<ComboWithAllInts> comboPreList){
 		bool preMade = false;
-		foreach (Combo combos in comboPreList ){
+		foreach (ComboWithAllInts combos in comboPreList ){
 			int i = 0;
 			if(comboPreList[i].comboName != "random"){
 				preMade = true;
@@ -209,10 +209,10 @@ public class comboReader1 : MonoBehaviour {
 		return preMade;
 	}
 
-	public	bool tooUsed(tempCombo combo, List<Combo> totalComboList, int prefUsage){
+	public	bool tooUsed(Combo combo, List<ComboWithAllInts> totalComboList, int prefUsage){
 		bool usedMuch = false;
 		int i = 0;
-		foreach (Combo comBo in totalComboList){
+		foreach (ComboWithAllInts comBo in totalComboList){
 			if(totalComboList[i].comboInput.Equals(combo) 
 				&& totalComboList[i].usage>prefUsage){
 				usedMuch = true;
@@ -223,9 +223,9 @@ public class comboReader1 : MonoBehaviour {
 
 		return usedMuch;
 	}
-	public bool contains(string combo, List<Combo> totalCombos){
+	public bool contains(string combo, List<ComboWithAllInts> totalCombos){
 		bool onList = false;
-		foreach (Combo wombo in totalCombos){
+		foreach (ComboWithAllInts wombo in totalCombos){
 			int i = 0;
 			if(totalCombos[i].comboInput.Equals(combo)){onList = true; break;}
 			i++;
