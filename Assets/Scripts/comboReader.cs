@@ -9,6 +9,7 @@ public class SakiAnswer{
 }
 
 public class comboReader : MonoBehaviour {
+	public comboManager comboManage;
 
 	private static comboReader _instance;
 
@@ -62,6 +63,16 @@ public class comboReader : MonoBehaviour {
 		statChecker=0;
 
 	}
+	/*
+	 * same object as game master
+	 * if (comboManager.readCombo(Source) == 0) {
+					statChecker += 1;//check the dialogue document and see what responses are marked 1,2,3 or 4
+					chatChecker += 1;
+				}
+	 * 
+	 */ 
+
+
 
 	// Update is called once per frame
 	void Update () {
