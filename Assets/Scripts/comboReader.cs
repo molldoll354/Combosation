@@ -55,7 +55,7 @@ public class comboReader : MonoBehaviour {
 	}
 
 	void Start () {
-		Debug.Log (questions [questionIndex]);
+		//Debug.Log (questions [questionIndex]);
 		GetComponent<newInput> ().canPlayerSpeak = true;
 		//		buttonType mostPressedButton = CheckButtonCounts (Source);
 		//responses [questionIndex].options [(int)mostPressedButton];
@@ -94,7 +94,7 @@ public class comboReader : MonoBehaviour {
 		if (!Input.GetKeyDown (KeyCode.Space)&&questionIndex!=9) {
 			questionText.text = questions [questionIndex];
 		}
-		if (chatChecker > jokeChecker && chatChecker > flirtChecker && chatChecker > flatterChecker) {
+		/*if (chatChecker > jokeChecker && chatChecker > flirtChecker && chatChecker > flatterChecker) {
 			Debug.Log("neutral");
 			saki.GetComponent<Animator> ().Play ("neutral");
 		}
@@ -109,19 +109,19 @@ public class comboReader : MonoBehaviour {
 		if (flirtChecker > jokeChecker && flirtChecker > chatChecker && flirtChecker > flatterChecker) {
 			Debug.Log("heart eyes");
 			saki.GetComponent<Animator> ().Play ("blush");
-		}
-		saki.GetComponent<Animator> ().SetInteger ("state", statChecker);//molly check here for animator work
+		}*/
+		saki.GetComponent<Animator> ().SetFloat ("BaseMood", statChecker);//molly check here for animator work
 
 	}
 
 	public void readCombo(string Source){
-		Debug.Log("Reader"+Source);
-
+		//Debug.Log("Reader"+Source);
+		Debug.Log (statChecker);
 		print (Source);
 			//print ("in b4 Source=Getblabblab");
 			//Source = GetComponent<newInput> ().inputCombo;
 			//print ("" + questionIndex+" vs "+responses.Count);
-			Debug.Log ("welcome" +responses [questionIndex].options [(int)CheckButtonCounts(Source)]);//pull the button type into responseops
+			//Debug.Log ("welcome" +responses [questionIndex].options [(int)CheckButtonCounts(Source)]);//pull the button type into responseops
 
 			dialogueText.text = responses [questionIndex].options [(int)CheckButtonCounts (Source)];
 		
@@ -129,7 +129,7 @@ public class comboReader : MonoBehaviour {
 			questionIndex++;
 			if(questionIndex < questions.Count){
 				
-				Debug.Log (questions [questionIndex]);
+				//Debug.Log (questions [questionIndex]);
 			} else {
 				print("convo ended");
 			}
@@ -139,57 +139,30 @@ public class comboReader : MonoBehaviour {
 
 
 			if(questionIndex==0){//evan start here
-				Debug.Log("Update"+Source);
+				//Debug.Log("Update"+Source);
 			if ((int)CheckButtonCounts (Source) == 0) {
-				statChecker += 3;//check the dialogue document and see what responses are marked 1,2,3 or 4
+				statChecker += 1;//check the dialogue document and see what responses are marked 1,2,3 or 4
 				chatChecker += 1;
 			}
 			if((int)CheckButtonCounts(Source)==1){
-				statChecker += 2;//depending on what number is there, change the stat checker value accordingly
+				statChecker += 0;//depending on what number is there, change the stat checker value accordingly
 				flatterChecker += 1;
 
 				}
 			if((int)CheckButtonCounts(Source)==2)
 					{
-				statChecker += 4;//make sure that the order of "buttons" is always chat, flatter, joke, flirt
+				statChecker += 2;//make sure that the order of "buttons" is always chat, flatter, joke, flirt
 				jokeChecker += 1;	
 
 				}
 			if((int)CheckButtonCounts(Source)==3){
-				statChecker += 1;//make sure chat/flatter/joke/flirt values are always set to +=1
+				statChecker += -1;//make sure chat/flatter/joke/flirt values are always set to +=1
 				flirtChecker += 1;
 
 					}
 			}
-
 		if(questionIndex==1){
-			Debug.Log("Update"+Source);
-			if(questionIndex==0){//evan start here
-				Debug.Log("Update"+Source);
-				if ((int)CheckButtonCounts (Source) == 0) {
-					statChecker += 1;//check the dialogue document and see what responses are marked 1,2,3 or 4
-					chatChecker += 1;
-				}
-				if((int)CheckButtonCounts(Source)==1){
-					statChecker += 0;//depending on what number is there, change the stat checker value accordingly
-					flatterChecker += 1;
-
-				}
-				if((int)CheckButtonCounts(Source)==2)
-				{
-					statChecker += 2;//make sure that the order of "buttons" is always chat, flatter, joke, flirt
-					jokeChecker += 1;	
-
-				}
-				if((int)CheckButtonCounts(Source)==3){
-					statChecker += -1;//make sure chat/flatter/joke/flirt values are always set to +=1
-					flirtChecker += 1;
-
-				}
-			}
-
-			if(questionIndex==1){
-				Debug.Log("Update"+Source);
+				//Debug.Log("Update"+Source);
 				if ((int)CheckButtonCounts (Source) == 0) {
 					statChecker += 1;
 					chatChecker += 1;
@@ -211,7 +184,7 @@ public class comboReader : MonoBehaviour {
 				}
 			}
 			if(questionIndex==2){
-				Debug.Log("Update"+Source);
+				//Debug.Log("Update"+Source);
 				if ((int)CheckButtonCounts (Source) == 0) {
 					statChecker += 1;
 					chatChecker += 1;
@@ -233,7 +206,7 @@ public class comboReader : MonoBehaviour {
 				}
 			}
 			if(questionIndex==3){
-				Debug.Log("Update"+Source);
+				//Debug.Log("Update"+Source);
 				if ((int)CheckButtonCounts (Source) == 0) {
 					statChecker += 0;
 					chatChecker += 1;
@@ -254,7 +227,7 @@ public class comboReader : MonoBehaviour {
 				}
 			}
 			if(questionIndex==4){
-				Debug.Log("Update"+Source);
+				//Debug.Log("Update"+Source);
 				if ((int)CheckButtonCounts (Source) == 0) {
 					statChecker += 1;
 					chatChecker += 1;
@@ -274,7 +247,7 @@ public class comboReader : MonoBehaviour {
 				}
 			}
 			if(questionIndex==5){
-				Debug.Log("Update"+Source);
+				//Debug.Log("Update"+Source);
 				if ((int)CheckButtonCounts (Source) == 0) {
 					statChecker += 0;
 					chatChecker += 1;
@@ -296,7 +269,7 @@ public class comboReader : MonoBehaviour {
 
 
 			if(questionIndex==6){
-				Debug.Log("Update"+Source);
+				//Debug.Log("Update"+Source);
 				if ((int)CheckButtonCounts (Source) == 0) {
 					statChecker += 0;
 					chatChecker += 1;
@@ -316,7 +289,7 @@ public class comboReader : MonoBehaviour {
 				}
 			}
 			if(questionIndex==7){
-				Debug.Log("Update"+Source);
+				//Debug.Log("Update"+Source);
 				if ((int)CheckButtonCounts (Source) == 0) {
 					statChecker += -1;
 					chatChecker += 1;
@@ -338,7 +311,7 @@ public class comboReader : MonoBehaviour {
 				}
 			}
 			if(questionIndex==8){
-				Debug.Log("Update"+Source);
+				//Debug.Log("Update"+Source);
 				if ((int)CheckButtonCounts (Source) == 0) {
 					statChecker += -1;
 					chatChecker += 1;
@@ -382,7 +355,6 @@ public class comboReader : MonoBehaviour {
 				}
 			}
 
-	}
 	}
 
 
