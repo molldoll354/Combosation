@@ -371,7 +371,7 @@ public class comboReader : MonoBehaviour {
 		flirtChecker += 1;
 	}
 
-	void Respond Chat(){
+	void RespondChat(){
 		statChecker+=responses[questionIndex].moodEffect[0];
 		chatChecker+=1;
 	}
