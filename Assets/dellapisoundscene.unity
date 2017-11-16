@@ -998,6 +998,7 @@ GameObject:
   - component: {fileID: 737857448}
   - component: {fileID: 737857449}
   - component: {fileID: 737857450}
+  - component: {fileID: 737857451}
   m_Layer: 5
   m_Name: Game Master
   m_TagString: Untagged
@@ -1181,7 +1182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e41c656299cf6814997fc3913c8f5275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboManage: {fileID: 0}
+  comboManage: {fileID: 737857451}
   Source: 
   questions:
   - "Hey, it\u2019s been a while! You look kinda out of breath, what\u2019s up?"
@@ -1279,6 +1280,20 @@ MonoBehaviour:
   questionText: {fileID: 82548620}
   saki: {fileID: 983620032}
   sakiAnim: {fileID: 0}
+--- !u!114 &737857451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 737857443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6ed91421bb6d048bc00c8f7aaa0934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerInput: 
+  preferedLenght: 0
+  usageLimit: 0
 --- !u!1 &741510041
 GameObject:
   m_ObjectHideFlags: 0
