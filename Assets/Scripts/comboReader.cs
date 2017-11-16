@@ -170,10 +170,10 @@ public class comboReader : MonoBehaviour {
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
 		}
-		if (statEffect = 1) {
+		if (statEffect == 1) {
 			sakiAnim.Play ("happyREACT");
 		}
-		if (statEffect = 2) {
+		if (statEffect == 2) {
 			sakiAnim.Play ("laughingREACT");
 		}
 	}
@@ -184,10 +184,10 @@ public class comboReader : MonoBehaviour {
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
 		}
-		if (statEffect = 1) {
+		if (statEffect == 1) {
 			sakiAnim.Play ("happyREACT");
 		}
-		if (statEffect = 2) {
+		if (statEffect == 2) {
 			sakiAnim.Play ("laughingREACT");
 		}
 	}
@@ -199,10 +199,10 @@ public class comboReader : MonoBehaviour {
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
 		}
-		if (statEffect = 1) {
+		if (statEffect == 1) {
 			sakiAnim.Play ("happyREACT");
 		}
-		if (statEffect = 2) {
+		if (statEffect == 2) {
 			sakiAnim.Play ("laughingREACT");
 		}
 	}
@@ -214,10 +214,10 @@ public class comboReader : MonoBehaviour {
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
 		}
-		if (statEffect = 1) {
+		if (statEffect == 1) {
 			sakiAnim.Play ("happyREACT");
 		}
-		if (statEffect = 2) {
+		if (statEffect == 2) {
 			sakiAnim.Play ("laughingREACT");
 		}
 	}
