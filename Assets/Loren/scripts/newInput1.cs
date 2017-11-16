@@ -52,9 +52,9 @@ public class newInput1 : MonoBehaviour {
 		audio.Play (music);
 		canPlayerSpeak = true;
 		premadeCombos = new Combo [3];
-		premadeCombos [0] = new Combo ("ASA", "wholesome", 2, "", 1 ); //1, 2, 1, 0, 2, 2);
-		premadeCombos [1] = new Combo ("WWSS","standup special", 2,"",1);//4, 3, 0,0,1,2 );
-		premadeCombos [2] = new Combo ("DSSWD", "smooth criminal",1,"",1);
+		premadeCombos [0] = new Combo ("ASA", "wholesome", 2, 1); //1, 2, 1, 0, 2, 2);
+		premadeCombos [1] = new Combo ("WWSS","standup special", 2,1);//4, 3, 0,0,1,2 );
+		premadeCombos [2] = new Combo ("DSSWD", "smooth criminal",1,1);
 		preMadeCombos = new List<string>();
 		preMadeCombos.Add ("ASA");
 		preMadeCombos.Add ("WWSS");

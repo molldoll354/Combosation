@@ -1,19 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
+[System.Serializable]
 public class Combo {
-	public string comboInput {get;set;}//the literal string of characters that represenesnt the input
-	public string comboName{get;set;}//the name of the combo if it's premade, idk if necesary.
-	public string comboResponse{get;set;} //the response Saki gives for this premade combo.
-	public int usage{get;set;} //how many times this has been used
-	public int comboType {get;set;}//the type of combo this is, so the dialogue can be chosen.
-	public int comboBonus {get;set;}//the bonus the combo gives.
-	public bool isPremade{get;set;}//is the combo premade.
-	public bool unLocked{get;set;}//is the combo unlocked
+	public string comboInput;//the literal string of characters that represenesnt the input
+	public string comboName;//the name of the combo if it's premade, idk if necesary.
 
-	public Combo (string inputCombo, string premadeName, int type, string dialogueResponse, int bonus) {//premadeCombo COnstructor
-		comboInput = inputCombo; 
+	public int usage;//how many times this has been used
+	public int comboType ;//the type of combo this is, so the dialogue can be chosen.
+	public int comboBonus ;//the bonus the combo gives.
+	public bool isPremade;//is the combo premade.
+	public bool unLocked;//is the combo unlocked
+
+	public Combo (string inputCombo, string premadeName, int type, int bonus) {//premadeCombo COnstructor
+		comboInput = inputCombo;
 		comboName = premadeName; 
 		usage = 0;
 		comboType = type;
@@ -24,12 +26,13 @@ public class Combo {
 	public Combo (string inputCombo){//randomCombo constructor
 		comboInput = inputCombo; 
 		comboName = "random";
-		comboResponse = "";
+
 		usage = 0;
 		comboType = (int)comboReader.Instance.CheckButtonCounts(inputCombo);
 		isPremade = false;
 		unLocked = true;
 	}
+		
 	public void increaseUsage()
 	{
 		usage++;
@@ -56,15 +59,22 @@ public class comboManager : MonoBehaviour {
 	public int preferedLenght;//what is the preferend length of combos for the date
 	public int usageLimit;//how often a combo can be used before the date is upset.
 
+	public string myJson;
 	Dictionary<string,Combo> dictionaryCombos = new Dictionary<string, Combo>();
+
+
 	// Use this for initialization
 	void Start () {
-		Combo combo1 = new Combo ("ASA", "wholesome", 2, "", 1 ); //1, 2, 1, 0, 2, 2);
-		Combo combo2 = new Combo ("WWSS","standup special", 2,"",1);//4, 3, 0,0,1,2 );
-		Combo combo3 = new Combo ("DSSWD", "smooth criminal",1,"",1);
-		dictionaryCombos.Add (combo1.comboInput, combo1);
-		dictionaryCombos.Add (combo2.comboInput, combo2);
-		dictionaryCombos.Add (combo3.comboInput, combo3);
+//		Combo combo1 = new Combo ("ASA", "wholesome", 2, 1 ); //1, 2, 1, 0, 2, 2);
+//		Combo combo2 = new Combo ("WWSS","standup special", 2,1);//4, 3, 0,0,1,2 );
+//		Combo combo3 = new Combo ("DSSWD", "smooth criminal",1,1);
+//		dictionaryCombos.Add (combo1.comboInput, combo1);
+//		dictionaryCombos.Add (combo2.comboInput, combo2);
+//		dictionaryCombos.Add (combo3.comboInput, combo3); 	
+
+		myJson = "Assets/Loren/scripts/premadeComboList.json";
+	
+		CreateListFromJson ();
 	}
 	
 	// Update is called once per frame
@@ -98,8 +108,10 @@ public class comboManager : MonoBehaviour {
 		//chech it's usage,
 		//if too often, respond with that.
 		//if not too often, nothing. 
-		dictionaryCombos.TryGetValue(playerCombo, out inputCombo);
-		if(inputCombo.usage>usageLimit){//how do I access specific element in the dictionary? primarily, how do I get usage of a newly added combo? I did not test for premade combos.
+		Combo temp;
+		dictionaryCombos.TryGetValue(playerCombo, out temp);
+		//dictionaryCombos.
+		if(temp.usage>usageLimit){//how do I access specific element in the dictionary? primarily, how do I get usage of a newly added combo? I did not test for premade combos.
 			comboType = 8;
 			print ("USED TOO OFTEN! USED TOO OFTEN! USED TOO OFTEN! USED TOO OFTEN! USED TOO OFTEN!");
 		}
@@ -117,9 +129,48 @@ public class comboManager : MonoBehaviour {
 		return comboType;
 	}
 
+	public void displayDictionary(){
+		
+	}
 
 
+	private bool CreateListFromJson()
+	{
+		//catch in case it don't work
+		try{
+			//give us a place to store the next line of json
+			string line;
 
+			//create a reader to read the file
+			StreamReader jsonReader = new StreamReader(myJson);
+
+			using (jsonReader)
+			{
+				// While there's lines left in the text file, do this:
+				do
+				{
+					line = jsonReader.ReadLine();
+
+					if (line != null)
+					{
+						Combo newCombo = JsonUtility.FromJson<Combo>(line);
+						dictionaryCombos.Add(newCombo.comboInput,newCombo);
+					}
+				}
+				while (line != null);
+				// Done reading, close the reader and return true to broadcast success    
+				jsonReader.Close();
+				return true;
+			}
+		}
+		// If anything broke in the try block, we throw an exception with information
+		// on what didn't work
+		catch (System.Exception e)
+		{
+			Debug.Log(e.Message);
+			return false;
+		}
+	}
 
 	public bool tooLong(){
 		bool length = false;
