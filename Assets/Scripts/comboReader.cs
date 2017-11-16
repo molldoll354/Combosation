@@ -144,20 +144,20 @@ public class comboReader : MonoBehaviour {
 
 
 				//Debug.Log("Update"+Source);
-		if (comboManage.readCombo (Source) == 0) {
+		if ((int)CheckButtonCounts (Source) == 0) {
 				RespondChat ();
 			questionIndex++;
 				}
-		if(comboManage.readCombo(Source)==1){
+		if((int) CheckButtonCounts(Source)==1){
 				RespondFlatter ();
 			questionIndex++;
 				}
-		if(comboManage.readCombo(Source)==2)
+		if((int)CheckButtonCounts(Source)==2)
 				{
 				RespondJoke ();
 			questionIndex++;
 				}
-		if(comboManage.readCombo(Source)==3){
+		if((int)CheckButtonCounts(Source)==3){
 				RespondFlirt ();
 			questionIndex++;
 				}
