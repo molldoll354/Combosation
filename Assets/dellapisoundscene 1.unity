@@ -1556,62 +1556,73 @@ MonoBehaviour:
     - "*laughs* Sure, ok. I\u2019m sure that happened"
     - "Uhh\u2026that\u2019s kind of weird\u2026"
     - Hm? I don't really follow.
+    moodEffect: 
   - options:
     - Yeah, it was nice to take a break from things for a while.
     - Aw, I missed you too!
     - "Hmm, well if sleeping were an Olympic sport you\u2019d be at least a Bronze."
     - "Wow, you\u2019d think all that training would show a bit more. Haha! "
     - Huh?
+    moodEffect: 
   - options:
     - Yeah, it was fun and all but...
     - "That\u2019s sweet, yeah I would like to talk about it if you don\u2019t mind."
     - "\u201CDid I go to an amusement park,\u201D ugh, you\u2019re such a clown!"
     - How would you being there help?
     - What was that?
+    moodEffect: 
   - options:
     - Thanks, I appreciate it.
     - "You\u2019re right, I do deserve better than him. "
     - Haha, yeah I guess he was a bit of a meathead.
     - Yikes, the wounds are still a little fresh ya know?
     - You're talking a bit too fast...
+    moodEffect: 
   - options:
     - "That\u2019s true, I do have a friend like you to count on."
     - You really mean that?
     - "I mean, a sparring partner won\u2019t go to the prom with me! "
     - "Wow, that\u2019s pretty forward coming from you."
     - Excuse me?
+    moodEffect: 
   - options:
     - Huh? You want me to stay?
     - Huh? You want me to stay?
     - Huh? You want me to stay?
     - Huh? You want me to stay?
     - Huh? You want me to stay?
+    moodEffect: 
   - options:
     - "Yeah, I\u2019m really glad I got to see you again too. "
     - "Aw, I\u2019m blushing!"
     - "Haha, haven\u2019t heard that one before. Is that all though?"
     - 'Wow, this is really unexpected...not that I mind! '
     - I didn't quite catch that.
+    moodEffect: 
   - options:
     - Cool, we can meet at the library!
     - Why would we study at a restaurant-Oh!
     - "Ok, it won\u2019t be that bad! And stop being so dramatic!"
     - "O-oh, I didn\u2019t know you meant something like that! Interesting\u2026"
     - Woah woah, slow down!
+    moodEffect: 
   - options:
     - Oh, just getting food then, alright.
     - Ya know, I think it would be really nice to get out with you.
     - A yes or no would suffice!
     - "I just wish you would\u2019ve asked sooner! "
     - You sound a bit nervous, are you nervous?
+    moodEffect: 
   - options:
     - 
     - 
     - 
     - 
     - 
+    moodEffect: 
   - options:
     - 
+    moodEffect: 
   questionIndex: 0
   finalAnswer: 0
   statChecker: 0
@@ -1654,9 +1665,9 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.106403515, y: 0.8124719}
-  m_AnchorMax: {x: 0.29500002, y: 0.89500004}
-  m_AnchoredPosition: {x: 91, y: -19.3}
-  m_SizeDelta: {x: 81.100006, y: 7.300003}
+  m_AnchorMax: {x: 0.29921943, y: 0.91}
+  m_AnchoredPosition: {x: 90.5, y: -20.3}
+  m_SizeDelta: {x: 80.100006, y: 5.300003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &741510043
 MonoBehaviour:
