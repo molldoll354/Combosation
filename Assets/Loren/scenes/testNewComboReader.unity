@@ -439,6 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e41c656299cf6814997fc3913c8f5275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboManage: {fileID: 0}
   Source: 
   questions:
   - a
@@ -473,6 +474,7 @@ MonoBehaviour:
   dialogueText: {fileID: 0}
   questionText: {fileID: 0}
   saki: {fileID: 0}
+  sakiAnim: {fileID: 0}
 --- !u!114 &1317371499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,8 +529,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerInput: 
-  preferedLenght: 0
-  usageLimit: 0
+  preferedLenght: 4
+  usageLimit: 3
 --- !u!1 &2117981160
 GameObject:
   m_ObjectHideFlags: 0
