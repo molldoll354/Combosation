@@ -27,8 +27,6 @@ public class comboReader : MonoBehaviour {
 	public int questionIndex =0;
 	public int finalAnswer =0;
 
-
-
 	public int statChecker;//checks mood over time going from sad to happy
 	public int chatChecker, flatterChecker, flirtChecker, jokeChecker;
 
@@ -166,23 +164,62 @@ public class comboReader : MonoBehaviour {
 	}
 
 	void RespondJoke(){
-		statChecker += responses [questionIndex].moodEffect [2];
+		int statEffect = responses [questionIndex].moodEffect [2];
+		statChecker += statEffect;
 		jokeChecker += 1;
-		sakiAnim.Play ("laughingREACT");
+		if (statEffect <= 0) {
+			sakiAnim.Play ("unimpressedREACT");
+		}
+		if (statEffect = 1) {
+			sakiAnim.Play ("happyREACT");
+		}
+		if (statEffect = 2) {
+			sakiAnim.Play ("laughingREACT");
+		}
 	}
 	void RespondFlatter(){
-		statChecker += responses [questionIndex].moodEffect [1];
+		int statEffect = responses [questionIndex].moodEffect [1];
+		statChecker += statEffect;
 		flatterChecker += 1;
+		if (statEffect <= 0) {
+			sakiAnim.Play ("unimpressedREACT");
+		}
+		if (statEffect = 1) {
+			sakiAnim.Play ("happyREACT");
+		}
+		if (statEffect = 2) {
+			sakiAnim.Play ("laughingREACT");
+		}
 	}
 
 	void RespondFlirt(){
-		statChecker += responses [questionIndex].moodEffect [3];
+		int statEffect = responses [questionIndex].moodEffect [3];
+		statChecker += statEffect;
 		flirtChecker += 1;
+		if (statEffect <= 0) {
+			sakiAnim.Play ("unimpressedREACT");
+		}
+		if (statEffect = 1) {
+			sakiAnim.Play ("happyREACT");
+		}
+		if (statEffect = 2) {
+			sakiAnim.Play ("laughingREACT");
+		}
 	}
 
 	void RespondChat(){
-		statChecker+=responses[questionIndex].moodEffect[0];
+		int statEffect = responses[questionIndex].moodEffect[0];
+		statChecker += statEffect;
 		chatChecker+=1;
+		if (statEffect <= 0) {
+			sakiAnim.Play ("unimpressedREACT");
+		}
+		if (statEffect = 1) {
+			sakiAnim.Play ("happyREACT");
+		}
+		if (statEffect = 2) {
+			sakiAnim.Play ("laughingREACT");
+		}
 	}
 	public ResponseOps CheckButtonCounts(string combo) {
 		buttonCount = new List<int> ();
