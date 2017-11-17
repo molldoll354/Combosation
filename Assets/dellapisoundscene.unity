@@ -994,7 +994,6 @@ GameObject:
   - component: {fileID: 737857446}
   - component: {fileID: 737857445}
   - component: {fileID: 737857444}
-  - component: {fileID: 737857447}
   - component: {fileID: 737857448}
   - component: {fileID: 737857449}
   - component: {fileID: 737857450}
@@ -1073,50 +1072,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &737857447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 737857443}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77b51ef07d240d740b5151ae271aabae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeText: {fileID: 741510043}
-  meterText: {fileID: 0}
-  roundButton: {fileID: 1624203857}
-  sadnessBar: {fileID: 0}
-  lovelyBar: {fileID: 0}
-  friendlyBar: {fileID: 0}
-  sound: {fileID: 1165465019}
-  flatterSound: {fileID: 8300000, guid: bdb9f5f5bd1e15e44bacf92ba014168c, type: 3}
-  winkSound: {fileID: 8300000, guid: 4247a519d3336a149bb4ca128bed5824, type: 3}
-  chatSound: {fileID: 8300000, guid: 2ee7ad0631703f94a9175a55a916123b, type: 3}
-  jokeSound: {fileID: 8300000, guid: bdb9f5f5bd1e15e44bacf92ba014168c, type: 3}
-  endSound: {fileID: 8300000, guid: b1c8a422289a1b94686b6e8fc67ee1cc, type: 3}
-  music: {fileID: 8300000, guid: 62b85c58ee544bd40a85e20b6ff71697, type: 3}
-  endMusic: {fileID: 0}
-  happyFace: {fileID: 983620032}
-  sadFace: {fileID: 0}
-  loveFace: {fileID: 0}
-  flatter: {fileID: 0}
-  joke: {fileID: 0}
-  wink: {fileID: 0}
-  chat: {fileID: 0}
-  neutral: {fileID: 0}
-  blankSprite: {fileID: 21300000, guid: b255a3ba6ce849f438303993c75e3ecb, type: 3}
-  flatterSprite: {fileID: 21300000, guid: 8b3fed4df26ded443b043515c594fd52, type: 3}
-  winkSprite: {fileID: 21300000, guid: 0d49ad7a7bd909b4cb075ee950bed419, type: 3}
-  chatSprite: {fileID: 21300000, guid: 17f96bb1db46ecf4196a562099deed78, type: 3}
-  jokeSprite: {fileID: 21300000, guid: facd5c938296d4540a9807b29a6affe1, type: 3}
-  buttons:
-  - {fileID: 1422896374}
-  - {fileID: 735911010}
-  - {fileID: 697249017}
-  - {fileID: 1175214222}
-  - {fileID: 954785975}
 --- !u!114 &737857448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1135,6 +1090,7 @@ MonoBehaviour:
   resetSlots: 0
   preferedLength: 0
   maxUsage: 0
+  premadeCombos: []
   blankSlotSprite: {fileID: 21300000, guid: b255a3ba6ce849f438303993c75e3ecb, type: 3}
   flatterSlotSprite: {fileID: 21300000, guid: d2d16c28af7192d46b2f9606fde5d72d, type: 3}
   flirtSlotSprite: {fileID: 21300000, guid: c77dc0b51ff4ee746abc6519524bb7f3, type: 3}
@@ -1292,8 +1248,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerInput: 
+  inputCombo:
+    comboInput: 
+    comboName: 
+    usage: 0
+    comboType: 0
+    comboBonus: 0
+    isPremade: 0
+    unLocked: 0
   preferedLenght: 0
   usageLimit: 0
+  myJson: 
 --- !u!1 &741510041
 GameObject:
   m_ObjectHideFlags: 0
