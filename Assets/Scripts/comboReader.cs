@@ -11,7 +11,7 @@ public class SakiAnswer{
 
 public class comboReader : MonoBehaviour {
 	public comboManager comboManage;
-
+	public Dictionary<string, Combo> comboDictionary = new Dictionary<string, Combo>();
 	private static comboReader _instance;
 
 	public static comboReader Instance { get { return _instance; } }
@@ -58,6 +58,7 @@ public class comboReader : MonoBehaviour {
 
 	void Start () {
 		//Debug.Log (questions [questionIndex]);
+		comboDictionary= GetComponent<comboManager>().dictionaryCombos;
 		GetComponent<newInput> ().canPlayerSpeak = true;
 
 		statChecker=0;
@@ -81,24 +82,27 @@ public class comboReader : MonoBehaviour {
 
 	}
 
-	public void switchTextBoxes(){//A=Question, b= dialogue
-		if(questionText.gameObject.activeInHierarchy ==true){
-			questionText.gameObject.SetActive(false);
-			dialogueText.gameObject.SetActive(true);
-		}
-		else{
-			questionText.gameObject.SetActive(true);
-			dialogueText.gameObject.SetActive(false);
-		}
-	}
+//	public void switchTextBoxes(){//A=Question, b= dialogue
+//		if(questionText.gameObject.activeInHierarchy ==true){
+//			questionText.gameObject.SetActive(false);
+//			dialogueText.gameObject.SetActive(true);
+//		}
+//		else{
+//			questionText.gameObject.SetActive(true);
+//			dialogueText.gameObject.SetActive(false);
+//		}
+//	}
 
 	public void readCombo(string Source){
 		//Debug.Log("Reader"+Source);
-		Debug.Log (statChecker);
+		Debug.Log ("statchecker"+statChecker);
 		print (Source);
 
-		    switchTextBoxes();
-			dialogueText.text = responses [questionIndex].options [(int)CheckButtonCounts (Source)];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
+
+		int currentComboType = GetComponent<comboManager>().readCombo (Source);
+		print ("please help me" + currentComboType);
+		    //switchTextBoxes();
+		dialogueText.text = responses [questionIndex].options [currentComboType];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
 		
 			//print("b4 questionIndex++");
 			
@@ -114,21 +118,22 @@ public class comboReader : MonoBehaviour {
 
 
 
+
 				//Debug.Log("Update"+Source);
-		if ((int)CheckButtonCounts (Source) == 0) {//checks if a chat combo was pressed
+		if (currentComboType == 0) {//checks if a chat combo was pressed
 				RespondChat ();//calls chat function
 			questionIndex++;//moves the question index along
 				}
-		if((int) CheckButtonCounts(Source)==1){//checks for flatter
+		if(currentComboType==1){//checks for flatter
 				RespondFlatter ();
 			questionIndex++;
 				}
-		if((int)CheckButtonCounts(Source)==2)
+		if(currentComboType==2)
 				{
 				RespondJoke ();
 			questionIndex++;
 				}
-		if((int)CheckButtonCounts(Source)==3){
+		if(currentComboType==3){
 				RespondFlirt ();
 			questionIndex++;
 				}

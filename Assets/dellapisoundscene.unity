@@ -1232,7 +1232,7 @@ MonoBehaviour:
   flatterChecker: 0
   flirtChecker: 0
   jokeChecker: 0
-  dialogueText: {fileID: 0}
+  dialogueText: {fileID: 1515157528}
   questionText: {fileID: 82548620}
   saki: {fileID: 983620032}
   sakiAnim: {fileID: 0}
@@ -1257,7 +1257,7 @@ MonoBehaviour:
     isPremade: 0
     unLocked: 0
   preferedLenght: 0
-  usageLimit: 0
+  usageLimit: 3
   myJson: 
 --- !u!1 &741510041
 GameObject:

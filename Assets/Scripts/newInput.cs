@@ -82,11 +82,9 @@ public class newInput : MonoBehaviour {
 					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flirtSlotSprite;
 					buttonSlotSelection++;
 				}
-				print ("end of if(asdw){}");
 			}
 
 			if(Input.GetKeyDown(KeyCode.Space) && canPlayerSpeak == true){
-				print ("pressed space >>"+inputCombo);
 				resetSlots = true;
 				canPlayerSpeak = false;
 				GetComponent<comboReader>().readCombo(inputCombo);
