@@ -40,7 +40,8 @@ public class newInput : MonoBehaviour {
 	public AudioClip jokeSound;
 	public AudioClip music;
 
-
+	int i = 0;
+	int index=0;
 
 	//Dictionary<string, int> comboUsage;
 	// Use this for initialization
@@ -59,7 +60,7 @@ public class newInput : MonoBehaviour {
 		Debug.Log (resetSlots);
 		//Get player input. 
 		if (canPlayerSpeak == true ) {
-			if(inputCombo.Length < 5 )
+			if(inputCombo.Length < 5    )
 			{
 				if (Input.GetKeyDown (KeyCode.A)) {
 					inputCombo += "A";
@@ -84,12 +85,30 @@ public class newInput : MonoBehaviour {
 				}
 			}
 
-			if(Input.GetKeyDown(KeyCode.Space) && canPlayerSpeak == true){
-				resetSlots = true;
-				canPlayerSpeak = false;
-				GetComponent<comboReader>().readCombo(inputCombo);
-				inputCombo = "";
-				Timer = 8;
+			if(Input.GetKeyDown(KeyCode.Space) ){
+				
+				if (i == 0) {
+					print ("call questions");
+					GetComponent<comboReader> ().switchTextBoxes ();//this means we should initialize question off.
+					GetComponent<comboReader> ().callQuestion ();
+					i++;
+				} else if (i == 1) {
+					print ("readCombo");
+					resetSlots = true;
+					//canPlayerSpeak = false;
+					GetComponent<comboReader> ().readCombo (inputCombo);
+					inputCombo = "";
+					Timer = TimerLength;
+					i++;
+
+				} else if (i == 2) {
+					print ("call dialogue");
+					GetComponent<comboReader> ().switchTextBoxes ();
+					i = 0;
+					GetComponent<comboReader> ().callDialogue (GetComponent<comboManager>().readCombo(inputCombo));
+
+				}
+
 				
 			}
 
@@ -99,7 +118,7 @@ public class newInput : MonoBehaviour {
 				resetSlots = true;
 
 				timeText.text = "" + Mathf.Floor (Timer);
-				Timer = 8;
+				Timer = TimerLength;
 				inputCombo = "";
 
 			}

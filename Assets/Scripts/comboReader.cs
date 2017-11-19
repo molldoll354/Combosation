@@ -30,7 +30,7 @@ public class comboReader : MonoBehaviour {
 	public int questionIndex =0;//determines what number question you're on 
 	public int finalAnswer =0;
 
-	public int statChecker;//checks mood over time going from sad to happy
+	public static int statChecker;//checks mood over time going from sad to happy
 	public int chatChecker, flatterChecker, flirtChecker, jokeChecker;//checks the number of times each type of combo has been used throughout conversation
 
 	public Text comboDescriptor;
@@ -38,7 +38,10 @@ public class comboReader : MonoBehaviour {
 	public Text questionText;//displays question text
 	//public bool canPlayerSpeak = true;
 	// Use this for initialization
+
 	public Combo currentCombo;
+
+
 	public GameObject saki;
 	public Animator sakiAnim;//Saki's animator
 	public enum ResponseOps{//converts strings to ints
@@ -71,6 +74,19 @@ public class comboReader : MonoBehaviour {
 		
 	// Update is called once per frame
 	void Update () {
+
+		/*
+		 * 
+		 * int i = 0
+		 * get space key
+		 * 		if(i = 0){
+		 * 			call question;
+		 * 			i++;}
+		 * 		if(i=1){ readCombo;i++}
+		 * 		if(i=2){call response, i = 0}
+		 * 
+		 * 
+		 */
 		
 		if (Input.GetKeyDown (KeyCode.R)) {
 			Application.LoadLevel ("dellapisoundscene");//reloads game
@@ -78,24 +94,24 @@ public class comboReader : MonoBehaviour {
 			
 	
 //		}//molly check here for animator work
-		if (!Input.GetKeyDown (KeyCode.Space)&&questionIndex!=9) {
-			questionText.text = questions [questionIndex];//question text displays based on what number question you're on
-		}
+//		if (!Input.GetKeyDown (KeyCode.Space)) {
+//			questionText.text = questions [questionIndex];//question text displays based on what number question you're on
+//		}
 	
 		saki.GetComponent<Animator> ().SetFloat ("BaseMood", statChecker);//molly check here for animator work
 
 	}
 
-//	public void switchTextBoxes(){//A=Question, b= dialogue
-//		if(questionText.gameObject.activeInHierarchy ==true){
-//			questionText.gameObject.SetActive(false);
-//			dialogueText.gameObject.SetActive(true);
-//		}
-//		else{
-//			questionText.gameObject.SetActive(true);
-//			dialogueText.gameObject.SetActive(false);
-//		}
-//	}
+	public void switchTextBoxes(){//A=Question, b= dialogue
+		if(questionText.gameObject.activeInHierarchy ==true){
+			questionText.gameObject.SetActive(false);
+			dialogueText.gameObject.SetActive(true);
+		}
+		else{
+			questionText.gameObject.SetActive(true);
+			dialogueText.gameObject.SetActive(false);
+		}
+	}
 
 	public void readCombo(string Source){
 		//Debug.Log("Reader"+Source);
@@ -111,17 +127,11 @@ public class comboReader : MonoBehaviour {
 		}
 	
 		    //switchTextBoxes();
-		dialogueText.text = responses [questionIndex].options [currentComboType];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
+		//dialogueText.text = responses [questionIndex].options [currentComboType];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
 		
 			//print("b4 questionIndex++");
 			
-			if(questionIndex < questions.Count){
-				
-				//Debug.Log (questions [questionIndex]);
-			} else {
-				print("convo ended");
-			}
-			//print("b4 getcomponnent<>.playercanspeak=true");
+			
 			GetComponent<newInput> ().inputCombo = "";
 			GetComponent<newInput> ().canPlayerSpeak = true;
 
@@ -146,8 +156,17 @@ public class comboReader : MonoBehaviour {
 				RespondFlirt ();
 			questionIndex++;
 				}
+
+	}
+	public void callDialogue(int typeOfCombo){
+		dialogueText.text = responses [questionIndex].options [typeOfCombo];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
+
 	}
 
+	public void callQuestion(){
+		questionText.text = questions [questionIndex];//question text displays based on what number question you're on
+
+	}
 	void RespondJoke(){
 		int statEffect = responses [questionIndex].moodEffect [2];//checks the mood effect int in the inspector
 		statChecker += (statEffect*currentCombo.comboBonus)+1;//increases statchecker based on what was found in mood effect
