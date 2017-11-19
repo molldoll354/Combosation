@@ -150,7 +150,7 @@ public class comboReader : MonoBehaviour {
 
 	void RespondJoke(){
 		int statEffect = responses [questionIndex].moodEffect [2];//checks the mood effect int in the inspector
-		statChecker += statEffect*currentCombo.comboBonus;//increases statchecker based on what was found in mood effect
+		statChecker += (statEffect*currentCombo.comboBonus)+1;//increases statchecker based on what was found in mood effect
 		jokeChecker += 1;
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
@@ -164,7 +164,7 @@ public class comboReader : MonoBehaviour {
 	}
 	void RespondFlatter(){
 		int statEffect = responses [questionIndex].moodEffect [1];
-		statChecker += statEffect * currentCombo.comboBonus;
+		statChecker += (statEffect * currentCombo.comboBonus)+1;
 		flatterChecker += 1;
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
@@ -179,7 +179,7 @@ public class comboReader : MonoBehaviour {
 
 	void RespondFlirt(){
 		int statEffect = responses [questionIndex].moodEffect [3];
-		statChecker += statEffect* currentCombo.comboBonus;
+		statChecker += (statEffect* currentCombo.comboBonus)+1;
 		flirtChecker += 1;
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
@@ -194,7 +194,7 @@ public class comboReader : MonoBehaviour {
 
 	void RespondChat(){
 		int statEffect = responses[questionIndex].moodEffect[0];
-		statChecker += statEffect* currentCombo.comboBonus;
+		statChecker += (statEffect* currentCombo.comboBonus)+1;
 		chatChecker+=1;
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
