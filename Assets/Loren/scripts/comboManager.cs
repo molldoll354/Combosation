@@ -9,7 +9,7 @@ public class Combo {
 	public string comboName;//the name of the combo if it's premade, idk if necesary.
 
 	public int usage;//how many times this has been used
-	public int comboType ;//the type of combo this is, so the dialogue can be chosen.
+	public int comboType ;//the type of combo this is, so the dialogue can be chosen. wchat = 0, aflatter =1, sjoke, = 2, dflirt 3, counter-clockwise.
 	public int comboBonus ;//the bonus the combo gives.
 	public bool isPremade;//is the combo premade.
 	public bool unLocked;//is the combo unlocked
@@ -60,17 +60,11 @@ public class comboManager : MonoBehaviour {
 	public int usageLimit;//how often a combo can be used before the date is upset.
 
 	public string myJson;
-	Dictionary<string,Combo> dictionaryCombos = new Dictionary<string, Combo>();
+	public Dictionary<string,Combo> dictionaryCombos = new Dictionary<string, Combo>();
 
 
 	// Use this for initialization
 	void Start () {
-//		Combo combo1 = new Combo ("ASA", "wholesome", 2, 1 ); //1, 2, 1, 0, 2, 2);
-//		Combo combo2 = new Combo ("WWSS","standup special", 2,1);//4, 3, 0,0,1,2 );
-//		Combo combo3 = new Combo ("DSSWD", "smooth criminal",1,1);
-//		dictionaryCombos.Add (combo1.comboInput, combo1);
-//		dictionaryCombos.Add (combo2.comboInput, combo2);
-//		dictionaryCombos.Add (combo3.comboInput, combo3); 	
 
 		myJson = "Assets/Loren/scripts/premadeComboList.json";
 	
@@ -88,7 +82,7 @@ public class comboManager : MonoBehaviour {
 	public int readCombo(string playerCombo){
 		//Read Combo takes a string, 
 		//return type of combo associated with that string.
-		int comboType = 0;
+		int typeOfCombo;
 
 		//step 1
 		//checks if there is a combo associated with that string in the dictionary. 
@@ -96,37 +90,27 @@ public class comboManager : MonoBehaviour {
 		//if not, it should add the string to the dictionary.
 		if(dictionaryCombos.ContainsKey(playerCombo)){
 			dictionaryCombos.TryGetValue (playerCombo, out inputCombo);
-			print ("current usage: " + inputCombo.usage);
+		
 			inputCombo.increaseUsage ();
-			print ("new usage: " + inputCombo.usage);
+			//print ("new usage: " + inputCombo.usage);
 		}else{
+			inputCombo = new Combo (playerCombo);
 			dictionaryCombos.Add (playerCombo, inputCombo);
 			print ("NEW COMBO USED:" + playerCombo); 
 		}
-
+		typeOfCombo = inputCombo.comboType;
 		//step 2
 		//chech it's usage,
 		//if too often, respond with that.
 		//if not too often, nothing. 
 		Combo temp;
 		dictionaryCombos.TryGetValue(playerCombo, out temp);
-		//dictionaryCombos.
-		if(temp.usage>usageLimit){//how do I access specific element in the dictionary? primarily, how do I get usage of a newly added combo? I did not test for premade combos.
-			comboType = 8;
-			print ("USED TOO OFTEN! USED TOO OFTEN! USED TOO OFTEN! USED TOO OFTEN! USED TOO OFTEN!");
+		if(temp.usage>usageLimit){
+			typeOfCombo = 4;
 		}
-
-		//step 3
-		//check it's length, 
-		//if too long, respond with that. MEaning change what ever is the response to the preset ones.
-		//if not too long, nothing.
-		if(playerCombo.Length>preferedLenght){
-			comboType = 16;
-			print ("TOOOOOOOOOOOO LLLLOOOOOOOOOOOOOOOOOOONNNNNNNNNNNNNG");
-
-		}
-
-		return comboType;
+        
+		print ("typeOfCombo" + typeOfCombo);
+		return typeOfCombo;
 	}
 
 	public void displayDictionary(){
@@ -171,43 +155,6 @@ public class comboManager : MonoBehaviour {
 			return false;
 		}
 	}
-
-	public bool tooLong(){
-		bool length = false;
-		if(PlayerInput.Length>preferedLenght){length = true;}
-		return length;
-	}
-
-	public bool usedOften(){
-		bool often=false;
-		if (dictionaryCombos.ContainsKey (PlayerInput)) {
-			Combo temp;
-			dictionaryCombos.TryGetValue (PlayerInput, out temp);
-			int usedness = temp.usage;
-			if (usedness > usageLimit) {
-				often = true;
-			}
-		}else{
-			print("combo has not been used before.");
-		}
-		return often;
-	}
-
-	public Combo addCombo(){
-		//does contain.blah blah blah.
-		Combo temp;
-		if( dictionaryCombos.ContainsKey(PlayerInput)==true){
-			dictionaryCombos.TryGetValue (PlayerInput, out temp);
-		}
-		else{
-			temp = new Combo (PlayerInput);
-
-		}
-		return temp;
-	}
-
-
-
 
 
 }

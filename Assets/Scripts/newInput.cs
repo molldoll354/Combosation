@@ -50,10 +50,6 @@ public class newInput : MonoBehaviour {
 
 		audio.Play (music);
 		canPlayerSpeak = true; 
-		premadeCombos = new Combo [3];
-		premadeCombos [0] = new Combo ("ASA", "wholesome", 2,1 ); //1, 2, 1, 0, 2, 2);
-		premadeCombos [1] = new Combo ("WWSS","standup special", 2,1);//4, 3, 0,0,1,2 );
-		premadeCombos [2] = new Combo ("DSSWD", "smooth criminal",1,1); //4,4,4,4,0,2);
 	}
 	
 	// Update is called once per frame
@@ -86,19 +82,15 @@ public class newInput : MonoBehaviour {
 					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flirtSlotSprite;
 					buttonSlotSelection++;
 				}
-				print ("end of if(asdw){}");
 			}
 
 			if(Input.GetKeyDown(KeyCode.Space) && canPlayerSpeak == true){
-				print ("pressed space >>"+inputCombo);
 				resetSlots = true;
 				canPlayerSpeak = false;
 				GetComponent<comboReader>().readCombo(inputCombo);
 				inputCombo = "";
 				Timer = 8;
-				//GetComponentInParent<comboReader> ().Source = inputCombo;
-				//Debug.Log ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, premadeCombos));
-				//print ("Press [R] to reset: Info>> " + compareCombo (preferedLength, inputCombo, premadeCombos, comboUsage));
+				
 			}
 
 		}
@@ -107,10 +99,7 @@ public class newInput : MonoBehaviour {
 				resetSlots = true;
 
 				timeText.text = "" + Mathf.Floor (Timer);
-				//print ("timer is" + Timer);
 				Timer = 8;
-				//print ("timer is now " + Timer);
-				//canPlayerSpeak = true;
 				inputCombo = "";
 
 			}
@@ -138,114 +127,7 @@ public class newInput : MonoBehaviour {
 			print (""+inputCombo);
 		}
 	}
-		
-	//<-------------------------------Functions----------------------->
 
-	//compareCombo v2, now uses/needs a dictionary
-	string compareCombo(int preferedComboLength, string playerCombo, ComboWithAllInts[] premadeComboList, List<ComboWithAllInts> usedCombos){
-		string isIt = "";//the final string of info
-		bool correctLength = false;
-		bool premade = false;
-		bool usedAlready = false;
-		//testing length
-		if(playerCombo.Length>preferedLength){ correctLength = true;}
-		else{ isIt += "fit";}//langauge reflects length in attempts for improved readability
-
-		//is this a premade combo
-//		if(premadeComboList.Contains(playerCombo)==true){
-//			isIt+=" premade";
-//		} else { isIt+=" random";}
-		foreach(ComboWithAllInts combo in premadeComboList){//checks if the combo is premade or not.
-			int i =0;
-			if (premadeComboList[i].comboInput.Equals(playerCombo)){
-				premade = true;
-				break;
-			}
-			i++;
-		}
-		foreach(ComboWithAllInts combo in usedCombos){//checks if  the  combo has been used before, and increments usage.
-			int i = 0;
-			if(usedCombos[i].comboInput.Equals(playerCombo)){
-				usedAlready = true;
-				usedCombos[i].usage+=1;
-				break;
-			}
-
-			i++;
-		}
-		if(usedAlready==false){//adds the combo to the COmbo List, if necessary
-			ComboWithAllInts newCombo = new ComboWithAllInts(playerCombo);
-			usedCombos.Add(newCombo);
-		}
-//		if(usedCombos.Contains(playerCombo))
-//		{ 
-//			print ("used b4" + premadeComboList [playerCombo]);
-//			usedCombos [playerCombo].usage += 1;
-//			print ("used after " + premadeComboList [playerCombo]);
-//			isIt += " used: " + usedCombos [playerCombo].usage;
-//			print ("You've used this combo "+usedCombos[playerCombo].comboInput+" times!");
-//		}
-//		else{
-//			print ("NEW COMBO ADDED!");
-//			Combo newCombo = new Combo (playerCombo);
-//			usedCombos.Add (newCombo);
-//		}
-		isIt = "Lenght?>"+correctLength+". Premade?>"+ premade+". New Combo?>"+usedAlready;
-		return isIt;
-	}
-
-	public bool contains(string input, string[] list ){
-		bool contained = false;
-
-		for(int i = 0; i<list.Length-1;i++){
-			if(list[i].Equals(input)){ contained = true; break;}
-		}
-		return contained;
-	}
-
-	public bool tooLong(int preferedLength, string combo){
-		bool tooLong = false;
-		if(preferedLength<combo.Length){
-			tooLong = true;
-		}
-		return tooLong;
-	}
-
-	public bool premade(string combo, List<ComboWithAllInts> comboPreList){
-		bool preMade = false;
-		foreach (ComboWithAllInts combos in comboPreList ){
-			int i = 0;
-			if(comboPreList[i].comboName != "random"){
-				preMade = true;
-				break;
-			}
-			i++;
-		}
-		return preMade;
-	}
-
-	public	bool tooUsed(string combo, List<ComboWithAllInts> totalComboList, int prefUsage){
-		bool usedMuch = false;
-		int i = 0;
-		foreach (ComboWithAllInts comBo in totalComboList){
-			if(totalComboList[i].comboInput.Equals(combo) && totalComboList[i].usage>prefUsage){
-				usedMuch = true;
-				break;
-			}
-
-		}  
-
-		return usedMuch;
-	}
-	public bool contains(string combo, List<ComboWithAllInts> totalCombos){
-		bool onList = false;
-		foreach (ComboWithAllInts wombo in totalCombos){
-			int i = 0;
-			if(totalCombos[i].comboInput.Equals(combo)){onList = true; break;}
-			i++;
-		}
-		return onList;
-	}
 }
 
 

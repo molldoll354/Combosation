@@ -194,6 +194,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2117981161}
+  - {fileID: 155017297}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -202,6 +203,82 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &155017296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 155017297}
+  - component: {fileID: 155017299}
+  - component: {fileID: 155017298}
+  m_Layer: 5
+  m_Name: Textbox B
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &155017297
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 155017296}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 73645121}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -105.6, y: -18}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &155017298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 155017296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'response is here
+
+'
+--- !u!222 &155017299
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 155017296}
 --- !u!1 &395890585
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,10 +439,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1317371497}
   - component: {fileID: 1317371496}
-  - component: {fileID: 1317371498}
-  - component: {fileID: 1317371499}
   - component: {fileID: 1317371501}
   - component: {fileID: 1317371500}
+  - component: {fileID: 1317371498}
   m_Layer: 0
   m_Name: gm
   m_TagString: Untagged
@@ -434,77 +510,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1317371495}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e41c656299cf6814997fc3913c8f5275, type: 3}
+  m_Script: {fileID: 11500000, guid: 036bdc25ce448ce4e80d40371779a591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboManage: {fileID: 0}
-  Source: 
-  questions:
-  - a
-  - e
-  - i
-  responses:
-  - options:
-    - b
-    - c
-    - d
-    - d2
-    - d3
-  - options:
-    - f
-    - g
-    - h
-    - h2
-    - h3
-  - options:
-    - j
-    - k
-    - l
-    - l2
-    - l3
-  questionIndex: 0
-  finalAnswer: 0
-  statChecker: 0
-  chatChecker: 0
-  flatterChecker: 0
-  flirtChecker: 0
-  jokeChecker: 0
-  dialogueText: {fileID: 0}
-  questionText: {fileID: 0}
-  saki: {fileID: 0}
-  sakiAnim: {fileID: 0}
---- !u!114 &1317371499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1317371495}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b774beaa25370d848b893941932288b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputCombo: 
-  timeText: {fileID: 2117981162}
-  canPlayerSpeak: 0
-  StopButtons: 0
-  resetSlots: 0
-  preferedLength: 4
-  maxUsage: 4
-  blankSlotSprite: {fileID: 0}
-  flatterSlotSprite: {fileID: 0}
-  flirtSlotSprite: {fileID: 0}
-  chatSlotSprite: {fileID: 0}
-  jokeSlotSprite: {fileID: 0}
-  buttonSlots: []
-  audio: {fileID: 0}
-  flatterSound: {fileID: 8300000, guid: 61bed2868b732754d8642fd8cf3ea4f1, type: 3}
-  flirtSound: {fileID: 8300000, guid: e15cd033e8242884fa44bbbffb3635e4, type: 3}
-  chatSound: {fileID: 8300000, guid: 18fb463864893c4448e279b69f998d7b, type: 3}
-  jokeSound: {fileID: 8300000, guid: 057e85a32a5c4214ab5f53e648a83109, type: 3}
-  music: {fileID: 8300000, guid: e15cd033e8242884fa44bbbffb3635e4, type: 3}
+  questionText: {fileID: 2117981162}
+  dialogueText: {fileID: 155017298}
 --- !u!114 &1317371500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,8 +541,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerInput: 
+  inputCombo:
+    comboInput: 
+    comboName: 
+    usage: 0
+    comboType: 0
+    comboBonus: 0
+    isPremade: 0
+    unLocked: 0
   preferedLenght: 4
   usageLimit: 3
+  myJson: 
 --- !u!1 &2117981160
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,7 +563,7 @@ GameObject:
   - component: {fileID: 2117981163}
   - component: {fileID: 2117981162}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Textbox A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -563,7 +584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 56.473953, y: -113.49999}
+  m_AnchoredPosition: {x: 79.5, y: -14.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2117981162
@@ -598,7 +619,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: I am question
 --- !u!222 &2117981163
 CanvasRenderer:
   m_ObjectHideFlags: 0

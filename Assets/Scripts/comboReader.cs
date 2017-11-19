@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 [System.Serializable]
 public class SakiAnswer{
-	public List<string> options;
-	public List<int> moodEffect;
+	public List<string> options;//number of options that the player has
+	public List<int> moodEffect;//int in the inspector that goes up or down depending on how appropriate the response is 
 }
 
 public class comboReader : MonoBehaviour {
 	public comboManager comboManage;
-
+	public Dictionary<string, Combo> comboDictionary = new Dictionary<string, Combo>();
 	private static comboReader _instance;
 
 	public static comboReader Instance { get { return _instance; } }
@@ -22,22 +22,22 @@ public class comboReader : MonoBehaviour {
 
 	List <int> buttonCount;
 
-	public List<string> questions;
-	public List<SakiAnswer> responses;
-	public int questionIndex =0;
+	public List<string> questions;//the actual questions that Saki asks
+	public List<SakiAnswer> responses;//Saki's responses (both this and the questions are stored in the inspector) 
+	public int questionIndex =0;//determines what number question you're on 
 	public int finalAnswer =0;
 
 	public int statChecker;//checks mood over time going from sad to happy
-	public int chatChecker, flatterChecker, flirtChecker, jokeChecker;
+	public int chatChecker, flatterChecker, flirtChecker, jokeChecker;//checks the number of times each type of combo has been used throughout conversation
 
-	public Text dialogueText;
-	public Text questionText;
+	public Text dialogueText;//displays response text
+	public Text questionText;//displays question text
 	//public bool canPlayerSpeak = true;
 	// Use this for initialization
 
 	public GameObject saki;
-	public Animator sakiAnim;
-	public enum ResponseOps{
+	public Animator sakiAnim;//Saki's animator
+	public enum ResponseOps{//converts strings to ints
 		chat=0,
 		flirt=1,
 		joke=2,
@@ -58,74 +58,51 @@ public class comboReader : MonoBehaviour {
 
 	void Start () {
 		//Debug.Log (questions [questionIndex]);
+		comboDictionary= GetComponent<comboManager>().dictionaryCombos;
 		GetComponent<newInput> ().canPlayerSpeak = true;
-		//		buttonType mostPressedButton = CheckButtonCounts (Source);
-		//responses [questionIndex].options [(int)mostPressedButton];
-		//buttonType mostPressedButton = CheckButtonCounts (Source);
+
 		statChecker=0;
 		sakiAnim = saki.GetComponent<Animator> ();
 	}
-	/*
-	 * same object as game master
-	 * if (comboManager.readCombo(Source) == 0) {
-					statChecker += 1;//check the dialogue document and see what responses are marked 1,2,3 or 4
-					chatChecker += 1;
-				}
-	 * 
-	 */ 
-
-
-
+		
 	// Update is called once per frame
 	void Update () {
 		
 		if (Input.GetKeyDown (KeyCode.R)) {
-			Application.LoadLevel ("dellapisoundscene");
+			Application.LoadLevel ("dellapisoundscene");//reloads game
 		}
-
-//		if (Input.GetKeyDown (KeyCode.P)) {
-//			gameObject.SetActive(false);
-//		}
-//		Debug.Log ("noPress");
-//		if (Input.GetKeyDown (KeyCode.Space)) {
-//			Debug.Log (responses [questionIndex].options [(int)CheckButtonCounts(Source)]);//pull the button type into responseops
-//			questionIndex++;
-//			Debug.Log (questions [questionIndex]);
+			
 	
 //		}//molly check here for animator work
 		if (!Input.GetKeyDown (KeyCode.Space)&&questionIndex!=9) {
-			questionText.text = questions [questionIndex];
+			questionText.text = questions [questionIndex];//question text displays based on what number question you're on
 		}
-		/*if (chatChecker > jokeChecker && chatChecker > flirtChecker && chatChecker > flatterChecker) {
-			Debug.Log("neutral");
-			saki.GetComponent<Animator> ().Play ("neutral");
-		}
-		if (jokeChecker > chatChecker && jokeChecker > flirtChecker && jokeChecker > flatterChecker) {
-			Debug.Log("laughing");
-			saki.GetComponent<Animator> ().Play ("laughing");
-		}
-		if (flatterChecker > jokeChecker && flatterChecker > flirtChecker && flatterChecker > chatChecker) {
-			Debug.Log("blushing");
-			saki.GetComponent<Animator> ().Play ("happy");
-		}
-		if (flirtChecker > jokeChecker && flirtChecker > chatChecker && flirtChecker > flatterChecker) {
-			Debug.Log("heart eyes");
-			saki.GetComponent<Animator> ().Play ("blush");
-		}*/
+	
 		saki.GetComponent<Animator> ().SetFloat ("BaseMood", statChecker);//molly check here for animator work
 
 	}
 
+//	public void switchTextBoxes(){//A=Question, b= dialogue
+//		if(questionText.gameObject.activeInHierarchy ==true){
+//			questionText.gameObject.SetActive(false);
+//			dialogueText.gameObject.SetActive(true);
+//		}
+//		else{
+//			questionText.gameObject.SetActive(true);
+//			dialogueText.gameObject.SetActive(false);
+//		}
+//	}
+
 	public void readCombo(string Source){
 		//Debug.Log("Reader"+Source);
-		Debug.Log (statChecker);
+		Debug.Log ("statchecker"+statChecker);
 		print (Source);
-			//print ("in b4 Source=Getblabblab");
-			//Source = GetComponent<newInput> ().inputCombo;
-			//print ("" + questionIndex+" vs "+responses.Count);
-			//Debug.Log ("welcome" +responses [questionIndex].options [(int)CheckButtonCounts(Source)]);//pull the button type into responseops
 
-			dialogueText.text = responses [questionIndex].options [(int)CheckButtonCounts (Source)];
+
+		int currentComboType = GetComponent<comboManager>().readCombo (Source);
+		print ("please help me" + currentComboType);
+		    //switchTextBoxes();
+		dialogueText.text = responses [questionIndex].options [currentComboType];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
 		
 			//print("b4 questionIndex++");
 			
@@ -141,31 +118,30 @@ public class comboReader : MonoBehaviour {
 
 
 
+
 				//Debug.Log("Update"+Source);
-		if ((int)CheckButtonCounts (Source) == 0) {
-				RespondChat ();
-			questionIndex++;
+		if (currentComboType == 0) {//checks if a chat combo was pressed
+				RespondChat ();//calls chat function
+			questionIndex++;//moves the question index along
 				}
-		if((int) CheckButtonCounts(Source)==1){
+		if(currentComboType==1){//checks for flatter
 				RespondFlatter ();
 			questionIndex++;
 				}
-		if((int)CheckButtonCounts(Source)==2)
+		if(currentComboType==2)
 				{
 				RespondJoke ();
 			questionIndex++;
 				}
-		if((int)CheckButtonCounts(Source)==3){
+		if(currentComboType==3){
 				RespondFlirt ();
 			questionIndex++;
 				}
-	
-
 	}
 
 	void RespondJoke(){
-		int statEffect = responses [questionIndex].moodEffect [2];
-		statChecker += statEffect;
+		int statEffect = responses [questionIndex].moodEffect [2];//checks the mood effect int in the inspector
+		statChecker += statEffect;//increases statchecker based on what was found in mood effect
 		jokeChecker += 1;
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
@@ -243,19 +219,7 @@ public class comboReader : MonoBehaviour {
 				//break;
 			}
 		}
-
-//		what does this do y'all?
-		// if (largestButtonType == buttonType.W) {
-//			finalAnswer=(int)ResponseOps.chat;
-//		} else if (largestButtonType == buttonType.A) {
-//			finalAnswer=(int)ResponseOps.flatter;
-//		} else if (largestButtonType == buttonType.S) {
-//			finalAnswer=(int)ResponseOps.joke;
-//		} else if (largestButtonType == buttonType.D) {
-//			finalAnswer=(int)ResponseOps.flirt;
-//		} else {
-//			finalAnswer = (int)ResponseOps.other;
-//		} 
+			
 
 		return (ResponseOps)largestButtonType;
 	}
