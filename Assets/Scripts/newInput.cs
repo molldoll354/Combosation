@@ -14,7 +14,7 @@ public class newInput : MonoBehaviour {
 	public Text timeText;
 
 	float Timer;
-	float TimerLength = 8;
+	public float TimerLength;
 
 	int buttonSlotSelection = 0;
 

@@ -9,6 +9,9 @@ public class SakiAnswer{
 	public List<int> moodEffect;//int in the inspector that goes up or down depending on how appropriate the response is 
 }
 
+
+
+
 public class comboReader : MonoBehaviour {
 	public comboManager comboManage;
 	public Dictionary<string, Combo> comboDictionary = new Dictionary<string, Combo>();
@@ -30,11 +33,12 @@ public class comboReader : MonoBehaviour {
 	public int statChecker;//checks mood over time going from sad to happy
 	public int chatChecker, flatterChecker, flirtChecker, jokeChecker;//checks the number of times each type of combo has been used throughout conversation
 
+	public Text comboDescriptor;
 	public Text dialogueText;//displays response text
 	public Text questionText;//displays question text
 	//public bool canPlayerSpeak = true;
 	// Use this for initialization
-
+	public Combo currentCombo;
 	public GameObject saki;
 	public Animator sakiAnim;//Saki's animator
 	public enum ResponseOps{//converts strings to ints
@@ -97,10 +101,15 @@ public class comboReader : MonoBehaviour {
 		//Debug.Log("Reader"+Source);
 		Debug.Log ("statchecker"+statChecker);
 		print (Source);
-
-
+		Combo temp = GetComponent<comboManager> ().addCombo (Source);
+		currentCombo = temp;
 		int currentComboType = GetComponent<comboManager>().readCombo (Source);
-		print ("please help me" + currentComboType);
+		if (temp.isPremade == true) {
+			comboDescriptor.text = "" + "\""+temp.comboName+ "\"" + "\n Bonus: " + temp.comboBonus;
+		} else {
+			comboDescriptor.text = "";
+		}
+	
 		    //switchTextBoxes();
 		dialogueText.text = responses [questionIndex].options [currentComboType];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
 		
@@ -141,7 +150,7 @@ public class comboReader : MonoBehaviour {
 
 	void RespondJoke(){
 		int statEffect = responses [questionIndex].moodEffect [2];//checks the mood effect int in the inspector
-		statChecker += statEffect;//increases statchecker based on what was found in mood effect
+		statChecker += statEffect*currentCombo.comboBonus;//increases statchecker based on what was found in mood effect
 		jokeChecker += 1;
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
@@ -155,7 +164,7 @@ public class comboReader : MonoBehaviour {
 	}
 	void RespondFlatter(){
 		int statEffect = responses [questionIndex].moodEffect [1];
-		statChecker += statEffect;
+		statChecker += statEffect * currentCombo.comboBonus;
 		flatterChecker += 1;
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
@@ -170,7 +179,7 @@ public class comboReader : MonoBehaviour {
 
 	void RespondFlirt(){
 		int statEffect = responses [questionIndex].moodEffect [3];
-		statChecker += statEffect;
+		statChecker += statEffect* currentCombo.comboBonus;
 		flirtChecker += 1;
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
@@ -185,7 +194,7 @@ public class comboReader : MonoBehaviour {
 
 	void RespondChat(){
 		int statEffect = responses[questionIndex].moodEffect[0];
-		statChecker += statEffect;
+		statChecker += statEffect* currentCombo.comboBonus;
 		chatChecker+=1;
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");

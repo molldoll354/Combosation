@@ -31,6 +31,7 @@ public class Combo {
 		comboType = (int)comboReader.Instance.CheckButtonCounts(inputCombo);
 		isPremade = false;
 		unLocked = true;
+		comboBonus = 1;
 	}
 		
 	public void increaseUsage()
@@ -109,7 +110,6 @@ public class comboManager : MonoBehaviour {
 			typeOfCombo = 4;
 		}
         
-		print ("typeOfCombo" + typeOfCombo);
 		return typeOfCombo;
 	}
 
@@ -156,5 +156,22 @@ public class comboManager : MonoBehaviour {
 		}
 	}
 
+
+	public Combo addCombo(string playerCOmbo){
+		Combo newCombo;
+
+		if(dictionaryCombos.ContainsKey(playerCOmbo)){
+			dictionaryCombos.TryGetValue (playerCOmbo, out newCombo);
+
+			//inputCombo.increaseUsage ();
+			//print ("new usage: " + inputCombo.usage);
+		}else{
+			inputCombo = new Combo (playerCOmbo);
+			dictionaryCombos.Add (playerCOmbo, inputCombo);
+			print ("NEW COMBO USED:" + inputCombo); 
+			newCombo = inputCombo;
+		}
+		return newCombo;
+	}
 
 }
