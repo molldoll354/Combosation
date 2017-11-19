@@ -9,7 +9,7 @@ public class Combo {
 	public string comboName;//the name of the combo if it's premade, idk if necesary.
 
 	public int usage;//how many times this has been used
-	public int comboType ;//the type of combo this is, so the dialogue can be chosen.
+	public int comboType ;//the type of combo this is, so the dialogue can be chosen. wchat = 0, aflatter =1, sjoke, = 2, dflirt 3, counter-clockwise.
 	public int comboBonus ;//the bonus the combo gives.
 	public bool isPremade;//is the combo premade.
 	public bool unLocked;//is the combo unlocked
@@ -110,21 +110,10 @@ public class comboManager : MonoBehaviour {
 		//if not too often, nothing. 
 		Combo temp;
 		dictionaryCombos.TryGetValue(playerCombo, out temp);
-		//dictionaryCombos.
-		if(temp.usage>usageLimit){//how do I access specific element in the dictionary? primarily, how do I get usage of a newly added combo? I did not test for premade combos.
-			comboType = 8;
-			print ("USED TOO OFTEN! USED TOO OFTEN! USED TOO OFTEN! USED TOO OFTEN! USED TOO OFTEN!");
+		if(temp.usage>usageLimit){
+			comboType = 4;
 		}
-
-		//step 3
-		//check it's length, 
-		//if too long, respond with that. MEaning change what ever is the response to the preset ones.
-		//if not too long, nothing.
-		if(playerCombo.Length>preferedLenght){
-			comboType = 16;
-			print ("TOOOOOOOOOOOO LLLLOOOOOOOOOOOOOOOOOOONNNNNNNNNNNNNG");
-
-		}
+        
 
 		return comboType;
 	}
@@ -171,43 +160,6 @@ public class comboManager : MonoBehaviour {
 			return false;
 		}
 	}
-
-	public bool tooLong(){
-		bool length = false;
-		if(PlayerInput.Length>preferedLenght){length = true;}
-		return length;
-	}
-
-	public bool usedOften(){
-		bool often=false;
-		if (dictionaryCombos.ContainsKey (PlayerInput)) {
-			Combo temp;
-			dictionaryCombos.TryGetValue (PlayerInput, out temp);
-			int usedness = temp.usage;
-			if (usedness > usageLimit) {
-				often = true;
-			}
-		}else{
-			print("combo has not been used before.");
-		}
-		return often;
-	}
-
-	public Combo addCombo(){
-		//does contain.blah blah blah.
-		Combo temp;
-		if( dictionaryCombos.ContainsKey(PlayerInput)==true){
-			dictionaryCombos.TryGetValue (PlayerInput, out temp);
-		}
-		else{
-			temp = new Combo (PlayerInput);
-
-		}
-		return temp;
-	}
-
-
-
 
 
 }

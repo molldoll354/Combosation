@@ -116,6 +116,17 @@ public class comboReader : MonoBehaviour {
 
 	}
 
+	public void switchTextBoxes(){//A=Question, b= dialogue
+		if(questionText.gameObject.activeInHierarchy ==true){
+			questionText.gameObject.SetActive(false);
+			dialogueText.gameObject.SetActive(true);
+		}
+		else{
+			questionText.gameObject.SetActive(true);
+			dialogueText.gameObject.SetActive(false);
+		}
+	}
+
 	public void readCombo(string Source){
 		//Debug.Log("Reader"+Source);
 		Debug.Log (statChecker);
@@ -124,7 +135,7 @@ public class comboReader : MonoBehaviour {
 			//Source = GetComponent<newInput> ().inputCombo;
 			//print ("" + questionIndex+" vs "+responses.Count);
 			//Debug.Log ("welcome" +responses [questionIndex].options [(int)CheckButtonCounts(Source)]);//pull the button type into responseops
-
+		    switchTextBoxes();
 			dialogueText.text = responses [questionIndex].options [(int)CheckButtonCounts (Source)];
 		
 			//print("b4 questionIndex++");
