@@ -68,7 +68,7 @@ public class comboReader : MonoBehaviour {
 		comboDictionary= GetComponent<comboManager>().dictionaryCombos;
 		GetComponent<newInput> ().canPlayerSpeak = true;
 
-		statChecker=0;
+		statChecker=20;
 		sakiAnim = saki.GetComponent<Animator> ();
 	}
 		
@@ -192,7 +192,7 @@ public class comboReader : MonoBehaviour {
 			sakiAnim.Play ("happyREACT");
 		}
 		if (statEffect == 2) {
-			sakiAnim.Play ("laughingREACT");
+			sakiAnim.Play ("loveREACT");
 		}
 	}
 
@@ -201,13 +201,13 @@ public class comboReader : MonoBehaviour {
 		statChecker += (statEffect* currentCombo.comboBonus)+1;
 		flirtChecker += 1;
 		if (statEffect <= 0) {
-			sakiAnim.Play ("unimpressedREACT");
+			sakiAnim.Play ("angryREACT");
 		}
 		if (statEffect == 1) {
-			sakiAnim.Play ("happyREACT");
+			sakiAnim.Play ("laughingREACT");
 		}
 		if (statEffect == 2) {
-			sakiAnim.Play ("laughingREACT");
+			sakiAnim.Play ("loveREACT");
 		}
 	}
 
@@ -219,10 +219,10 @@ public class comboReader : MonoBehaviour {
 			sakiAnim.Play ("unimpressedREACT");
 		}
 		if (statEffect == 1) {
-			sakiAnim.Play ("happyREACT");
+			sakiAnim.Play ("neutralREACT");
 		}
 		if (statEffect == 2) {
-			sakiAnim.Play ("laughingREACT");
+			sakiAnim.Play ("happyREACT");
 		}
 	}
 	public ResponseOps CheckButtonCounts(string combo) {
