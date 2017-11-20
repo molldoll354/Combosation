@@ -1245,7 +1245,7 @@ MonoBehaviour:
     isPremade: 0
     unLocked: 0
   saki: {fileID: 983620032}
-  sakiAnim: {fileID: 0}
+  sakiAnim: {fileID: 983620035}
 --- !u!114 &737857451
 MonoBehaviour:
   m_ObjectHideFlags: 0
