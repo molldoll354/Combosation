@@ -12,6 +12,8 @@ public class newInput : MonoBehaviour {
 //	public GameObject flatter, joke, wink, chat, neutral;
 //	public Text meterText;
 	public Text timeText;
+	public Text iTExt;
+
 
 	float Timer;
 	public float TimerLength;
@@ -40,7 +42,7 @@ public class newInput : MonoBehaviour {
 	public AudioClip jokeSound;
 	public AudioClip music;
 
-	int i = 0;
+	int i = 8;
 	int index=0;
 
 	//Dictionary<string, int> comboUsage;
@@ -60,7 +62,7 @@ public class newInput : MonoBehaviour {
 		Debug.Log (resetSlots);
 		//Get player input. 
 		if (canPlayerSpeak == true ) {
-			if(inputCombo.Length < 5    )
+			if(inputCombo.Length < 5  && i ==1  )
 			{
 				if (Input.GetKeyDown (KeyCode.A)) {
 					inputCombo += "A";
@@ -88,25 +90,34 @@ public class newInput : MonoBehaviour {
 			if(Input.GetKeyDown(KeyCode.Space) ){
 				
 				if (i == 0) {
+					print ("i is " + i);
+					iTExt.text = "press space to talk";
 					print ("call questions");
 					GetComponent<comboReader> ().switchTextBoxes ();//this means we should initialize question off.
 					GetComponent<comboReader> ().callQuestion ();
-					i++;
+					i = 1;
 				} else if (i == 1) {
-					print ("readCombo");
+					print ("i is " + i);
+					iTExt.text = "press space to respond";
 					resetSlots = true;
 					//canPlayerSpeak = false;
 					GetComponent<comboReader> ().readCombo (inputCombo);
-					inputCombo = "";
+
 					Timer = TimerLength;
-					i++;
+					i = 2;
 
 				} else if (i == 2) {
-					print ("call dialogue");
+					print ("i is " + i);
+					iTExt.text = "press space to hear next question";
 					GetComponent<comboReader> ().switchTextBoxes ();
 					i = 0;
-					GetComponent<comboReader> ().callDialogue (GetComponent<comboManager>().readCombo(inputCombo));
-
+					GetComponent<comboReader> ().callDialogue (GetComponent<comboManager> ().readCombo (inputCombo));
+					inputCombo = "";
+				} else if (i == 8) {//starts here.
+					print ("i is " + i);
+					iTExt.text = "press space to talk";
+					GetComponent<comboReader> ().callQuestion ();
+					i = 1;
 				}
 
 				
