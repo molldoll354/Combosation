@@ -145,6 +145,7 @@ public class comboReader : MonoBehaviour {
 		Combo temp = GetComponent<comboManager> ().addCombo (Source);
 		currentCombo = temp;
 		int currentComboType = GetComponent<comboManager>().readCombo (Source);
+		Debug.Log ("the manager returned " + currentComboType);
 		if (temp.isPremade == true) {
 			comboDescriptor.text = "" + "\""+temp.comboName+ "\"" + "\n Bonus: " + temp.comboBonus;
 		} else {

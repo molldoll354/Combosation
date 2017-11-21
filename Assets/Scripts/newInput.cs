@@ -59,7 +59,6 @@ public class newInput : MonoBehaviour {
 	void Update () {
 
 	
-		Debug.Log (resetSlots);
 		//Get player input. 
 		if (canPlayerSpeak == true ) {
 			if(inputCombo.Length < 5  && i ==1  )
@@ -99,9 +98,10 @@ public class newInput : MonoBehaviour {
 					print ("i is " + i);
 					iTExt.text = "press space to respond";
 					//canPlayerSpeak = false;
-					GetComponent<comboReader> ().readCombo (inputCombo);
+					//readCombo was being called multiple times, setting it to nothing (reset)
 					GetComponent<comboReader> ().switchTextBoxes ();
 					GetComponent<comboReader> ().callDialogue (GetComponent<comboManager> ().readCombo (inputCombo));
+					GetComponent<comboReader> ().readCombo (inputCombo);
 					Timer = TimerLength;
 					i = 0;
 					resetSlots = true;

@@ -140,8 +140,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.125396, y: 0.7787511}
   m_AnchorMax: {x: 0.62689936, y: 0.9355022}
-  m_AnchoredPosition: {x: -17.8, y: -8.9}
-  m_SizeDelta: {x: -133, y: 38.600006}
+  m_AnchoredPosition: {x: -31.29, y: -18.29}
+  m_SizeDelta: {x: 365.01, y: 71.53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &82548620
 MonoBehaviour:
@@ -172,7 +172,7 @@ MonoBehaviour:
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'QUESTION: PRESS SPACE'
