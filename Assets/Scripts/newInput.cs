@@ -13,7 +13,7 @@ public class newInput : MonoBehaviour {
 //	public Text meterText;
 	public Text timeText;
 	public Text iTExt;
-
+	public Text DictrionaryText;
 
 	float Timer;
 	public float TimerLength;
@@ -115,7 +115,15 @@ public class newInput : MonoBehaviour {
 
 
 			}
-
+			if (Input.GetKeyDown (KeyCode.L)) {
+				if (DictrionaryText.gameObject.activeInHierarchy == true) {
+					DictrionaryText.gameObject.SetActive(false);
+					DictrionaryText.text = "";
+				} else {
+					DictrionaryText.gameObject.SetActive(true);
+					DictrionaryText.text =""+ GetComponent<comboManager> ().displayDictionary ();
+				}
+			}
 //			if(Input.GetKeyDown(KeyCode.Space) ){
 //				
 //				if (i == 0) {

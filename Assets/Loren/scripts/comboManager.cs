@@ -113,8 +113,31 @@ public class comboManager : MonoBehaviour {
 		return typeOfCombo;
 	}
 
-	public void displayDictionary(){
-		
+	public string displayDictionary(){
+		/*
+		 * create a string of combos
+		 * if they have been discovered (usage == 0->1;)
+		 * 	show their name, input and type
+		 * if they haven't been
+		 * 	show question marks
+		 * 
+		 */
+
+		string TheDictionary = "#)_Name_____Input_____Type \n";
+		int indexCombo = 0;
+		foreach( KeyValuePair<string, Combo> entryCombo in dictionaryCombos){
+			indexCombo++;
+			if (entryCombo.Value.usage > 0) {
+				TheDictionary += indexCombo+")_" + entryCombo.Value.comboName + "___" + entryCombo.Value.comboInput + "____" + entryCombo.Value.comboType+"\n";
+			} else {
+				TheDictionary += indexCombo+")_????______?????_____?\n";
+			}
+		}
+
+
+
+
+		return TheDictionary;
 	}
 
 
