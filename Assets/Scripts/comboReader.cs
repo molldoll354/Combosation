@@ -74,7 +74,7 @@ public class comboReader : MonoBehaviour {
 		comboDictionary= GetComponent<comboManager>().dictionaryCombos;
 		GetComponent<newInput> ().canPlayerSpeak = true;
 
-		statChecker=20;
+		statChecker=10;
 		sakiAnim = saki.GetComponent<Animator> ();
 	}
 		
@@ -145,8 +145,9 @@ public class comboReader : MonoBehaviour {
 		Combo temp = GetComponent<comboManager> ().addCombo (Source);
 		currentCombo = temp;
 		int currentComboType = GetComponent<comboManager>().readCombo (Source);
+		Debug.Log ("the manager returned " + currentComboType);
 		if (temp.isPremade == true) {
-			comboDescriptor.text = "" + "\""+temp.comboName+ "\"" + "\n Bonus: " + temp.comboBonus;
+			comboDescriptor.text = "" + "\""+temp.comboName+ "\"" + "\n Bonus: " + temp.comboBonus + "X";
 		} else {
 			comboDescriptor.text = "";
 		}
