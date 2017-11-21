@@ -146,7 +146,7 @@ public class comboReader : MonoBehaviour {
 			GetComponent<newInput> ().inputCombo = "";
 			GetComponent<newInput> ().canPlayerSpeak = true;
 
-
+		print("save me lord" + questionIndex);
 
 
 				//Debug.Log("Update"+Source);
