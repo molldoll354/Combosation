@@ -126,7 +126,7 @@ public class comboReader : MonoBehaviour {
 
 	public void readCombo(string Source){
 		//Debug.Log("Reader"+Source);
-		Debug.Log ("statchecker"+statChecker);
+		//Debug.Log ("statchecker"+statChecker);
 		print (Source);
 		Combo temp = GetComponent<comboManager> ().addCombo (Source);
 		currentCombo = temp;
