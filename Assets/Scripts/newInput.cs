@@ -14,6 +14,7 @@ public class newInput : MonoBehaviour {
 	public Text timeText;
 	public Text iTExt;
 	public Text DictrionaryText;
+	public GameObject ComboMenu;
 
 	float Timer;
 	public float TimerLength;
@@ -116,11 +117,11 @@ public class newInput : MonoBehaviour {
 
 			}
 			if (Input.GetKeyDown (KeyCode.L)) {
-				if (DictrionaryText.gameObject.activeInHierarchy == true) {
-					DictrionaryText.gameObject.SetActive(false);
+				if (ComboMenu.gameObject.activeInHierarchy == true) {
+					ComboMenu.gameObject.SetActive(false);
 					DictrionaryText.text = "";
 				} else {
-					DictrionaryText.gameObject.SetActive(true);
+					ComboMenu.gameObject.SetActive(true);
 					DictrionaryText.text =""+ GetComponent<comboManager> ().displayDictionary ();
 				}
 			}

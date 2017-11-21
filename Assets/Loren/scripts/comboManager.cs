@@ -123,7 +123,7 @@ public class comboManager : MonoBehaviour {
 		 * 
 		 */
 
-		string TheDictionary = "#)_Name_____Input_____Type \n";
+		string TheDictionary = "\n#)_Name_____Input_____Type \n";
 		int indexCombo = 0;
 		foreach( KeyValuePair<string, Combo> entryCombo in dictionaryCombos){
 			indexCombo++;
