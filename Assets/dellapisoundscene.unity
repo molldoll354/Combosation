@@ -1239,6 +1239,9 @@ MonoBehaviour:
   sakiBubble: {fileID: 1172938196}
   neutralBubble: {fileID: 21300000, guid: c3c28f1efa28c6140a6701f8f3b27b67, type: 3}
   goodBubble1: {fileID: 21300000, guid: 124e462cf04094447bcfe73e5fb0550e, type: 3}
+  goodBubble2: {fileID: 21300000, guid: f8a7cba58f1f8c04696f776349b07b2a, type: 3}
+  badBubble1: {fileID: 21300000, guid: cbbff714c6160924cac5e4b4b714c0c1, type: 3}
+  badBubble2: {fileID: 21300000, guid: 86f0d5fc79ecde24ea74da47a64342d5, type: 3}
   currentCombo:
     comboInput: 
     comboName: 

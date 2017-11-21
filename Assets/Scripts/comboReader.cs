@@ -41,6 +41,9 @@ public class comboReader : MonoBehaviour {
 	public GameObject sakiBubble;
 	public Sprite neutralBubble;
 	public Sprite goodBubble1;
+	public Sprite goodBubble2;
+	public Sprite badBubble1;
+	public Sprite badBubble2;
 
 	public Combo currentCombo;
 
@@ -95,11 +98,22 @@ public class comboReader : MonoBehaviour {
 			Application.LoadLevel ("dellapisoundscene");//reloads game
 		}
 
-		if (statChecker > 20) { //this changes her bubble depending on how well you're doing; right now it's pretty much just a test but one day it will be more
+		if (statChecker > 55) { 
+			sakiBubble.GetComponent<SpriteRenderer> ().sprite = goodBubble2;
+		}
+		if (statChecker > 30 && statChecker <= 55) { //this stuff changes her bubble depending on how well you're doing
 			sakiBubble.GetComponent<SpriteRenderer> ().sprite = goodBubble1;
 		}
-		if (statChecker < 20) {
+		if (statChecker <= 30 && statChecker > 0) {
 			sakiBubble.GetComponent<SpriteRenderer> ().sprite = neutralBubble;
+
+		}
+		if (statChecker <= 0 && statChecker > -12) {
+			sakiBubble.GetComponent<SpriteRenderer> ().sprite = badBubble1;
+
+		}
+		if (statChecker <= -12) {
+			sakiBubble.GetComponent<SpriteRenderer> ().sprite = badBubble2;
 
 		}
 			
