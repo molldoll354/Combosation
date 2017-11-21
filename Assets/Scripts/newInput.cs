@@ -90,14 +90,14 @@ public class newInput : MonoBehaviour {
 
 				if (i == 0) {
 					print ("i is " + i);
-					iTExt.text = "press space to talk";
+					//iTExt.text = "press space to talk";
 					print ("call questions");
 					GetComponent<comboReader> ().switchTextBoxes ();//this means we should initialize question off.
 					GetComponent<comboReader> ().callQuestion ();
 					i = 1;
 				} else if (i == 1) {
 					print ("i is " + i);
-					iTExt.text = "press space to respond";
+					//iTExt.text = "press space to respond";
 					//canPlayerSpeak = false;
 					//readCombo was being called multiple times, setting it to nothing (reset)
 					GetComponent<comboReader> ().switchTextBoxes ();
@@ -108,7 +108,7 @@ public class newInput : MonoBehaviour {
 					resetSlots = true;
 				} else if (i == 8) {//starts here.
 					print ("i is " + i);
-					iTExt.text = "press space to talk";
+					//iTExt.text = "press space to talk";
 					GetComponent<comboReader> ().callQuestion ();
 					resetSlots = true;
 					i = 1;
