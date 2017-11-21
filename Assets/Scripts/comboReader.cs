@@ -38,6 +38,9 @@ public class comboReader : MonoBehaviour {
 	public Text questionText;//displays question text
 	//public bool canPlayerSpeak = true;
 	// Use this for initialization
+	public GameObject sakiBubble;
+	public Sprite neutralBubble;
+	public Sprite goodBubble1;
 
 	public Combo currentCombo;
 
@@ -90,6 +93,14 @@ public class comboReader : MonoBehaviour {
 		
 		if (Input.GetKeyDown (KeyCode.R)) {
 			Application.LoadLevel ("dellapisoundscene");//reloads game
+		}
+
+		if (statChecker > 20) { //this changes her bubble depending on how well you're doing; right now it's pretty much just a test but one day it will be more
+			sakiBubble.GetComponent<SpriteRenderer> ().sprite = goodBubble1;
+		}
+		if (statChecker < 20) {
+			sakiBubble.GetComponent<SpriteRenderer> ().sprite = neutralBubble;
+
 		}
 			
 	
