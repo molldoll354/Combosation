@@ -22,6 +22,7 @@ public class ButtonSelection : MonoBehaviour
 	public GameObject roundButton;
 	public float sadUp, loveUp, friendUp, sadChange, friendChange, loveChange;
 	public Slider sadnessBar,lovelyBar,friendlyBar;//sliders for the bars
+	public Slider timeTest;
 
 	public AudioSource audioButton;
 	public AudioSource roundEndAudio;
@@ -87,6 +88,7 @@ public class ButtonSelection : MonoBehaviour
 		sadnessBar.value = sadChange;
 		lovelyBar.value = loveChange;
 		friendlyBar.value = friendChange;
+
 
 		if((sadnessBar.value>75)&&(sadnessBar.value>friendlyBar.value)){
 			meterText.text="I'm really sad.";
@@ -161,6 +163,7 @@ public class ButtonSelection : MonoBehaviour
 		if (Timer >= 0) {
 			
 			Timer -= Time.deltaTime;
+			timeTest.value = Timer;
 		}
 
 
