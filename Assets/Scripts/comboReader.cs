@@ -93,7 +93,9 @@ public class comboReader : MonoBehaviour {
 		 * 
 		 * 
 		 */
-		
+		if (questionIndex == 9) {
+			Application.LoadLevel ("EndingScene");
+		}
 		if (Input.GetKeyDown (KeyCode.R)) {
 			Application.LoadLevel ("dellapisoundscene");//reloads game
 		}
