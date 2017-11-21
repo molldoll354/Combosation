@@ -74,7 +74,7 @@ public class comboReader : MonoBehaviour {
 		comboDictionary= GetComponent<comboManager>().dictionaryCombos;
 		GetComponent<newInput> ().canPlayerSpeak = true;
 
-		statChecker=20;
+		statChecker=10;
 		sakiAnim = saki.GetComponent<Animator> ();
 	}
 		
