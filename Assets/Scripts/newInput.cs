@@ -35,13 +35,17 @@ public class newInput : MonoBehaviour {
 	public Sprite flirtSlotSprite;
 	public Sprite chatSlotSprite;
 	public Sprite jokeSlotSprite;
-	public GameObject [] buttonSlots;	
+	public Sprite spaceOff;
+	public Sprite spaceOn;
+	public GameObject [] buttonSlots;
+	public GameObject spaceButton;
 	public soundScript audio;
 	public AudioClip flatterSound;
 	public AudioClip flirtSound;
 	public AudioClip chatSound;
 	public AudioClip jokeSound;
 	public AudioClip music;
+
 
 	int i = 8;
 	int index=0;
@@ -95,7 +99,7 @@ public class newInput : MonoBehaviour {
 					GetComponent<comboReader> ().switchTextBoxes ();//this means we should initialize question off.
 					GetComponent<comboReader> ().callQuestion ();
 					i = 1;
-				} else if (i == 1) {
+				} else if (i == 1 && inputCombo.Length >= 3) { //this prevents the player from entering a combo till it's at least 3
 					print ("i is " + i);
 					//iTExt.text = "press space to respond";
 					//canPlayerSpeak = false;
@@ -116,6 +120,13 @@ public class newInput : MonoBehaviour {
 
 
 			}
+
+			if (inputCombo.Length >= 3) { //this changes the space button ui
+				spaceButton.GetComponent<SpriteRenderer> ().sprite = spaceOn;
+			} else if (inputCombo.Length < 3) {
+				spaceButton.GetComponent<SpriteRenderer> ().sprite = spaceOff;
+			}
+
 			if (Input.GetKeyDown (KeyCode.L)) {
 				if (ComboMenu.gameObject.activeInHierarchy == true) {
 					ComboMenu.gameObject.SetActive(false);
