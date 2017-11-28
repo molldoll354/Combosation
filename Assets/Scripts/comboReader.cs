@@ -81,6 +81,7 @@ public class comboReader : MonoBehaviour {
 		
 	// Update is called once per frame
 	void Update () {
+
 		if (annoyanceCounter == 3) {
 			statChecker = -30;
 			questionIndex = 9;
