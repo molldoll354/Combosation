@@ -1182,9 +1182,9 @@ MonoBehaviour:
     - Yeah, it was nice to take a break from things for a while.
     - Aw, I missed you too!
     - Do you ever give a straight answer?
-    - "Wow, you\u2019d think all that training would show a bit more. Haha! "
+    - Eugh, gross!
     - Huh? Just spit it out already!
-    moodEffect: 0100000002000000fefffffffffffffffcffffff
+    moodEffect: 0100000002000000fffffffffefffffffcffffff
   - options:
     - Yeah, I'm still a bit upset about it
     - "That\u2019s sweet, yeah I would like to talk about it if you don\u2019t mind."
