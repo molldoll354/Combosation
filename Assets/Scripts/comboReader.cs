@@ -47,7 +47,7 @@ public class comboReader : MonoBehaviour {
 
 	public Combo currentCombo;
 
-
+	float annoyanceCounter;
 	public GameObject saki;
 	public Animator sakiAnim;//Saki's animator
 	public enum ResponseOps{//converts strings to ints
@@ -80,6 +80,10 @@ public class comboReader : MonoBehaviour {
 		
 	// Update is called once per frame
 	void Update () {
+		if (annoyanceCounter == 3) {
+			statChecker = -30;
+			questionIndex = 9;
+		}
 
 		/*
 		 * 
@@ -94,7 +98,8 @@ public class comboReader : MonoBehaviour {
 		 * 
 		 */
 		if (questionIndex == 9) {
-			Application.LoadLevel ("EndingScene");
+			//Application.LoadLevel ("EndingScene");
+			Application.LoadLevel(3);
 		}
 		if (Input.GetKeyDown (KeyCode.R)) {
 			Application.LoadLevel ("dellapisoundscene");//reloads game
@@ -202,6 +207,7 @@ public class comboReader : MonoBehaviour {
 	void RespondAnnoyed(){
 		int statEffect = responses[questionIndex].moodEffect[4];
 		sakiAnim.Play("unimpressedREACT");
+		annoyanceCounter++;
 	}
 	void RespondJoke(){
 		int statEffect = responses [questionIndex].moodEffect [2];//checks the mood effect int in the inspector
