@@ -48,7 +48,7 @@ public class comboReader : MonoBehaviour {
 	int statEffect;
 	public Combo currentCombo;
 
-	float annoyanceCounter;
+	public float annoyanceCounter;
 	public GameObject saki;
 	public Animator sakiAnim;//Saki's animator
 	public enum ResponseOps{//converts strings to ints
