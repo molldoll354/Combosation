@@ -167,7 +167,7 @@ public class newInput : MonoBehaviour {
 		}
 
 		timeText.text = "" + Mathf.Floor (Timer);
-
+	
 		if (Timer >= 0) {
 			Timer -= Time.deltaTime;
 		}
@@ -176,6 +176,7 @@ public class newInput : MonoBehaviour {
 			canPlayerSpeak = false;
 			GetComponent<comboReader> ().readCombo ("");
 			print (""+inputCombo);
+				Timer = 10;
 		}
 	}
 
