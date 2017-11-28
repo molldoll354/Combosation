@@ -742,6 +742,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &405731054 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1291561771447970, guid: 5503959e82ea02248897a46dae569986,
+    type: 2}
+  m_PrefabInternal: {fileID: 1103927828}
+--- !u!114 &405731055 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114754907994657498, guid: 5503959e82ea02248897a46dae569986,
+    type: 2}
+  m_PrefabInternal: {fileID: 1103927828}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &415662473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,8 +1323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56209a9fab8f3654ea01861ba79ffd4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  discoveryPanel: {fileID: 0}
-  discoveryBox: {fileID: 0}
+  discoveryPanel: {fileID: 405731054}
+  discoveryBox: {fileID: 405731055}
   PlayerInput: 
   inputCombo:
     comboInput: 
@@ -2541,7 +2552,7 @@ Prefab:
     - target: {fileID: 224847959969693218, guid: 9d94e2d66a26281438077e35ba312c54,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.23992556
       objectReference: {fileID: 0}
     - target: {fileID: 224847959969693218, guid: 9d94e2d66a26281438077e35ba312c54,
         type: 2}
@@ -2551,7 +2562,7 @@ Prefab:
     - target: {fileID: 224847959969693218, guid: 9d94e2d66a26281438077e35ba312c54,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.7600743
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224526748980483446, guid: 9d94e2d66a26281438077e35ba312c54,
         type: 2}
@@ -2571,7 +2582,7 @@ Prefab:
     - target: {fileID: 224144242942108508, guid: 9d94e2d66a26281438077e35ba312c54,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 19.35
+      value: -19.350027
       objectReference: {fileID: 0}
     - target: {fileID: 224144242942108508, guid: 9d94e2d66a26281438077e35ba312c54,
         type: 2}
