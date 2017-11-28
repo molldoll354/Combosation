@@ -184,6 +184,10 @@ public class comboReader : MonoBehaviour {
 				RespondFlirt ();
 			questionIndex++;
 				}
+		if (currentComboType == 4) {
+			RespondAnnoyed ();
+			questionIndex++;
+		}
 
 	}
 	public void callDialogue(int typeOfCombo){
@@ -194,6 +198,10 @@ public class comboReader : MonoBehaviour {
 	public void callQuestion(){
 		questionText.text = questions [questionIndex];//question text displays based on what number question you're on
 
+	}
+	void RespondAnnoyed(){
+		int statEffect = responses[questionIndex].moodEffect[4];
+		sakiAnim.Play("unimpressedREACT");
 	}
 	void RespondJoke(){
 		int statEffect = responses [questionIndex].moodEffect [2];//checks the mood effect int in the inspector

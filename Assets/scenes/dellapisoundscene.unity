@@ -1175,64 +1175,64 @@ MonoBehaviour:
     - "Um, wasn\u2019t really expecting you to say that..."
     - "*laughs* Sure, ok. I\u2019m sure that happened"
     - "Uhh\u2026that\u2019s kind of weird\u2026"
-    - Hm? I don't really follow.
-    moodEffect: 010000000000000002000000ffffffff00000000
+    - What did you say?
+    moodEffect: 010000000000000002000000fffffffffcffffff
   - options:
     - Yeah, it was nice to take a break from things for a while.
     - Aw, I missed you too!
     - Do you ever give a straight answer?
     - "Wow, you\u2019d think all that training would show a bit more. Haha! "
-    - Huh?
-    moodEffect: 0100000002000000ffffffff0000000000000000
+    - Huh? Just spit it out already!
+    moodEffect: 0100000002000000ffffffff00000000fcffffff
   - options:
     - Yeah, I'm still a bit upset about it
     - "That\u2019s sweet, yeah I would like to talk about it if you don\u2019t mind."
     - Um, this is kinda serious...
     - Ugh, are you even listening?
-    - What was that?
-    moodEffect: 0100000002000000ffffffff0000000000000000
+    - Were those even words?
+    moodEffect: 0100000002000000ffffffff00000000fcffffff
   - options:
     - Thanks, I appreciate it.
     - "You\u2019re right, I do deserve better than him. "
     - Haha, yeah I guess he was a bit of a meathead.
     - Yikes, the wounds are still a little fresh ya know?
-    - You're talking a bit too fast...
-    moodEffect: 000000000200000001000000ffffffff00000000
+    - You're starting to get on my nerves...
+    moodEffect: 000000000200000001000000fffffffffcffffff
   - options:
     - "That\u2019s true, I do have a friend like you to count on."
     - You really mean that?
     - Well I'm glad it's funny to you I guess.
     - "Wow, that\u2019s pretty forward coming from you."
     - Excuse me?
-    moodEffect: 010000000200000000000000ffffffff00000000
+    moodEffect: 010000000200000000000000fffffffffcffffff
   - options:
     - Huh? You want me to stay?
     - Huh? You want me to stay?
     - Huh? You want me to stay?
     - Huh? You want me to stay?
     - Huh? You want me to stay?
-    moodEffect: 0000000000000000000000000000000000000000
+    moodEffect: 00000000000000000000000000000000fcffffff
   - options:
     - 'Yeah, it''s good to see you again too. '
     - "Aw, I\u2019m blushing!"
     - That's funny and all, but was that really it?
     - 'Wow, this is really unexpected...not that I mind! '
-    - I didn't quite catch that.
-    moodEffect: 0000000001000000ffffffff0200000000000000
+    - I think I might have to get going soon...
+    moodEffect: 0000000001000000ffffffff02000000fcffffff
   - options:
     - Do you wanna study at the library?
     - Why would we study at a restaurant-Oh!
     - "Ok, it won\u2019t be that bad! And stop being so dramatic!"
     - "O-oh, I didn\u2019t know you meant something like that! Interesting\u2026"
     - Woah woah, slow down!
-    moodEffect: ffffffff01000000000000000200000000000000
+    moodEffect: ffffffff010000000000000002000000fcffffff
   - options:
     - Oh, just getting food then, alright.
     - Ya know, I think it would be really nice to get out with you.
     - A yes or no would suffice!
     - "I just wish you would\u2019ve asked sooner! "
-    - You sound a bit nervous, are you nervous?
-    moodEffect: ffffffff01000000000000000200000000000000
+    - What's with all the nervous energy?
+    moodEffect: ffffffff010000000000000002000000fcffffff
   - options:
     - 
     - 
@@ -1290,7 +1290,7 @@ MonoBehaviour:
     isPremade: 0
     unLocked: 0
   preferedLenght: 0
-  usageLimit: 3
+  usageLimit: 100
   myJson: 
 --- !u!1 &741510041
 GameObject:
