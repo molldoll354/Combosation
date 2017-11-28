@@ -1175,8 +1175,8 @@ MonoBehaviour:
   flirtSlotSprite: {fileID: 21300000, guid: c77dc0b51ff4ee746abc6519524bb7f3, type: 3}
   chatSlotSprite: {fileID: 21300000, guid: 8dfee5d179bf0a7428633cf6daf73faf, type: 3}
   jokeSlotSprite: {fileID: 21300000, guid: d026ebfcdbf71df4fa3ed734f258c1d6, type: 3}
-  spaceOff: {fileID: 0}
-  spaceOn: {fileID: 0}
+  spaceOff: {fileID: 21300000, guid: a60f0510399b4054e8f94ef5c52c1152, type: 3}
+  spaceOn: {fileID: 21300000, guid: c069e5b54d6153e4dbd185e8df2d55df, type: 3}
   buttonSlots:
   - {fileID: 1422896374}
   - {fileID: 735911010}
@@ -1191,6 +1191,9 @@ MonoBehaviour:
   chatSound: {fileID: 8300000, guid: 2ee7ad0631703f94a9175a55a916123b, type: 3}
   jokeSound: {fileID: 8300000, guid: bdb9f5f5bd1e15e44bacf92ba014168c, type: 3}
   music: {fileID: 8300000, guid: 62b85c58ee544bd40a85e20b6ff71697, type: 3}
+  heartAnimator: {fileID: 95793939736369078, guid: 6e39af555f868aa49a003568db1bf0c4,
+    type: 2}
+  heartTimeAnim: {fileID: 0}
 --- !u!114 &737857449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1331,6 +1334,7 @@ MonoBehaviour:
     comboBonus: 0
     isPremade: 0
     unLocked: 0
+  annoyanceCounter: 0
   saki: {fileID: 983620032}
   sakiAnim: {fileID: 983620035}
 --- !u!114 &737857451

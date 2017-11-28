@@ -46,6 +46,8 @@ public class newInput : MonoBehaviour {
 	public AudioClip chatSound;
 	public AudioClip jokeSound;
 	public AudioClip music;
+	public Animator heartAnimator;
+	public Animation heartTimeAnim;
 
 
 	int i = 8;
@@ -65,6 +67,7 @@ public class newInput : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Debug.Log (canPlayerSpeak);
+
 	
 		//Get player input. 
 		if (canPlayerSpeak == true ) {
@@ -170,6 +173,7 @@ public class newInput : MonoBehaviour {
 	
 		if (Timer >= 0) {
 			Timer -= Time.deltaTime;
+			//	heartAnimator.Play ("heartBreaker", 0, Timer / TimerLength);
 		}
 		if (Timer < 0) {
 			timeText.text = "0";
