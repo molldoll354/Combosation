@@ -144,43 +144,7 @@ public class newInput : MonoBehaviour {
 					DictrionaryText.text =""+ GetComponent<comboManager> ().displayDictionary ();
 				}
 			}
-//			if(Input.GetKeyDown(KeyCode.Space) ){
-//				
-//				if (i == 0) {
-//					print ("i is " + i);
-//					iTExt.text = "press space to talk";
-//					print ("call questions");
-//					GetComponent<comboReader> ().switchTextBoxes ();//this means we should initialize question off.
-//					GetComponent<comboReader> ().callQuestion ();
-//					i = 1;
-//				} else if (i == 1) {
-//					print ("i is " + i);
-//					iTExt.text = "press space to respond";
-//					resetSlots = true;
-//					//canPlayerSpeak = false;
-//					GetComponent<comboReader> ().readCombo (inputCombo);
-//
-//					Timer = TimerLength;
-//					i = 2;
-//
-//				} else if (i == 2) {
-//					print ("i is " + i);
-//					iTExt.text = "press space to hear next question";
-//					GetComponent<comboReader> ().switchTextBoxes ();
-//					i = 0;
-//					GetComponent<comboReader> ().callDialogue (GetComponent<comboManager> ().readCombo (inputCombo));
-//					inputCombo = "";
-//				} else if (i == 8) {//starts here.
-//					print ("i is " + i);
-//					iTExt.text = "press space to talk";
-//					GetComponent<comboReader> ().callQuestion ();
-//					i = 1;
-//				}
-//
-//				
-//			}
-//
-//		}
+//			
 		else { 
 			if(Input.GetKeyDown(KeyCode.Space) && canPlayerSpeak == false){ 
 				resetSlots = true;

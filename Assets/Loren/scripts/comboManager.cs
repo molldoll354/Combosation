@@ -56,6 +56,7 @@ public class Combo {
 
 }
 public class comboManager : MonoBehaviour {
+	public GameObject discoveryPanel;
 	public Text discoveryBox;
 
 	public string PlayerInput;
