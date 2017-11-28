@@ -48,7 +48,7 @@ public class EndingScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		endText.text = textLines [currentLine];
-		if (Input.GetKeyDown (KeyCode.RightArrow)) {
+		if (Input.GetKeyDown (KeyCode.RightArrow)||(Input.GetKeyDown(KeyCode.Space))) {
 			currentLine++;
 		}
 
