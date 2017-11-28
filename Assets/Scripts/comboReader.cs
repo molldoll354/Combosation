@@ -175,19 +175,23 @@ public class comboReader : MonoBehaviour {
 				//Debug.Log("Update"+Source);
 		if (currentComboType == 0) {//checks if a chat combo was pressed
 				RespondChat ();//calls chat function
+			comboDescriptor.text="Chat!";
 			questionIndex++;//moves the question index along
 				}
 		if(currentComboType==1){//checks for flatter
 				RespondFlatter ();
+			comboDescriptor.text = "Flatter!";
 			questionIndex++;
 				}
 		if(currentComboType==2)
 				{
 				RespondJoke ();
+			comboDescriptor.text = "Joke!";
 			questionIndex++;
 				}
 		if(currentComboType==3){
 				RespondFlirt ();
+			comboDescriptor.text = "Flirt!";
 			questionIndex++;
 				}
 		if (currentComboType == 4) {
