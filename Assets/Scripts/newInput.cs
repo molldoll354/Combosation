@@ -39,6 +39,7 @@ public class newInput : MonoBehaviour {
 	public Sprite spaceOn;
 	public GameObject [] buttonSlots;
 	public GameObject spaceButton;
+	public GameObject dots;
 	public soundScript audio;
 	public AudioClip flatterSound;
 	public AudioClip flirtSound;
@@ -58,11 +59,12 @@ public class newInput : MonoBehaviour {
 
 		audio.Play (music);
 		canPlayerSpeak = true; 
+		dots.SetActive (false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		Debug.Log (canPlayerSpeak);
 	
 		//Get player input. 
 		if (canPlayerSpeak == true ) {
@@ -125,6 +127,12 @@ public class newInput : MonoBehaviour {
 				spaceButton.GetComponent<SpriteRenderer> ().sprite = spaceOn;
 			} else if (inputCombo.Length < 3) {
 				spaceButton.GetComponent<SpriteRenderer> ().sprite = spaceOff;
+			}
+
+			if (i == 1 && inputCombo.Length == 0) {
+				dots.gameObject.SetActive (true);
+			} else {
+				dots.gameObject.SetActive (false);
 			}
 
 			if (Input.GetKeyDown (KeyCode.L)) {
