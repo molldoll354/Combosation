@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-
+using UnityEngine.UI;
 [System.Serializable]
 public class Combo {
+
 	public string comboInput;//the literal string of characters that represenesnt the input
 	public string comboName;//the name of the combo if it's premade, idk if necesary.
 
@@ -55,6 +56,8 @@ public class Combo {
 
 }
 public class comboManager : MonoBehaviour {
+	public Text discoveryBox;
+
 	public string PlayerInput;
 	public Combo inputCombo;
 	public int preferedLenght;//what is the preferend length of combos for the date
@@ -74,14 +77,18 @@ public class comboManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(Input.GetKeyDown(KeyCode.K)){
+			discoverOff ();
+		}
+	}
+	public void discoverOff(){
+		discoveryBox.gameObject.SetActive (false);
 	}
 
 
 
-
 	public int readCombo(string playerCombo){
-		//Read Combo takes a string, 
+		//Read Combo takes a string, the input of the player
 		//return type of combo associated with that string.
 		int typeOfCombo;
 
@@ -93,11 +100,18 @@ public class comboManager : MonoBehaviour {
 			dictionaryCombos.TryGetValue (playerCombo, out inputCombo);
 		
 			inputCombo.increaseUsage ();
+			if(inputCombo.usage == 1){
+				discoveryBox.gameObject.SetActive (true);
+				GetComponent<newInput> ().DictrionaryText.gameObject.SetActive (false);
+				discoveryBox.text = "NEW COMBO USED!\n" + playerCombo+"\n['K' to turn off]"; 
+			}
 			//print ("new usage: " + inputCombo.usage);
 		}else{
 			inputCombo = new Combo (playerCombo);
 			dictionaryCombos.Add (playerCombo, inputCombo);
-			print ("NEW COMBO USED:" + playerCombo); 
+			discoveryBox.gameObject.SetActive (true);
+			GetComponent<newInput> ().DictrionaryText.gameObject.SetActive (false);
+			discoveryBox.text = "NEW COMBO USED!\n" + playerCombo+"\n['K' to turn off]"; 
 		}
 		typeOfCombo = inputCombo.comboType;
 		//step 2
@@ -122,15 +136,25 @@ public class comboManager : MonoBehaviour {
 		 * 	show question marks
 		 * 
 		 */
-
 		string TheDictionary = "\n#)_Name_____Input_____Type \n";
 		int indexCombo = 0;
 		foreach( KeyValuePair<string, Combo> entryCombo in dictionaryCombos){
 			indexCombo++;
+			string comboTypeString ="";//wchat = 0, aflatter =1, sjoke, = 2, dflirt 3
+
 			if (entryCombo.Value.usage > 0) {
-				TheDictionary += indexCombo+")_" + entryCombo.Value.comboName + "___" + entryCombo.Value.comboInput + "____" + entryCombo.Value.comboType+"\n";
+				if (entryCombo.Value.comboType == 0) {
+					comboTypeString = "Chat";
+				}else if(entryCombo.Value.comboType ==1){
+					comboTypeString ="Flatter";
+				}else if(entryCombo.Value.comboType ==2){
+					comboTypeString ="Joke";
+				}else if(entryCombo.Value.comboType ==3){
+					comboTypeString ="Flirt";
+				}
+				TheDictionary += indexCombo+") " + entryCombo.Value.comboName + "     " + entryCombo.Value.comboInput + "     " + comboTypeString+"\n";
 			} else {
-				TheDictionary += indexCombo+")_????______?????_____?\n";
+				TheDictionary += indexCombo+")-----\n";
 			}
 		}
 
@@ -191,7 +215,7 @@ public class comboManager : MonoBehaviour {
 		}else{
 			inputCombo = new Combo (playerCOmbo);
 			dictionaryCombos.Add (playerCOmbo, inputCombo);
-			print ("NEW COMBO USED:" + inputCombo); 
+			//
 			newCombo = inputCombo;
 		}
 		return newCombo;

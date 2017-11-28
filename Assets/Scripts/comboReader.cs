@@ -45,9 +45,10 @@ public class comboReader : MonoBehaviour {
 	public Sprite badBubble1;
 	public Sprite badBubble2;
 
+	int statEffect;
 	public Combo currentCombo;
 
-
+	float annoyanceCounter;
 	public GameObject saki;
 	public Animator sakiAnim;//Saki's animator
 	public enum ResponseOps{//converts strings to ints
@@ -80,6 +81,10 @@ public class comboReader : MonoBehaviour {
 		
 	// Update is called once per frame
 	void Update () {
+		if (annoyanceCounter == 3) {
+			statChecker = -30;
+			questionIndex = 9;
+		}
 
 		/*
 		 * 
@@ -94,7 +99,8 @@ public class comboReader : MonoBehaviour {
 		 * 
 		 */
 		if (questionIndex == 9) {
-			Application.LoadLevel ("EndingScene");
+			//Application.LoadLevel ("EndingScene");
+			Application.LoadLevel(3);
 		}
 		if (Input.GetKeyDown (KeyCode.R)) {
 			Application.LoadLevel ("dellapisoundscene");//reloads game
@@ -184,6 +190,10 @@ public class comboReader : MonoBehaviour {
 				RespondFlirt ();
 			questionIndex++;
 				}
+		if (currentComboType == 4) {
+			RespondAnnoyed ();
+			questionIndex++;
+		}
 
 	}
 	public void callDialogue(int typeOfCombo){
@@ -195,10 +205,26 @@ public class comboReader : MonoBehaviour {
 		questionText.text = questions [questionIndex];//question text displays based on what number question you're on
 
 	}
+	void RespondAnnoyed(){
+		int statEffect = responses[questionIndex].moodEffect[4];
+		sakiAnim.Play("unimpressedREACT");
+		annoyanceCounter++;
+	}
 	void RespondJoke(){
-		int statEffect = responses [questionIndex].moodEffect [2];//checks the mood effect int in the inspector
+		if(statChecker>0){
+		 statEffect = responses [questionIndex].moodEffect [2];//checks the mood effect int in the inspector
+		}
+		if ((statChecker < 0) || annoyanceCounter > 0) {
+			statEffect = -2;
+		}
+		if (statEffect == 2) {
+			annoyanceCounter--;
+		}
 		statChecker += (statEffect*currentCombo.comboBonus)+1;//increases statchecker based on what was found in mood effect
 		jokeChecker += 1;
+		if (statEffect == -2) {
+			annoyanceCounter++;
+		}
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
 		}
@@ -210,9 +236,21 @@ public class comboReader : MonoBehaviour {
 		}
 	}
 	void RespondFlatter(){
-		int statEffect = responses [questionIndex].moodEffect [1];
+		if(statChecker>0){
+			statEffect = responses [questionIndex].moodEffect [1];//checks the mood effect int in the inspector
+		}
+		if ((statChecker < 0) || annoyanceCounter > 0) {
+			statEffect = -2;
+		}
+		if (statEffect == 2) {
+			annoyanceCounter--;
+		}
+		//int statEffect = responses [questionIndex].moodEffect [1];
 		statChecker += (statEffect * currentCombo.comboBonus)+1;
 		flatterChecker += 1;
+		if (statEffect == -2) {
+			annoyanceCounter++;
+		}
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
 		}
@@ -225,9 +263,22 @@ public class comboReader : MonoBehaviour {
 	}
 
 	void RespondFlirt(){
-		int statEffect = responses [questionIndex].moodEffect [3];
+		if(statChecker>0){
+			statEffect = responses [questionIndex].moodEffect [3];//checks the mood effect int in the inspector
+		}
+		if ((statChecker < 0) || annoyanceCounter > 0) {
+			statEffect = -2;
+		}
+		if (statEffect == 2) {
+			annoyanceCounter--;
+		}
+		//int statEffect = responses [questionIndex].moodEffect [3];
 		statChecker += (statEffect* currentCombo.comboBonus)+1;
+		//maximum per statchecker is 9, minimum is -7
 		flirtChecker += 1;
+		if (statEffect == -2) {
+			annoyanceCounter++;
+		}
 		if (statEffect <= 0) {
 			sakiAnim.Play ("angryREACT");
 		}
@@ -240,9 +291,21 @@ public class comboReader : MonoBehaviour {
 	}
 
 	void RespondChat(){
-		int statEffect = responses[questionIndex].moodEffect[0];
+		if(statChecker>0){
+			statEffect = responses [questionIndex].moodEffect [0];//checks the mood effect int in the inspector
+		}
+		if ((statChecker < 0) || annoyanceCounter > 0) {
+			statEffect = -2;
+		}
+		if (statEffect == 2) {
+			annoyanceCounter--;
+		}
+		//int statEffect = responses[questionIndex].moodEffect[0];
 		statChecker += (statEffect* currentCombo.comboBonus)+1;
 		chatChecker+=1;
+		if (statEffect == -2) {
+			annoyanceCounter++;
+		}
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
 		}
