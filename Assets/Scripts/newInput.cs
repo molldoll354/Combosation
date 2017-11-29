@@ -68,6 +68,8 @@ public class newInput : MonoBehaviour {
 	void Update () {
 		Debug.Log (canPlayerSpeak);
 
+		heartAnimator.Play ("heartBreaker", 0, Timer / TimerLength);
+
 	
 		//Get player input. 
 		if (canPlayerSpeak == true ) {
@@ -173,7 +175,7 @@ public class newInput : MonoBehaviour {
 	
 		if (Timer >= 0) {
 			Timer -= Time.deltaTime;
-			//	heartAnimator.Play ("heartBreaker", 0, Timer / TimerLength);
+			//	
 		}
 		if (Timer < 0) {
 			timeText.text = "0";
