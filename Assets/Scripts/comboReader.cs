@@ -104,7 +104,7 @@ public class comboReader : MonoBehaviour {
 			Application.LoadLevel(3);
 		}
 		if (Input.GetKeyDown (KeyCode.R)) {
-			Application.LoadLevel ("dellapisoundscene");//reloads game
+			//Application.LoadLevel ("dellapisoundscene");//reloads game
 		}
 
 		if (statChecker > 55) { 
@@ -177,14 +177,14 @@ public class comboReader : MonoBehaviour {
 		if (currentComboType == 0) {//checks if a chat combo was pressed
 				RespondChat ();//calls chat function
 			if (temp.isPremade == false) {
-				comboDescriptor.text = "Chat!";
+				comboDescriptor.text = "Chat! +" + statEffect;
 			}
 			questionIndex++;//moves the question index along
 				}
 		if(currentComboType==1){//checks for flatter
 				RespondFlatter ();
 			if (temp.isPremade == false) {
-				comboDescriptor.text = "Flatter!";
+				comboDescriptor.text = "Flatter! +" + statEffect;
 			}
 			questionIndex++;
 				}
@@ -192,14 +192,14 @@ public class comboReader : MonoBehaviour {
 				{
 				RespondJoke ();
 			if (temp.isPremade == false) {
-				comboDescriptor.text = "Joke!";
+				comboDescriptor.text = "Joke! +" + statEffect;
 			}
 			questionIndex++;
 				}
 		if(currentComboType==3){
 				RespondFlirt ();
 			if (temp.isPremade == false) {
-				comboDescriptor.text = "Flirt!";
+				comboDescriptor.text = "Flirt! +" + statEffect;
 			}
 			questionIndex++;
 				}
