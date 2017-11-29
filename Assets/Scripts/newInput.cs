@@ -16,7 +16,7 @@ public class newInput : MonoBehaviour {
 	public Text DictrionaryText;
 	public GameObject ComboMenu;
 
-	float Timer;
+	public float Timer;
 	public float TimerLength;
 
 	int buttonSlotSelection = 0;

@@ -125,7 +125,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 46.699997, y: -8.999496}
+  m_AnchoredPosition: {x: -194, y: -8.999496}
   m_SizeDelta: {x: 253.7, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &81999593
@@ -1266,6 +1266,7 @@ MonoBehaviour:
   iTExt: {fileID: 0}
   DictrionaryText: {fileID: 1771488966}
   ComboMenu: {fileID: 2034709371}
+  Timer: 0
   TimerLength: 10
   canPlayerSpeak: 1
   StopButtons: 0
@@ -1327,6 +1328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboManage: {fileID: 737857451}
+  newInput: {fileID: 737857448}
   Source: 
   questions:
   - "Hey, it\u2019s been a while! You look kinda out of breath, what\u2019s up?"

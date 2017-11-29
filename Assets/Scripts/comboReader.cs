@@ -14,6 +14,7 @@ public class SakiAnswer{
 
 public class comboReader : MonoBehaviour {
 	public comboManager comboManage;
+	//public newInput newInput;
 	public Dictionary<string, Combo> comboDictionary = new Dictionary<string, Combo>();
 	private static comboReader _instance;
 
@@ -74,6 +75,7 @@ public class comboReader : MonoBehaviour {
 		//Debug.Log (questions [questionIndex]);
 		comboDictionary= GetComponent<comboManager>().dictionaryCombos;
 		GetComponent<newInput> ().canPlayerSpeak = true;
+
 
 		statChecker=10;
 		sakiAnim = saki.GetComponent<Animator> ();
@@ -148,6 +150,7 @@ public class comboReader : MonoBehaviour {
 	}
 
 	public void readCombo(string Source){
+		
 		//Debug.Log("Reader"+Source);
 		//Debug.Log ("statchecker"+statChecker);
 		print (Source);
@@ -177,14 +180,22 @@ public class comboReader : MonoBehaviour {
 		if (currentComboType == 0) {//checks if a chat combo was pressed
 				RespondChat ();//calls chat function
 			if (temp.isPremade == false) {
-				comboDescriptor.text = "Chat! +" + statEffect;
+				if (statEffect > 0) {
+					comboDescriptor.text = "Chat! +" + Mathf.Abs (statEffect);
+				} else {
+					comboDescriptor.text = "Chat?! -" + Mathf.Abs (statEffect);
+				}
 			}
 			questionIndex++;//moves the question index along
 				}
 		if(currentComboType==1){//checks for flatter
 				RespondFlatter ();
 			if (temp.isPremade == false) {
-				comboDescriptor.text = "Flatter! +" + statEffect;
+				if (statEffect > 0) {
+					comboDescriptor.text = "Flatter! +" + Mathf.Abs (statEffect);
+				} else {
+					comboDescriptor.text = "Flatter?! -" + Mathf.Abs (statEffect);
+				}
 			}
 			questionIndex++;
 				}
@@ -192,17 +203,25 @@ public class comboReader : MonoBehaviour {
 				{
 				RespondJoke ();
 			if (temp.isPremade == false) {
-				comboDescriptor.text = "Joke! +" + statEffect;
+				if (statEffect > 0) {
+					comboDescriptor.text = "Joke! +" + Mathf.Abs (statEffect);
+				} else {
+					comboDescriptor.text = "Joke?! -" + Mathf.Abs (statEffect);
+				}
 			}
 			questionIndex++;
 				}
-		if(currentComboType==3){
-				RespondFlirt ();
+		if (currentComboType == 3) {
+			RespondFlirt ();
 			if (temp.isPremade == false) {
-				comboDescriptor.text = "Flirt! +" + statEffect;
-			}
-			questionIndex++;
+				if (statEffect > 0) {
+					comboDescriptor.text = "Flirt! +" + Mathf.Abs (statEffect);
+				} else {
+					comboDescriptor.text = "Flirt?! -" + Mathf.Abs (statEffect);
 				}
+				questionIndex++;
+			}
+		}
 		if (currentComboType == 4) {
 			RespondAnnoyed ();
 			questionIndex++;
