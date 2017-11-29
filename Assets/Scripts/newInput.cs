@@ -68,7 +68,7 @@ public class newInput : MonoBehaviour {
 	void Update () {
 		Debug.Log (canPlayerSpeak);
 
-		heartAnimator.Play ("heartBreaker", 0, Timer / TimerLength);
+		heartAnimator.Play ("heartBreaker", 0, 1 - Timer / TimerLength);
 
 	
 		//Get player input. 
