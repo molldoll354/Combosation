@@ -29,7 +29,15 @@ public class Combo {
 		comboName = "random";
 
 		usage = 0;
-		comboType = (int)comboReader.Instance.CheckButtonCounts(inputCombo);
+		int randRange;
+		int temp = (int)comboReader.Instance.CheckButtonCounts(inputCombo);
+		if(temp ==0){
+			randRange = (int)Random.Range (0, inputCombo.Length-1);
+			comboType = inputCombo [randRange];
+		}else{
+			comboType = temp;
+		}
+
 		isPremade = false;
 		unLocked = true;
 		comboBonus = 1;
