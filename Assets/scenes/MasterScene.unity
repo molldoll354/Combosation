@@ -618,7 +618,7 @@ GameObject:
   - component: {fileID: 379281174}
   - component: {fileID: 379281173}
   m_Layer: 0
-  m_Name: roundEndSource
+  m_Name: annoyanceSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -633,7 +633,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5977e2f27c325b54b9ecc1173fc5413f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 601c9d094f7a8cd4b907b207b38669a4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1266,6 +1266,7 @@ MonoBehaviour:
   iTExt: {fileID: 0}
   DictrionaryText: {fileID: 1771488966}
   ComboMenu: {fileID: 2034709371}
+  Timer: 0
   TimerLength: 10
   canPlayerSpeak: 1
   StopButtons: 0
@@ -1295,7 +1296,6 @@ MonoBehaviour:
   jokeSound: {fileID: 8300000, guid: bdb9f5f5bd1e15e44bacf92ba014168c, type: 3}
   music: {fileID: 8300000, guid: 62b85c58ee544bd40a85e20b6ff71697, type: 3}
   heartAnimator: {fileID: 1184827122}
-  heartTimeAnim: {fileID: 0}
 --- !u!114 &737857449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1428,6 +1428,9 @@ MonoBehaviour:
   goodBubble2: {fileID: 21300000, guid: f8a7cba58f1f8c04696f776349b07b2a, type: 3}
   badBubble1: {fileID: 21300000, guid: cbbff714c6160924cac5e4b4b714c0c1, type: 3}
   badBubble2: {fileID: 21300000, guid: 86f0d5fc79ecde24ea74da47a64342d5, type: 3}
+  annoyanceSounds: {fileID: 379281173}
+  annoyanceUp: {fileID: 8300000, guid: 601c9d094f7a8cd4b907b207b38669a4, type: 3}
+  annoyanceDown: {fileID: 8300000, guid: 8f714bd91fcc45a45aeb64471d6919d6, type: 3}
   currentCombo:
     comboInput: 
     comboName: 
@@ -2023,11 +2026,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.7300594
+      value: -2.02
       objectReference: {fileID: 0}
     - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.0626357
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2052,6 +2055,18 @@ Prefab:
     - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.0748024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2.074803
+      objectReference: {fileID: 0}
+    - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 2.074803
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
