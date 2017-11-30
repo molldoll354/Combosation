@@ -244,6 +244,8 @@ public class comboReader : MonoBehaviour {
 
 	}
 	public void callDialogue(int typeOfCombo){
+		Debug.Log (questionIndex);
+		Debug.Log(typeOfCombo+ "Type of Combo");
 		dialogueText.text = responses [questionIndex].options [typeOfCombo];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
 
 	}

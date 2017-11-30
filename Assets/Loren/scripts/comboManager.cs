@@ -31,7 +31,7 @@ public class Combo {
 		usage = 0;
 		int randRange;
 		int temp = (int)comboReader.Instance.CheckButtonCounts(inputCombo);
-		if(temp ==0){
+		if(temp ==4){
 			randRange = (int)Random.Range (0, inputCombo.Length-1);
 			comboType = inputCombo [randRange];
 		}else{
