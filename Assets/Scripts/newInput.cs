@@ -47,7 +47,6 @@ public class newInput : MonoBehaviour {
 	public AudioClip jokeSound;
 	public AudioClip music;
 	public Animator heartAnimator;
-	public Animation heartTimeAnim;
 
 
 	int i = 8;

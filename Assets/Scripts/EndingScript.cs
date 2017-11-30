@@ -96,7 +96,7 @@ public class EndingScript : MonoBehaviour {
 		}
 
 		if (currentLine == 7 || currentLine == 14 || currentLine == 22 || currentLine == 29 || currentLine == 36 || currentLine == 43) {
-			SceneManager.LoadScene ("dellapisoundscene");
+			SceneManager.LoadScene ("MasterScene");
 		}
 	}
 }
