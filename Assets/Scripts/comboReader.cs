@@ -47,6 +47,7 @@ public class comboReader : MonoBehaviour {
 	public Sprite badBubble2;
 
 	public AudioSource annoyanceSounds;
+	public AudioSource newComboSource;
 	public AudioClip annoyanceUp;
 	public AudioClip annoyanceDown;
 
@@ -169,6 +170,7 @@ public class comboReader : MonoBehaviour {
 				"\n\""+temp.comboName+ "\"" + 
 				"\n Type: " + temp.comboType+" Bonus: "+temp.comboBonus+"X";
 
+			newComboSource.Play ();
 			/*
 			 *Play sound/animation here?
 			 */ 
