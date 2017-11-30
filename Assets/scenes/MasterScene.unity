@@ -2022,11 +2022,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.02
+      value: 2.97
       objectReference: {fileID: 0}
     - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: 4.03
       objectReference: {fileID: 0}
     - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2054,15 +2054,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
       propertyPath: m_LocalScale.x
-      value: 2.0748024
+      value: 1.3941412
       objectReference: {fileID: 0}
     - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
       propertyPath: m_LocalScale.y
-      value: 2.074803
+      value: 1.3941419
       objectReference: {fileID: 0}
     - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
       propertyPath: m_LocalScale.z
-      value: 2.074803
+      value: 1.3941419
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
@@ -3141,7 +3141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -18.476002}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27.85, y: 21.87}
+  m_AnchoredPosition: {x: -23.7, y: -22.9}
   m_SizeDelta: {x: 365.03, y: 185.87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1772152221
