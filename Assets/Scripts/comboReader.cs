@@ -163,7 +163,11 @@ public class comboReader : MonoBehaviour {
 		int currentComboType = GetComponent<comboManager>().readCombo (Source);
 		Debug.Log ("the manager returned " + currentComboType);
 		if (temp.isPremade == true) {
-			comboDescriptor.text = "NEW COMBO DISCOVERED!\nNew Combo: "+ temp.comboInput + "\""+temp.comboName+ "\"" + "\n Bonus: " + temp.comboBonus + "X";
+			comboDescriptor.text = 
+				"NEW DISCOVERY" +//I know it's bad english
+				"\nNew Combo: "+ temp.comboInput + 
+				"\n\""+temp.comboName+ "\"" + 
+				"\n Type: " + temp.comboType+" Bonus: "+temp.comboBonus+"X";
 		} else {
 			comboDescriptor.text = "";
 		}

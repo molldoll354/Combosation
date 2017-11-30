@@ -64,8 +64,8 @@ public class Combo {
 
 }
 public class comboManager : MonoBehaviour {
-	public GameObject discoveryPanel;
-	public Text discoveryBox;
+//	public GameObject discoveryPanel;
+//	public Text discoveryBox;
 
 	public string PlayerInput;
 	public Combo inputCombo;
@@ -74,7 +74,7 @@ public class comboManager : MonoBehaviour {
 
 	public string myJson;
 	public Dictionary<string,Combo> dictionaryCombos = new Dictionary<string, Combo>();
-
+	public Combo[] arrayOfCombos;
 
 	// Use this for initialization
 	void Start () {
@@ -82,17 +82,23 @@ public class comboManager : MonoBehaviour {
 		myJson = "Assets/Loren/scripts/premadeComboList.json";
 	
 		CreateListFromJson ();
+		arrayOfCombos = new Combo[dictionaryCombos.Count];
+		int i = 0;
+		foreach( KeyValuePair<string, Combo> entryCombo in dictionaryCombos) {
+			arrayOfCombos [i] = entryCombo.Value;
+			i++;
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.K)){
-			discoverOff ();
-		}
+//		if(Input.GetKeyDown(KeyCode.K)){
+//			discoverOff ();
+//		}
 	}
-	public void discoverOff(){
-		discoveryBox.gameObject.SetActive (false);
-	}
+//	public void discoverOff(){
+//		discoveryBox.gameObject.SetActive (false);
+//	}
 
 
 
@@ -107,20 +113,10 @@ public class comboManager : MonoBehaviour {
 		//if not, it should add the string to the dictionary.
 		if(dictionaryCombos.ContainsKey(playerCombo)){
 			dictionaryCombos.TryGetValue (playerCombo, out inputCombo);
-		
-			inputCombo.increaseUsage ();
-			if(inputCombo.usage == 1){
-				discoveryBox.gameObject.SetActive (true);
-				GetComponent<newInput> ().DictrionaryText.gameObject.SetActive (false);
-				discoveryBox.text = "NEW COMBO USED!\n" + playerCombo+"\n['K' to turn off]"; 
-			}
-			//print ("new usage: " + inputCombo.usage);
 		}else{
 			inputCombo = new Combo (playerCombo);
 			dictionaryCombos.Add (playerCombo, inputCombo);
-			discoveryBox.gameObject.SetActive (true);
-			GetComponent<newInput> ().DictrionaryText.gameObject.SetActive (false);
-			discoveryBox.text = "NEW COMBO USED!\n" + playerCombo+"\n['K' to turn off]"; 
+
 		}
 		typeOfCombo = inputCombo.comboType;
 		//step 2
@@ -147,21 +143,22 @@ public class comboManager : MonoBehaviour {
 		 */
 		string TheDictionary = "\n#)_Name_____Input_____Type \n";
 		int indexCombo = 0;
-		foreach( KeyValuePair<string, Combo> entryCombo in dictionaryCombos){
-			indexCombo++;
+		foreach(Combo dictCombo in arrayOfCombos){
+			
+
 			string comboTypeString ="";//wchat = 0, aflatter =1, sjoke, = 2, dflirt 3
 
-			if (entryCombo.Value.usage > 0) {
-				if (entryCombo.Value.comboType == 0) {
+			if (dictCombo.usage > 0 ) {
+				if (dictCombo.comboType == 0) {
 					comboTypeString = "Chat";
-				}else if(entryCombo.Value.comboType ==1){
+				}else if(dictCombo.comboType ==1){
 					comboTypeString ="Flatter";
-				}else if(entryCombo.Value.comboType ==2){
+				}else if(dictCombo.comboType ==2){
 					comboTypeString ="Joke";
-				}else if(entryCombo.Value.comboType ==3){
+				}else if(dictCombo.comboType ==3){
 					comboTypeString ="Flirt";
 				}
-				TheDictionary += indexCombo+") " + entryCombo.Value.comboName + "     " + entryCombo.Value.comboInput + "     " + comboTypeString+"\n";
+				TheDictionary += indexCombo+") " + dictCombo.comboName + "     " + dictCombo.comboInput + "     " + comboTypeString+"\n";
 			} else {
 				TheDictionary += indexCombo+")-----\n";
 			}
