@@ -99,15 +99,13 @@ public class newInput : MonoBehaviour {
 			if(Input.GetKeyDown(KeyCode.Space) ){
 
 				if (i == 0) {
-					print ("i is " + i);
-					//iTExt.text = "press space to talk";
-					print ("call questions");
+					
 					GetComponent<comboReader> ().switchTextBoxes ();//this means we should initialize question off.
 					GetComponent<comboReader> ().callQuestion ();
 					i = 1;
 				} else if (i == 1 && inputCombo.Length >= 3) { //this prevents the player from entering a combo till it's at least 3
-					print ("i is " + i);
-					//iTExt.text = "press space to respond";
+					
+
 					//canPlayerSpeak = false;
 					//readCombo was being called multiple times, setting it to nothing (reset)
 					GetComponent<comboReader> ().switchTextBoxes ();
@@ -117,8 +115,6 @@ public class newInput : MonoBehaviour {
 					i = 0;
 					resetSlots = true;
 				} else if (i == 8) {//starts here.
-					print ("i is " + i);
-					//iTExt.text = "press space to talk";
 					GetComponent<comboReader> ().callQuestion ();
 					resetSlots = true;
 					i = 1;
@@ -142,11 +138,20 @@ public class newInput : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.L)) {
 				if (ComboMenu.gameObject.activeInHierarchy == true) {
 					ComboMenu.gameObject.SetActive(false);
-					DictrionaryText.text = "";
+//					DictrionaryText.text = "";
 				} else {
 					ComboMenu.gameObject.SetActive(true);
-					DictrionaryText.text =""+ GetComponent<comboManager> ().displayDictionary ();
+//					DictrionaryText.text =""+ GetComponent<comboManager> ().displayDictionary ();
 				}
+			}
+			if(Input.GetKeyDown(KeyCode.O)){
+				GetComponent<comboManager> ().displayDictionary (false);
+				//DictrionaryText.text ="pressed O";
+			}
+			if(Input.GetKeyDown(KeyCode.P)){
+				GetComponent<comboManager> ().displayDictionary (true);
+				//DictrionaryText.text ="pressed P";
+
 			}
 //			
 		else { 

@@ -65,7 +65,7 @@ public class Combo {
 }
 public class comboManager : MonoBehaviour {
 //	public GameObject discoveryPanel;
-//	public Text discoveryBox;
+	public Text dictionaryBox;
 
 	public string PlayerInput;
 	public Combo inputCombo;
@@ -75,6 +75,9 @@ public class comboManager : MonoBehaviour {
 	public string myJson;
 	public Dictionary<string,Combo> dictionaryCombos = new Dictionary<string, Combo>();
 	public Combo[] arrayOfCombos;
+	public int numCombosPerPage=5;
+	public int dictionaryPageIndex=0;
+	public int pageCount;
 
 	// Use this for initialization
 	void Start () {
@@ -88,17 +91,14 @@ public class comboManager : MonoBehaviour {
 			arrayOfCombos [i] = entryCombo.Value;
 			i++;
 		}
+		pageCount = i / numCombosPerPage;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-//		if(Input.GetKeyDown(KeyCode.K)){
-//			discoverOff ();
-//		}
+
 	}
-//	public void discoverOff(){
-//		discoveryBox.gameObject.SetActive (false);
-//	}
+
 
 
 
@@ -141,10 +141,10 @@ public class comboManager : MonoBehaviour {
 		 * 	show question marks
 		 * 
 		 */
-		string TheDictionary = "\n#)_Name_____Input_____Type \n";
+		string TheDictionary = "#) Name     Input     Type \n";
 		int indexCombo = 0;
 		foreach(Combo dictCombo in arrayOfCombos){
-			
+			indexCombo++;
 
 			string comboTypeString ="";//wchat = 0, aflatter =1, sjoke, = 2, dflirt 3
 
@@ -159,15 +159,71 @@ public class comboManager : MonoBehaviour {
 					comboTypeString ="Flirt";
 				}
 				TheDictionary += indexCombo+") " + dictCombo.comboName + "     " + dictCombo.comboInput + "     " + comboTypeString+"\n";
-			} else {
+			} 
+
+			else {
 				TheDictionary += indexCombo+")-----\n";
 			}
 		}
 
-
-
-
 		return TheDictionary;
+	}
+
+	/*Display page of combos.
+	 * bool goingForwardThroughDictionary; true = going forward/right/positive, false =back/left/negative
+	 * create a string of combo dictionary entries.
+	 * 
+	 * if false
+	 * 	set index back by numCombosPerPage
+	 * 
+	 * starting from index until index plus numCombosPerPage for each combo
+	 * convert their comboType from an int to a string.
+	 * put: #)comboName +dictCombo.comboInput + comboTypeString+"\n"; into the string.
+	 * 
+	 * index += numCombosPerPage;
+	 * put the string into a text box.
+	 * 
+	 * 
+	 * 
+	 */ 
+
+	public void displayDictionary(bool forwardThroughDictionary){
+		string TheDictionary = "";
+		if(forwardThroughDictionary == false){
+			dictionaryPageIndex -= numCombosPerPage;
+			if( (dictionaryPageIndex - numCombosPerPage)<0){
+				dictionaryPageIndex = 0;
+			}
+		}
+
+		for(int j = 0; j<numCombosPerPage;j++){
+			string comboTypeString ="";//wchat = 0, aflatter =1, sjoke, = 2, dflirt 3
+
+			if (arrayOfCombos[j].usage > 0 ) {
+				if (arrayOfCombos[j].comboType == 0) {
+					comboTypeString = "Chat";
+				}else if(arrayOfCombos[j].comboType ==1){
+					comboTypeString ="Flatter";
+				}else if(arrayOfCombos[j].comboType ==2){
+					comboTypeString ="Joke";
+				}else if(arrayOfCombos[j].comboType ==3){
+					comboTypeString ="Flirt";
+				}
+				TheDictionary += j+") " + arrayOfCombos[j].comboName + "     " + arrayOfCombos[j].comboInput + "     " + comboTypeString+"\n";
+			} 
+
+			else {
+				TheDictionary += j+")-----\n";
+			}
+		}
+		TheDictionary+= "\n [P] Next Page\n[O] Last Page";
+		dictionaryBox.text = TheDictionary;
+		if(forwardThroughDictionary == true){
+			dictionaryPageIndex += numCombosPerPage;
+			if((dictionaryPageIndex + numCombosPerPage)>arrayOfCombos.Length-numCombosPerPage){
+				dictionaryPageIndex = arrayOfCombos.Length - numCombosPerPage;
+			}
+		}
 	}
 
 

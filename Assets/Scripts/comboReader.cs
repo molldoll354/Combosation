@@ -168,6 +168,11 @@ public class comboReader : MonoBehaviour {
 				"\nNew Combo: "+ temp.comboInput + 
 				"\n\""+temp.comboName+ "\"" + 
 				"\n Type: " + temp.comboType+" Bonus: "+temp.comboBonus+"X";
+
+			/*
+			 *Play sound/animation here?
+			 */ 
+
 		} else {
 			comboDescriptor.text = "";
 		}
