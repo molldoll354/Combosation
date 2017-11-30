@@ -172,7 +172,7 @@ public class newInput : MonoBehaviour {
 
 		timeText.text = "" + Mathf.Floor (Timer);
 	
-		if (Timer >= 0) {
+			if (Timer >= 0 && i == 1) {
 			Timer -= Time.deltaTime;
 			//	
 		}

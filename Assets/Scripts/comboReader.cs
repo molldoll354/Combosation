@@ -46,6 +46,10 @@ public class comboReader : MonoBehaviour {
 	public Sprite badBubble1;
 	public Sprite badBubble2;
 
+	public AudioSource annoyanceSounds;
+	public AudioClip annoyanceUp;
+	public AudioClip annoyanceDown;
+
 	int statEffect;
 	public Combo currentCombo;
 
@@ -241,6 +245,8 @@ public class comboReader : MonoBehaviour {
 		int statEffect = responses[questionIndex].moodEffect[4];
 		sakiAnim.Play("unimpressedREACT");
 		annoyanceCounter++;
+		annoyanceSounds.clip = annoyanceUp;
+		annoyanceSounds.Play ();
 	}
 	void RespondJoke(){
 		if(statChecker>0){
@@ -249,13 +255,17 @@ public class comboReader : MonoBehaviour {
 		if ((statChecker < 0) || annoyanceCounter > 0) {
 			statEffect = -1;
 		}
-		if (statEffect == 2) {
+		if (statEffect == 2 && annoyanceCounter > 0) {
 			annoyanceCounter--;
+			annoyanceSounds.clip = annoyanceDown;
+			annoyanceSounds.Play ();
 		}
 		statChecker += (statEffect*currentCombo.comboBonus)+1;//increases statchecker based on what was found in mood effect
 		jokeChecker += 1;
 		if (statEffect == -2) {
 			annoyanceCounter++;
+			annoyanceSounds.clip = annoyanceUp;
+			annoyanceSounds.Play ();
 		}
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
@@ -274,14 +284,18 @@ public class comboReader : MonoBehaviour {
 		if ((statChecker < 0) || annoyanceCounter > 0) {
 			statEffect = -2;
 		}
-		if (statEffect == 2) {
+		if (statEffect == 2 && annoyanceCounter > 0) {
 			annoyanceCounter--;
+			annoyanceSounds.clip = annoyanceDown;
+			annoyanceSounds.Play ();
 		}
 		//int statEffect = responses [questionIndex].moodEffect [1];
 		statChecker += (statEffect * currentCombo.comboBonus)+1;
 		flatterChecker += 1;
 		if (statEffect == -2) {
 			annoyanceCounter++;
+			annoyanceSounds.clip = annoyanceUp;
+			annoyanceSounds.Play ();
 		}
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
@@ -301,8 +315,10 @@ public class comboReader : MonoBehaviour {
 		if ((statChecker < 0) || annoyanceCounter > 0) {
 			statEffect = -2;
 		}
-		if (statEffect == 2) {
+		if (statEffect == 2 && annoyanceCounter > 0) {
 			annoyanceCounter--;
+			annoyanceSounds.clip = annoyanceDown;
+			annoyanceSounds.Play ();
 		}
 		//int statEffect = responses [questionIndex].moodEffect [3];
 		statChecker += (statEffect* currentCombo.comboBonus)+1;
@@ -310,6 +326,8 @@ public class comboReader : MonoBehaviour {
 		flirtChecker += 1;
 		if (statEffect == -2) {
 			annoyanceCounter++;
+			annoyanceSounds.clip = annoyanceUp;
+			annoyanceSounds.Play ();
 		}
 		if (statEffect <= 0) {
 			sakiAnim.Play ("angryREACT");
@@ -329,14 +347,18 @@ public class comboReader : MonoBehaviour {
 //		if ((statChecker < 0) || annoyanceCounter > 0) {
 //			statEffect = -2;
 //		}
-		if (statEffect == 2) {
+		if (statEffect == 2 && annoyanceCounter > 0) {
 			annoyanceCounter--;
+			annoyanceSounds.clip = annoyanceDown;
+			annoyanceSounds.Play ();
 		}
 		//int statEffect = responses[questionIndex].moodEffect[0];
 		statChecker += (statEffect* currentCombo.comboBonus)+1;
 		chatChecker+=1;
 		if (statEffect == -2) {
 			annoyanceCounter++;
+			annoyanceSounds.clip = annoyanceUp;
+			annoyanceSounds.Play ();
 		}
 		if (statEffect <= 0) {
 			sakiAnim.Play ("unimpressedREACT");
