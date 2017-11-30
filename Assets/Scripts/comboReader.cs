@@ -341,17 +341,17 @@ public class comboReader : MonoBehaviour {
 	}
 
 	void RespondChat(){
-		if(statChecker>0){
+		
 			statEffect = responses [questionIndex].moodEffect [0];//checks the mood effect int in the inspector
-		}
+		
 //		if ((statChecker < 0) || annoyanceCounter > 0) {
 //			statEffect = -2;
 //		}
-		if (statEffect == 2 && annoyanceCounter > 0) {
-			annoyanceCounter--;
-			annoyanceSounds.clip = annoyanceDown;
-			annoyanceSounds.Play ();
-		}
+//		if (statEffect == 2 && annoyanceCounter > 0) {
+//			annoyanceCounter--;
+//			annoyanceSounds.clip = annoyanceDown;
+//			annoyanceSounds.Play ();
+//		}
 		//int statEffect = responses[questionIndex].moodEffect[0];
 		statChecker += (statEffect* currentCombo.comboBonus)+1;
 		chatChecker+=1;
