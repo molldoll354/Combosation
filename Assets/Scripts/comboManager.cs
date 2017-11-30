@@ -33,7 +33,11 @@ public class Combo {
 		int temp = (int)comboReader.Instance.CheckButtonCounts(inputCombo);
 		if(temp ==4){
 			randRange = (int)Random.Range (0, inputCombo.Length-1);
-			comboType = inputCombo [randRange];
+			char inputChar = inputCombo [randRange];
+			if(inputChar.Equals("W")){ comboType = 0;}
+			else if(inputChar.Equals("A")){comboType = 1;}
+			else if(inputChar.Equals("S")){comboType = 2;}
+			else if(inputChar .Equals("D")){comboType = 3;}
 		}else{
 			comboType = temp;
 		}

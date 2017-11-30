@@ -138,21 +138,21 @@ public class newInput : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.L)) {
 				if (ComboMenu.gameObject.activeInHierarchy == true) {
 					ComboMenu.gameObject.SetActive(false);
-//					DictrionaryText.text = "";
+					DictrionaryText.text = "";
 				} else {
 					ComboMenu.gameObject.SetActive(true);
-//					DictrionaryText.text =""+ GetComponent<comboManager> ().displayDictionary ();
+					DictrionaryText.text =""+ GetComponent<comboManager> ().displayDictionary ();
 				}
 			}
-			if(Input.GetKeyDown(KeyCode.O)){
-				GetComponent<comboManager> ().displayDictionary (false);
-				//DictrionaryText.text ="pressed O";
-			}
-			if(Input.GetKeyDown(KeyCode.P)){
-				GetComponent<comboManager> ().displayDictionary (true);
-				//DictrionaryText.text ="pressed P";
-
-			}
+//			if(Input.GetKeyDown(KeyCode.O)){
+//				GetComponent<comboManager> ().displayDictionary (false);
+//				//DictrionaryText.text ="pressed O";
+//			}
+//			if(Input.GetKeyDown(KeyCode.P)){
+//				GetComponent<comboManager> ().displayDictionary (true);
+//				//DictrionaryText.text ="pressed P";
+//
+//			}
 //			
 		else { 
 			if(Input.GetKeyDown(KeyCode.Space) && canPlayerSpeak == false){ 
