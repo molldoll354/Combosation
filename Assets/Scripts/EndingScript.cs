@@ -19,11 +19,11 @@ public class EndingScript : MonoBehaviour {
 		}
 		sakiFace = saki.GetComponent<Animator> ();
 
-		if (comboReader.statChecker <= -8) {
+		if (comboReader.statChecker <= -24) {
 			//F RANK
 			currentLine = 38;
 		}
-		if (comboReader.statChecker > -8 && comboReader.statChecker <= 8) {
+		if (comboReader.statChecker > -24 && comboReader.statChecker <= 9) {
 			//D RANK
 			currentLine = 31;
 		}
