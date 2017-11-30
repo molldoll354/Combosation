@@ -182,10 +182,9 @@ public class newInput : MonoBehaviour {
 			//	
 		}
 		if (Timer < 0) {
-			timeText.text = "0";
-			canPlayerSpeak = false;
-			GetComponent<comboReader> ().readCombo ("");
-			print (""+inputCombo);
+
+			GetComponent<comboReader> ().annoyanceCounter++;
+			
 				Timer = 10;
 		}
 	}
