@@ -309,7 +309,7 @@ public class comboReader : MonoBehaviour {
 	}
 
 	void RespondFlirt(){
-		if(statChecker>0){
+		if(statChecker>=0){
 			statEffect = responses [questionIndex].moodEffect [3];//checks the mood effect int in the inspector
 		}
 		if ((statChecker < 0) || annoyanceCounter > 0) {
