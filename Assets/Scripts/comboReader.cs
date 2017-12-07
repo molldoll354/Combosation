@@ -16,7 +16,7 @@ public class comboReader : MonoBehaviour {
 	public comboManager comboManage;
 	//public newInput newInput;
 	public Dictionary<string, Combo> comboDictionary = new Dictionary<string, Combo>();
-	private static comboReader _instance;
+	private static comboReader _instance;//this is its own script and kind of its own object, so this script can be accessed from anywhere
 
 	public static comboReader Instance { get { return _instance; } }
 
@@ -34,7 +34,7 @@ public class comboReader : MonoBehaviour {
 	public static int statChecker;//checks mood over time going from sad to happy
 	public int chatChecker, flatterChecker, flirtChecker, jokeChecker;//checks the number of times each type of combo has been used throughout conversation
 
-	public Text comboDescriptor;
+	public Text comboDescriptor;//text that describes the type of combo you implemented
 	public Text dialogueText;//displays response text
 	public Text questionText;//displays question text
 	//public bool canPlayerSpeak = true;
@@ -63,7 +63,7 @@ public class comboReader : MonoBehaviour {
 		joke=2,
 		flatter=3,
 		other = 4,
-
+		//we may not need this, look into 
 	}
 
 	private void Awake()
@@ -175,7 +175,7 @@ public class comboReader : MonoBehaviour {
 			 *Play sound/animation here?
 			 */ 
 
-		} else {
+		} else {//if its not an undiscovered instance
 			comboDescriptor.text = "";
 		}
 	
@@ -188,7 +188,7 @@ public class comboReader : MonoBehaviour {
 			GetComponent<newInput> ().inputCombo = "";
 			GetComponent<newInput> ().canPlayerSpeak = true;
 
-		print("save me lord" + questionIndex);
+		//print("save me lord" + questionIndex);
 
 
 				//Debug.Log("Update"+Source);
@@ -244,10 +244,10 @@ public class comboReader : MonoBehaviour {
 
 	}
 	public void callDialogue(int typeOfCombo){
-		Debug.Log (questionIndex);
-		Debug.Log(typeOfCombo+ "Type of Combo");
+//		Debug.Log (questionIndex);
+//		Debug.Log(typeOfCombo+ "Type of Combo");
 		dialogueText.text = responses [questionIndex].options [typeOfCombo];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
-
+		//a list within a list
 	}
 
 	public void callQuestion(){
