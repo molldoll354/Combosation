@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class newInput : MonoBehaviour {
-	public string inputCombo="";
+	public string inputCombo="";//store inputCombo as the player puts 
 
 
 
@@ -19,7 +19,7 @@ public class newInput : MonoBehaviour {
 	public float Timer;
 	public float TimerLength;
 
-	int buttonSlotSelection = 0;
+	int buttonSlotSelection = 0;//slot of the button "dialogue bar"
 
 
 	public bool canPlayerSpeak = true;//controls when the player can input a combo
@@ -27,7 +27,7 @@ public class newInput : MonoBehaviour {
 	public bool resetSlots = false;
 	public int preferedLength;
 	public int maxUsage;//max usage of a combo before "overused"
-	public Combo[] premadeCombos;
+	//public Combo[] premadeCombos;
 	List<Combo> comboUsage = new List<Combo> ();
 
 	public Sprite blankSlotSprite; //sprites and array to control the button icons
@@ -49,7 +49,7 @@ public class newInput : MonoBehaviour {
 	public Animator heartAnimator;
 
 
-	int i = 8;
+	int i = 8;//keeps track of space button action
 	int index=0;
 
 	//Dictionary<string, int> comboUsage;
