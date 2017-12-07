@@ -326,7 +326,7 @@ public class comboReader : MonoBehaviour {
 			statEffect = responses [questionIndex].moodEffect [3];//checks the mood effect int in the inspector
 		}
 		if ((statChecker < 0) || annoyanceCounter > 0) {
-			statEffect = -2;
+			//statEffect = -2;
 		}
 		if (statEffect == 2 && annoyanceCounter > 0) {
 			annoyanceCounter--;
