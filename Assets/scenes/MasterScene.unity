@@ -1283,11 +1283,11 @@ MonoBehaviour:
   spaceButton: {fileID: 1776353465}
   dots: {fileID: 862071165}
   audio: {fileID: 1165465019}
-  flatterSound: {fileID: 8300000, guid: bdb9f5f5bd1e15e44bacf92ba014168c, type: 3}
-  flirtSound: {fileID: 8300000, guid: 4247a519d3336a149bb4ca128bed5824, type: 3}
-  chatSound: {fileID: 8300000, guid: 2ee7ad0631703f94a9175a55a916123b, type: 3}
-  jokeSound: {fileID: 8300000, guid: bdb9f5f5bd1e15e44bacf92ba014168c, type: 3}
-  music: {fileID: 8300000, guid: 62b85c58ee544bd40a85e20b6ff71697, type: 3}
+  flatterSound: {fileID: 8300000, guid: f7b0757a807ae674b918627ef5bf0f17, type: 3}
+  flirtSound: {fileID: 8300000, guid: 0ca90104e87bfbc49bf3b94bc4107297, type: 3}
+  chatSound: {fileID: 8300000, guid: b87c0e86f4e9e7a46961abb5a0769ebc, type: 3}
+  jokeSound: {fileID: 8300000, guid: 4eb83ceb46b1d2b44b798468409f0e1b, type: 3}
+  music: {fileID: 8300000, guid: 8073e61306a184345a3176f7ccb8e8a8, type: 3}
   heartAnimator: {fileID: 1184827122}
 --- !u!114 &737857449
 MonoBehaviour:
@@ -2021,11 +2021,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.81
+      value: -10.26
       objectReference: {fileID: 0}
     - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.95
+      value: -0.27
       objectReference: {fileID: 0}
     - target: {fileID: 4961370324482564, guid: 6e39af555f868aa49a003568db1bf0c4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3140,7 +3140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -18.476002}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.7, y: -22.9}
+  m_AnchoredPosition: {x: -194, y: -24}
   m_SizeDelta: {x: 365.03, y: 185.87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1772152221
