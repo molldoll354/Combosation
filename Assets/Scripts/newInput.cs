@@ -40,7 +40,9 @@ public class newInput : MonoBehaviour {
 	public GameObject [] buttonSlots;
 	public GameObject spaceButton;
 	public GameObject dots;
-	public soundScript audio;
+	//public soundScript audio;
+	public AudioSource buttonSoundSource;
+	public AudioSource musicSource;
 	public AudioClip flatterSound;
 	public AudioClip flirtSound;
 	public AudioClip chatSound;
@@ -58,9 +60,10 @@ public class newInput : MonoBehaviour {
 		
 		Timer = 8;
 
-		audio.Play (music);
+		musicSource.Play ();
 		canPlayerSpeak = true; 
 		dots.SetActive (false);
+
 	}
 	
 	// Update is called once per frame
@@ -76,22 +79,26 @@ public class newInput : MonoBehaviour {
 			{
 				if (Input.GetKeyDown (KeyCode.A)) {
 					inputCombo += "A";
-					audio.Play(flatterSound);
+					buttonSoundSource.clip = flatterSound;
+					buttonSoundSource.Play ();
 					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flatterSlotSprite;
 					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.W)) {
 					inputCombo += "W";
-					audio.Play(chatSound);
+					buttonSoundSource.clip = chatSound;
+					buttonSoundSource.Play ();
 					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = chatSlotSprite;
 					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.S)) {
 					inputCombo += "S";
-					audio.Play(jokeSound);
+					buttonSoundSource.clip = jokeSound;
+					buttonSoundSource.Play ();
 					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = jokeSlotSprite;
 					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.D)) {
 					inputCombo += "D";
-					audio.Play(flirtSound);
+					buttonSoundSource.clip = flirtSound;
+					buttonSoundSource.Play ();
 					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flirtSlotSprite;
 					buttonSlotSelection++;
 				}
