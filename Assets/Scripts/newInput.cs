@@ -25,6 +25,7 @@ public class newInput : MonoBehaviour {
 	public bool canPlayerSpeak = true;//controls when the player can input a combo
 	public bool StopButtons;
 	public bool resetSlots = false;
+	bool lengthChimePlayed; //detects if the sound for combo length has already played
 	public int preferedLength;
 	public int maxUsage;//max usage of a combo before "overused"
 	//public Combo[] premadeCombos;
@@ -43,11 +44,14 @@ public class newInput : MonoBehaviour {
 	//public soundScript audio;
 	public AudioSource buttonSoundSource;
 	public AudioSource musicSource;
+	public AudioSource comboInputSource;
 	public AudioClip flatterSound;
 	public AudioClip flirtSound;
 	public AudioClip chatSound;
 	public AudioClip jokeSound;
 	public AudioClip music;
+	public AudioClip comboReadySound;
+	public AudioClip comboInputSound;
 	public Animator heartAnimator;
 
 
@@ -111,7 +115,8 @@ public class newInput : MonoBehaviour {
 					GetComponent<comboReader> ().callQuestion ();
 					i = 1;
 				} else if (i == 1 && inputCombo.Length >= 3) { //this prevents the player from entering a combo till it's at least 3
-					
+					comboInputSource.clip = comboInputSound;
+					comboInputSource.Play ();
 
 					//canPlayerSpeak = false;
 					//readCombo was being called multiple times, setting it to nothing (reset)
@@ -130,10 +135,17 @@ public class newInput : MonoBehaviour {
 
 			}
 
-			if (inputCombo.Length >= 3) { //this changes the space button ui
+			if (inputCombo.Length >= 3) { 
+				//this changes the space button ui
 				spaceButton.GetComponent<SpriteRenderer> ().sprite = spaceOn;
+				if (lengthChimePlayed == false) { //plays sound but only once
+					comboInputSource.clip = comboReadySound;
+					comboInputSource.Play ();
+					lengthChimePlayed = true;
+				}
 			} else if (inputCombo.Length < 3) {
 				spaceButton.GetComponent<SpriteRenderer> ().sprite = spaceOff;
+				lengthChimePlayed = false;
 			}
 
 			if (i == 1 && inputCombo.Length == 0) {
