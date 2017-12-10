@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
@@ -46,13 +45,13 @@ public class Combo {
 		unLocked = true;
 		comboBonus = 1;
 	}
-		
+
 	public void increaseUsage()
 	{
 		usage++;
 	}
 	public string toString(){
-		string info = "Name: "+comboName+"| Combo:"+comboInput+"| Type:" +comboType+"| Used: "+usage+"| Bonus:"+comboBonus;
+		string info = comboName + "     " + comboInput + "     " + comboType;
 
 		return info;
 	}
@@ -68,7 +67,7 @@ public class Combo {
 
 }
 public class comboManager : MonoBehaviour {
-//	public GameObject discoveryPanel;
+	//	public GameObject discoveryPanel;
 	public Text dictionaryBox;
 
 	public string PlayerInput;
@@ -79,15 +78,15 @@ public class comboManager : MonoBehaviour {
 	public string myJson;
 	public Dictionary<string,Combo> dictionaryCombos = new Dictionary<string, Combo>();
 	public Combo[] arrayOfCombos;
-	public int numCombosPerPage=5;
-	public int dictionaryPageIndex=0;
+	public int numCombosPerPage=10;
+	public int dictionaryIndex=0;
 	public int pageCount;
 
 	// Use this for initialization
 	void Start () {
 
 		myJson = "Assets/Loren/scripts/premadeComboList.json";
-	
+
 		CreateListFromJson ();
 		arrayOfCombos = new Combo[dictionaryCombos.Count];
 		int i = 0;
@@ -97,7 +96,7 @@ public class comboManager : MonoBehaviour {
 		}
 		pageCount = i / numCombosPerPage;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -132,7 +131,7 @@ public class comboManager : MonoBehaviour {
 		if(temp.usage>usageLimit){
 			typeOfCombo = 4;
 		}
-        
+
 		return typeOfCombo;
 	}
 
@@ -191,18 +190,22 @@ public class comboManager : MonoBehaviour {
 	 * 
 	 */ 
 
-	public void displayDictionary(bool forwardThroughDictionary){
+	public string displayDictionary(bool forwardThroughDictionary){//if true: move forward, if false: move back.
 		string TheDictionary = "";
 		if(forwardThroughDictionary == false){
-			dictionaryPageIndex -= numCombosPerPage;
-			if( (dictionaryPageIndex - numCombosPerPage)<0){
-				dictionaryPageIndex = 0;
-			}
+			dictionaryIndex -= numCombosPerPage;
+						if( (dictionaryIndex - numCombosPerPage)<0){
+							dictionaryIndex = 0;
+						}
 		}
-
-		for(int j = 0; j<numCombosPerPage;j++){
+		int j;
+		for(j = dictionaryIndex ; j<dictionaryIndex+numCombosPerPage;j++){
 			string comboTypeString ="";//wchat = 0, aflatter =1, sjoke, = 2, dflirt 3
-
+			//int jIndex = j+dictionaryIndex*numCombosPerPage;//adding j and dictionaryPageIndex give the actual number we're on.
+			if(arrayOfCombos[j] == null){
+				dictionaryIndex--;
+				break;
+			}
 			if (arrayOfCombos[j].usage > 0 ) {
 				if (arrayOfCombos[j].comboType == 0) {
 					comboTypeString = "Chat";
@@ -220,14 +223,17 @@ public class comboManager : MonoBehaviour {
 				TheDictionary += j+")-----\n";
 			}
 		}
-		TheDictionary+= "\n [P] Next Page\n[O] Last Page";
-		dictionaryBox.text = TheDictionary;
 		if(forwardThroughDictionary == true){
-			dictionaryPageIndex += numCombosPerPage;
-			if((dictionaryPageIndex + numCombosPerPage)>arrayOfCombos.Length-numCombosPerPage){
-				dictionaryPageIndex = arrayOfCombos.Length - numCombosPerPage;
-			}
+			dictionaryIndex +=numCombosPerPage;
+						if((dictionaryIndex + numCombosPerPage)>arrayOfCombos.Length-numCombosPerPage){
+							dictionaryIndex = arrayOfCombos.Length - numCombosPerPage;
+						//this is for dealing with the fact that we may not have pretty numbers of combos, 
+						//so it resets the index to the last number that would aboid getting an out of bounds exception when displaying
+						}
 		}
+		TheDictionary+= "\n [L] Next Page\n[K] Last Page";
+		return TheDictionary;
+
 	}
 
 

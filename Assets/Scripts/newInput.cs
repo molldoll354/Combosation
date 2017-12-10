@@ -154,24 +154,26 @@ public class newInput : MonoBehaviour {
 				dots.gameObject.SetActive (false);
 			}
 
-			if (Input.GetKeyDown (KeyCode.L)) {
+			
+			if (Input.GetKeyDown (KeyCode.J)) {
 				if (ComboMenu.gameObject.activeInHierarchy == true) {
 					ComboMenu.gameObject.SetActive(false);
-					DictrionaryText.text = "";
+					//DictrionaryText.text = "";
 				} else {
 					ComboMenu.gameObject.SetActive(true);
-					DictrionaryText.text =""+ GetComponent<comboManager> ().displayDictionary ();
+					DictrionaryText.text = "";
+					//+ GetComponent<comboManager> ().displayDictionary (true); aa back to previous line later.Lore 12/9
 				}
 			}
-//			if(Input.GetKeyDown(KeyCode.O)){
-//				GetComponent<comboManager> ().displayDictionary (false);
-//				//DictrionaryText.text ="pressed O";
-//			}
-//			if(Input.GetKeyDown(KeyCode.P)){
-//				GetComponent<comboManager> ().displayDictionary (true);
-//				//DictrionaryText.text ="pressed P";
-//
-//			}
+			if(Input.GetKeyDown(KeyCode.L)){//move forwards
+				DictrionaryText.text= GetComponent<comboManager> ().displayDictionary (true);
+				//DictrionaryText.text ="pressed O";
+			}
+			if(Input.GetKeyDown(KeyCode.K)){//move backwards
+				DictrionaryText.text=GetComponent<comboManager> ().displayDictionary (false);
+				//DictrionaryText.text ="pressed P";
+			
+			}
 //			
 		else { 
 			if(Input.GetKeyDown(KeyCode.Space) && canPlayerSpeak == false){ 
