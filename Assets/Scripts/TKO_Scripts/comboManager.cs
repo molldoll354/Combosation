@@ -85,7 +85,7 @@ public class comboManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		myJson = "Assets/Loren/scripts/premadeComboList.json";
+		myJson = "Assets/Scripts/TKO_Scripts/premadeComboList.json";
 
 		CreateListFromJson ();
 		arrayOfCombos = new Combo[dictionaryCombos.Count];
