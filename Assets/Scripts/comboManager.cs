@@ -194,9 +194,9 @@ public class comboManager : MonoBehaviour {
 		string TheDictionary = "";
 		if(forwardThroughDictionary == false){
 			dictionaryIndex -= numCombosPerPage;
-			//			if( (dictionaryIndex - numCombosPerPage)<0){
-			//				dictionaryIndex = 0;
-			//			}
+						if( (dictionaryIndex - numCombosPerPage)<0){
+							dictionaryIndex = 0;
+						}
 		}
 		int j;
 		for(j = dictionaryIndex ; j<dictionaryIndex+numCombosPerPage;j++){
@@ -225,11 +225,11 @@ public class comboManager : MonoBehaviour {
 		}
 		if(forwardThroughDictionary == true){
 			dictionaryIndex +=numCombosPerPage;
-			//			if((dictionaryPageIndex + numCombosPerPage)>arrayOfCombos.Length-numCombosPerPage){
-			//				dictionaryPageIndex = arrayOfCombos.Length - numCombosPerPage;
-			//			//this is for dealing with the fact that we may not have pretty numbers of combos, 
-			//			//so it resets the index to the last number that would aboid getting an out of bounds exception when displaying
-			//			}
+						if((dictionaryIndex + numCombosPerPage)>arrayOfCombos.Length-numCombosPerPage){
+							dictionaryIndex = arrayOfCombos.Length - numCombosPerPage;
+						//this is for dealing with the fact that we may not have pretty numbers of combos, 
+						//so it resets the index to the last number that would aboid getting an out of bounds exception when displaying
+						}
 		}
 		TheDictionary+= "\n [L] Next Page\n[K] Last Page";
 		return TheDictionary;
