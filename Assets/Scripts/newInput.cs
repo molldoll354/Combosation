@@ -14,7 +14,8 @@ public class newInput : MonoBehaviour {
 	public Text timeText;
 	public Text iTExt;
 	public Text DictrionaryText;
-	public GameObject ComboMenu;
+
+	public GameObject notepad;
 
 	public float Timer;
 	public float TimerLength;
@@ -28,7 +29,7 @@ public class newInput : MonoBehaviour {
 	bool lengthChimePlayed; //detects if the sound for combo length has already played
 	public int preferedLength;
 	public int maxUsage;//max usage of a combo before "overused"
-	//public Combo[] premadeCombos;
+
 	List<Combo> comboUsage = new List<Combo> ();
 
 	public Sprite blankSlotSprite; //sprites and array to control the button icons
@@ -156,23 +157,23 @@ public class newInput : MonoBehaviour {
 
 			
 			if (Input.GetKeyDown (KeyCode.J)) {
-				if (ComboMenu.gameObject.activeInHierarchy == true) {
-					ComboMenu.gameObject.SetActive(false);
-					//DictrionaryText.text = "";
+				if (
+					notepad.gameObject.activeInHierarchy == true
+
+				) {
+					notepad.gameObject.SetActive(false);
+
 				} else {
-					ComboMenu.gameObject.SetActive(true);
-					DictrionaryText.text = "";
-					//+ GetComponent<comboManager> ().displayDictionary (true); aa back to previous line later.Lore 12/9
+					notepad.gameObject.SetActive(true);
+
+					DictrionaryText.text = ""+ GetComponent<comboManager> ().displayDictionary (true); 
 				}
 			}
 			if(Input.GetKeyDown(KeyCode.L)){//move forwards
 				DictrionaryText.text= GetComponent<comboManager> ().displayDictionary (true);
-				//DictrionaryText.text ="pressed O";
 			}
 			if(Input.GetKeyDown(KeyCode.K)){//move backwards
 				DictrionaryText.text=GetComponent<comboManager> ().displayDictionary (false);
-				//DictrionaryText.text ="pressed P";
-			
 			}
 //			
 		else { 
