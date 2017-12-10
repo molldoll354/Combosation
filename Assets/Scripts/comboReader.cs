@@ -27,6 +27,11 @@ public class comboReader : MonoBehaviour {
 	List <int> buttonCount;
 
 	public List<string> questions;//the actual questions that Saki asks
+	public List<string> negativeQuestions;
+	bool negativeQuestionBool;
+	public List<string> PositiveQuestions;
+	bool positiveQuestionBool;
+
 	public List<SakiAnswer> responses;//Saki's responses (both this and the questions are stored in the inspector) 
 	public int questionIndex =0;//determines what number question you're on 
 	public int finalAnswer =0;
@@ -93,6 +98,17 @@ public class comboReader : MonoBehaviour {
 			statChecker = -30;
 			questionIndex = 9;
 		}
+
+		if (annoyanceCounter >= 1) {
+			negativeQuestionBool = true;
+			if(statEffect==2){
+				negativeQuestionBool = false;
+			}
+		}
+		if (annoyanceCounter == 0 && statEffect == 2) {
+			positiveQuestionBool = true;
+		}
+
 
 		/*
 		 * 
@@ -252,6 +268,14 @@ public class comboReader : MonoBehaviour {
 
 	public void callQuestion(){
 		questionText.text = questions [questionIndex];//question text displays based on what number question you're on
+
+		if (negativeQuestionBool == true) {
+			questionText.text = negativeQuestions [questionIndex];
+		}
+
+		if (positiveQuestionBool == true) {
+			questionText.text = PositiveQuestions [questionIndex];
+		}
 
 	}
 	void RespondAnnoyed(){
