@@ -69,18 +69,17 @@ public class Combo {
 public class comboManager : MonoBehaviour {
 	//	public GameObject discoveryPanel;
 	public Text dictionaryBox;
-
-	public string PlayerInput;
-	public Combo inputCombo;
+	public Image notepad;
+	string PlayerInput;
+	Combo inputCombo;
 	public int preferedLenght;//what is the preferend length of combos for the date
 	public int usageLimit;//how often a combo can be used before the date is upset.
 
-	public string myJson;
+	string myJson;
 	public Dictionary<string,Combo> dictionaryCombos = new Dictionary<string, Combo>();
-	public Combo[] arrayOfCombos;
+	Combo[] arrayOfCombos;
 	public int numCombosPerPage=10;
-	public int dictionaryIndex=0;
-	public int pageCount;
+	int dictionaryIndex=0;
 
 	// Use this for initialization
 	void Start () {
@@ -94,7 +93,7 @@ public class comboManager : MonoBehaviour {
 			arrayOfCombos [i] = entryCombo.Value;
 			i++;
 		}
-		pageCount = i / numCombosPerPage;
+
 	}
 
 	// Update is called once per frame
