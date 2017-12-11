@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class SakiAnswer{
 	public List<string> options;//number of options that the player has
 	public List<int> moodEffect;//int in the inspector that goes up or down depending on how appropriate the response is 
+	public List<string>positiveOptions;
+	public List<string>negativeOptions;
 }
 
 
@@ -263,6 +265,14 @@ public class comboReader : MonoBehaviour {
 //		Debug.Log (questionIndex);
 //		Debug.Log(typeOfCombo+ "Type of Combo");
 		dialogueText.text = responses [questionIndex].options [typeOfCombo];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
+
+		if (negativeQuestionBool == true) {
+			dialogueText.text = responses [questionIndex].negativeOptions [typeOfCombo];
+		}
+
+		if (positiveQuestionBool == true) {
+			dialogueText.text = responses [questionIndex].positiveOptions [typeOfCombo];
+		}
 		//a list within a list
 	}
 
