@@ -103,7 +103,7 @@ public class comboReader : MonoBehaviour {
 
 		if (annoyanceCounter >= 1) {
 			negativeQuestionBool = true;
-			if(statEffect==2){
+			if(statEffect==2 && negativeQuestionBool==true){
 				negativeQuestionBool = false;
 				annoyanceCounter=0;
 			}
@@ -112,7 +112,7 @@ public class comboReader : MonoBehaviour {
 			positiveQuestionBool = true;
 		}
 		if (positiveQuestionBool == true) {
-			if (statEffect = -2) {
+			if (statEffect == -2 && positiveQuestionBool==true) {
 				positiveQuestionBool = false;
 			}
 		}
