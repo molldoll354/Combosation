@@ -105,10 +105,16 @@ public class comboReader : MonoBehaviour {
 			negativeQuestionBool = true;
 			if(statEffect==2){
 				negativeQuestionBool = false;
+				annoyanceCounter=0;
 			}
 		}
 		if (annoyanceCounter == 0 && statEffect == 2) {
 			positiveQuestionBool = true;
+		}
+		if (positiveQuestionBool == true) {
+			if (statEffect = -2) {
+				positiveQuestionBool = false;
+			}
 		}
 
 
