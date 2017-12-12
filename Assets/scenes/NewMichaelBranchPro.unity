@@ -1041,11 +1041,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &579881221 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1034595477649854, guid: 9d94e2d66a26281438077e35ba312c54,
-    type: 2}
-  m_PrefabInternal: {fileID: 250864916}
 --- !u!224 &579881222 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224070505703449158, guid: 9d94e2d66a26281438077e35ba312c54,
@@ -1480,7 +1475,7 @@ MonoBehaviour:
   timeText: {fileID: 741510043}
   iTExt: {fileID: 0}
   DictrionaryText: {fileID: 1812814607}
-  ComboMenu: {fileID: 579881221}
+  notepad: {fileID: 0}
   Timer: 0
   TimerLength: 10
   canPlayerSpeak: 1
@@ -1587,6 +1582,8 @@ MonoBehaviour:
     - "Uhh\u2026that\u2019s kind of weird\u2026"
     - What did you say?
     moodEffect: 01000000ffffffff02000000fefffffffcffffff
+    positiveOptions: []
+    negativeOptions: []
   - options:
     - Yeah, it was nice to take a break from things for a while.
     - Aw, I missed you too!
@@ -1594,6 +1591,28 @@ MonoBehaviour:
     - Eugh, gross!
     - Huh? Just spit it out already!
     moodEffect: 0100000002000000fffffffffefffffffcffffff
+    positiveOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    negativeOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - options:
     - Yeah, I'm still a bit upset about it
     - "That\u2019s sweet, yeah I would like to talk about it if you don\u2019t mind."
@@ -1601,6 +1620,8 @@ MonoBehaviour:
     - Ugh, are you even listening?
     - Were those even words?
     moodEffect: 0100000002000000fefffffffffffffffcffffff
+    positiveOptions: []
+    negativeOptions: []
   - options:
     - Thanks, I appreciate it.
     - "You\u2019re right, I do deserve better than him. "
@@ -1608,6 +1629,8 @@ MonoBehaviour:
     - Yikes, the wounds are still a little fresh ya know?
     - You're starting to get on my nerves...
     moodEffect: ffffffff0200000001000000fefffffffcffffff
+    positiveOptions: []
+    negativeOptions: []
   - options:
     - "That\u2019s true, I do have a friend like you to count on."
     - You really mean that?
@@ -1615,6 +1638,8 @@ MonoBehaviour:
     - "Wow, that\u2019s pretty forward coming from you."
     - Excuse me?
     moodEffect: 0100000002000000fffffffffefffffffcffffff
+    positiveOptions: []
+    negativeOptions: []
   - options:
     - Huh? You want me to stay?
     - Huh? You want me to stay?
@@ -1622,6 +1647,8 @@ MonoBehaviour:
     - Huh? You want me to stay?
     - Huh? You want me to stay?
     moodEffect: 00000000000000000000000000000000fcffffff
+    positiveOptions: []
+    negativeOptions: []
   - options:
     - 'Yeah, it''s good to see you again too. '
     - "Aw, I\u2019m blushing!"
@@ -1629,6 +1656,8 @@ MonoBehaviour:
     - 'Wow, this is really unexpected...not that I mind! '
     - I think I might have to get going soon...
     moodEffect: ffffffff01000000feffffff02000000fcffffff
+    positiveOptions: []
+    negativeOptions: []
   - options:
     - Do you wanna study at the library?
     - Why would we study at a restaurant-Oh!
@@ -1636,6 +1665,8 @@ MonoBehaviour:
     - "O-oh, I didn\u2019t know you meant something like that! Interesting\u2026"
     - Woah woah, slow down!
     moodEffect: feffffff01000000ffffffff02000000fcffffff
+    positiveOptions: []
+    negativeOptions: []
   - options:
     - Oh, just getting food then, alright.
     - Ya know, I think it would be really nice to get out with you.
@@ -1643,6 +1674,8 @@ MonoBehaviour:
     - "I just wish you would\u2019ve asked sooner! "
     - What's with all the nervous energy?
     moodEffect: feffffff01000000ffffffff02000000fcffffff
+    positiveOptions: []
+    negativeOptions: []
   - options:
     - 
     - 
@@ -1650,9 +1683,13 @@ MonoBehaviour:
     - 
     - 
     moodEffect: 
+    positiveOptions: []
+    negativeOptions: []
   - options:
     - 
     moodEffect: 
+    positiveOptions: []
+    negativeOptions: []
   questionIndex: 0
   finalAnswer: 0
   chatChecker: 0
@@ -1695,22 +1732,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dictionaryBox: {fileID: 0}
-  PlayerInput: 
-  inputCombo:
-    comboInput: 
-    comboName: 
-    usage: 0
-    comboType: 0
-    comboBonus: 0
-    isPremade: 0
-    unLocked: 0
+  notepad: {fileID: 0}
   preferedLenght: 0
   usageLimit: 100
-  myJson: 
-  arrayOfCombos: []
   numCombosPerPage: 5
-  dictionaryPageIndex: 0
-  pageCount: 0
 --- !u!1 &741510041
 GameObject:
   m_ObjectHideFlags: 0
