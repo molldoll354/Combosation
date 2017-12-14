@@ -208,13 +208,13 @@ public class newInput : MonoBehaviour {
 		}
 
 		if (resetSlots == true) {
-//			buttonSlots [0].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
-//			buttonSlots [1].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
-//			buttonSlots [2].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
-//			buttonSlots [3].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
-//			buttonSlots [4].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
-//			buttonSlotSelection = 0;
-//			resetSlots = false;
+			buttonSlots [0].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
+			buttonSlots [1].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
+			buttonSlots [2].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
+			buttonSlots [3].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
+			buttonSlots [4].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
+			buttonSlotSelection = 0;
+			resetSlots = false;
 		}
 
 		timeText.text = "" + Mathf.Floor (Timer);
