@@ -38,8 +38,8 @@ public class endSceneFinal : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		comboReader.statChecker = 60;
-		comboReader.mostUsedInput = 3;
+		//comboReader.statChecker = 60;
+		//comboReader.mostUsedInput = 3;
 
 
 	}
