@@ -2647,12 +2647,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d754cc43a00f94fb5d724ab58dcc8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboManage: {fileID: 0}
   Source: 
-  questions: []
-  negativeQuestions: []
-  PositiveQuestions: []
-  responses: []
+  questions:
+  - question 1
+  - question 2
+  - question 3
+  - question 4
+  - question 5
+  - question 6
+  - question 7
+  - question 8
+  - question 9
+  - question 10
+  responses:
+  - options:
+    - 
+    - 
+    - 
+    - 
+    moodEffect: 00000000000000000000000000000000
+    rightType: 0
+  - options: []
+    moodEffect: 
+    rightType: 0
+  - options: []
+    moodEffect: 
+    rightType: 0
+  - options: []
+    moodEffect: 
+    rightType: 0
+  - options: []
+    moodEffect: 
+    rightType: 0
+  - options: []
+    moodEffect: 
+    rightType: 0
+  - options: []
+    moodEffect: 
+    rightType: 0
+  - options: []
+    moodEffect: 
+    rightType: 0
+  - options: []
+    moodEffect: 
+    rightType: 0
+  - options: []
+    moodEffect: 
+    rightType: 0
   questionIndex: 0
   finalAnswer: 0
   chatChecker: 0
@@ -2660,16 +2701,16 @@ MonoBehaviour:
   flirtChecker: 0
   jokeChecker: 0
   comboDescriptor: {fileID: 0}
-  dialogueText: {fileID: 2072449015}
-  questionText: {fileID: 690307915}
+  dialogueText: {fileID: 0}
+  questionText: {fileID: 0}
   sakiBubble: {fileID: 0}
   neutralBubble: {fileID: 0}
   goodBubble1: {fileID: 0}
   goodBubble2: {fileID: 0}
   badBubble1: {fileID: 0}
   badBubble2: {fileID: 0}
-  annoyanceSounds: {fileID: 1251753705}
-  newComboSource: {fileID: 181996366}
+  annoyanceSounds: {fileID: 0}
+  newComboSource: {fileID: 0}
   annoyanceUp: {fileID: 0}
   annoyanceDown: {fileID: 0}
   currentCombo:

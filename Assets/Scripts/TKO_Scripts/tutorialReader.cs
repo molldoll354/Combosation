@@ -7,14 +7,13 @@ using UnityEngine.UI;
 public class tutorialAnswer{
 	public List<string> options;//number of options that the player has
 	public List<int> moodEffect;//int in the inspector that goes up or down depending on how appropriate the response is 
+	public int rightType;//dictates the comboType we're looking for.
 }
 
 
 
 
 public class tutorialReader : MonoBehaviour {
-	public comboManager comboManage;
-	//public newInput newInput;
 	public Dictionary<string, Combo> comboDictionary = new Dictionary<string, Combo>();
 	private static tutorialReader _instance;//this is its own script and kind of its own object, so this script can be accessed from anywhere
 
@@ -26,10 +25,10 @@ public class tutorialReader : MonoBehaviour {
 
 	List <int> buttonCount;
 
-	public List<string> questions;//the actual questions that Saki asks
-	public List<string> negativeQuestions;
+	public List<string> questions;//the actual questions that is asked
+	//public List<string> negativeQuestions;
 	bool negativeQuestionBool;
-	public List<string> PositiveQuestions;
+	//public List<string> PositiveQuestions;
 	bool positiveQuestionBool;
 
 	public List<tutorialAnswer> responses;//Saki's responses (both this and the questions are stored in the inspector) 
@@ -195,16 +194,12 @@ public class tutorialReader : MonoBehaviour {
 			comboDescriptor.text = "";
 		}
 	
-		    //switchTextBoxes();
-		//dialogueText.text = responses [questionIndex].options [currentComboType];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
-		
-			//print("b4 questionIndex++");
+	
 			
 			
 			GetComponent<newInput> ().inputCombo = "";
 			GetComponent<newInput> ().canPlayerSpeak = true;
 
-		//print("save me lord" + questionIndex);
 
 
 				//Debug.Log("Update"+Source);
@@ -217,8 +212,8 @@ public class tutorialReader : MonoBehaviour {
 					comboDescriptor.text = "Chat?! -" + Mathf.Abs (statEffect);
 				}
 			}
-			questionIndex++;//moves the question index along
-				}
+			//questionIndex++;//moves the question index along
+		}
 		if(currentComboType==1){//checks for flatter
 				RespondFlatter ();
 			if (temp.isPremade == false) {
@@ -228,7 +223,7 @@ public class tutorialReader : MonoBehaviour {
 					comboDescriptor.text = "Flatter?! -" + Mathf.Abs (statEffect);
 				}
 			}
-			questionIndex++;
+			//questionIndex++;
 				}
 		if(currentComboType==2)
 				{
@@ -240,7 +235,7 @@ public class tutorialReader : MonoBehaviour {
 					comboDescriptor.text = "Joke?! -" + Mathf.Abs (statEffect);
 				}
 			}
-			questionIndex++;
+			//questionIndex++;
 				}
 		if (currentComboType == 3) {
 			RespondFlirt ();
@@ -255,9 +250,11 @@ public class tutorialReader : MonoBehaviour {
 		}
 		if (currentComboType == 4) {
 			RespondAnnoyed ();
+			//questionIndex++;
+		}
+		if(currentComboType == responses[questionIndex].rightType){
 			questionIndex++;
 		}
-
 	}
 	public void callDialogue(int typeOfCombo){
 //		Debug.Log (questionIndex);
@@ -269,13 +266,13 @@ public class tutorialReader : MonoBehaviour {
 	public void callQuestion(){
 		questionText.text = questions [questionIndex];//question text displays based on what number question you're on
 
-		if (negativeQuestionBool == true) {
-			questionText.text = negativeQuestions [questionIndex];
-		}
-
-		if (positiveQuestionBool == true) {
-			questionText.text = PositiveQuestions [questionIndex];
-		}
+//		if (negativeQuestionBool == true) {
+//			questionText.text = negativeQuestions [questionIndex];
+//		}
+//
+//		if (positiveQuestionBool == true) {
+//			questionText.text = PositiveQuestions [questionIndex];
+//		}
 
 	}
 	void RespondAnnoyed(){
