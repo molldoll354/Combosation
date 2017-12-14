@@ -74,6 +74,9 @@ public class comboReader : MonoBehaviour {
 	public float annoyanceCounter;
 	public GameObject saki;
 	public Animator sakiAnim;//Saki's animator
+
+	static int mostUsedComboType;
+
 	public enum ResponseOps{//converts strings to ints
 		chat=0,
 		flirt=1,
@@ -506,25 +509,25 @@ public class comboReader : MonoBehaviour {
 		return (ResponseOps)largestButtonType;
 	}
 
-//		public int mostUsedTypeOfCombo(){ 		check line 160 for where this should be getting used
-//		int typeOfCombo;
-//		int[] tempArray = new int[4];
-//		tempArray [0] = chatChecker;
-//		tempArray [1] = flatterChecker;
-//		tempArray [2] = jokeChecker;
-//		tempArray [3] = flirtChecker;
-//
-//		int tempBig = tempArray[0];
-//		for(int i = 0; i<4;i++)
-//		{
-//			if(tempArray[i]>=tempBig){
-//				tempBig = tempArray [i];
-//				typeOfCombo = i;
-//			}
-//		}
-//
-//
-//		//mostUsedInput = typeOfCombo; -------- i added this but it doesn't work/causes an error.  
-//		return typeOfCombo; //------ this line is causing an error
-//	}
+		public int mostUsedTypeOfCombo(){ 		//check line 160 for where this should be getting used
+		//int tempMostUsedTypeOfCombo;
+		int[] tempArray = new int[4];
+		tempArray [0] = chatChecker;
+		tempArray [1] = flatterChecker;
+		tempArray [2] = jokeChecker;
+		tempArray [3] = flirtChecker;
+
+		int tempBig = tempArray[0];
+		for(int i = 0; i<4;i++)
+		{
+			if(tempArray[i]>=tempBig){
+				tempBig = tempArray [i];
+				mostUsedInput = i;
+			}
+		}
+
+
+
+		return mostUsedInput; //------ this line is causing an error
+	}
 }
