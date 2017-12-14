@@ -167,7 +167,7 @@ public class comboReader : MonoBehaviour {
 		 */
 		if (questionIndex == 9) {
 			//Application.LoadLevel ("EndingScene");
-			//mostUsedTypeOfCombo();
+			mostUsedTypeOfCombo();
 			//SceneManager.LoadScene("endingSceneFinal");
 			sceneEnding = true;
 			transitionSource.Play ();
