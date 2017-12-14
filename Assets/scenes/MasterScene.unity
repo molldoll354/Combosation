@@ -1542,8 +1542,28 @@ MonoBehaviour:
   - "If you want we can meet up for class or something and study if you\u2019d like!"
   - Wait a minute, are you asking me out?
   - Hello
-  negativeQuestions: []
-  PositiveQuestions: []
+  negativeQuestions:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  PositiveQuestions:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   responses:
   - options:
     - Yeah, I just got outta class myself.
