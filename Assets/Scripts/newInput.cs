@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class newInput : MonoBehaviour {
+	public bool usingComboReader;
+
 	public string inputCombo="";//store inputCombo as the player puts 
 
 
@@ -86,34 +88,39 @@ public class newInput : MonoBehaviour {
 					inputCombo += "A";
 					buttonSoundSource.clip = flatterSound;
 					buttonSoundSource.Play ();
-					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flatterSlotSprite;
+				//	buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flatterSlotSprite;
 					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.W)) {
 					inputCombo += "W";
 					buttonSoundSource.clip = chatSound;
 					buttonSoundSource.Play ();
-					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = chatSlotSprite;
+//					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = chatSlotSprite;
 					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.S)) {
 					inputCombo += "S";
 					buttonSoundSource.clip = jokeSound;
 					buttonSoundSource.Play ();
-					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = jokeSlotSprite;
+					//buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = jokeSlotSprite;
 					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.D)) {
 					inputCombo += "D";
 					buttonSoundSource.clip = flirtSound;
 					buttonSoundSource.Play ();
-					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flirtSlotSprite;
+				//	buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flirtSlotSprite;
 					buttonSlotSelection++;
 				}
 			}
 			if(Input.GetKeyDown(KeyCode.Space) ){
 
 				if (i == 0) {
-					
-					GetComponent<comboReader> ().switchTextBoxes ();//this means we should initialize question off.
-					GetComponent<comboReader> ().callQuestion ();
+					if(usingComboReader==true){
+						GetComponent<comboReader> ().switchTextBoxes ();//this means we should initialize question off.
+						GetComponent<comboReader> ().callQuestion ();
+					}else{
+						GetComponent<tutorialReader> ().switchTextBoxes ();//this means we should initialize question off.
+						GetComponent<tutorialReader> ().callQuestion ();
+					}
+
 					i = 1;
 				} else if (i == 1 && inputCombo.Length >= 3) { //this prevents the player from entering a combo till it's at least 3
 					comboInputSource.clip = comboInputSound;
@@ -121,14 +128,27 @@ public class newInput : MonoBehaviour {
 
 					//canPlayerSpeak = false;
 					//readCombo was being called multiple times, setting it to nothing (reset)
-					GetComponent<comboReader> ().switchTextBoxes ();
-					GetComponent<comboReader> ().callDialogue (GetComponent<comboManager> ().readCombo (inputCombo));
-					GetComponent<comboReader> ().readCombo (inputCombo);
-					Timer = TimerLength;
+					if (usingComboReader == true) {
+						GetComponent<comboReader> ().switchTextBoxes ();
+						GetComponent<comboReader> ().callDialogue (GetComponent<comboManager> ().readCombo (inputCombo));
+						GetComponent<comboReader> ().readCombo (inputCombo);
+					}else
+					{
+						GetComponent<tutorialReader> ().switchTextBoxes ();
+						GetComponent<tutorialReader> ().callDialogue (GetComponent<comboManager> ().readCombo (inputCombo));
+						GetComponent<tutorialReader> ().readCombo (inputCombo);	
+					}
+						Timer = TimerLength;
 					i = 0;
 					resetSlots = true;
 				} else if (i == 8) {//starts here.
-					GetComponent<comboReader> ().callQuestion ();
+					if(usingComboReader==true){
+						GetComponent<comboReader> ().callQuestion ();
+					}
+					else{
+						GetComponent<tutorialReader> ().callQuestion ();
+					}
+
 					resetSlots = true;
 					i = 1;
 				}
@@ -188,13 +208,13 @@ public class newInput : MonoBehaviour {
 		}
 
 		if (resetSlots == true) {
-			buttonSlots [0].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
-			buttonSlots [1].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
-			buttonSlots [2].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
-			buttonSlots [3].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
-			buttonSlots [4].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
-			buttonSlotSelection = 0;
-			resetSlots = false;
+//			buttonSlots [0].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
+//			buttonSlots [1].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
+//			buttonSlots [2].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
+//			buttonSlots [3].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
+//			buttonSlots [4].GetComponent<SpriteRenderer> ().sprite = blankSlotSprite;
+//			buttonSlotSelection = 0;
+//			resetSlots = false;
 		}
 
 		timeText.text = "" + Mathf.Floor (Timer);
@@ -204,8 +224,11 @@ public class newInput : MonoBehaviour {
 			//	
 		}
 		if (Timer < 0) {
-
-			GetComponent<comboReader> ().annoyanceCounter++;
+				if(usingComboReader==true){GetComponent<comboReader> ().annoyanceCounter++;}
+				else{
+					GetComponent<tutorialReader> ().annoyanceCounter++;
+				}
+			
 			
 				Timer = 10;
 		}

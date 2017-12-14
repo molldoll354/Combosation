@@ -14,6 +14,17 @@ public class Combo {
 	public bool isPremade;//is the combo premade.
 	public bool unLocked;//is the combo unlocked
 
+	List <int> buttonCount;
+	enum buttonType{W = 0, A = 1, S = 2, D = 3, Tie = 4};
+	public enum ResponseOps{//converts strings to ints
+		chat=0,
+		flirt=1,
+		joke=2,
+		flatter=3,
+		other = 4,
+		//we may not need this, look into 
+	}
+
 	public Combo (string inputCombo, string premadeName, int type, int bonus) {//premadeCombo COnstructor
 		comboInput = inputCombo;
 		comboName = premadeName; 
@@ -29,7 +40,7 @@ public class Combo {
 
 		usage = 0;
 		int randRange;
-		int temp = (int)comboReader.Instance.CheckButtonCounts(inputCombo);
+		int temp = (int)CheckButtonCounts(inputCombo);
 		if(temp ==4){
 			randRange = (int)Random.Range (0, inputCombo.Length-1);
 			char inputChar = inputCombo [randRange];
@@ -64,7 +75,32 @@ public class Combo {
 		return newPoints;
 	}
 
+	public ResponseOps CheckButtonCounts(string combo) {
+		buttonCount = new List<int> ();
+		buttonCount.Add (0);
+		buttonCount.Add (0);
+		buttonCount.Add (0);
+		buttonCount.Add (0);
+		buttonCount [(int)buttonType.W] = combo.Split ('W').Length - 1;
+		buttonCount [(int)buttonType.A] = combo.Split ('A').Length - 1;
+		buttonCount [(int)buttonType.S] = combo.Split ('S').Length - 1;
+		buttonCount [(int)buttonType.D] = combo.Split ('D').Length - 1;
+		buttonType largestButtonType = buttonType.W;
+		int largestCount = buttonCount [(int)largestButtonType];
 
+		for (int i = 1; i < 4; i++) {
+			if (largestCount < buttonCount [i]) {
+				largestCount = buttonCount [i];
+				largestButtonType = (buttonType)i;
+			} else if (largestCount == buttonCount [i]) {
+				largestButtonType = buttonType.Tie;
+				//break;
+			}
+		}
+
+
+		return (ResponseOps)largestButtonType;
+	}
 }
 public class comboManager : MonoBehaviour {
 	//	public GameObject discoveryPanel;
