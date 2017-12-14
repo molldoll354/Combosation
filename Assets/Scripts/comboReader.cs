@@ -71,6 +71,8 @@ public class comboReader : MonoBehaviour {
 	public AudioSource music;
 	bool sceneEnding;
 
+	public bool posNegSwitch;
+
 	public float annoyanceCounter;
 	public GameObject saki;
 	public Animator sakiAnim;//Saki's animator
@@ -103,12 +105,15 @@ public class comboReader : MonoBehaviour {
 		sakiAnim = saki.GetComponent<Animator> ();
 
 		sceneEndAnimObject.SetActive(false);
-
+		posNegSwitch = false;
 	}
 		
 	// Update is called once per frame
 	void Update () {
-
+		if (posNegSwitch == false) {
+			positiveQuestionBool = false;
+			negativeQuestionBool = false;
+		}
 //		if (Input.GetKeyDown(KeyCode.M)) {
 //			sceneEnding = true;
 //			transitionSource.Play ();
