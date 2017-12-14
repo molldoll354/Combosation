@@ -133,23 +133,23 @@ public class comboReader : MonoBehaviour {
 			statChecker = -30;
 			questionIndex = 9;
 		}
-
-		if (annoyanceCounter >= 1) {
-			negativeQuestionBool = true;
-			if(statEffect==2 && negativeQuestionBool==true){
-				negativeQuestionBool = false;
-				annoyanceCounter=0;
-			}
-		}
-		if (annoyanceCounter == 0 && statEffect == 2) {
-			positiveQuestionBool = true;
-		}
-		if (positiveQuestionBool == true) {
-			if (statEffect == -2 && positiveQuestionBool==true) {
-				positiveQuestionBool = false;
-			}
-		}
-			
+		//positive and negative track start
+//		if (annoyanceCounter >= 1) {
+//			negativeQuestionBool = true;
+//			if(statEffect==2 && negativeQuestionBool==true){
+//				negativeQuestionBool = false;
+//				annoyanceCounter=0;
+//			}
+//		}
+//		if (annoyanceCounter == 0 && statEffect == 2) {
+//			positiveQuestionBool = true;
+//		}
+//		if (positiveQuestionBool == true) {
+//			if (statEffect == -2 && positiveQuestionBool==true) {
+//				positiveQuestionBool = false;
+//			}
+//		}
+			//positive and negative track stop
 		/*
 		 * 
 		 * int i = 0
@@ -304,54 +304,54 @@ public class comboReader : MonoBehaviour {
 
 		dialogueText.text = responses [questionIndex].options [typeOfCombo];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
 
-		if (negativeQuestionBool == true) {
-			dialogueText.text = responses [questionIndex].negativeOptions [typeOfCombo];
-		}
-
-		if (positiveQuestionBool == true) {
-			dialogueText.text = responses [questionIndex].positiveOptions [typeOfCombo];
-		}
+//		if (negativeQuestionBool == true) {
+//			dialogueText.text = responses [questionIndex].negativeOptions [typeOfCombo];
+//		}
+//
+//		if (positiveQuestionBool == true) {
+//			dialogueText.text = responses [questionIndex].positiveOptions [typeOfCombo];
+//		}
 		//a list within a list
 	}
 
 	public void callQuestion(){
 		questionText.text = questions [questionIndex];//question text displays based on what number question you're on
 
-		if (negativeQuestionBool == true) {
-			questionText.text = negativeQuestions [questionIndex];
-		}
-
-		if (positiveQuestionBool == true) {
-			questionText.text = PositiveQuestions [questionIndex];
-		}
+//		if (negativeQuestionBool == true) {
+//			questionText.text = negativeQuestions [questionIndex];
+//		}
+//
+//		if (positiveQuestionBool == true) {
+//			questionText.text = PositiveQuestions [questionIndex];
+//		}
 
 	}
 	void RespondAnnoyed(){
-		if (negativeQuestionBool == false && positiveQuestionBool == false) {
+		
 			 statEffect = responses [questionIndex].moodEffect [4];
-		}
-		if (negativeQuestionBool == true) {
-			 statEffect = responses [questionIndex].negMoodEffect [4];
-		}
-		if (positiveQuestionBool == true) {
-			 statEffect = responses [questionIndex].posMoodEffect [4];
-		}
+		
+//		if (negativeQuestionBool == true) {
+//			 statEffect = responses [questionIndex].negMoodEffect [4];
+//		}
+//		if (positiveQuestionBool == true) {
+//			 statEffect = responses [questionIndex].posMoodEffect [4];
+//		}
 		sakiAnim.Play("unimpressedREACT");
 		annoyanceCounter++;
 		annoyanceSounds.clip = annoyanceUp;
 		annoyanceSounds.Play ();
 	}
 	void RespondJoke(){
-		if(positiveQuestionBool==false && negativeQuestionBool==false){
+		
 		 statEffect = responses [questionIndex].moodEffect [2];//checks the mood effect int in the inspector
-		}
 
-		if (negativeQuestionBool == true) {
-			 statEffect = responses [questionIndex].negMoodEffect [2];
-		}
-		if (positiveQuestionBool == true) {
-			 statEffect = responses [questionIndex].posMoodEffect [2];
-		}
+
+//		if (negativeQuestionBool == true) {
+//			 statEffect = responses [questionIndex].negMoodEffect [2];
+//		}
+//		if (positiveQuestionBool == true) {
+//			 statEffect = responses [questionIndex].posMoodEffect [2];
+//		}
 		if ((statChecker < 0) || annoyanceCounter > 0) {
 			//statEffect = -1;
 		}
@@ -378,16 +378,16 @@ public class comboReader : MonoBehaviour {
 		}
 	}
 	void RespondFlatter(){
-		if(positiveQuestionBool==false && negativeQuestionBool==false){
+		
 			statEffect = responses [questionIndex].moodEffect [1];//checks the mood effect int in the inspector
-		}
 
-		if (negativeQuestionBool == true) {
-			 statEffect = responses [questionIndex].negMoodEffect [1];
-		}
-		if (positiveQuestionBool == true) {
-			 statEffect = responses [questionIndex].posMoodEffect [1];
-		}
+
+//		if (negativeQuestionBool == true) {
+//			 statEffect = responses [questionIndex].negMoodEffect [1];
+//		}
+//		if (positiveQuestionBool == true) {
+//			 statEffect = responses [questionIndex].posMoodEffect [1];
+//		}
 
 		if ((statChecker < 0) || annoyanceCounter > 0) {
 			//statEffect = -2;
@@ -417,16 +417,16 @@ public class comboReader : MonoBehaviour {
 	}
 
 	void RespondFlirt(){
-		if(positiveQuestionBool==false && positiveQuestionBool==false){
+		
 			statEffect = responses [questionIndex].moodEffect [3];//checks the mood effect int in the inspector
-		}
 
-		if (negativeQuestionBool == true) {
-			 statEffect = responses [questionIndex].negMoodEffect [3];
-		}
-		if (positiveQuestionBool == true) {
-			 statEffect = responses [questionIndex].posMoodEffect [3];
-		}
+//
+//		if (negativeQuestionBool == true) {
+//			 statEffect = responses [questionIndex].negMoodEffect [3];
+//		}
+//		if (positiveQuestionBool == true) {
+//			 statEffect = responses [questionIndex].posMoodEffect [3];
+//		}
 
 		if ((statChecker < 0) || annoyanceCounter > 0) {
 			//statEffect = -2;
@@ -457,15 +457,15 @@ public class comboReader : MonoBehaviour {
 	}
 
 	void RespondChat(){
-		if(negativeQuestionBool==false && positiveQuestionBool==false){
+
 			statEffect = responses [questionIndex].moodEffect [0];//checks the mood effect int in the inspector
-		}
-		if (negativeQuestionBool == true) {
-			 statEffect = responses [questionIndex].negMoodEffect [0];
-		}
-		if (positiveQuestionBool == true) {
-			 statEffect = responses [questionIndex].posMoodEffect [0];
-		}
+		
+//		if (negativeQuestionBool == true) {
+//			 statEffect = responses [questionIndex].negMoodEffect [0];
+//		}
+//		if (positiveQuestionBool == true) {
+//			 statEffect = responses [questionIndex].posMoodEffect [0];
+//		}
 
 		statChecker += (statEffect* currentCombo.comboBonus)+1;
 		chatChecker+=1;
