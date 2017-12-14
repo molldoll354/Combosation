@@ -67,9 +67,9 @@ public class tutorialReader : MonoBehaviour {
 	bool sceneEnding;
 
 
-	public float annoyanceCounter;
-//	public GameObject saki;
-//	public Animator sakiAnim;//Saki's animator
+	public float annoyanceCounter;	
+	public GameObject chimp; //chimpston
+	public Animator chimpAnim;//chimp's animator
 	public enum ResponseOps{//converts strings to ints
 		chat=0,
 		flirt=1,
@@ -97,7 +97,7 @@ public class tutorialReader : MonoBehaviour {
 		sceneEndAnimObject.SetActive(false);
 
 		statChecker=10;
-//		sakiAnim = saki.GetComponent<Animator> ();
+		chimpAnim = chimp.GetComponent<Animator> ();
 	}
 		
 	// Update is called once per frame
@@ -281,20 +281,26 @@ public class tutorialReader : MonoBehaviour {
 			RespondAnnoyed ();
 			//questionIndex++;
 		}
-		if(currentComboType == responses[questionIndex].rightType){
+		if(currentComboType == responses[questionIndex].rightType){//moves through the question if the right combo is used
 			questionIndex++;
+			chimpAnim.Play("ChimpBlush");
+		}
+		else{
+			chimpAnim.Play("ChimpFail");
+			//play a wrong noise here??????
 		}
 	}
 	public void callDialogue(int typeOfCombo){
 //		Debug.Log (questionIndex);
 //		Debug.Log(typeOfCombo+ "Type of Combo");
+		chimpAnim.Play("ChimpHey");
 		dialogueText.text = responses [questionIndex].responseToComboType [typeOfCombo];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
 		//a list within a list
 	}
 
 	public void callQuestion(){
 		questionText.text = questions [questionIndex];//question text displays based on what number question you're on
-
+		chimpAnim.Play("ChimpHey");
 //		if (negativeQuestionBool == true) {
 //			questionText.text = negativeQuestions [questionIndex];
 //		}
