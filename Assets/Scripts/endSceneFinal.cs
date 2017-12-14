@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class endSceneFinal : MonoBehaviour {
 
@@ -23,18 +24,22 @@ public class endSceneFinal : MonoBehaviour {
 	public Text medalText;
 	public Text textText;
 
-	float gradeTimer = .75f;
-	float medalTimer = 1.25f;
-	float textTimer = 1.75f;
+	float gradeTimer = 1f;
+	float medalTimer = 2f;
+	float textTimer = 3f;
 
 	bool gradeSet;
 	bool medalSet;
 	bool textSet;
 
+	public AudioSource gradeMedalSource;
+	public AudioSource textSource;
+
 	// Use this for initialization
 	void Start () {
 
 		comboReader.statChecker = 60;
+		comboReader.mostUsedInput = 3;
 
 
 	}
@@ -77,6 +82,40 @@ public class endSceneFinal : MonoBehaviour {
 				grade.GetComponent<SpriteRenderer> ().sprite = S;
 				gradeText.text = "You got an S!  That's amazing!";
 			}
+			gradeMedalSource.Play ();
+			gradeSet = true;
+		}
+	//---------------------------------------
+		if (medalTimer <= 0 && medalSet == false) {
+			if (comboReader.mostUsedInput == 0) {
+				medal.GetComponent<SpriteRenderer> ().sprite = chatMedal;
+				medalText.text = "You were talkitive!";
+			}
+			if (comboReader.mostUsedInput == 1) {
+				medal.GetComponent<SpriteRenderer> ().sprite = flatterMedal;
+				medalText.text = "You were flattering!";
+			}
+			if (comboReader.mostUsedInput == 2) {
+				medal.GetComponent<SpriteRenderer> ().sprite = jokeMedal;
+				medalText.text = "You were a jokester!";
+			}
+			if (comboReader.mostUsedInput == 3) {
+				medal.GetComponent<SpriteRenderer> ().sprite = flirtMedal;
+				medalText.text = "You were flirty!";
+			}
+			gradeMedalSource.Play ();
+			medalSet = true;
+		}
+	
+	//----------------------------------------
+		if (textTimer <= 0 && textSet == false) {
+			textText.text = "Press Space to return to the main menu";
+			textSource.Play ();
+			textSet = true;
+		}
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			SceneManager.LoadScene ("titleScreen");
 		}
 	}
 }

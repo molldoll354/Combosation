@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class tutorialAnswer{
@@ -58,6 +59,14 @@ public class tutorialReader : MonoBehaviour {
 	int statEffect;
 	public Combo currentCombo;
 
+	float sceneEndTimer = 1f;
+	public Animator sceneEndAnim; // stuff for scene transition
+	public GameObject sceneEndAnimObject;
+	public AudioSource transitionSource;
+	public AudioSource music;
+	bool sceneEnding;
+
+
 	public float annoyanceCounter;
 //	public GameObject saki;
 //	public Animator sakiAnim;//Saki's animator
@@ -85,6 +94,7 @@ public class tutorialReader : MonoBehaviour {
 		comboDictionary= GetComponent<comboManager>().dictionaryCombos;
 		GetComponent<newInput> ().canPlayerSpeak = true;
 
+		sceneEndAnimObject.SetActive(false);
 
 		statChecker=10;
 //		sakiAnim = saki.GetComponent<Animator> ();
@@ -92,6 +102,22 @@ public class tutorialReader : MonoBehaviour {
 		
 	// Update is called once per frame
 	void Update () {
+
+//		if (Input.GetKeyDown(KeyCode.M)) {
+//			sceneEnding = true;
+//			transitionSource.Play ();
+//			music.Stop ();
+//		}
+
+		if (sceneEnding == true) {
+			sceneEndTimer -= Time.deltaTime;
+			sceneEndAnimObject.SetActive (true);
+			sceneEndAnim.Play ("screenTransitionOpenAnimation");
+			if (sceneEndTimer <= 0) {
+				SceneManager.LoadScene ("transitionScene");
+			}
+		}
+
 
 		if (annoyanceCounter == 3) {
 			statChecker = -30;
@@ -123,7 +149,10 @@ public class tutorialReader : MonoBehaviour {
 		 */
 		if (questionIndex == 9) {
 			//Application.LoadLevel ("EndingScene");
-			Application.LoadLevel(3);
+			//Application.LoadLevel(3);
+			sceneEnding = true;
+			transitionSource.Play ();
+			music.Stop ();
 		}
 		if (Input.GetKeyDown (KeyCode.R)) {
 			//Application.LoadLevel ("dellapisoundscene");//reloads game

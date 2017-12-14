@@ -13,6 +13,9 @@ public class titleScreenManager : MonoBehaviour {
 
 
 	bool sceneEnding;
+	bool tutNext;
+	bool gameNext;
+
 	// Use this for initialization
 	void Start () {
 		sceneEndAnimObject.SetActive(false);
@@ -22,6 +25,13 @@ public class titleScreenManager : MonoBehaviour {
 	void Update () {
 		Debug.Log (sceneEndTimer);
 		if (Input.GetKeyDown(KeyCode.Space)) {
+			gameNext = true;
+			sceneEnding = true;
+			transitionSource.Play ();
+
+		}
+		if (Input.GetKeyDown(KeyCode.Return)) {
+			tutNext = true;
 			sceneEnding = true;
 			transitionSource.Play ();
 
@@ -32,7 +42,11 @@ public class titleScreenManager : MonoBehaviour {
 			sceneEndAnimObject.SetActive (true);
 			sceneEndAnim.Play ("screenTransitionOpenAnimation");
 			if (sceneEndTimer <= 0) {
-				SceneManager.LoadScene ("tutorialScene");
+				if (tutNext == true) {
+					SceneManager.LoadScene ("tutorialScene");
+				} else if (gameNext == true) {
+					SceneManager.LoadScene ("transitionScene");
+				}
 			}
 		}
 	}
