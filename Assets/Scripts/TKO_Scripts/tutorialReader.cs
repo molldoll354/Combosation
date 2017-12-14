@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 [System.Serializable]
 public class tutorialAnswer{
-	public List<string> options;//number of options that the player has
+	public List<string> responseToComboType;//number of options that the player has
 	public List<int> moodEffect;//int in the inspector that goes up or down depending on how appropriate the response is 
 	public int rightType;//dictates the comboType we're looking for.
 }
@@ -43,24 +43,24 @@ public class tutorialReader : MonoBehaviour {
 	public Text questionText;//displays question text
 	//public bool canPlayerSpeak = true;
 	// Use this for initialization
-	public GameObject sakiBubble;
-	public Sprite neutralBubble;
-	public Sprite goodBubble1;
-	public Sprite goodBubble2;
-	public Sprite badBubble1;
-	public Sprite badBubble2;
-
-	public AudioSource annoyanceSounds;
-	public AudioSource newComboSource;
-	public AudioClip annoyanceUp;
-	public AudioClip annoyanceDown;
+	//public GameObject sakiBubble;
+//	public Sprite neutralBubble;
+//	public Sprite goodBubble1;
+//	public Sprite goodBubble2;
+//	public Sprite badBubble1;
+//	public Sprite badBubble2;
+//
+//	public AudioSource annoyanceSounds;
+//	public AudioSource newComboSource;
+//	public AudioClip annoyanceUp;
+//	public AudioClip annoyanceDown;
 
 	int statEffect;
 	public Combo currentCombo;
 
 	public float annoyanceCounter;
-	public GameObject saki;
-	public Animator sakiAnim;//Saki's animator
+//	public GameObject saki;
+//	public Animator sakiAnim;//Saki's animator
 	public enum ResponseOps{//converts strings to ints
 		chat=0,
 		flirt=1,
@@ -87,7 +87,7 @@ public class tutorialReader : MonoBehaviour {
 
 
 		statChecker=10;
-		sakiAnim = saki.GetComponent<Animator> ();
+//		sakiAnim = saki.GetComponent<Animator> ();
 	}
 		
 	// Update is called once per frame
@@ -128,33 +128,33 @@ public class tutorialReader : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.R)) {
 			//Application.LoadLevel ("dellapisoundscene");//reloads game
 		}
-
-		if (statChecker > 55) { 
-			sakiBubble.GetComponent<SpriteRenderer> ().sprite = goodBubble2;
-		}
-		if (statChecker > 30 && statChecker <= 55) { //this stuff changes her bubble depending on how well you're doing
-			sakiBubble.GetComponent<SpriteRenderer> ().sprite = goodBubble1;
-		}
-		if (statChecker <= 30 && statChecker > 0) {
-			sakiBubble.GetComponent<SpriteRenderer> ().sprite = neutralBubble;
-
-		}
-		if (statChecker <= 0 && statChecker > -12) {
-			sakiBubble.GetComponent<SpriteRenderer> ().sprite = badBubble1;
-
-		}
-		if (statChecker <= -12) {
-			sakiBubble.GetComponent<SpriteRenderer> ().sprite = badBubble2;
-
-		}
-			
+//
+//		if (statChecker > 55) { 
+//			sakiBubble.GetComponent<SpriteRenderer> ().sprite = goodBubble2;
+//		}
+//		if (statChecker > 30 && statChecker <= 55) { //this stuff changes her bubble depending on how well you're doing
+//			sakiBubble.GetComponent<SpriteRenderer> ().sprite = goodBubble1;
+//		}
+//		if (statChecker <= 30 && statChecker > 0) {
+//			sakiBubble.GetComponent<SpriteRenderer> ().sprite = neutralBubble;
+//
+//		}
+//		if (statChecker <= 0 && statChecker > -12) {
+//			sakiBubble.GetComponent<SpriteRenderer> ().sprite = badBubble1;
+//
+//		}
+//		if (statChecker <= -12) {
+//			sakiBubble.GetComponent<SpriteRenderer> ().sprite = badBubble2;
+//
+//		}
+//			
 	
 //		}//molly check here for animator work
 //		if (!Input.GetKeyDown (KeyCode.Space)) {
 //			questionText.text = questions [questionIndex];//question text displays based on what number question you're on
 //		}
 	
-		saki.GetComponent<Animator> ().SetFloat ("BaseMood", statChecker);//molly check here for animator work
+//		saki.GetComponent<Animator> ().SetFloat ("BaseMood", statChecker);//molly check here for animator work
 
 	}
 
@@ -185,7 +185,7 @@ public class tutorialReader : MonoBehaviour {
 				"\n\""+temp.comboName+ "\"" + 
 				"\n Type: " + temp.comboType+" Bonus: "+temp.comboBonus+"X";
 
-			newComboSource.Play ();
+//			newComboSource.Play ();
 			/*
 			 *Play sound/animation here?
 			 */ 
@@ -259,7 +259,7 @@ public class tutorialReader : MonoBehaviour {
 	public void callDialogue(int typeOfCombo){
 //		Debug.Log (questionIndex);
 //		Debug.Log(typeOfCombo+ "Type of Combo");
-		dialogueText.text = responses [questionIndex].options [typeOfCombo];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
+		dialogueText.text = responses [questionIndex].responseToComboType [typeOfCombo];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
 		//a list within a list
 	}
 
@@ -276,11 +276,11 @@ public class tutorialReader : MonoBehaviour {
 
 	}
 	void RespondAnnoyed(){
-		int statEffect = responses[questionIndex].moodEffect[4];
-		sakiAnim.Play("unimpressedREACT");
+//		int statEffect = responses[questionIndex].moodEffect[4];
+//		sakiAnim.Play("unimpressedREACT");
+//		annoyanceSounds.clip = annoyanceUp;
+//		annoyanceSounds.Play ();
 		annoyanceCounter++;
-		annoyanceSounds.clip = annoyanceUp;
-		annoyanceSounds.Play ();
 	}
 	void RespondJoke(){
 		if(statChecker>0){
@@ -291,25 +291,25 @@ public class tutorialReader : MonoBehaviour {
 		}
 		if (statEffect == 2 && annoyanceCounter > 0) {
 			annoyanceCounter--;
-			annoyanceSounds.clip = annoyanceDown;
-			annoyanceSounds.Play ();
+//			annoyanceSounds.clip = annoyanceDown;
+//			annoyanceSounds.Play ();
 		}
 		statChecker += (statEffect*currentCombo.comboBonus)+1;//increases statchecker based on what was found in mood effect
 		jokeChecker += 1;
 		if (statEffect == -2) {
 			annoyanceCounter++;
-			annoyanceSounds.clip = annoyanceUp;
-			annoyanceSounds.Play ();
+//			annoyanceSounds.clip = annoyanceUp;
+//			annoyanceSounds.Play ();
 		}
-		if (statEffect <= 0) {
-			sakiAnim.Play ("unimpressedREACT");
-		}
-		if (statEffect == 1) {
-			sakiAnim.Play ("happyREACT");
-		}
-		if (statEffect == 2) {
-			sakiAnim.Play ("laughingREACT");
-		}
+//		if (statEffect <= 0) {
+//			sakiAnim.Play ("unimpressedREACT");
+//		}
+//		if (statEffect == 1) {
+//			sakiAnim.Play ("happyREACT");
+//		}
+//		if (statEffect == 2) {
+//			sakiAnim.Play ("laughingREACT");
+//		}
 	}
 	void RespondFlatter(){
 		if(statChecker>0){
@@ -320,26 +320,26 @@ public class tutorialReader : MonoBehaviour {
 		}
 		if (statEffect == 2 && annoyanceCounter > 0) {
 			annoyanceCounter--;
-			annoyanceSounds.clip = annoyanceDown;
-			annoyanceSounds.Play ();
+//			annoyanceSounds.clip = annoyanceDown;
+//			annoyanceSounds.Play ();
 		}
 		//int statEffect = responses [questionIndex].moodEffect [1];
 		statChecker += (statEffect * currentCombo.comboBonus)+1;
 		flatterChecker += 1;
 		if (statEffect == -2) {
 			annoyanceCounter++;
-			annoyanceSounds.clip = annoyanceUp;
-			annoyanceSounds.Play ();
+//			annoyanceSounds.clip = annoyanceUp;
+//			annoyanceSounds.Play ();
 		}
-		if (statEffect <= 0) {
-			sakiAnim.Play ("unimpressedREACT");
-		}
-		if (statEffect == 1) {
-			sakiAnim.Play ("happyREACT");
-		}
-		if (statEffect == 2) {
-			sakiAnim.Play ("loveREACT");
-		}
+//		if (statEffect <= 0) {
+//			sakiAnim.Play ("unimpressedREACT");
+//		}
+//		if (statEffect == 1) {
+//			sakiAnim.Play ("happyREACT");
+//		}
+//		if (statEffect == 2) {
+//			sakiAnim.Play ("loveREACT");
+//		}
 	}
 
 	void RespondFlirt(){
@@ -351,8 +351,8 @@ public class tutorialReader : MonoBehaviour {
 		}
 		if (statEffect == 2 && annoyanceCounter > 0) {
 			annoyanceCounter--;
-			annoyanceSounds.clip = annoyanceDown;
-			annoyanceSounds.Play ();
+//			annoyanceSounds.clip = annoyanceDown;
+//			annoyanceSounds.Play ();
 		}
 		//int statEffect = responses [questionIndex].moodEffect [3];
 		statChecker += (statEffect* currentCombo.comboBonus)+1;
@@ -360,18 +360,18 @@ public class tutorialReader : MonoBehaviour {
 		flirtChecker += 1;
 		if (statEffect == -2) {
 			annoyanceCounter++;
-			annoyanceSounds.clip = annoyanceUp;
-			annoyanceSounds.Play ();
+//			annoyanceSounds.clip = annoyanceUp;
+//			annoyanceSounds.Play ();
 		}
-		if (statEffect <= 0) {
-			sakiAnim.Play ("angryREACT");
-		}
-		if (statEffect == 1) {
-			sakiAnim.Play ("laughingREACT");
-		}
-		if (statEffect == 2) {
-			sakiAnim.Play ("loveREACT");
-		}
+//		if (statEffect <= 0) {
+//			sakiAnim.Play ("angryREACT");
+//		}
+//		if (statEffect == 1) {
+//			sakiAnim.Play ("laughingREACT");
+//		}
+//		if (statEffect == 2) {
+//			sakiAnim.Play ("loveREACT");
+//		}
 	}
 
 	void RespondChat(){
@@ -389,20 +389,20 @@ public class tutorialReader : MonoBehaviour {
 		//int statEffect = responses[questionIndex].moodEffect[0];
 		statChecker += (statEffect* currentCombo.comboBonus)+1;
 		chatChecker+=1;
-		if (statEffect == -2) {
-			annoyanceCounter++;
-			annoyanceSounds.clip = annoyanceUp;
-			annoyanceSounds.Play ();
-		}
-		if (statEffect <= 0) {
-			sakiAnim.Play ("unimpressedREACT");
-		}
-		if (statEffect == 1) {
-			sakiAnim.Play ("neutralREACT");
-		}
-		if (statEffect == 2) {
-			sakiAnim.Play ("happyREACT");
-		}
+//		if (statEffect == -2) {
+//			annoyanceCounter++;
+//			annoyanceSounds.clip = annoyanceUp;
+//			annoyanceSounds.Play ();
+//		}
+//		if (statEffect <= 0) {
+//			sakiAnim.Play ("unimpressedREACT");
+//		}
+//		if (statEffect == 1) {
+//			sakiAnim.Play ("neutralREACT");
+//		}
+//		if (statEffect == 2) {
+//			sakiAnim.Play ("happyREACT");
+//		}
 	}
 	public ResponseOps CheckButtonCounts(string combo) {
 		buttonCount = new List<int> ();
