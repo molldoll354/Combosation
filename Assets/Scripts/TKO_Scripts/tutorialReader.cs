@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 [System.Serializable]
 public class tutorialAnswer{
-	public List<string> options;//number of options that the player has
+	public List<string> responseToComboType;//number of options that the player has
 	public List<int> moodEffect;//int in the inspector that goes up or down depending on how appropriate the response is 
 	public int rightType;//dictates the comboType we're looking for.
 }
@@ -259,7 +259,7 @@ public class tutorialReader : MonoBehaviour {
 	public void callDialogue(int typeOfCombo){
 //		Debug.Log (questionIndex);
 //		Debug.Log(typeOfCombo+ "Type of Combo");
-		dialogueText.text = responses [questionIndex].options [typeOfCombo];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
+		dialogueText.text = responses [questionIndex].responseToComboType [typeOfCombo];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
 		//a list within a list
 	}
 
