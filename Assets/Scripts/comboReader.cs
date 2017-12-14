@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class SakiAnswer{
@@ -12,7 +13,6 @@ public class SakiAnswer{
 	public List<string>negativeOptions;
 	public List<int>negMoodEffect;
 }
-
 
 
 
@@ -41,6 +41,7 @@ public class comboReader : MonoBehaviour {
 	public int finalAnswer =0;
 
 	public static int statChecker;//checks mood over time going from sad to happy
+	public static int mostUsedInput;// gets checked in the end scene
 	public int chatChecker, flatterChecker, flirtChecker, jokeChecker;//checks the number of times each type of combo has been used throughout conversation
 
 	public Text comboDescriptor;//text that describes the type of combo you implemented
@@ -62,6 +63,13 @@ public class comboReader : MonoBehaviour {
 
 	int statEffect;
 	public Combo currentCombo;
+
+	float sceneEndTimer = 1f; //this block of stuff is all related to ending the scene
+	public Animator sceneEndAnim;
+	public GameObject sceneEndAnimObject;
+	public AudioSource transitionSource;
+	public AudioSource music;
+	bool sceneEnding;
 
 	public float annoyanceCounter;
 	public GameObject saki;
@@ -94,10 +102,27 @@ public class comboReader : MonoBehaviour {
 		statChecker=10;
 		sakiAnim = saki.GetComponent<Animator> ();
 
+		sceneEndAnimObject.SetActive(false);
+
 	}
 		
 	// Update is called once per frame
 	void Update () {
+
+//		if (Input.GetKeyDown(KeyCode.M)) {
+//			sceneEnding = true;
+//			transitionSource.Play ();
+//			music.Stop ();
+//		}
+
+		if (sceneEnding == true) {
+			sceneEndTimer -= Time.deltaTime;
+			sceneEndAnimObject.SetActive (true);
+			sceneEndAnim.Play ("screenTransitionOpenAnimation");
+			if (sceneEndTimer <= 0) {
+				SceneManager.LoadScene ("endingSceneFinal");
+			}
+		}
 
 		if (annoyanceCounter == 3) {
 			statChecker = -30;
@@ -119,8 +144,7 @@ public class comboReader : MonoBehaviour {
 				positiveQuestionBool = false;
 			}
 		}
-
-
+			
 		/*
 		 * 
 		 * int i = 0
@@ -135,8 +159,13 @@ public class comboReader : MonoBehaviour {
 		 */
 		if (questionIndex == 9) {
 			//Application.LoadLevel ("EndingScene");
-			Application.LoadLevel(3);
+			//mostUsedTypeOfCombo();
+			//SceneManager.LoadScene("endingSceneFinal");
+			sceneEnding = true;
+			transitionSource.Play ();
+			music.Stop ();
 		}
+
 		if (Input.GetKeyDown (KeyCode.R)) {
 			//Application.LoadLevel ("dellapisoundscene");//reloads game
 		}
@@ -477,22 +506,25 @@ public class comboReader : MonoBehaviour {
 		return (ResponseOps)largestButtonType;
 	}
 
-	public int mostUsedTypeOfCombo(){
-		int typeCombo=0;
-		int[] tempArray = new int[4];
-		tempArray [0] = chatChecker;
-		tempArray [1] = flatterChecker;
-		tempArray [2] = jokeChecker;
-		tempArray [3] = flirtChecker;
-
-		int tempBig = tempArray[0];
-		for(int i = 0; i<4;i++){
-			if(tempArray[i]>=tempBig){
-				tempBig = tempArray [i];
-				typeCombo = i;
-			}
-		}
-			
-		return typeCombo;
-	}
+//		public int mostUsedTypeOfCombo(){ 		check line 160 for where this should be getting used
+//		int typeOfCombo;
+//		int[] tempArray = new int[4];
+//		tempArray [0] = chatChecker;
+//		tempArray [1] = flatterChecker;
+//		tempArray [2] = jokeChecker;
+//		tempArray [3] = flirtChecker;
+//
+//		int tempBig = tempArray[0];
+//		for(int i = 0; i<4;i++)
+//		{
+//			if(tempArray[i]>=tempBig){
+//				tempBig = tempArray [i];
+//				typeOfCombo = i;
+//			}
+//		}
+//
+//
+//		//mostUsedInput = typeOfCombo; -------- i added this but it doesn't work/causes an error.  
+//		return typeOfCombo; //------ this line is causing an error
+//	}
 }

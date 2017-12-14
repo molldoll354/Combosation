@@ -88,25 +88,25 @@ public class newInput : MonoBehaviour {
 					inputCombo += "A";
 					buttonSoundSource.clip = flatterSound;
 					buttonSoundSource.Play ();
-				//	buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flatterSlotSprite;
+					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flatterSlotSprite;
 					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.W)) {
 					inputCombo += "W";
 					buttonSoundSource.clip = chatSound;
 					buttonSoundSource.Play ();
-//					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = chatSlotSprite;
+					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = chatSlotSprite;
 					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.S)) {
 					inputCombo += "S";
 					buttonSoundSource.clip = jokeSound;
 					buttonSoundSource.Play ();
-					//buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = jokeSlotSprite;
+					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = jokeSlotSprite;
 					buttonSlotSelection++;
 				} else if (Input.GetKeyDown (KeyCode.D)) {
 					inputCombo += "D";
 					buttonSoundSource.clip = flirtSound;
 					buttonSoundSource.Play ();
-				//	buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flirtSlotSprite;
+					buttonSlots [buttonSlotSelection].GetComponent<SpriteRenderer> ().sprite = flirtSlotSprite;
 					buttonSlotSelection++;
 				}
 			}
