@@ -8,7 +8,9 @@ public class SakiAnswer{
 	public List<string> options;//number of options that the player has
 	public List<int> moodEffect;//int in the inspector that goes up or down depending on how appropriate the response is 
 	public List<string>positiveOptions;
+	public List<int>posMoodEffect;
 	public List<string>negativeOptions;
+	public List<int>negMoodEffect;
 }
 
 
@@ -295,15 +297,30 @@ public class comboReader : MonoBehaviour {
 
 	}
 	void RespondAnnoyed(){
-		int statEffect = responses[questionIndex].moodEffect[4];
+		if (negativeQuestionBool == false && positiveQuestionBool == false) {
+			int statEffect = responses [questionIndex].moodEffect [4];
+		}
+		if (negativeQuestionBool == true) {
+			int statEffect = responses [questionIndex].negMoodEffect [4];
+		}
+		if (positiveQuestionBool == true) {
+			int statEffect = responses [questionIndex].posMoodEffect [4];
+		}
 		sakiAnim.Play("unimpressedREACT");
 		annoyanceCounter++;
 		annoyanceSounds.clip = annoyanceUp;
 		annoyanceSounds.Play ();
 	}
 	void RespondJoke(){
-		if(statChecker>0){
+		if(positiveQuestionBool==false && negativeQuestionBool==false){
 		 statEffect = responses [questionIndex].moodEffect [2];//checks the mood effect int in the inspector
+		}
+
+		if (negativeQuestionBool == true) {
+			 statEffect = responses [questionIndex].negMoodEffect [2];
+		}
+		if (positiveQuestionBool == true) {
+			 statEffect = responses [questionIndex].posMoodEffect [2];
 		}
 		if ((statChecker < 0) || annoyanceCounter > 0) {
 			//statEffect = -1;
@@ -331,9 +348,17 @@ public class comboReader : MonoBehaviour {
 		}
 	}
 	void RespondFlatter(){
-		if(statChecker>0){
+		if(positiveQuestionBool==false && negativeQuestionBool==false){
 			statEffect = responses [questionIndex].moodEffect [1];//checks the mood effect int in the inspector
 		}
+
+		if (negativeQuestionBool == true) {
+			 statEffect = responses [questionIndex].negMoodEffect [1];
+		}
+		if (positiveQuestionBool == true) {
+			 statEffect = responses [questionIndex].posMoodEffect [1];
+		}
+
 		if ((statChecker < 0) || annoyanceCounter > 0) {
 			//statEffect = -2;
 		}
@@ -362,9 +387,17 @@ public class comboReader : MonoBehaviour {
 	}
 
 	void RespondFlirt(){
-		if(statChecker>=0){
+		if(positiveQuestionBool==false && positiveQuestionBool==false){
 			statEffect = responses [questionIndex].moodEffect [3];//checks the mood effect int in the inspector
 		}
+
+		if (negativeQuestionBool == true) {
+			 statEffect = responses [questionIndex].negMoodEffect [3];
+		}
+		if (positiveQuestionBool == true) {
+			 statEffect = responses [questionIndex].posMoodEffect [3];
+		}
+
 		if ((statChecker < 0) || annoyanceCounter > 0) {
 			//statEffect = -2;
 		}
@@ -394,9 +427,15 @@ public class comboReader : MonoBehaviour {
 	}
 
 	void RespondChat(){
-		
+		if(negativeQuestionBool==false && positiveQuestionBool==false){
 			statEffect = responses [questionIndex].moodEffect [0];//checks the mood effect int in the inspector
-		
+		}
+		if (negativeQuestionBool == true) {
+			 statEffect = responses [questionIndex].negMoodEffect [0];
+		}
+		if (positiveQuestionBool == true) {
+			 statEffect = responses [questionIndex].posMoodEffect [0];
+		}
 //		if ((statChecker < 0) || annoyanceCounter > 0) {
 //			statEffect = -2;
 //		}
