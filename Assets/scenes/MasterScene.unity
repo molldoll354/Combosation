@@ -1533,15 +1533,19 @@ MonoBehaviour:
   comboManage: {fileID: 737857451}
   Source: 
   questions:
-  - "Hey, it\u2019s been a while! You look kinda out of breath, what\u2019s up?"
-  - So how was your summer break?
-  - How was mine? Oh, uh...it was ok, lots of ups and downs...
-  - Me and Ryun broke up pretty early on during the break.
-  - "Yep, looks like I\u2019ve got the rest of my lonely life ahead of me."
-  - Sorry to bring the whole mood down though, I guess I should be going now.
-  - ' Is there something you wanted to tell me?'
-  - "If you want we can meet up for class or something and study if you\u2019d like!"
-  - Wait a minute, are you asking me out?
+  - 'Hey! Long time no see! You holding up alright on your first day? '
+  - "First day\u2019s gonna be rough, even for champions like us. Need any help? "
+  - 'First things first, I think Monologue Writing 101 will be like, super helpful
+    for you.  '
+  - 'So, what did you do over the summer?  '
+  - 'I learned to punch holes in concrete! And I planted a garden! '
+  - 'So, were you seeing anyone over the summer? I never really had time for romance,
+    was just too busy.  '
+  - "Yeah, I bet you\u2019re looking forward to meeting a bunch of new people what
+    with being home schooled for the last year and all.  "
+  - "Oh wow, I totally lost track of time. My class is in another room, I guess I
+    should be going. Maybe I\u2019ll see you around?"
+  - Wait, it looks like there was something you wanted to tell me...
   - Hello
   negativeQuestions:
   - 
@@ -1567,10 +1571,10 @@ MonoBehaviour:
   - 
   responses:
   - options:
-    - Yeah, I just got outta class myself.
-    - "Um, wasn\u2019t really expecting you to say that..."
-    - "*laughs* Sure, ok. I\u2019m sure that happened"
-    - "Uhh\u2026that\u2019s kind of weird\u2026"
+    - Sweet, good to hear!
+    - Yuck, you always were quite a sap.
+    - Oh wow, school royalty already huh?
+    - Ugh, really wish I could unhear that.
     - What did you say?
     moodEffect: 01000000ffffffff02000000fefffffffcffffff
     positiveOptions:
@@ -1588,10 +1592,10 @@ MonoBehaviour:
     - 
     negMoodEffect: 0000000000000000000000000000000000000000
   - options:
-    - Yeah, it was nice to take a break from things for a while.
-    - Aw, I missed you too!
-    - Do you ever give a straight answer?
-    - Eugh, gross!
+    - "Of course, I\u2019d be happy to help you."
+    - "Oh cmon, you\u2019re too kind!"
+    - "This isn\u2019t just all fun and games."
+    - You should really be taking this seriously!
     - Huh? Just spit it out already!
     moodEffect: 0100000002000000fffffffffefffffffcffffff
     positiveOptions:
@@ -1609,23 +1613,25 @@ MonoBehaviour:
     - 
     negMoodEffect: 0000000000000000000000000000000000000000
   - options:
-    - Yeah, I'm still a bit upset about it
-    - "That\u2019s sweet, yeah I would like to talk about it if you don\u2019t mind."
-    - Um, this is kinda serious...
-    - Ugh, are you even listening?
+    - "No I\u2019m not taking that, it cuts into my Conflict Initiation lecture."
+    - "I\u2019m not *that* good of a writer, but thank you! I just read a lot of manuals."
+    - "Yeah I get it, if you wanted to practice talking for an hour you\u2019d look
+      in a mirror, right?"
+    - "Maybe uh...maybe this isn\u2019t the class for you in that case."
     - Were those even words?
-    moodEffect: 0100000002000000fefffffffffffffffcffffff
+    moodEffect: 000000000200000001000000fefffffffcffffff
     positiveOptions: []
     posMoodEffect: 
     negativeOptions: []
     negMoodEffect: 
   - options:
-    - Thanks, I appreciate it.
-    - "You\u2019re right, I do deserve better than him. "
-    - Haha, yeah I guess he was a bit of a meathead.
-    - Yikes, the wounds are still a little fresh ya know?
+    - "Nice!  Glad to see someone takes their studies seriously even when school\u2019s
+      out. "
+    - "Thanks but that doesn\u2019t really answer my question."
+    - Destroyed cars with your bare hands?  Uh-huh, sure pal.
+    - Aw, you missed me?
     - You're starting to get on my nerves...
-    moodEffect: ffffffff0200000001000000fefffffffcffffff
+    moodEffect: 02000000feffffffffffffff01000000fcffffff
     positiveOptions:
     - 
     - 
@@ -1641,12 +1647,12 @@ MonoBehaviour:
     - 
     negMoodEffect: 0000000000000000000000000000000000000000
   - options:
-    - "That\u2019s true, I do have a friend like you to count on."
-    - You really mean that?
-    - Well I'm glad it's funny to you I guess.
-    - "Wow, that\u2019s pretty forward coming from you."
+    - "Yeah the tomatoes came out great, I\u2019ll bring you a basket tomorrow."
+    - "Why thank you, I\u2019m really proud of the punching and the planting."
+    - "What the hell\u2019s a punchtunia?"
+    - "Well I didn\u2019t plant any roses...but now I wish I had!"
     - Excuse me?
-    moodEffect: 0100000002000000fffffffffefffffffcffffff
+    moodEffect: 0100000001000000feffffff02000000fcffffff
     positiveOptions:
     - 
     - 
@@ -1662,32 +1668,11 @@ MonoBehaviour:
     - 
     negMoodEffect: 0000000000000000000000000000000000000000
   - options:
-    - Huh? You want me to stay?
-    - Huh? You want me to stay?
-    - Huh? You want me to stay?
-    - Huh? You want me to stay?
-    - Huh? You want me to stay?
-    moodEffect: 00000000000000000000000000000000fcffffff
-    positiveOptions:
-    - 
-    - 
-    - 
-    - 
-    - 
-    posMoodEffect: 0000000000000000000000000000000000000000
-    negativeOptions:
-    - 
-    - 
-    - 
-    - 
-    - 
-    negMoodEffect: 0000000000000000000000000000000000000000
-  - options:
-    - 'Yeah, it''s good to see you again too. '
-    - "Aw, I\u2019m blushing!"
-    - That's funny and all, but was that really it?
-    - 'Wow, this is really unexpected...not that I mind! '
-    - I think I might have to get going soon...
+    - Huh...guess I was hoping for more of an answer than that.
+    - "Lucky to go out with someone like me? Wow, I\u2019m blushing!"
+    - "I mean, a straight answer would have been nice\u2026"
+    - You were waiting to ask out someone here?  How sweet!
+    - Huh?
     moodEffect: ffffffff01000000feffffff02000000fcffffff
     positiveOptions:
     - 
@@ -1704,11 +1689,33 @@ MonoBehaviour:
     - 
     negMoodEffect: 0000000000000000000000000000000000000000
   - options:
-    - Do you wanna study at the library?
-    - Why would we study at a restaurant-Oh!
-    - "Ok, it won\u2019t be that bad! And stop being so dramatic!"
-    - "O-oh, I didn\u2019t know you meant something like that! Interesting\u2026"
-    - Woah woah, slow down!
+    - "Sure school\u2019s important and all, but you still need to strike a balance.
+      \ Meet people!"
+    - Yeah I like you too, but you should try to make some new friends as well!
+    - "Keep cracking jokes like that, and you\u2019ll make friends in no time!"
+    - "Not exactly what I meant by \u201Cmeet\u201D people\u2026"
+    - I think I might have to get going soon...
+    moodEffect: 01000000ffffffff02000000fefffffffcffffff
+    positiveOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    posMoodEffect: 0000000000000000000000000000000000000000
+    negativeOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    negMoodEffect: 0000000000000000000000000000000000000000
+  - options:
+    - Perfect, bye!
+    - Yeah I hope so too!
+    - "Yeah yeah, I\u2019ll try not to get into any fights on the way there."
+    - Uh, ok Casanova.
+    - See ya!
     moodEffect: feffffff01000000ffffffff02000000fcffffff
     positiveOptions:
     - 
@@ -1725,12 +1732,13 @@ MonoBehaviour:
     - 
     negMoodEffect: 0000000000000000000000000000000000000000
   - options:
-    - Oh, just getting food then, alright.
-    - Ya know, I think it would be really nice to get out with you.
+    - Oh, nevermind.
+    - Hey thanks, you don't look so bad yourself. Really liking the new mask!
     - A yes or no would suffice!
-    - "I just wish you would\u2019ve asked sooner! "
+    - Yeah, it really was good seeing you again, let me know if you wanna get a bite
+      sometime.
     - What's with all the nervous energy?
-    moodEffect: feffffff01000000ffffffff02000000fcffffff
+    moodEffect: feffffff02000000ffffffff02000000fcffffff
     positiveOptions:
     - 
     - 
@@ -1804,6 +1812,7 @@ MonoBehaviour:
   sceneEndAnimObject: {fileID: 1975841967}
   transitionSource: {fileID: 2015873698}
   music: {fileID: 156810590}
+  posNegSwitch: 0
   annoyanceCounter: 0
   saki: {fileID: 983620032}
   sakiAnim: {fileID: 983620035}
