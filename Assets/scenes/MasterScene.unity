@@ -1625,10 +1625,20 @@ MonoBehaviour:
     - Yikes, the wounds are still a little fresh ya know?
     - You're starting to get on my nerves...
     moodEffect: ffffffff0200000001000000fefffffffcffffff
-    positiveOptions: []
-    posMoodEffect: 
-    negativeOptions: []
-    negMoodEffect: 
+    positiveOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    posMoodEffect: 0000000000000000000000000000000000000000
+    negativeOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    negMoodEffect: 0000000000000000000000000000000000000000
   - options:
     - "That\u2019s true, I do have a friend like you to count on."
     - You really mean that?
@@ -1636,10 +1646,20 @@ MonoBehaviour:
     - "Wow, that\u2019s pretty forward coming from you."
     - Excuse me?
     moodEffect: 0100000002000000fffffffffefffffffcffffff
-    positiveOptions: []
-    posMoodEffect: 
-    negativeOptions: []
-    negMoodEffect: 
+    positiveOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    posMoodEffect: 0000000000000000000000000000000000000000
+    negativeOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    negMoodEffect: 0000000000000000000000000000000000000000
   - options:
     - Huh? You want me to stay?
     - Huh? You want me to stay?
@@ -1647,10 +1667,20 @@ MonoBehaviour:
     - Huh? You want me to stay?
     - Huh? You want me to stay?
     moodEffect: 00000000000000000000000000000000fcffffff
-    positiveOptions: []
-    posMoodEffect: 
-    negativeOptions: []
-    negMoodEffect: 
+    positiveOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    posMoodEffect: 0000000000000000000000000000000000000000
+    negativeOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    negMoodEffect: 0000000000000000000000000000000000000000
   - options:
     - 'Yeah, it''s good to see you again too. '
     - "Aw, I\u2019m blushing!"
@@ -1658,10 +1688,20 @@ MonoBehaviour:
     - 'Wow, this is really unexpected...not that I mind! '
     - I think I might have to get going soon...
     moodEffect: ffffffff01000000feffffff02000000fcffffff
-    positiveOptions: []
-    posMoodEffect: 
-    negativeOptions: []
-    negMoodEffect: 
+    positiveOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    posMoodEffect: 0000000000000000000000000000000000000000
+    negativeOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    negMoodEffect: 0000000000000000000000000000000000000000
   - options:
     - Do you wanna study at the library?
     - Why would we study at a restaurant-Oh!
@@ -1669,10 +1709,20 @@ MonoBehaviour:
     - "O-oh, I didn\u2019t know you meant something like that! Interesting\u2026"
     - Woah woah, slow down!
     moodEffect: feffffff01000000ffffffff02000000fcffffff
-    positiveOptions: []
-    posMoodEffect: 
-    negativeOptions: []
-    negMoodEffect: 
+    positiveOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    posMoodEffect: 0000000000000000000000000000000000000000
+    negativeOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    negMoodEffect: 0000000000000000000000000000000000000000
   - options:
     - Oh, just getting food then, alright.
     - Ya know, I think it would be really nice to get out with you.
@@ -1680,10 +1730,20 @@ MonoBehaviour:
     - "I just wish you would\u2019ve asked sooner! "
     - What's with all the nervous energy?
     moodEffect: feffffff01000000ffffffff02000000fcffffff
-    positiveOptions: []
-    posMoodEffect: 
-    negativeOptions: []
-    negMoodEffect: 
+    positiveOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    posMoodEffect: 0000000000000000000000000000000000000000
+    negativeOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    negMoodEffect: 0000000000000000000000000000000000000000
   - options:
     - 
     - 
@@ -1691,10 +1751,20 @@ MonoBehaviour:
     - 
     - 
     moodEffect: 
-    positiveOptions: []
-    posMoodEffect: 
-    negativeOptions: []
-    negMoodEffect: 
+    positiveOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    posMoodEffect: 0000000000000000000000000000000000000000
+    negativeOptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    negMoodEffect: 0000000000000000000000000000000000000000
   - options:
     - 
     moodEffect: 
