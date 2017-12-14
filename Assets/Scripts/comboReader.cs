@@ -478,7 +478,7 @@ public class comboReader : MonoBehaviour {
 	}
 
 	public int mostUsedTypeOfCombo(){
-		int typeOfCombo;
+		int typeCombo=0;
 		int[] tempArray = new int[4];
 		tempArray [0] = chatChecker;
 		tempArray [1] = flatterChecker;
@@ -486,16 +486,13 @@ public class comboReader : MonoBehaviour {
 		tempArray [3] = flirtChecker;
 
 		int tempBig = tempArray[0];
-		for(int i = 0; i<4;i++)
-		{
+		for(int i = 0; i<4;i++){
 			if(tempArray[i]>=tempBig){
 				tempBig = tempArray [i];
-				typeOfCombo = i;
+				typeCombo = i;
 			}
 		}
-
-
-
-		return typeOfCombo;
+			
+		return typeCombo;
 	}
 }
