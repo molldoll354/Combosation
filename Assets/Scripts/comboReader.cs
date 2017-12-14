@@ -477,4 +477,25 @@ public class comboReader : MonoBehaviour {
 		return (ResponseOps)largestButtonType;
 	}
 
+	public int mostUsedTypeOfCombo(){
+		int typeOfCombo;
+		int[] tempArray = new int[4];
+		tempArray [0] = chatChecker;
+		tempArray [1] = flatterChecker;
+		tempArray [2] = jokeChecker;
+		tempArray [3] = flirtChecker;
+
+		int tempBig = tempArray[0];
+		for(int i = 0; i<4;i++)
+		{
+			if(tempArray[i]>=tempBig){
+				tempBig = tempArray [i];
+				typeOfCombo = i;
+			}
+		}
+
+
+
+		return typeOfCombo;
+	}
 }
