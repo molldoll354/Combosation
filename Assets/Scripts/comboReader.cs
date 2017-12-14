@@ -93,6 +93,7 @@ public class comboReader : MonoBehaviour {
 
 		statChecker=10;
 		sakiAnim = saki.GetComponent<Animator> ();
+
 	}
 		
 	// Update is called once per frame
@@ -205,16 +206,12 @@ public class comboReader : MonoBehaviour {
 			comboDescriptor.text = "";
 		}
 	
-		    //switchTextBoxes();
-		//dialogueText.text = responses [questionIndex].options [currentComboType];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
-		
-			//print("b4 questionIndex++");
-			
+		   
 			
 			GetComponent<newInput> ().inputCombo = "";
 			GetComponent<newInput> ().canPlayerSpeak = true;
 
-		//print("save me lord" + questionIndex);
+	
 
 
 				//Debug.Log("Update"+Source);
@@ -270,8 +267,7 @@ public class comboReader : MonoBehaviour {
 
 	}
 	public void callDialogue(int typeOfCombo){
-//		Debug.Log (questionIndex);
-//		Debug.Log(typeOfCombo+ "Type of Combo");
+
 		dialogueText.text = responses [questionIndex].options [typeOfCombo];//takes the most pressed button, converts it to an int, then displays a response based on what that int is
 
 		if (negativeQuestionBool == true) {
@@ -298,13 +294,13 @@ public class comboReader : MonoBehaviour {
 	}
 	void RespondAnnoyed(){
 		if (negativeQuestionBool == false && positiveQuestionBool == false) {
-			int statEffect = responses [questionIndex].moodEffect [4];
+			 statEffect = responses [questionIndex].moodEffect [4];
 		}
 		if (negativeQuestionBool == true) {
-			int statEffect = responses [questionIndex].negMoodEffect [4];
+			 statEffect = responses [questionIndex].negMoodEffect [4];
 		}
 		if (positiveQuestionBool == true) {
-			int statEffect = responses [questionIndex].posMoodEffect [4];
+			 statEffect = responses [questionIndex].posMoodEffect [4];
 		}
 		sakiAnim.Play("unimpressedREACT");
 		annoyanceCounter++;
@@ -367,7 +363,7 @@ public class comboReader : MonoBehaviour {
 			annoyanceSounds.clip = annoyanceDown;
 			annoyanceSounds.Play ();
 		}
-		//int statEffect = responses [questionIndex].moodEffect [1];
+
 		statChecker += (statEffect * currentCombo.comboBonus)+1;
 		flatterChecker += 1;
 		if (statEffect == -2) {
@@ -406,7 +402,7 @@ public class comboReader : MonoBehaviour {
 			annoyanceSounds.clip = annoyanceDown;
 			annoyanceSounds.Play ();
 		}
-		//int statEffect = responses [questionIndex].moodEffect [3];
+
 		statChecker += (statEffect* currentCombo.comboBonus)+1;
 		//maximum per statchecker is 9, minimum is -7
 		flirtChecker += 1;
@@ -436,15 +432,7 @@ public class comboReader : MonoBehaviour {
 		if (positiveQuestionBool == true) {
 			 statEffect = responses [questionIndex].posMoodEffect [0];
 		}
-//		if ((statChecker < 0) || annoyanceCounter > 0) {
-//			statEffect = -2;
-//		}
-//		if (statEffect == 2 && annoyanceCounter > 0) {
-//			annoyanceCounter--;
-//			annoyanceSounds.clip = annoyanceDown;
-//			annoyanceSounds.Play ();
-//		}
-		//int statEffect = responses[questionIndex].moodEffect[0];
+
 		statChecker += (statEffect* currentCombo.comboBonus)+1;
 		chatChecker+=1;
 		if (statEffect == -2) {
