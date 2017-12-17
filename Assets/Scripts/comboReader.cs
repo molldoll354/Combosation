@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 [System.Serializable]
 public class SakiAnswer{
 	public List<string> options;//number of options that the player has
@@ -47,6 +48,7 @@ public class comboReader : MonoBehaviour {
 	public Text comboDescriptor;//text that describes the type of combo you implemented
 	public Text dialogueText;//displays response text
 	public Text questionText;//displays question text
+
 	//public bool canPlayerSpeak = true;
 	// Use this for initialization
 	public GameObject sakiBubble;
@@ -64,12 +66,18 @@ public class comboReader : MonoBehaviour {
 	int statEffect;
 	public Combo currentCombo;
 
+	public GameObject questionTextObject; //this is so it can be set inactive at the start
+	float sceneStartTimer = .5f; //this stuff is so canvas stuff doesn't conflict with the scene transition
+	bool sceneHasBegun;
+
+	float finalDialogueTimer = 2f;
 	float sceneEndTimer = 1f; //this block of stuff is all related to ending the scene
 	public Animator sceneEndAnim;
 	public GameObject sceneEndAnimObject;
 	public AudioSource transitionSource;
 	public AudioSource music;
 	bool sceneEnding;
+	bool endSoundHasPlayed;
 
 	public bool posNegSwitch;
 
@@ -99,6 +107,7 @@ public class comboReader : MonoBehaviour {
 	}
 
 	void Start () {
+		questionTextObject.SetActive (false);
 		//Debug.Log (questions [questionIndex]);
 		comboDictionary= GetComponent<comboManager>().dictionaryCombos;
 		GetComponent<newInput> ().canPlayerSpeak = true;
@@ -113,6 +122,17 @@ public class comboReader : MonoBehaviour {
 		
 	// Update is called once per frame
 	void Update () {
+		
+		if (sceneStartTimer >= 0) {
+			sceneStartTimer -= Time.deltaTime;
+		}
+		if (sceneStartTimer <= 0 && sceneHasBegun == false) {
+			questionTextObject.SetActive (true);
+			sceneHasBegun = true;
+		}
+
+
+
 		if (posNegSwitch == false) {
 			positiveQuestionBool = false;
 			negativeQuestionBool = false;
@@ -166,12 +186,21 @@ public class comboReader : MonoBehaviour {
 		 * 
 		 */
 		if (questionIndex == 9) {
+			finalDialogueTimer -= Time.deltaTime;
 			//Application.LoadLevel ("EndingScene");
-			mostUsedTypeOfCombo();
-			//SceneManager.LoadScene("endingSceneFinal");
-			sceneEnding = true;
-			transitionSource.Play ();
-			music.Stop ();
+			//if (finalDialogueTimer <= 0) {
+				mostUsedTypeOfCombo ();
+				//SceneManager.LoadScene("endingSceneFinal");
+				sceneEnding = true;
+				if (endSoundHasPlayed == false) {
+					transitionSource.Play ();
+					endSoundHasPlayed = true;
+				}
+				music.Stop ();
+				comboDescriptor.text = " ";
+				questionText.text = " ";
+				dialogueText.text = " ";
+			//}
 		}
 
 		if (Input.GetKeyDown (KeyCode.R)) {

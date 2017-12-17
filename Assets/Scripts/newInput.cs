@@ -44,10 +44,12 @@ public class newInput : MonoBehaviour {
 	public GameObject [] buttonSlots;
 	public GameObject spaceButton;
 	public GameObject dots;
+	public GameObject notepadIcon;
 	//public soundScript audio;
 	public AudioSource buttonSoundSource;
 	public AudioSource musicSource;
 	public AudioSource comboInputSource;
+	public AudioSource notepadSource;
 	public AudioClip flatterSound;
 	public AudioClip flirtSound;
 	public AudioClip chatSound;
@@ -55,6 +57,8 @@ public class newInput : MonoBehaviour {
 	public AudioClip music;
 	public AudioClip comboReadySound;
 	public AudioClip comboInputSound;
+	public AudioClip notepadOpen;
+	public AudioClip notepadClose;
 	public Animator heartAnimator;
 
 
@@ -70,6 +74,8 @@ public class newInput : MonoBehaviour {
 		musicSource.Play ();
 		canPlayerSpeak = true; 
 		dots.SetActive (false);
+
+		notepad.gameObject.SetActive(false);
 
 	}
 	
@@ -181,10 +187,17 @@ public class newInput : MonoBehaviour {
 					notepad.gameObject.activeInHierarchy == true
 
 				) {
+					notepadSource.clip = notepadClose;
+					notepadSource.Play ();
 					notepad.gameObject.SetActive(false);
+					notepadIcon.gameObject.SetActive (true);
+
 
 				} else {
 					notepad.gameObject.SetActive(true);
+					notepadSource.clip = notepadOpen;
+					notepadSource.Play ();
+					notepadIcon.gameObject.SetActive (false);
 
 					DictrionaryText.text = ""+ GetComponent<comboManager> ().displayDictionary (true); 
 				}
